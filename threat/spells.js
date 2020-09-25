@@ -52,6 +52,7 @@ const buffMultipliers = {
 	9634:  getThreatCoefficient(1.3),		// Dire Bear Form
 	768:   getThreatCoefficient(0.71),		// Cat Form
 	25780: getThreatCoefficient({2:1.6}),	// Righteous Fury
+	26400: getThreatCoefficient(0.3),		// Fetish of the Sand Reaver
 }
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
@@ -416,10 +417,10 @@ function handler_threatOnHit(threatValue) {
 
 function handler_bossDropThreatOnHit(pct) {
 	return (ev, fight) => {
-		// hitType 0=miss, 7=dodge, 8=parry, 14=resist, ...
+		// hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
 		// https://discordapp.com/channels/383596811517952002/673932163736928256/714590608819486740
 		// [00:27] ResultsMayVary: Just to expand on this. Spell threat drops (resists) cause threat loss. Physical misses (dodges/parries) do not cause threat drops.
-		if (ev.type !== "damage" || (ev.hitType > 6 && ev.hitType !== 14) || ev.hitType === 0) return;
+		if (ev.type !== "damage" || (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || ev.hitType === 0) return;
 		let a = fight.eventToUnit(ev, "source");
 		let b = fight.eventToUnit(ev, "target");
 		if (!a || !b) return;
@@ -530,6 +531,9 @@ const spellFunctions = {
 	}
 },
 26102: handler_bossDropThreatOnHit(0), // Ouro's Sand Blast
+26580: handler_bossDropThreatOnHit(0), // Yauj's Fear
+26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
+11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
 
 17624: handler_vanish, // Flask of Petrification
 
