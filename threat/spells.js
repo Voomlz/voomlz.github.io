@@ -534,6 +534,7 @@ const spellFunctions = {
 26580: handler_bossDropThreatOnHit(0), // Yauj's Fear
 26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
 11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
+28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
 
 17624: handler_vanish, // Flask of Petrification
 
@@ -606,9 +607,9 @@ const spellFunctions = {
 19941: handler_modHeal(.5), // Flash of Light r4
 19942: handler_modHeal(.5), // Flash of Light r5
 19943: handler_modHeal(.5), // Flash of Light r6
-633: handler_modHeal(.5), // Lay on Hands r1
-2800: handler_modHeal(.5), // Lay on Hands r2
-10310: handler_modHeal(.5), // Lay on Hands r3
+//633: handler_modHeal(.5), // Lay on Hands r1 - Generates a total threat of heal * .5 instead of heal * .25
+//2800: handler_modHeal(.5), // Lay on Hands r2
+//10310: handler_modHeal(.5), // Lay on Hands r3
 25914: handler_modHeal(.5), // Holy Shock r1
 25913: handler_modHeal(.5), // Holy Shock r2
 25903: handler_modHeal(.5), // Holy Shock r3
@@ -831,7 +832,14 @@ const spellFunctions = {
         20569: handler_threatOnHit(100, "Cleave"), //Rank 5
      
         //Whirlwind
-         1680: handler_damage, //("Whirlwind"), //Whirlwind
+         1680: handler_modDamage(1.25), //("Whirlwind"), //Whirlwind
+		6343: handler_modDamage(2.5), // Thunder Clap r1
+		8198: handler_modDamage(2.5), // Thunder Clap r2
+		8204: handler_modDamage(2.5), // Thunder Clap r3
+		8205: handler_modDamage(2.5), // Thunder Clap r4
+		11580: handler_modDamage(2.5), // Thunder Clap r5
+		11581: handler_modDamage(2.5), // Thunder Clap r6
+
      
         //Hamstring
 		1715: handler_modDamagePlusThreat(1.25, 20), // R1
