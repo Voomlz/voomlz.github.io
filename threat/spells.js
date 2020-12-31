@@ -153,6 +153,7 @@ const fixateBuffs = {
 	5209: true, // Challenging Roar
 	6795: true, // Growl
 	694: true, 7400: true, 7402: true, 20559: true, 20560: true, // Mocking Blow
+	29060: true, // Deathknight Understudy Taunt
 }
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
@@ -456,6 +457,16 @@ function handler_bossThreatWipeOnCast(ev, fight) {
 		u.setThreat(k, 0, ev.timestamp, ev.ability.name);
 	}
 }
+function handler_bossPartialThreatWipeOnCast(pct) {
+	return (ev, fight) => {
+		if (ev.type !== "cast") return;
+		let u = fight.eventToUnit(ev, "source");
+		if (!u) return;
+		for (let k in u.threat) {
+			u.setThreat(k, u.threat[k].currentThreat * pct, ev.timestamp, ev.ability.name);
+		}
+	}
+}
 
 function handler_threatOnDebuff(threatValue) {
 	return (ev, fight) => {
@@ -535,6 +546,11 @@ const spellFunctions = {
 26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
 11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
 28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
+29060: handler_taunt, // Deathknight Understudy Taunt
+28835: handler_bossPartialThreatWipeOnCast(.5), // Mark of Zeliek
+28834: handler_bossPartialThreatWipeOnCast(.5), // Mark of Mograine
+28833: handler_bossPartialThreatWipeOnCast(.5), // Mark of Blaumeux
+28832: handler_bossPartialThreatWipeOnCast(.5), // Mark of Korth'azz
 
 17624: handler_vanish, // Flask of Petrification
 
