@@ -837,7 +837,7 @@ const spellFunctions = {
 
         //Revenge
         11601: handler_modDamagePlusThreat(2.25, 243), //Rank 5
-        25288: handler_threatOnHit(355, "Revenge"), //Rank 6 (AQ)
+        25288: handler_modDamagePlusThreat(2.25, 270), //Rank 6 (AQ)
         12798: handler_zero, //("Revenge Stun"),           //Revenge Stun
      
         //Cleave
