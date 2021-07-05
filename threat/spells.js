@@ -822,23 +822,36 @@ const spellFunctions = {
         11565: handler_threatOnHit(118, "Heroic Strike"),
         11566: handler_threatOnHit(137, "Heroic Strike"),
         11567: handler_threatOnHit(145, "Heroic Strike"),
-        25286: handler_threatOnHit(175, "Heroic Strike"), // (AQ)
-     
+        25286: handler_threatOnHit(175, "Heroic Strike"), // (AQ)Rank 9
+		29707: handler_threatOnHit(194, "Heroic Strike"), // Rank 10
+
         //Shield Slam
         23922: handler_threatOnHit(178, "Shield Slam (Rank 1)"), //Rank 1
         23923: handler_threatOnHit(203, "Shield Slam (Rank 2)"), //Rank 2
         23924: handler_threatOnHit(229, "Shield Slam (Rank 3)"), //Rank 3
-        23925: handler_threatOnHit(254, "Shield Slam"), //Rank 4
-     
+		23925: handler_threatOnHit(254, "Shield Slam (Rank 4)"), //Rank 4
+		25258: handler_threatOnHit(278, "Shield Slam (Rank 5)"), //Rank 5
+		30356: handler_threatOnHit(305, "Shield Slam"), //Rank 6
+
+		//Devastate
+		20243: handler_threatOnHit(100+261, "devastate (Rank 1)"), //Rank 1
+		30016: handler_threatOnHit(100+261, "devastate (Rank 2)"), //Rank 2
+		30022: handler_threatOnHit(100+301.5, "devastate (Rank 3)"), //Rank 3
+		//23925: handler_threatOnHit(254, "devastate"), //Rank 4
+
+		// CF https://github.com/magey/tbc-warrior/wiki/Threat-Values
+
 		// Shield Bash
 		72: handler_modDamagePlusThreat(1.5, 36),
 		1671: handler_modDamagePlusThreat(1.5, 96),
 		1672: handler_modDamagePlusThreat(1.5, 96), // THREAT UNKNOWN
 
         //Revenge
-        11601: handler_modDamagePlusThreat(2.25, 243), //Rank 5
-        25288: handler_modDamagePlusThreat(2.25, 270), //Rank 6 (AQ)
-        12798: handler_zero, //("Revenge Stun"),           //Revenge Stun
+        11601: handler_modDamagePlusThreat(1, 150), //Rank 5
+        25288: handler_modDamagePlusThreat(1, 175), //Rank 6 (AQ)
+		25269: handler_modDamagePlusThreat(1, 185), //Rank 7 -- approx
+		30357: handler_modDamagePlusThreat(1, 200), //Rank 8
+        12798: handler_zero, //("Revenge Stun"),           //Revenge Stun - now +20 threat on tbcc, boss are imumune more often than not
      
         //Cleave
           845: handler_threatOnHit(10, "Cleave"),  //Rank 1
@@ -849,12 +862,14 @@ const spellFunctions = {
      
         //Whirlwind
          1680: handler_modDamage(1.25), //("Whirlwind"), //Whirlwind
-		6343: handler_modDamage(2.5), // Thunder Clap r1
-		8198: handler_modDamage(2.5), // Thunder Clap r2
-		8204: handler_modDamage(2.5), // Thunder Clap r3
-		8205: handler_modDamage(2.5), // Thunder Clap r4
-		11580: handler_modDamage(2.5), // Thunder Clap r5
-		11581: handler_modDamage(2.5), // Thunder Clap r6
+
+		// Thunderclap
+		6343: handler_modDamage(1.75), // Thunder Clap r1
+		8198: handler_modDamage(1.75), // Thunder Clap r2
+		8204: handler_modDamage(1.75), // Thunder Clap r3
+		8205: handler_modDamage(1.75), // Thunder Clap r4
+		11580: handler_modDamage(1.75), // Thunder Clap r5
+		11581: handler_modDamage(1.75), // Thunder Clap r6
 
      
         //Hamstring
