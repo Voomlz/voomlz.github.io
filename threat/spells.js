@@ -484,6 +484,18 @@ function handler_bossPartialThreatWipeOnCast(pct) {
 		}
 	}
 }
+function handler_partialThreatWipeOnCast(pct) {
+	return (ev, fight) => {
+		if (ev.type !== "cast") return;
+		let u = fight.eventToUnit(ev, "source");
+		if (!u) return;
+		let [_,enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
+		for (let k in enemies) {
+			//alert(enemies[k].threat[u.key].currentThreat);
+			enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * pct, ev.timestamp, ev.ability.name);
+		}
+	}
+}
 
 function handler_threatOnDebuff(threatValue) {
 	return (ev, fight) => {
@@ -760,8 +772,8 @@ const spellFunctions = {
 17922: handler_modDamage(2), // Searing Pain r5
 17923: handler_modDamage(2), // Searing Pain r6
 
-	29858: handler_bossDropThreatOnCast(0.5),// Soul shatter
-
+	//29858: handler_bossDropThreatOnCast(0.5),// Soulshatter
+	29858: handler_partialThreatWipeOnCast(.5),// Soulshatter
 // Shaman
 8042: handler_modDamage(2), // Earth Shock r1
 8044: handler_modDamage(2), // Earth Shock r2
