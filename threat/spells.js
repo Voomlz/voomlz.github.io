@@ -516,6 +516,19 @@ function handler_threatOnDebuffOrDamage(threatValue) {
 	}
 }
 
+
+ // https://zidnae.gitlab.io/tbc-armor-penetration-calc/tbc_bear_tc.html
+function handler_lacerate(threatValue) {
+	return (ev, fight) => {
+		let t = ev.type;
+		if (t === "cast") {
+			threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+		} else if (t === "damage") {
+			threatFunctions.sourceThreatenTarget(ev, fight, ev.amount * 0.2);
+		}
+	}
+}
+
 function handler_threatOnBuff(threatValue) {
 	return (ev, fight) => {
 		let t = ev.type;
@@ -979,25 +992,41 @@ const spellFunctions = {
 
         /* Bear */
 5209: handler_markSourceOnMiss(borders.taunt), // Challenging Roar
-         6807: handler_modDamage(1.75, "Maul (Rank 1)"),
-         6808: handler_modDamage(1.75, "Maul (Rank 2)"),
-         6809: handler_modDamage(1.75, "Maul (Rank 3)"),
-         8972: handler_modDamage(1.75, "Maul (Rank 4)"),
-         9745: handler_modDamage(1.75, "Maul (Rank 5)"),
-         9880: handler_modDamage(1.75, "Maul (Rank 6)"),
-         9881: handler_modDamage(1.75, "Maul"),
 
-          779: handler_modDamage(1.75, "Swipe (Rank 1)"),
-          780: handler_modDamage(1.75, "Swipe (Rank 2)"),
-          769: handler_modDamage(1.75, "Swipe (Rank 3)"),
-         9754: handler_modDamage(1.75, "Swipe (Rank 4)"),
-         9908: handler_modDamage(1.75, "Swipe"),
+	// https://tbc.wowhead.com/guides/feral-druid-tank-burning-crusade-classic
+
+         6807: handler_threatOnHit(322, "Maul (Rank 1)"),
+         6808: handler_threatOnHit(322, "Maul (Rank 2)"),
+         6809: handler_threatOnHit(322, "Maul (Rank 3)"),
+         8972: handler_threatOnHit(322, "Maul (Rank 4)"),
+         9745: handler_threatOnHit(322, "Maul (Rank 5)"),
+         9880: handler_threatOnHit(322, "Maul (Rank 6)"),
+         9881: handler_threatOnHit(322, "Maul (Rank 7)"),
+		26996: handler_threatOnHit(322, "Maul (Rank 8)"),
+
+          779: handler_modDamage(1, "Swipe (Rank 1)"),
+          780: handler_modDamage(1, "Swipe (Rank 2)"),
+          769: handler_modDamage(1, "Swipe (Rank 3)"),
+         9754: handler_modDamage(1, "Swipe (Rank 4)"),
+         9908: handler_modDamage(1, "Swipe (Rank 5)"),
+		26997: handler_modDamage(1, "Swipe (Rank 6)"),
+
+		// Lacerate
+		33745: handler_lacerate(285, "Lacerate"),
+
+		// Speculation on modifier https://wowwiki-archive.fandom.com/wiki/Mangle_(bear)
+		// Mangle (Bear) has a threat modifier of 1.5x damage done.
+		// Patch 2.1.0 : Damage increased by 15%, but bonus threat reduced so that overall threat generation will be unchanged.
+		33878: handler_modDamage(1.3, "Mangle (Bear) (Rank 1)"),
+		33986: handler_modDamage(1.3, "Mangle (Bear) (Rank 2)"),
+		33987: handler_modDamage(1.3, "Mangle (Bear) (Rank 3)"),
 
            99: handler_threatOnDebuff(9, "Demoralizing Roar (Rank 1)"),
          1735: handler_threatOnDebuff(15, "Demoralizing Roar (Rank 2)"),
          9490: handler_threatOnDebuff(20, "Demoralizing Roar (Rank 3)"),
          9747: handler_threatOnDebuff(30, "Demoralizing Roar (Rank 4)"),
-         9898: handler_threatOnDebuff(39, "Demoralizing Roar"),
+         9898: handler_threatOnDebuff(39, "Demoralizing Roar (Rank 5)"),
+		26998: handler_threatOnDebuff(39, "Demoralizing Roar"),
 
          6795: threatFunctions.concat(handler_taunt, handler_markSourceOnMiss(borders.taunt)), //("Growl"),
          5229: handler_energize, //("Enrage"),
@@ -1030,12 +1059,14 @@ const spellFunctions = {
         16857: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 1)"),
         17390: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 2)"),
         17391: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 3)"),
-        17392: handler_threatOnDebuff(108, "Faerie Fire (Feral)"),
-        
+        17392: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 4)"),
+		27011: handler_threatOnDebuff(108, "Faerie Fire (Feral)"),
+
          770: handler_threatOnDebuff(108, "Faerie Fire (Rank 1)"),
          778: handler_threatOnDebuff(108, "Faerie Fire (Rank 2)"),
         9749: handler_threatOnDebuff(108, "Faerie Fire (Rank 3)"),
-        9907: handler_threatOnDebuff(108, "Faerie Fire"),
+        9907: handler_threatOnDebuff(108, "Faerie Fire (Rank 3)"),
+		26993: handler_threatOnDebuff(108, "Faerie Fire"),
 
         16870: handler_zero, //("Clearcasting"),
         29166: handler_zero, //("Innervate"),
