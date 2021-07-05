@@ -339,13 +339,11 @@ class Player extends Unit {
 	// Blessing of Salvation and Tranquil Air detection
 	checkFaction(tranquilAir = false) {
 		if (this.dies || this.tank) return;
-		if (this.global.faction === "Alliance") {
-			if (1038 in this.buffs || !this.isBuffInferred(25895)) return;
-			this.buffs[25895] = true;
-		} else if (this.global.faction === "Horde") {
-			if (!tranquilAir || !this.isBuffInferred(25909)) return;
-			this.buffs[25909] = true;
-		}
+		if (1038 in this.buffs || !this.isBuffInferred(25895)) return;
+		this.buffs[25895] = true;
+		if (!tranquilAir || !this.isBuffInferred(25909)) return;
+		this.buffs[25909] = true;
+
 	}
 	// Extra stance detection
 	checkWarrior(events) {
@@ -462,7 +460,7 @@ class NPC extends Unit {
 			Plotly.restyle(el_plot, {"marker.color": colors});
 		}
 		createCheckbox(el_div, colorByClass, "Color by class", x=>{colorByClass = x; recolorPlot()});
-		if (fight.faction == "Horde") createCheckbox(el_div, fight.tranquilAir, "Tranquil Air", x => {fight.tranquilAir = x; fight.process(); selectEnemy();});
+		createCheckbox(el_div, fight.tranquilAir, "Tranquil Air", x => {fight.tranquilAir = x; fight.process(); selectEnemy();});
 		plotXRange = [0, (fight.end - fight.start) / 1000];
 		Plotly.newPlot(el_plot, plotData, {title: `Threat - ${this.name}`, titlefont: {color: "#fff"}, xaxis:{title:"Time (s)", titlefont: {color: "#fff"}, tickcolor: "#666", tickfont: {color: "#fff"}, rangemode: "tozero", gridcolor: "#666", linecolor: "#999", range: plotXRange.slice()},yaxis:{title:"Threat", titlefont: {color: "#fff"}, tickcolor: "#666", tickfont: {color: "#fff"}, rangemode: "tozero", gridcolor: "#666", linecolor: "#999"}, width:1920, height: 1080, hovermode: "closest", plot_bgcolor: "#222", paper_bgcolor: "#222", legend: {font: {color: "#fff"}}});
 		el_plot.on("plotly_click", e => {
