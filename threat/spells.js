@@ -65,6 +65,13 @@ const talents = {
 				return getThreatCoefficient(1 + 0.03 * rank);
 			}
 		},
+		"Improved Berserker Stance": {
+			maxRank: 5,
+			coeff: function(buffs, rank=5) {
+				if (!(7381 in buffs)) return getThreatCoefficient(1);
+				return getThreatCoefficient(1 - 0.02 * rank);
+			}
+		},
 	},
 	Druid: {
 		"Feral Instinct": {
@@ -118,6 +125,10 @@ const talents = {
 					1064:true,10622:true,10623:true, // Chain Heal
 				})),
 		},
+		// Only for melee attacks
+		"Spirit Weapons": {
+			coeff: (_,rank=3) => getThreatCoefficient(1 - 0.3),
+		}
 	}
 }
 
@@ -763,8 +774,8 @@ const spellFunctions = {
         23267: handler_damage, //("Firebolt (Perdition's Proc)"),
         18833: handler_damage, //("Firebolt (Alcor's Proc)"),
         
-        21992: threatFunctions.concat(handler_damage, handler_threatOnDebuff(90)), // Thunderfury
-        27648: handler_threatOnDebuff(145, "Thunderfury"),
+        21992: handler_threatOnHit(150), // Thunderfury
+        27648: handler_threatOnDebuff(63, "Thunderfury"),
         
         /* Thorn Effects */
          9910: handler_damage, //("Thorns"),  //Thorns (Rank 6)
