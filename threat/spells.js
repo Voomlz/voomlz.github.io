@@ -129,6 +129,12 @@ const talents = {
 		"Spirit Weapons": {
 			coeff: (_,rank=3) => getThreatCoefficient(1 - 0.3),
 		}
+	},
+	Warlock: {
+		"Destructive Reach": {
+			maxRank: 2,
+			coeff: (_,rank=2) => getThreatCoefficient(1-0.05*rank),
+		}
 	}
 }
 
@@ -753,6 +759,8 @@ const spellFunctions = {
 17921: handler_modDamage(2), // Searing Pain r4
 17922: handler_modDamage(2), // Searing Pain r5
 17923: handler_modDamage(2), // Searing Pain r6
+
+	29858: handler_bossDropThreatOnCast(0.5),// Soul shatter
 
 // Shaman
 8042: handler_modDamage(2), // Earth Shock r1
