@@ -868,7 +868,8 @@ const spellFunctions = {
         12721: handler_damage, //("Deep Wounds"),
          6552: handler_threatOnHit(76, "Pummel (Rank 1)"), //TODO: Verify these values ingame
          6554: handler_threatOnHit(116, "Pummel (Rank 2)"),
-        
+
+	//TODO : Add tactical mastery talent threat modifier
         23881: handler_damage, //("Bloodthirst"), //Rank 1
         23892: handler_damage, //("Bloodthirst"), //Rank 2
         23893: handler_damage, //("Bloodthirst"), //Rank 3
@@ -901,7 +902,6 @@ const spellFunctions = {
 		20243: handler_threatOnHit(100+261, "devastate (Rank 1)"), //Rank 1
 		30016: handler_threatOnHit(100+261, "devastate (Rank 2)"), //Rank 2
 		30022: handler_threatOnHit(100+301.5, "devastate (Rank 3)"), //Rank 3
-		//23925: handler_threatOnHit(254, "devastate"), //Rank 4
 
 		// CF https://github.com/magey/tbc-warrior/wiki/Threat-Values
 
