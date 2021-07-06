@@ -39,6 +39,7 @@ const buffNames = {
 	9634: "Dire Bear Form",
 	768: "Cat Form",
 	25780: "Righteous Fury",
+	35079: "Misdirection",
 }
 
 const buffMultipliers = {
@@ -491,7 +492,6 @@ function handler_partialThreatWipeOnCast(pct) {
 		if (!u) return;
 		let [_,enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
 		for (let k in enemies) {
-			//alert(enemies[k].threat[u.key].currentThreat);
 			enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * pct, ev.timestamp, ev.ability.name);
 		}
 	}
@@ -521,11 +521,22 @@ function handler_threatOnDebuffOrDamage(threatValue) {
 function handler_lacerate(threatValue) {
 	return (ev, fight) => {
 		let t = ev.type;
-		if (t === "cast") {
+		if (t === "applydebuff") {
+			threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+		} else if (t === "refreshdebuff") {
 			threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
 		} else if (t === "damage") {
 			threatFunctions.sourceThreatenTarget(ev, fight, ev.amount * 0.2);
 		}
+	}
+}
+
+function handler_misdirection(threatValue) {
+	return (ev, fight) => {
+		let t = ev.type;
+		let source = fight.eventToUnit(ev, "source");
+		let target = fight.eventToUnit(ev, "target");
+		alert("Misdirection from " + source + " to " + target)
 	}
 }
 
@@ -789,6 +800,13 @@ const spellFunctions = {
 
 	//29858: handler_bossDropThreatOnCast(0.5),// Soulshatter
 	29858: handler_partialThreatWipeOnCast(.5),// Soulshatter
+
+	//hunter
+	// Misdirection cast
+	34477: handler_zero,
+	// Misdirection buff
+	//35079: handler_misdirection(),
+
 // Shaman
 8042: handler_modDamage(2), // Earth Shock r1
 8044: handler_modDamage(2), // Earth Shock r2
@@ -890,7 +908,8 @@ const spellFunctions = {
 		// Shield Bash
 		72: handler_modDamagePlusThreat(1.5, 36),
 		1671: handler_modDamagePlusThreat(1.5, 96),
-		1672: handler_modDamagePlusThreat(1.5, 96), // THREAT UNKNOWN
+		1672: handler_modDamagePlusThreat(1.5, 156),
+		29704: handler_modDamagePlusThreat(1.5, 192),
 
         //Revenge
         11601: handler_modDamagePlusThreat(1, 150), //Rank 5
@@ -905,7 +924,8 @@ const spellFunctions = {
         11608: handler_threatOnHit(60, "Cleave"),  //Rank 3
         11609: handler_threatOnHit(70, "Cleave"),  //Rank 4
         20569: handler_threatOnHit(100, "Cleave"), //Rank 5
-     
+		25231: handler_threatOnHit(125, "Cleave"), //Rank 6
+
         //Whirlwind
          1680: handler_modDamage(1.25), //("Whirlwind"), //Whirlwind
 
@@ -933,19 +953,26 @@ const spellFunctions = {
      
         //Execute
         20647: handler_modDamage(1.25, "Execute"),
-     
+		25236: handler_modDamage(1.25, "Execute"), // rank 7
+
         /* Abilities */
         //Sunder Armor
 		7386: handler_castCanMiss(45), // Rank 1
         11597: handler_castCanMiss(261, "Sunder Armor"), //Rank 5
-     
+		25225: handler_castCanMiss(301.5	, "Sunder Armor"), //Rank 6
+
         //Battleshout
         11551: handler_threatOnBuff(52, "Battle Shout"), //Rank 6
         25289: handler_threatOnBuff(60, "Battle Shout"), //Rank 7 (AQ)
-     
+		2048: handler_threatOnBuff(69, "Battle Shout"), //Rank 8
+
         //Demo Shout
         11556: handler_threatOnDebuff(43, "Demoralizing Shout"),
-     
+		25203: handler_threatOnDebuff(56, "Demoralizing Shout"),
+
+		// Commanding shout
+		469: handler_threatOnDebuff(68, "Commanding Shout"),
+
         //Mocking Blow
         20560: threatFunctions.concat(handler_damage, handler_markSourceOnMiss(borders.taunt)), //("Mocking Blow"),
      
