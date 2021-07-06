@@ -611,6 +611,7 @@ const spellFunctions = {
 19854: handler_threatOnBuff(54), // BoW
 25290: handler_threatOnBuff(60), // BoW
 20293: threatFunctions.concat(handler_threatOnBuff(58), handler_damage), // Seal of Righteousness r8
+	27155: threatFunctions.concat(handler_threatOnBuff(58), handler_damage), // Seal of Righteousness r9
 20286: handler_damage, // Judgement of Righteousness
 26573: handler_damage, // Consecration r1
 20116: handler_damage, // Consecration r2
@@ -618,9 +619,10 @@ const spellFunctions = {
 20923: handler_damage, // Consecration r4
 20924: handler_damage, // Consecration r5
 24239: handler_damage, // Hammer of Wrath
-20925: handler_modDamage(1.2), // Holy Shield r1
-20927: handler_modDamage(1.2), // Holy Shield r2
-20928: handler_modDamage(1.2), // Holy Shield r3
+20925: handler_modDamage(1.35), // Holy Shield r1
+20927: handler_modDamage(1.35), // Holy Shield r2
+20928: handler_modDamage(1.35), // Holy Shield r3
+	27179: handler_modDamage(1.35), // Holy Shield r4
 465: handler_zero, // Devotion Aura r1
 10290: handler_zero, // Devotion Aura r2
 643: handler_zero, // Devotion Aura r3
