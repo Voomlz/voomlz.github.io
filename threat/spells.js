@@ -517,7 +517,9 @@ function handler_partialThreatWipeOnCast(pct) {
         if (!u) return;
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
         for (let k in enemies) {
-            enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * pct, ev.timestamp, ev.ability.name);
+            if(enemies[k].threat[u.key]) {
+                enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * pct, ev.timestamp, ev.ability.name);
+            }
         }
     }
 }
