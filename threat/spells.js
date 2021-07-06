@@ -659,6 +659,12 @@ const spellFunctions = {
     20927: handler_modDamage(1.35), // Holy Shield r2
     20928: handler_modDamage(1.35), // Holy Shield r3
     27179: handler_modDamage(1.35), // Holy Shield r4
+
+
+    31935: handler_modDamage(1.3), // Avenger shield r1
+    32699: handler_modDamage(1.3), // Avenger shield r2
+    32700: handler_modDamage(1.3), // Avenger shield r3
+
     465: handler_zero, // Devotion Aura r1
     10290: handler_zero, // Devotion Aura r2
     643: handler_zero, // Devotion Aura r3
@@ -993,7 +999,7 @@ const spellFunctions = {
 
     //Demo Shout
     11556: handler_threatOnDebuff(43, "Demoralizing Shout"),
-    25203: handler_threatOnDebuff(56, "Demoralizing Shout"),
+    25203: handler_threatOnDebuff(56, "Demoralizing Shout"), //Rank 7
 
     // Commanding shout
     469: handler_threatOnDebuff(68, "Commanding Shout"),
