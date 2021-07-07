@@ -7,6 +7,24 @@ let plotData = [];
 let recolorPlot = () => {};
 let colorByClass = true;
 
+function loadPage() {
+	scroll(0,0);
+	const wclUrl = getParameterByName('id');
+	document.getElementById("reportSelect").value = wclUrl;
+	if (wclUrl) {
+		selectReport();
+	}
+}
+
+function getParameterByName(name, url = window.location.href) {
+	name = name.replace(/[\[\]]/g, '\\$&');
+	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 function printError(e) {
 	console.log(e);
 	alert("Error:\n" + e + "\n\nRefresh the page to start again.");
@@ -277,6 +295,14 @@ class Unit {
 			if (!("coeff" in t)) continue;
 			let coeff = t.coeff(this.buffs, t.rank, spellId);
 			c *= coeff(spellSchool);
+		}
+		for (let i in this.buffs) {
+			if (i == 35079) {
+				alert("coucou")
+			}
+			if (i == 34477) {
+				alert("coucou")
+			}
 		}
 		return c;
 	}

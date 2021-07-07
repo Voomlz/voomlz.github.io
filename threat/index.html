@@ -8,6 +8,7 @@
 	gtag('config', 'G-NMLK7NHP6Z');
 </script>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
 		.checkbox {margin-left: 20px}
 	</style>
 </head>
-<body onload="scroll(0,0)">
+<body onload="loadPage()">
 <div id="input">
 	<table>
 		<tr><td>Report ID</td><td><input type="text" id="reportSelect"></td><td><button onclick="selectReport()">Fetch</button></td></tr>
@@ -49,7 +50,13 @@
 
 <div id="disclaimer">
 	<p>TBCC implementation is still in progress</p>
+	<p>Warrior and druid tank threat are still unreliable</p>
 	<h2>Changelog:</h2>
+	<h3>Quality of life:</h3>
+	<ul>
+		<li>Adding warcraft log url as parameter with '?id=' i.e :</li>
+		<a href="https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2"> https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2</a>
+	</ul>
 	<h3>Warriors:</h3>
 	<ul>
 		<li>New Shield Slam</li>
