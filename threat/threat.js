@@ -722,7 +722,12 @@ class Report {
 const reports = {};
 
 function selectReport() {
+
 	let el = document.querySelector("#reportSelect");
+	if(!getParameterByName('id')) {
+		location.href = location.origin + location.pathname + '?id=' + el.value;
+		return;
+	}
 	let el_fightSelect = document.querySelector("#fightSelect");
 	el_fightSelect.innerHTML = "";
 	let reportId = el.value;
