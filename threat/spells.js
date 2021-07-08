@@ -844,7 +844,7 @@ const spellFunctions = {
 
     //hunter
     // Misdirection cast
-    34477: handler_misdirectionCast(),
+    //34477: handler_misdirectionCast(),
     // Misdirection buff
     35079: handler_misdirectionCast(),
 
