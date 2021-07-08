@@ -55,6 +55,7 @@ const buffMultipliers = {
     25780: getThreatCoefficient({2: 1.6}),	// Righteous Fury
     26400: getThreatCoefficient(0.3),		// Fetish of the Sand Reaver
     25072: getThreatCoefficient(1.02),		// gloves enchants
+    2613: getThreatCoefficient(1.02),		// gloves enchants
     25084: getThreatCoefficient(0.98),		// gloves enchants
 }
 
@@ -68,6 +69,7 @@ const talents = {
                 return getThreatCoefficient(1 + 0.05 * rank);
             }
         },
+        /*
         "Improved Berserker Stance": {
             maxRank: 5,
             coeff: function (buffs, rank = 5) {
@@ -75,6 +77,7 @@ const talents = {
                 return getThreatCoefficient(1 - 0.02 * rank);
             }
         },
+        */
     },
     Druid: {
         "Feral Instinct": {
@@ -460,6 +463,23 @@ function handler_threatOnHit(threatValue) {
     }
 }
 
+function handler_threatOnHit_devastate(threatValue) {
+    return (ev, fight) => {
+        if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
+
+        let source = fight.eventToUnit(ev, "source");
+        let target = fight.eventToUnit(ev, "target");
+
+        //console.log(source);
+        //console.log(source.buffs);
+        if (target.buffs[26866] === true) {
+            threatValue = threatValue + 301.5;
+        }
+
+        threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + threatValue);
+    }
+}
+
 function handler_bossDropThreatOnHit(pct) {
     return (ev, fight) => {
         // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
@@ -502,6 +522,20 @@ function handler_bossThreatWipeOnCast(ev, fight) {
     if (!u) return;
     for (let k in u.threat) {
         u.setThreat(k, 0, ev.timestamp, ev.ability.name);
+    }
+}
+
+function handler_bossThreatWipeOnCastAndWithDelay(delay) {
+    return (ev, fight) => {
+        if (ev.type !== "cast") return;
+        let u = fight.eventToUnit(ev, "source");
+        if (!u) return;
+        for (let k in u.threat) {
+            console.log(k, 0, ev.timestamp, ev.ability.name);
+            console.log(k, 0, ev.timestamp.valueOf() + delay, ev.ability.name);
+            u.setThreat(k, 0, ev.timestamp, ev.ability.name);
+            u.setThreat(k, 0, ev.timestamp.valueOf() + delay, ev.ability.name);
+        }
     }
 }
 
@@ -613,6 +647,7 @@ const spellFunctions = {
     19633: handler_bossDropThreatOnHit(.75), // Onyxia Knock Away
     20534: handler_bossDropThreatOnCast(0), // Majordomo Teleport
     20566: handler_bossThreatWipeOnCast, // Wrath of Ragnaros
+    37098: handler_bossThreatWipeOnCastAndWithDelay(40 * 10000), // Nightbane in the air
     23138: handler_bossThreatWipeOnCast, // Gate of Shazzrah
     22289: handler_bossDropThreatOnDebuff(0.5), // Brood Power: Green
     24408: handler_bossThreatWipeOnCast, // Bloodlord Mandokir's Charge
@@ -941,9 +976,9 @@ const spellFunctions = {
     30356: handler_threatOnHit(307, "Shield Slam"), //Rank 6
 
     //Devastate
-    20243: handler_threatOnHit(100 + 261, "devastate (Rank 1)"), //Rank 1
-    30016: handler_threatOnHit(100 + 261, "devastate (Rank 2)"), //Rank 2
-    30022: handler_threatOnHit(100 + 301.5, "devastate (Rank 3)"), //Rank 3
+    20243: handler_threatOnHit_devastate(100 + 261, "devastate (Rank 1)"), //Rank 1
+    30016: handler_threatOnHit_devastate(100 + 261, "devastate (Rank 2)"), //Rank 2
+    30022: handler_threatOnHit_devastate(100 + 301.5, "devastate (Rank 3)"), //Rank 3
 
     // CF https://github.com/magey/tbc-warrior/wiki/Threat-Values
 
