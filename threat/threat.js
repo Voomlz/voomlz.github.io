@@ -51,6 +51,8 @@ async function fetchWCLv1(path) {
 		throw "Fetch error.";
 	}
 	let json = await response.json();
+	console.log(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`);
+	console.log(json);
 	return json;
 }
 
@@ -225,7 +227,9 @@ class ThreatTrace {
 }
 
 class Unit {
-	constructor(key, name, type, events) { // Info is an object from WCL API
+	constructor(key, name, type, events, mdStack = 0, mdTarget = null) { // Info is an object from WCL API
+		this.mdStack = mdStack;
+		this.mdTarget = mdTarget;
 		this.key = key;
 		this.name = name;
 		this.type = type;
@@ -283,6 +287,23 @@ class Unit {
 		this.initialCoeff = this.threatCoeff();
 		if (this.initialCoeff > 1) this.tank = true;
 	}
+	setMdStack(value) {
+		this.mdStack = value;
+	}
+	setMdTarget(value) {
+		this.mdTarget = value;
+	}
+	handleMisdirectionDamage(amount, ev, fight) {
+		if(this.mdStack !== 0) {
+			this.mdStack--;
+			let b = fight.eventToUnit(ev, "target");
+			if (!this.mdTarget || !b) return;
+			console.log("MD: Redirecting " + amount + " from " + this.name + " to " + this.mdTarget.name);
+			b.addThreat(this.mdTarget.key, amount, ev.timestamp, ev.ability.name, this.mdTarget.threatCoeff(ev.ability));
+			return true;
+		}
+		return false;
+	}
 	threatCoeff(ability) { // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
 		let spellSchool = ability ? ability.type : this.spellSchool;
 		let spellId = ability ? ability.guid : null;
@@ -295,14 +316,6 @@ class Unit {
 			if (!("coeff" in t)) continue;
 			let coeff = t.coeff(this.buffs, t.rank, spellId);
 			c *= coeff(spellSchool);
-		}
-		for (let i in this.buffs) {
-			if (i == 35079) {
-				alert("coucou")
-			}
-			if (i == 34477) {
-				alert("coucou")
-			}
 		}
 		return c;
 	}
@@ -649,6 +662,11 @@ class Fight {
 		let f = handler_basic;
 		if ("ability" in ev && ev.ability.guid in spellFunctions) {
 			f = spellFunctions[ev.ability.guid];
+			let source = this.eventToUnit(ev, "source");
+			let target = this.eventToUnit(ev, "target");
+			//console.log(source);
+			//console.log(target);
+
 		}
 		f(ev, this);
 	}
@@ -724,13 +742,15 @@ const reports = {};
 function selectReport() {
 
 	let el = document.querySelector("#reportSelect");
-	if(!getParameterByName('id')) {
+	let wcl = getParameterByName('id');
+	let el_fightSelect = document.querySelector("#fightSelect");
+
+	el_fightSelect.innerHTML = "";
+	let reportId = el.value;
+	if(!wcl || wcl !== reportId) {
 		location.href = location.origin + location.pathname + '?id=' + el.value;
 		return;
 	}
-	let el_fightSelect = document.querySelector("#fightSelect");
-	el_fightSelect.innerHTML = "";
-	let reportId = el.value;
 	let urlmatch = reportId.match(/https:\/\/(?:[a-z]+\.)?(?:classic\.|www\.)?warcraftlogs\.com\/reports\/((?:a:)?\w+)/);
 	if (urlmatch) reportId = urlmatch[1];
 	if (!reportId || reportId.length !== 16 && reportId.length !== 18) {

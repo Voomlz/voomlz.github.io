@@ -146,7 +146,7 @@ const talents = {
         },
         // Only for melee attacks
         "Spirit Weapons": {
-            coeff: (_, rank = 3) => getThreatCoefficient(1 - 0.3),
+            coeff: (_, rank = 3) => getThreatCoefficient({1: 1 - 0.3}),
         }
     },
     Warlock: {
@@ -320,7 +320,11 @@ function handler_energizeCoeff(ev, fight) {
 function handler_basic(ev, fight) {
     switch (ev.type) {
         case "damage":
-            threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0));
+            let source = fight.eventToUnit(ev, "source");
+            if (ev.sourceIsFriendly && source.handleMisdirectionDamage(ev.amount, ev, fight)) {
+            } else {
+                threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0));
+            }
             break;
         case "heal":
             if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
@@ -519,7 +523,7 @@ function handler_partialThreatWipeOnCast(pct) {
         if (!u) return;
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
         for (let k in enemies) {
-            if(enemies[k].threat[u.key]) {
+            if (enemies[k].threat[u.key]) {
                 enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * pct, ev.timestamp, ev.ability.name);
             }
         }
@@ -560,12 +564,14 @@ function handler_lacerate(threatValue) {
     }
 }
 
-function handler_misdirection(threatValue) {
+function handler_misdirectionCast() {
     return (ev, fight) => {
         let t = ev.type;
         let source = fight.eventToUnit(ev, "source");
         let target = fight.eventToUnit(ev, "target");
-        alert("Misdirection from " + source + " to " + target)
+        console.log("Misdirection from " + source.name + " to " + target.name);
+        source.setMdTarget(target);
+        source.setMdStack(3);
     }
 }
 
@@ -838,9 +844,9 @@ const spellFunctions = {
 
     //hunter
     // Misdirection cast
-    34477: handler_zero,
+    34477: handler_misdirectionCast(),
     // Misdirection buff
-    //35079: handler_misdirection(),
+    35079: handler_misdirectionCast(),
 
 // Shaman
     8042: handler_modDamage(2), // Earth Shock r1
@@ -850,6 +856,7 @@ const spellFunctions = {
     10412: handler_modDamage(2), // Earth Shock r5
     10413: handler_modDamage(2), // Earth Shock r6
     10414: handler_modDamage(2), // Earth Shock r7
+    25454: handler_modDamage(2), // Earth Shock r8
 
 // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
     1: handler_damage,
