@@ -44,6 +44,8 @@ async function fetchWCLv1(path) {
     nextRequestTime += throttleTime;
     await sleep(d);
     console.assert(path.length < 1900, "URL may be too long: " + path);
+    console.log("Query : " + `https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`);
+
     let response = await fetch(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`);
     if (!response) throw "Could not fetch " + path;
     if (response.status != 200) {
@@ -68,12 +70,16 @@ async function fetchWCLreport(path, start, end) {
     }
     return events;
 }
-async function fetchWCLDebuffs(path, start, end, abilityId) {
+async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
 
     let t = start;
     let auras = [];
     while (typeof t === "number") {
-        let json = await fetchWCLv1(`report/tables/debuffs/${path}&start=${t}&end=${end}&hostility=1&abilityid=${abilityId}`);
+        let query = `report/tables/debuffs/${path}&start=${t}&end=${end}&hostility=1&abilityid=${abilityId}`;
+        if (stack) {
+            query = query + `&filter=stack%3D${stack}`
+        }
+        let json = await fetchWCLv1(query);
         if (!json.auras) throw "Could not parse report " + path;
         auras.push(...json.auras);
         t = json.nextPageTimestamp;
@@ -674,7 +680,7 @@ class Fight {
         // expose
         this.exposeAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 26866);
         // lacerate
-        this.lacerateAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 33745);
+        this.lacerateAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 33745, 5);
     }
 
     eventToUnit(ev, unit) { // Unit should be "source" or "target"
