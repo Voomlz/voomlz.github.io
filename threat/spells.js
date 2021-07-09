@@ -40,6 +40,8 @@ const buffNames = {
     768: "Cat Form",
     25780: "Righteous Fury",
     35079: "Misdirection",
+    25072: "Enchant : Threat on gloves",
+    25084: "Enchant : Subtlety",
 }
 
 const buffMultipliers = {
@@ -55,7 +57,7 @@ const buffMultipliers = {
     25780: getThreatCoefficient({2: 1.6}),	// Righteous Fury
     26400: getThreatCoefficient(0.3),		// Fetish of the Sand Reaver
     25072: getThreatCoefficient(1.02),		// gloves enchants
-    25084: getThreatCoefficient(0.98),		// gloves enchants
+    25084: getThreatCoefficient(0.98),		// subtlety enchants
 }
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient

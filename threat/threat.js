@@ -434,11 +434,11 @@ class Player extends Unit {
         for (let i of [71, 2457, 2458]) {
             if ((i in this.buffs) || !this.isBuffInferred(i)) return;
         }
-        // Check if unit deals damage with execute
+        // Check if unit deals damage with Whirlwind
         for (let i = 0; i < events.length; ++i) {
             if (events[i].type !== "damage") continue;
             if (Unit.eventToKey(events[i], "source") !== this.key) continue;
-            if (events[i].ability.guid !== 20647) continue;
+            if (events[i].ability.guid !== 1680) continue;
             this.buffs[2458] = true;		// Apply Berserker Stance
             return;
         }
@@ -769,11 +769,6 @@ class Fight {
         let f = handler_basic;
         if ("ability" in ev && ev.ability.guid in spellFunctions) {
             f = spellFunctions[ev.ability.guid];
-            let source = this.eventToUnit(ev, "source");
-            let target = this.eventToUnit(ev, "target");
-            //console.log(source);
-            //console.log(target);
-
         }
         f(ev, this);
     }
@@ -799,7 +794,7 @@ class Report {
         let allFriendlies = [...this.data.friendlies, ...this.data.friendlyPets];
         for (let f of allFriendlies) {
             // The settings for these buffs are displayed for all classes
-            f.initialBuffs = {1038: 0, 25895: 0, 25909: 0,};
+            f.initialBuffs = {1038: 0, 25895: 0, 25909: 0, 25072: 0, 25084: 0};
             // Copy talents from the global structure to this player
             f.talents = {};
             for (let talentName in talents[f.type]) {
@@ -850,14 +845,20 @@ const reports = {};
 
 function selectReport() {
 
-    let el = document.querySelector("#reportSelect");
     let wcl = getParameterByName('id');
-    let el_fightSelect = document.querySelector("#fightSelect");
+	let el = document.querySelector("#reportSelect");
+	let el_fightSelect = document.querySelector("#fightSelect");
+	let el_enemySelect = document.querySelector("#enemySelect");
+	let el_targetSelect = document.querySelector("#targetSelect");
+
+	let fightParam = el_fightSelect === null ? "" : "&fight="+el_fightSelect.value;
+	let enemyParam = el_enemySelect === null ? "" : "&enemy="+el_enemySelect.value;
+	let targetParam = el_targetSelect === null ? "" : "&target="+el_targetSelect.value;
 
     el_fightSelect.innerHTML = "";
     let reportId = el.value;
     if (!wcl || wcl !== reportId) {
-        location.href = location.origin + location.pathname + '?id=' + el.value;
+        location.href = location.origin + location.pathname + '?id=' + el.value + fightParam + enemyParam + targetParam;
         return;
     }
     let urlmatch = reportId.match(/https:\/\/(?:[a-z]+\.)?(?:classic\.|www\.)?warcraftlogs\.com\/reports\/((?:a:)?\w+)/);

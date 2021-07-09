@@ -1,107 +1,192 @@
 <!-- Global site tag (gtag.js) - Google Analytics - check if people actually use this tool -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NMLK7NHP6Z"></script>
 <script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-	gtag('config', 'G-NMLK7NHP6Z');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-NMLK7NHP6Z');
 </script>
 
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<script src="colors.js"></script>
-	<script src="spells.js"></script>
-	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-	<script src="threat.js"></script>
-	<style>
-		body {margin:0; min-height: 2000px}
-		body, #input * {background-color: #222; color: #fff}
-		#input :disabled {color: #555}
-		table {border-collapse: collapse;}
-		td, th {height: 20px; border: 1px solid white;padding: 3px;}
-		#progressBarContainer {padding: 0;}
-		#progressBar {height: 26px; background-color: #888; width: 0;}
-		#input input, #input select {min-width:350px;width:100%;box-sizing:border-box}
-		#input button {width:100px}
-		#outputContainer {display: flex; flex-wrap: wrap}
-		#threatTableContainer, #threatTableContainer table {margin: 20px}
-		input.talent {width:30px}
-		.colorPicker {padding:0;width:20px;height:20px;margin-right:5px}
-		.checkbox {margin-left: 20px}
-	</style>
+    <meta charset="UTF-8">
+    <script src="colors.js"></script>
+    <script src="spells.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="threat.js"></script>
+    <script src="front.js"></script>
+    <style>
+        body {
+            margin: 0;
+            min-height: 2000px
+        }
+
+        body, #input * {
+            background-color: #222;
+            color: #fff
+        }
+
+        #input :disabled {
+            color: #555
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            height: 20px;
+            border: 1px solid white;
+            padding: 3px;
+        }
+
+        #progressBarContainer {
+            padding: 0;
+        }
+
+        #progressBar {
+            height: 26px;
+            background-color: #888;
+            width: 0;
+        }
+
+        #input input, #input select {
+            min-width: 350px;
+            width: 100%;
+            box-sizing: border-box
+        }
+
+        #input button {
+            width: 100px
+        }
+
+        #outputContainer {
+            display: flex;
+            flex-wrap: wrap
+        }
+
+        #threatTableContainer, #threatTableContainer table {
+            margin: 20px
+        }
+
+        input.talent {
+            width: 30px
+        }
+
+        .colorPicker {
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px
+        }
+
+        .checkbox {
+            margin-left: 20px
+        }
+    </style>
 </head>
 <body onload="loadPage()">
 <div id="input">
-	<table>
-		<tr><td>Report ID</td><td><input type="text" id="reportSelect"></td><td><button onclick="selectReport()">Fetch</button></td></tr>
-		<tr><td>Fight</td><td><select id="fightSelect"></select></td><td><button onclick="selectFight()">Fetch/Refresh</button></td></tr>
-		<tr><td>Enemy</td><td colspan="2"><select id="enemySelect" onchange="selectEnemy()"></select></td></tr>
-		<tr><td>Target</td><td colspan="2"><select id="targetSelect" onchange="selectTarget()"></select></td></tr>
-	</table>
+    <table>
+        <tr>
+            <td>Report ID</td>
+            <td><input type="text" id="reportSelect"></td>
+            <td>
+                <button onclick="selectReport()">Fetch</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Fight</td>
+            <td><select id="fightSelect"></select></td>
+            <td>
+                <button onclick="selectFight()">Fetch/Refresh</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Enemy</td>
+            <td colspan="2"><select id="enemySelect" onchange="selectEnemy()"></select></td>
+        </tr>
+        <tr>
+            <td>Target</td>
+            <td colspan="2"><select id="targetSelect" onchange="selectTarget()"></select></td>
+        </tr>
+    </table>
 </div>
 <div id="outputContainer">
-	<div id="output"></div>
-	<div id="threatTableContainer"></div>
+    <div id="output"></div>
+    <div id="threatTableContainer"></div>
 </div>
 
-<div id="disclaimer">
+<div id="info">
 	<p>TBCC implementation is still in progress</p>
-	<p>Warrior and druid tank threat are still unreliable</p>
-	<h2>Changelog:</h2>
-	<h3>Quality of life:</h3>
-	<ul>
-		<li>Adding warcraft log url as parameter with '?id=' i.e :</li>
-		<a href="https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2"> https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2</a>
-	</ul>
-	<h3>Warriors:</h3>
-	<ul>
-		<li>New Shield Slam</li>
-		<li>New Heroic Strike</li>
-		<li>Adding devastate</li>
-		<li>Rework Revenge</li>
-		<li>Rework Thunderclap</li>
-		<li>Adding Improved berserker stance</li>
-		<li>Fix Defiance talent</li>
-	</ul>
-	<h3>Druid feral:</h3>
-	<ul>
-		<li>New FF</li>
-		<li>New Demoralizing shout</li>
-		<li>Adding Lacerate</li>
-		<li>Adding Mangle</li>
-		<li>Rework Swipe</li>
-		<li>Rework Maul</li>
-		<li>Fix Feral instict</li>
-	</ul>
-	<h3>Warlock</h3>
-	<ul>
-		<li>Adding Soulshatter</li>
-		<li>Adding Destructive reach</li>
-	</ul>
-	<h3>Shaman</h3>
-	<ul>
-		<li>Adding enchancement reduction talent</li>
-		<li>Adding earth shock</li>
-	</ul>
-	<h3>Hunter</h3>
-	<ul>
-		<li>Adding Missdirection</li>
-	</ul>
-	<h3>Paladin</h3>
-	<ul>
-		<li>Adding rework of Holy shield</li>
-		<li>Adding rework of Avenger shield</li>
-	</ul>
-	<h3>Misc</h3>
-	<ul>
-		<li>Better handling of horde salvation</li>
-		<li>Thunderfury nerf</li>
-		<li>Adding missdirection beta</li>
-		<li>Nightbane Threat wipe when he flies</li>
-	</ul>
+	<button onclick="showAndHideDisclaimer()">Disclaimer</button>
+	<div id="disclaimer" style="display:none">
+        <p>Warrior and druid tank threat are still unreliable</p>
+    </div>
+	<button onclick="showAndHideChangelog()">Changelog</button>
+	<div id="changelog" style="display:none">
+        <h2>Changelog:</h2>
+        <h3>Quality of life:</h3>
+        <ul>
+            <li>Adding warcraft log url as parameter with '?id=' i.e :</li>
+            <a href="https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2">
+                https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2</a>
+        </ul>
+        <h3>Warriors:</h3>
+        <ul>
+            <li>New Shield Slam</li>
+            <li>New Heroic Strike</li>
+            <li>Adding devastate</li>
+            <li>Rework Revenge</li>
+            <li>Rework Thunderclap</li>
+            <li>Adding Improved berserker stance</li>
+            <li>Fix Defiance talent</li>
+        </ul>
+        <h3>Druid feral:</h3>
+        <ul>
+            <li>New FF</li>
+            <li>New Demoralizing shout</li>
+            <li>Adding Lacerate</li>
+            <li>Adding Mangle</li>
+            <li>Rework Swipe</li>
+            <li>Rework Maul</li>
+            <li>Fix Feral instict</li>
+        </ul>
+        <h3>Warlock</h3>
+        <ul>
+            <li>Adding Soulshatter</li>
+            <li>Adding Destructive reach</li>
+        </ul>
+        <h3>Shaman</h3>
+        <ul>
+            <li>Adding enchancement reduction talent</li>
+            <li>Adding earth shock</li>
+        </ul>
+        <h3>Hunter</h3>
+        <ul>
+            <li>Adding Missdirection</li>
+        </ul>
+        <h3>Paladin</h3>
+        <ul>
+            <li>Adding rework of Holy shield</li>
+            <li>Adding rework of Avenger shield</li>
+        </ul>
+        <h3>Misc</h3>
+        <ul>
+            <li>Better handling of horde salvation</li>
+            <li>Adding Threat on gloves abd Subtlety as a manual optional buff</li>
+            <li>Thunderfury nerf</li>
+            <li>Adding missdirection beta</li>
+            <li>Nightbane Threat wipe when he flies</li>
+        </ul>
+    </div>
 </div>
-</body></html>
+</body>
+</html>
