@@ -8,6 +8,8 @@ let recolorPlot = () => {
 };
 let colorByClass = true;
 
+let combatantInfo = [];
+
 function loadPage() {
     scroll(0, 0);
     const wclUrl = getParameterByName('id');
@@ -70,6 +72,7 @@ async function fetchWCLreport(path, start, end) {
     }
     return events;
 }
+
 async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
 
     let t = start;
@@ -85,6 +88,21 @@ async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
         t = json.nextPageTimestamp;
     }
     return auras;
+}
+
+async function fetchWCLCombatantInfo(path, start, end) {
+
+    let t = start;
+    let events = [];
+    while (typeof t === "number") {
+        let filter = encodeURI(`type IN ("combatantinfo")`);
+        let query = `report/events/${path}&start=${t}&end=${end}&filter=${filter}`;
+        let json = await fetchWCLv1(query);
+        if (!json.events) throw "Could not parse report " + path;
+        events.push(...json.events);
+        t = json.nextPageTimestamp;
+    }
+    return events;
 }
 
 class ThreatTrace {
@@ -413,9 +431,11 @@ class Player extends Unit {
         this.global = info;
         this.talents = info.talents;
         console.assert("initialBuffs" in info, "Player info not properly initialised.", info);
+
         this.checkWarrior(events); // Extra stance detection
         this.checkPaladin(events); // Extra Righteous Fury detection
         this.checkFaction(tranquilAir); // BoS and tranquil air
+        this.checkEnchants(); // Gloves and cloack enchants
         let a = info.initialBuffs;
         for (let k in a) {
             if (a[k] === 1) {
@@ -431,6 +451,27 @@ class Player extends Unit {
 
     isBuffInferred(buffId) {
         return (this.global.initialBuffs[buffId] - 3) % 3 >= 0;
+    }
+
+    checkEnchants() {
+        for (const combatantInfoElement of combatantInfo) {
+            if (combatantInfoElement.sourceID == this.key) {
+                let gear = combatantInfoElement.gear;
+                for (const g of gear) {
+                    let enchant = g.permanentEnchant;
+                    if (enchant != null) {
+                        if (enchant == 2613) { // gloves threat enchant
+                            console.log("Gloves enchants for " + this.name);
+                            this.buffs[2613] = true;
+                        }
+                        if (enchant == 2621) { // cloack threat enchant
+                            console.log("cloack enchants for " + this.name);
+                            this.buffs[2621] = true;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     // Blessing of Salvation and Tranquil Air detection
@@ -644,6 +685,7 @@ class Fight {
     }
 
     async fetch() {
+        combatantInfo = await fetchWCLCombatantInfo(this.reportId + "?", 0, this.end);
         if ("events" in this) return;
         this.events = await fetchWCLreport(this.reportId + "?", this.start, this.end);
         // Custom events
@@ -800,6 +842,7 @@ class Fight {
         this.friendlies = {};
         this.enemies = {};
         this.units = {};
+
         for (let i = 0; i < this.events.length; ++i) {
             this.processEvent(this.events[i]);
         }
@@ -817,7 +860,7 @@ class Report {
         let allFriendlies = [...this.data.friendlies, ...this.data.friendlyPets];
         for (let f of allFriendlies) {
             // The settings for these buffs are displayed for all classes
-            f.initialBuffs = {1038: 0, 25895: 0, 25909: 0, 25072: 0, 25084: 0};
+            f.initialBuffs = {1038: 0, 25895: 0, 25909: 0, 2613: 0, 2621: 0};
             // Copy talents from the global structure to this player
             f.talents = {};
             for (let talentName in talents[f.type]) {
