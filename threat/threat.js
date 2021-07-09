@@ -53,15 +53,12 @@ async function fetchWCLv1(path) {
         throw "Fetch error.";
     }
     let json = await response.json();
-    console.log(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`);
-    console.log(json);
     return json;
 }
 
 async function fetchWCLreport(path, start, end) {
     let t = start;
     let events = [];
-    let width = end - start;
     let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff","energize","absorbed","healabsorbed","leech","drain") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
     while (typeof t === "number") {
         let json = await fetchWCLv1(`report/events/${path}&start=${t}&end=${end}&filter=${filter}`);
@@ -70,6 +67,18 @@ async function fetchWCLreport(path, start, end) {
         t = json.nextPageTimestamp;
     }
     return events;
+}
+async function fetchWCLDebuffs(path, start, end, abilityId) {
+
+    let t = start;
+    let auras = [];
+    while (typeof t === "number") {
+        let json = await fetchWCLv1(`report/tables/debuffs/${path}&start=${t}&end=${end}&hostility=1&abilityid=${abilityId}`);
+        if (!json.auras) throw "Could not parse report " + path;
+        auras.push(...json.auras);
+        t = json.nextPageTimestamp;
+    }
+    return auras;
 }
 
 class ThreatTrace {
@@ -624,6 +633,8 @@ class Fight {
         this.faction = faction;
         this.reportId = reportId;
         this.tranquilAir = false;
+        this.exposeAura = [];
+        this.lacerateAura = [];
     }
 
     async fetch() {
@@ -658,6 +669,12 @@ class Fight {
                 lastTime = this.events[i].timestamp;
             }
         }
+        // Fetch expose armor and lacerate uptime
+        // Do we need to do that for 5 stacks of sunder too ?
+        // expose
+        this.exposeAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 26866);
+        // lacerate
+        this.lacerateAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 33745);
     }
 
     eventToUnit(ev, unit) { // Unit should be "source" or "target"
@@ -846,14 +863,14 @@ const reports = {};
 function selectReport() {
 
     let wcl = getParameterByName('id');
-	let el = document.querySelector("#reportSelect");
-	let el_fightSelect = document.querySelector("#fightSelect");
-	let el_enemySelect = document.querySelector("#enemySelect");
-	let el_targetSelect = document.querySelector("#targetSelect");
+    let el = document.querySelector("#reportSelect");
+    let el_fightSelect = document.querySelector("#fightSelect");
+    let el_enemySelect = document.querySelector("#enemySelect");
+    let el_targetSelect = document.querySelector("#targetSelect");
 
-	let fightParam = el_fightSelect === null ? "" : "&fight="+el_fightSelect.value;
-	let enemyParam = el_enemySelect === null ? "" : "&enemy="+el_enemySelect.value;
-	let targetParam = el_targetSelect === null ? "" : "&target="+el_targetSelect.value;
+    let fightParam = el_fightSelect === null ? "" : "&fight=" + el_fightSelect.value;
+    let enemyParam = el_enemySelect === null ? "" : "&enemy=" + el_enemySelect.value;
+    let targetParam = el_targetSelect === null ? "" : "&target=" + el_targetSelect.value;
 
     el_fightSelect.innerHTML = "";
     let reportId = el.value;

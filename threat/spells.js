@@ -462,6 +462,24 @@ function handler_threatOnHit(threatValue) {
     }
 }
 
+function handler_devastate(devastateValue, sunderValue) {
+    return (ev, fight) => {
+        if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
+
+        // Check if expose armor is up during the cast
+        for (let aura in fight.exposeAura) {
+            for (let bandIdx in fight.exposeAura[aura].bands) {
+                let band = fight.exposeAura[aura].bands[bandIdx];
+                if (ev.timestamp > band.startTime && band.endTime > ev.timestamp) {
+                    threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + devastateValue);
+                    return;
+                }
+            }
+        }
+        threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + devastateValue + sunderValue);
+    }
+}
+
 function handler_bossDropThreatOnHit(pct) {
     return (ev, fight) => {
         // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
@@ -553,16 +571,33 @@ function handler_threatOnDebuffOrDamage(threatValue) {
 
 
 // https://zidnae.gitlab.io/tbc-armor-penetration-calc/tbc_bear_tc.html
-function handler_lacerate(threatValue) {
+function handler_lacerate(threatValue, tickMultiplier) {
     return (ev, fight) => {
         let t = ev.type;
-        if (t === "applydebuff") {
+        if (t === "applydebuff" || t === "refreshdebuff") {
+            // Check if lacerate is up during the cast
+
+            for (let aura in fight.lacerateAura) {
+                for (let bandIdx in fight.lacerateAura[aura].bands) {
+                    let band = fight.lacerateAura[aura].bands[bandIdx];
+                    if (ev.timestamp > band.startTime && band.endTime > ev.timestamp) {
+                        // Lacerate UP, no bonus threat
+                        return;
+                    }
+                }
+            }
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-        } else if (t === "refreshdebuff") {
-            threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-        } else if (t === "damage") {
-            threatFunctions.sourceThreatenTarget(ev, fight, ev.amount * 0.2);
+            return;
         }
+        if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
+
+        if (ev.type !== "damage" || ev.hitType === 1 ) {
+            threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0));
+        } else {
+            // Ticks have 0.2 multiplier
+            threatFunctions.sourceThreatenTarget(ev, fight, (ev.amount + (ev.absorbed || 0)) * tickMultiplier);
+        }
+
     }
 }
 
@@ -943,9 +978,9 @@ const spellFunctions = {
     30356: handler_threatOnHit(307, "Shield Slam"), //Rank 6
 
     //Devastate
-    20243: handler_threatOnHit(100 + 261, "devastate (Rank 1)"), //Rank 1
-    30016: handler_threatOnHit(100 + 261, "devastate (Rank 2)"), //Rank 2
-    30022: handler_threatOnHit(100 + 301.5, "devastate (Rank 3)"), //Rank 3
+    20243: handler_devastate(100, 261, "devastate (Rank 1)"), //Rank 1
+    30016: handler_devastate(100, 261, "devastate (Rank 2)"), //Rank 2
+    30022: handler_devastate(100, 301.5, "devastate (Rank 3)"), //Rank 3
 
     // CF https://github.com/magey/tbc-warrior/wiki/Threat-Values
 
@@ -1084,14 +1119,14 @@ const spellFunctions = {
     26997: handler_modDamage(1, "Swipe (Rank 6)"),
 
     // Lacerate
-    33745: handler_lacerate(285, "Lacerate"),
+    33745: handler_lacerate(285, 0.2, "Lacerate"),
 
     // Speculation on modifier https://wowwiki-archive.fandom.com/wiki/Mangle_(bear)
     // Mangle (Bear) has a threat modifier of 1.5x damage done.
     // Patch 2.1.0 : Damage increased by 15%, but bonus threat reduced so that overall threat generation will be unchanged.
-    33878: handler_modDamage(1.3, "Mangle (Bear) (Rank 1)"),
-    33986: handler_modDamage(1.3, "Mangle (Bear) (Rank 2)"),
-    33987: handler_modDamage(1.3, "Mangle (Bear) (Rank 3)"),
+    33878: handler_modDamage(1.5, "Mangle (Bear) (Rank 1)"),
+    33986: handler_modDamage(1.5, "Mangle (Bear) (Rank 2)"),
+    33987: handler_modDamage(1.5, "Mangle (Bear) (Rank 3)"),
 
     99: handler_threatOnDebuff(9, "Demoralizing Roar (Rank 1)"),
     1735: handler_threatOnDebuff(15, "Demoralizing Roar (Rank 2)"),
