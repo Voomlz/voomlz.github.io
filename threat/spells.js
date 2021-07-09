@@ -886,14 +886,14 @@ const spellFunctions = {
     35079: handler_misdirectionCast(),
 
 // Shaman
-    8042: handler_modDamage(2), // Earth Shock r1
-    8044: handler_modDamage(2), // Earth Shock r2
-    8045: handler_modDamage(2), // Earth Shock r3
-    8046: handler_modDamage(2), // Earth Shock r4
-    10412: handler_modDamage(2), // Earth Shock r5
-    10413: handler_modDamage(2), // Earth Shock r6
-    10414: handler_modDamage(2), // Earth Shock r7
-    25454: handler_modDamage(2), // Earth Shock r8
+    8042: handler_modDamage(1), // Earth Shock r1
+    8044: handler_modDamage(1), // Earth Shock r2
+    8045: handler_modDamage(1), // Earth Shock r3
+    8046: handler_modDamage(1), // Earth Shock r4
+    10412: handler_modDamage(1), // Earth Shock r5
+    10413: handler_modDamage(1), // Earth Shock r6
+    10414: handler_modDamage(1), // Earth Shock r7
+    25454: handler_modDamage(1), // Earth Shock r8
 
 // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
     1: handler_damage,
