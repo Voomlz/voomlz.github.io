@@ -148,7 +148,11 @@ const talents = {
         },
         // Only for melee attacks
         "Spirit Weapons": {
-            coeff: (_, rank = 3) => getThreatCoefficient({1: 1 - 0.3}),
+            coeff: (_, rank = 1) => getThreatCoefficient({1: 1 - 0.3}),
+        },
+        "Elemental Precision": {
+            // Fire (4), Nature (8), Frost (16)
+            coeff: (_, rank = 3) => getThreatCoefficient({4: 1 - 0.0333}, {8: 1 - 0.0333}, {16: 1 - 0.0333}),
         }
     },
     Warlock: {
