@@ -146,11 +146,13 @@ const talents = {
                 10623: true, // Chain Heal
             })),
         },
-        // Only for melee attacks
         "Spirit Weapons": {
+            maxRank: 1,
+            // Only for melee (1) attacks
             coeff: (_, rank = 1) => getThreatCoefficient({1: 1 - 0.3}),
         },
         "Elemental Precision": {
+            maxRank: 3,
             // Fire (4), Nature (8), Frost (16)
             coeff: (_, rank = 3) => getThreatCoefficient({4: 1 - 0.0333}, {8: 1 - 0.0333}, {16: 1 - 0.0333}),
         }
