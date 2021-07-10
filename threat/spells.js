@@ -154,7 +154,9 @@ const talents = {
         "Elemental Precision": {
             maxRank: 3,
             // Fire (4), Nature (8), Frost (16)
-            coeff: (_, rank = 3) => getThreatCoefficient({4: 1 - 0.0333}, {8: 1 - 0.0333}, {16: 1 - 0.0333}),
+            coeff: (_, rank = 3) => rank === 1 ? getThreatCoefficient({4: 1 - 0.04}, {8: 1 - 0.04}, {16: 1 - 0.04}):
+                rank === 2 ? getThreatCoefficient({4: 1 - 0.07}, {8: 1 - 0.07}, {16: 1 - 0.07}):
+                    rank === 3 ? getThreatCoefficient({4: 1 - 0.1}, {8: 1 - 0.1}, {16: 1 - 0.1}) : getThreatCoefficient
         }
     },
     Warlock: {
