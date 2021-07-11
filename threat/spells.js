@@ -679,6 +679,7 @@ const spellFunctions = {
     26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
     11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
     28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
+    37098: handler_bossThreatWipeOnCast, // Nightbane's Rain of Bones
     29060: handler_taunt, // Deathknight Understudy Taunt
     28835: handler_bossPartialThreatWipeOnCast(.5), // Mark of Zeliek
     28834: handler_bossPartialThreatWipeOnCast(.5), // Mark of Mograine
