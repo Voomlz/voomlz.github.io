@@ -1127,8 +1127,11 @@ const spellFunctions = {
     9908: handler_modDamage(1, "Swipe (Rank 5)"),
     26997: handler_modDamage(1, "Swipe (Rank 6)"),
 
+    17061: handler_zero(), // Furor
+
     // Lacerate
-    33745: handler_lacerate(285, 0.2, "Lacerate"),
+    // https://zidnae.gitlab.io/tbc-armor-penetration-calc/tbc_bear_tc.html
+    33745: handler_lacerate(267, 0.5, "Lacerate"),
 
     // Speculation on modifier https://wowwiki-archive.fandom.com/wiki/Mangle_(bear)
     // Mangle (Bear) has a threat modifier of 1.5x damage done.
@@ -1176,13 +1179,13 @@ const spellFunctions = {
     17390: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 2)"),
     17391: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 3)"),
     17392: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 4)"),
-    27011: handler_threatOnDebuff(108, "Faerie Fire (Feral)"),
+    27011: handler_threatOnDebuff(131, "Faerie Fire (Feral)"),
 
     770: handler_threatOnDebuff(108, "Faerie Fire (Rank 1)"),
     778: handler_threatOnDebuff(108, "Faerie Fire (Rank 2)"),
     9749: handler_threatOnDebuff(108, "Faerie Fire (Rank 3)"),
     9907: handler_threatOnDebuff(108, "Faerie Fire (Rank 3)"),
-    26993: handler_threatOnDebuff(108, "Faerie Fire"),
+    26993: handler_threatOnDebuff(131, "Faerie Fire"),
 
     16870: handler_zero, //("Clearcasting"),
     29166: handler_zero, //("Innervate"),
