@@ -1111,14 +1111,14 @@ const spellFunctions = {
 
     // https://tbc.wowhead.com/guides/feral-druid-tank-burning-crusade-classic
 
-    6807: handler_threatOnHit(322, "Maul (Rank 1)"),
-    6808: handler_threatOnHit(322, "Maul (Rank 2)"),
-    6809: handler_threatOnHit(322, "Maul (Rank 3)"),
-    8972: handler_threatOnHit(322, "Maul (Rank 4)"),
-    9745: handler_threatOnHit(322, "Maul (Rank 5)"),
-    9880: handler_threatOnHit(322, "Maul (Rank 6)"),
-    9881: handler_threatOnHit(322, "Maul (Rank 7)"),
-    26996: handler_threatOnHit(322, "Maul (Rank 8)"),
+    6807: handler_threatOnHit(344, "Maul (Rank 1)"),
+    6808: handler_threatOnHit(344, "Maul (Rank 2)"),
+    6809: handler_threatOnHit(344, "Maul (Rank 3)"),
+    8972: handler_threatOnHit(344, "Maul (Rank 4)"),
+    9745: handler_threatOnHit(344, "Maul (Rank 5)"),
+    9880: handler_threatOnHit(344, "Maul (Rank 6)"),
+    9881: handler_threatOnHit(344, "Maul (Rank 7)"),
+    26996: handler_threatOnHit(344, "Maul (Rank 8)"),
 
     779: handler_modDamage(1, "Swipe (Rank 1)"),
     780: handler_modDamage(1, "Swipe (Rank 2)"),
