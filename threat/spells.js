@@ -906,7 +906,27 @@ const spellFunctions = {
 
     16246: handler_zero, // Clearcasting
 
-    45296: handler_zero, // Lightning Bolt from https://tbc.wowhead.com/spell=30681/lightning-overload makes 0 threat
+    // Lightning Bolt from https://tbc.wowhead.com/spell=30681/lightning-overload makes 0 threat
+    45284: handler_zero, // Rank 1
+    45286: handler_zero, // Rank 2
+    45287: handler_zero, // Rank 3
+    45288: handler_zero, // Rank 4
+    45289: handler_zero, // Rank 5
+    45290: handler_zero, // Rank 6
+    45291: handler_zero, // Rank 7
+    45292: handler_zero, // Rank 8
+    45293: handler_zero, // Rank 9
+    45294: handler_zero, // Rank 10
+    45295: handler_zero, // Rank 11
+    45296: handler_zero, // Rank 12
+
+    // Chain lightnings
+    45297: handler_zero, // Rank 1
+    45298: handler_zero, // Rank 2
+    45299: handler_zero, // Rank 3
+    45300: handler_zero, // Rank 4
+    45301: handler_zero, // Rank 5
+    45302: handler_zero, // Rank 6
 
 // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
     1: handler_damage,
