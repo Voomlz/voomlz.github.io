@@ -377,7 +377,8 @@ class Unit {
         return false;
     }
 
-    threatCoeff(ability, event) { // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
+    threatCoeff(ability) {
+                //, event) { // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
 
         /*
         let auras = playersAuras.get(this.key);
