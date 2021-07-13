@@ -82,6 +82,7 @@ async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
         let query = `report/tables/debuffs/${path}&start=${t}&end=${end}&hostility=1&abilityid=${abilityId}`;
         if (stack) {
             query = query + `&filter=stack%3D${stack}`
+            console.log("lacerate query" + query)
         }
         let json = await fetchWCLv1(query);
         if (!json.auras) throw "Could not parse report " + path;

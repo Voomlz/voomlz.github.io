@@ -155,19 +155,19 @@ const talents = {
             maxRank: 3,
             // Fire (4), Nature (8), Frost (16)
             // TODO use for all schools
-            coeff: (_, rank = 3) => getThreatCoefficient( {4:1 - 0.033333 * rank}),
+            coeff: (_, rank = 3) => getThreatCoefficient({4: 1 - 0.033333 * rank}),
         },
         "Elemental Precision (nature)": {
             maxRank: 3,
             // Fire (4), Nature (8), Frost (16)
             // TODO use for all schools
-            coeff: (_, rank = 3) => getThreatCoefficient( {8: 1 - 0.033333 * rank}),
+            coeff: (_, rank = 3) => getThreatCoefficient({8: 1 - 0.033333 * rank}),
         },
         "Elemental Precision (frost)": {
             maxRank: 3,
             // Fire (4), Nature (8), Frost (16)
             // TODO use for all schools
-            coeff: (_, rank = 3) => getThreatCoefficient( {16: 1 - 0.033333 * rank}),
+            coeff: (_, rank = 3) => getThreatCoefficient({16: 1 - 0.033333 * rank}),
         }
     },
     Warlock: {
@@ -269,6 +269,7 @@ const threatFunctions = {
         let b = fight.eventToUnit(ev, "target");
         if (!a || !b) return;
         let coeff = (useThreatCoeffs ? a.threatCoeff(ev.ability) : 1) * extraCoeff;
+
         b.addThreat(a.key, amount, ev.timestamp, ev.ability.name, coeff);
     },
     unitThreatenEnemiesSplit(ev, unit, fight, amount, useThreatCoeffs = true) {
@@ -342,9 +343,11 @@ function handler_basic(ev, fight) {
     switch (ev.type) {
         case "damage":
             let source = fight.eventToUnit(ev, "source");
-            if (ev.sourceIsFriendly && source.handleMisdirectionDamage(ev.amount, ev, fight)) {
-            } else {
-                threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0));
+            if (source) {
+                if (ev.sourceIsFriendly && source.handleMisdirectionDamage(ev.amount, ev, fight)) {
+                } else {
+                    threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0));
+                }
             }
             break;
         case "heal":
@@ -1019,9 +1022,9 @@ const spellFunctions = {
     35476: handler_zero, // Drums of battle
     185848: handler_zero, // Greater Drums of battle
 
-
     32182: handler_zero, // Heroism
     2825: handler_zero, // Blood lust
+
     /* Physical */
     12721: handler_damage, //("Deep Wounds"),
     6552: handler_threatOnHit(76, "Pummel (Rank 1)"), //TODO: Verify these values ingame
