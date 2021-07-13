@@ -379,6 +379,7 @@ class Unit {
 
     threatCoeff(ability, event) { // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
 
+        /*
         let auras = playersAuras.get(this.key);
 
         for (let i in auras) {
@@ -389,6 +390,8 @@ class Unit {
                 }
             }
         }
+
+         */
 
 
         let spellSchool = ability ? ability.type : this.spellSchool;
@@ -714,11 +717,13 @@ class Fight {
     async fetch() {
         combatantInfo = await fetchWCLCombatantInfo(this.reportId + "?", 0, this.end);
 
+        /*
         for(const combatantInfoElement of combatantInfo) {
             let source = combatantInfoElement.sourceID;
             let playerAuras = fetchWCLPlayerBuffs(this.reportId + "?", 0, this.end, source);
             playersAuras.set(source, playerAuras);
         }
+         */
 
         if ("events" in this) return;
         this.events = await fetchWCLreport(this.reportId + "?", this.start, this.end);
