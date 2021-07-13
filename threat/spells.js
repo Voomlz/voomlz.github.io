@@ -701,6 +701,9 @@ const spellFunctions = {
 
     // Trinkets
     35163: handler_zero, // Blessing of the Silver Crescent
+    34106: handler_zero, // Arpen from bloodfurnance
+    35166: handler_zero, // Bloodlust brooch
+    28866: handler_zero, // Kiss of the spider
 
 
 // Paladin
@@ -1011,11 +1014,10 @@ const spellFunctions = {
     11359: handler_zero, //("Restorative Potion (Restoration) Buff"), //Restorative Potion (Restoration) Buff
     23396: handler_zero, //("Restorative Potion (Restoration) Dispel"), //Restorative Potion (Restoration) Dispel
     28508: handler_zero, // Destruction pot
-    28564: handler_zero, // Haste pot
+    28507: handler_zero, // Haste pot
     29529: handler_zero, // Drums of battle
     35476: handler_zero, // Drums of battle
     185848: handler_zero, // Greater Drums of battle
-
 
 
     32182: handler_zero, // Heroism
@@ -1195,7 +1197,10 @@ const spellFunctions = {
     9908: handler_modDamage(1, "Swipe (Rank 5)"),
     26997: handler_modDamage(1, "Swipe (Rank 6)"),
 
-    17061: handler_zero(), // Furor
+    // Rage generation, allegedly 0 threat
+    16959: handler_zero, // Primal Fury
+    // 17057: handler_zero, // Furor
+    // 5229: handler_zero, // Enrage
 
     // Lacerate
     // https://zidnae.gitlab.io/tbc-armor-penetration-calc/tbc_bear_tc.html
