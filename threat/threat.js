@@ -394,7 +394,6 @@ class Unit {
 
          */
 
-
         let spellSchool = ability ? ability.type : this.spellSchool;
         let spellId = ability ? ability.guid : null;
         let c = this.baseThreatCoeff(spellSchool);
@@ -407,6 +406,7 @@ class Unit {
             let coeff = t.coeff(this.buffs, t.rank, spellId);
             c *= coeff(spellSchool);
         }
+
         return c;
     }
 

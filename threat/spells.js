@@ -151,13 +151,23 @@ const talents = {
             // Only for melee (1) attacks
             coeff: (_, rank = 1) => getThreatCoefficient({1: 1 - 0.3}),
         },
-        "Elemental Precision": {
+        "Elemental Precision (fire)": {
             maxRank: 3,
             // Fire (4), Nature (8), Frost (16)
-            coeff: (_, rank = 3) => rank === 1 ? getThreatCoefficient({4: 1 - 0.04}, {8: 1 - 0.04}, {16: 1 - 0.04}) :
-                rank === 2 ? getThreatCoefficient({4: 1 - 0.07}, {8: 1 - 0.07}, {16: 1 - 0.07}) :
-                    rank === 3 ? getThreatCoefficient({4: 1 - 0.1}, {8: 1 - 0.1}, {16: 1 - 0.1}) :
-                        rank === 0 ? getThreatCoefficient(1) : getThreatCoefficient(1)
+            // TODO use for all schools
+            coeff: (_, rank = 3) => getThreatCoefficient( {4:1 - 0.033333 * rank}),
+        },
+        "Elemental Precision (nature)": {
+            maxRank: 3,
+            // Fire (4), Nature (8), Frost (16)
+            // TODO use for all schools
+            coeff: (_, rank = 3) => getThreatCoefficient( {8: 1 - 0.033333 * rank}),
+        },
+        "Elemental Precision (frost)": {
+            maxRank: 3,
+            // Fire (4), Nature (8), Frost (16)
+            // TODO use for all schools
+            coeff: (_, rank = 3) => getThreatCoefficient( {16: 1 - 0.033333 * rank}),
         }
     },
     Warlock: {
@@ -689,6 +699,10 @@ const spellFunctions = {
 
     17624: handler_vanish, // Flask of Petrification
 
+    // Trinkets
+    35163: handler_zero, // Blessing of the Silver Crescent
+
+
 // Paladin
     25898: handler_threatOnBuff(60), // GBoK
     25890: handler_threatOnBuff(60), // GBoL
@@ -721,6 +735,11 @@ const spellFunctions = {
     31935: handler_modDamage(1.3), // Avenger shield r1
     32699: handler_modDamage(1.3), // Avenger shield r2
     32700: handler_modDamage(1.3), // Avenger shield r3
+
+    20268: handler_zero, // Mana from judgement of wisdom r1
+    20352: handler_zero, // Mana from judgement of wisdom r2
+    20353: handler_zero, // Mana from judgement of wisdom r3
+    27165: handler_zero, // Mana from judgement of wisdom r4
 
     465: handler_zero, // Devotion Aura r1
     10290: handler_zero, // Devotion Aura r2
@@ -913,6 +932,12 @@ const spellFunctions = {
 
     16246: handler_zero, // Clearcasting
 
+    24398: handler_zero, // Water Shield cast R1
+    33736: handler_zero, // Water shield cast R2
+
+    23575: handler_zero, // Water shield mana R2
+    33737: handler_zero, // Water shield mana R2
+
     // Lightning Bolt from https://tbc.wowhead.com/spell=30681/lightning-overload makes 0 threat
     45284: handler_zero, // Rank 1
     45286: handler_zero, // Rank 2
@@ -933,7 +958,10 @@ const spellFunctions = {
     45299: handler_zero, // Rank 3
     45300: handler_zero, // Rank 4
     45301: handler_zero, // Rank 5
-    45302: handler_zero, // Rank 6
+    45302: handler_zero, // Rank 6*
+
+    // Elemental mastery
+    16166: handler_zero, // Rank 6
 
 // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
     1: handler_damage,
@@ -982,7 +1010,16 @@ const spellFunctions = {
     17538: handler_zero, //("Elixir of the Mongoose"), //Elixir of the Mongoose
     11359: handler_zero, //("Restorative Potion (Restoration) Buff"), //Restorative Potion (Restoration) Buff
     23396: handler_zero, //("Restorative Potion (Restoration) Dispel"), //Restorative Potion (Restoration) Dispel
+    28508: handler_zero, // Destruction pot
+    28564: handler_zero, // Haste pot
+    29529: handler_zero, // Drums of battle
+    35476: handler_zero, // Drums of battle
+    185848: handler_zero, // Greater Drums of battle
 
+
+
+    32182: handler_zero, // Heroism
+    2825: handler_zero, // Blood lust
     /* Physical */
     12721: handler_damage, //("Deep Wounds"),
     6552: handler_threatOnHit(76, "Pummel (Rank 1)"), //TODO: Verify these values ingame
