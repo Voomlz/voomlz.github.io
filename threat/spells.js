@@ -94,11 +94,11 @@ const talents = {
         },
         "Burning Soul": {
             maxRank: 2,
-            coeff: (_, rank = 2) => getThreatCoefficient({4: 1 - 0.15 * rank}),
+            coeff: (_, rank = 2) => getThreatCoefficient({4: 1 - 0.05 * rank}),
         },
         "Frost Channeling": {
             maxRank: 3,
-            coeff: (_, rank = 3) => getThreatCoefficient({16: 1 - 0.1 * rank}),
+            coeff: (_, rank = 3) => getThreatCoefficient({16: 1 - 0.033333 * rank}),
         }
     },
     Paladin: {
