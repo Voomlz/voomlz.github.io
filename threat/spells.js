@@ -904,6 +904,10 @@ const spellFunctions = {
     10414: handler_modDamage(1), // Earth Shock r7
     25454: handler_modDamage(1), // Earth Shock r8
 
+    16246: handler_zero(), // Clearcasting
+
+    45296: handler_zero(), // Lightning Bolt from https://tbc.wowhead.com/spell=30681/lightning-overload makes 0 threat
+
 // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
     1: handler_damage,
     /* Consumables */
