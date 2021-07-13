@@ -791,17 +791,17 @@ const spellFunctions = {
 
     // mind blast no longer increase threat in tbc
     // https://wowwiki-archive.fandom.com/wiki/Mind_Blast
-    8092: handler_damage(), // Mind Blast r1
-    8102: handler_damage(), // Mind Blast r2
-    8103: handler_damage(), // Mind Blast r3
-    8104: handler_damage(), // Mind Blast r4
-    8105: handler_damage(), // Mind Blast r5
-    8106: handler_damage(), // Mind Blast r6
-    10945: handler_damage(), // Mind Blast r7
-    10946: handler_damage(), // Mind Blast r8
-    10947: handler_damage(), // Mind Blast r9
-    25372: handler_damage(), // Mind Blast r10
-    25375: handler_damage(), // Mind Blast r11
+    8092: handler_damage, // Mind Blast r1
+    8102: handler_damage, // Mind Blast r2
+    8103: handler_damage, // Mind Blast r3
+    8104: handler_damage, // Mind Blast r4
+    8105: handler_damage, // Mind Blast r5
+    8106: handler_damage, // Mind Blast r6
+    10945: handler_damage, // Mind Blast r7
+    10946: handler_damage, // Mind Blast r8
+    10947: handler_damage, // Mind Blast r9
+    25372: handler_damage, // Mind Blast r10
+    25375: handler_damage, // Mind Blast r11
 
     15237: handler_zero, // Holy Nova r1
     15430: handler_zero, // Holy Nova r2
