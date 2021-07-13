@@ -1209,9 +1209,9 @@ const spellFunctions = {
     // Speculation on modifier https://wowwiki-archive.fandom.com/wiki/Mangle_(bear)
     // Mangle (Bear) has a threat modifier of 1.5x damage done.
     // Patch 2.1.0 : Damage increased by 15%, but bonus threat reduced so that overall threat generation will be unchanged.
-    33878: handler_modDamage(((1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 1)"),
-    33986: handler_modDamage(((1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 2)"),
-    33987: handler_modDamage(((1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 3)"),
+    33878: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 1)"),
+    33986: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 2)"),
+    33987: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 3)"),
 
     99: handler_threatOnDebuff(9, "Demoralizing Roar (Rank 1)"),
     1735: handler_threatOnDebuff(15, "Demoralizing Roar (Rank 2)"),
