@@ -9,6 +9,7 @@ let recolorPlot = () => {
 let colorByClass = true;
 
 let combatantInfo = [];
+let playersAuras = new Map();
 
 function loadPage() {
     scroll(0, 0);
@@ -103,6 +104,19 @@ async function fetchWCLCombatantInfo(path, start, end) {
         t = json.nextPageTimestamp;
     }
     return events;
+}
+
+async function fetchWCLPlayerBuffs(path, start, end, source) {
+    let t = start;
+    let auras = [];
+    while (typeof t === "number") {
+        let query = `report/tables/buffs/${path}&start=${t}&end=${end}&hostility=0&targetid=${source}`;
+        let json = await fetchWCLv1(query);
+        if (!json.auras) throw "Could not parse report " + path;
+        auras.push(...json.auras);
+        t = json.nextPageTimestamp;
+    }
+    return auras;
 }
 
 class ThreatTrace {
@@ -363,7 +377,20 @@ class Unit {
         return false;
     }
 
-    threatCoeff(ability) { // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
+    threatCoeff(ability, event) { // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
+
+        let auras = playersAuras.get(this.key);
+
+        for (let i in auras) {
+            console.log("Aura : " + auras[i].name);
+            for (const buff of buffMultipliers) {
+                if (auras[i].guid === buff) {
+                    console.log("Found buff " + auras[i].name + " for " + this.name);
+                }
+            }
+        }
+
+
         let spellSchool = ability ? ability.type : this.spellSchool;
         let spellId = ability ? ability.guid : null;
         let c = this.baseThreatCoeff(spellSchool);
@@ -686,6 +713,13 @@ class Fight {
 
     async fetch() {
         combatantInfo = await fetchWCLCombatantInfo(this.reportId + "?", 0, this.end);
+
+        for(const combatantInfoElement of combatantInfo) {
+            let source = combatantInfoElement.sourceID;
+            let playerAuras = fetchWCLPlayerBuffs(this.reportId + "?", 0, this.end, source);
+            playersAuras.set(source, playerAuras);
+        }
+
         if ("events" in this) return;
         this.events = await fetchWCLreport(this.reportId + "?", this.start, this.end);
         // Custom events
