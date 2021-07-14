@@ -82,7 +82,6 @@ async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
         let query = `report/tables/debuffs/${path}&start=${t}&end=${end}&hostility=1&abilityid=${abilityId}`;
         if (stack) {
             query = query + `&filter=stack%3D${stack}`
-            console.log("lacerate query" + query)
         }
         let json = await fetchWCLv1(query);
         if (!json.auras) throw "Could not parse report " + path;
@@ -763,7 +762,9 @@ class Fight {
         // expose
         this.exposeAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 26866);
         // lacerate
-        this.lacerateAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 33745, 5);
+
+        //this.lacerateAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 33745);
+        //this.lacerateAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 33745, 5);
     }
 
     eventToUnit(ev, unit) { // Unit should be "source" or "target"

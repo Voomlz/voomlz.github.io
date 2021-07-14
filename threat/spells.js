@@ -595,23 +595,24 @@ function handler_threatOnDebuffOrDamage(threatValue) {
 // https://zidnae.gitlab.io/tbc-armor-penetration-calc/tbc_bear_tc.html
 function handler_lacerate(threatValue, tickMultiplier) {
     return (ev, fight) => {
-        let t = ev.type;
-        if (t === "applydebuff" || t === "refreshdebuff") {
-            // Check if lacerate is up during the cast
 
-            for (let aura in fight.lacerateAura) {
-                for (let bandIdx in fight.lacerateAura[aura].bands) {
-                    let band = fight.lacerateAura[aura].bands[bandIdx];
-                    if (ev.timestamp > band.startTime && band.endTime > ev.timestamp) {
-                        // Lacerate UP, no bonus threat
-                        return;
-                    }
-                }
-            }
+        let t = ev.type;
+        if (t === "refreshdebuff") {
+            return;
+        }
+        if (t === "applydebuff" ){
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
             return;
         }
+
+        // miss dodge ect
         if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
+
+        if (ev.type !== "damage" && ev.tick && ev.tick === true) {
+            // Ticks have 0.x multiplier
+            threatFunctions.sourceThreatenTarget(ev, fight, (ev.amount + (ev.absorbed || 0)) * tickMultiplier);
+            return;
+        }
 
         if (ev.type !== "damage" || ev.hitType === 1) {
             threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0));
