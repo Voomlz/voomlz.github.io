@@ -47,7 +47,6 @@ async function fetchWCLv1(path) {
     nextRequestTime += throttleTime;
     await sleep(d);
     console.assert(path.length < 1900, "URL may be too long: " + path);
-    console.log("Query : " + `https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`);
 
     let response = await fetch(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`);
     if (!response) throw "Could not fetch " + path;
@@ -371,7 +370,7 @@ class Unit {
             let b = fight.eventToUnit(ev, "target");
             if (!this.mdTarget || !b) return;
             console.log("MD: Redirecting " + amount + " from " + this.name + " to " + this.mdTarget.name);
-            b.addThreat(this.mdTarget.key, amount, ev.timestamp, "Misdirect (" + ev.ability.name + ")", this.mdTarget.threatCoeff(ev.ability));
+            b.addThreat(this.mdTarget.key, amount, ev.timestamp, "Misdirect (" + ev.ability.name + ")", this.threatCoeff(ev.ability));
             return true;
         }
         return false;
@@ -492,11 +491,9 @@ class Player extends Unit {
                     let enchant = g.permanentEnchant;
                     if (enchant != null) {
                         if (enchant == 2613) { // gloves threat enchant
-                            console.log("Gloves enchants for " + this.name);
                             this.buffs[2613] = true;
                         }
                         if (enchant == 2621) { // cloack threat enchant
-                            console.log("cloack enchants for " + this.name);
                             this.buffs[2621] = true;
                         }
                     }
@@ -711,8 +708,6 @@ class Fight {
         this.faction = faction;
         this.reportId = reportId;
         this.tranquilAir = false;
-        this.exposeAura = [];
-        this.lacerateAura = [];
     }
 
     async fetch() {
@@ -757,14 +752,6 @@ class Fight {
                 lastTime = this.events[i].timestamp;
             }
         }
-        // Fetch expose armor and lacerate uptime
-        // Do we need to do that for 5 stacks of sunder too ?
-        // expose
-        this.exposeAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 26866);
-        // lacerate
-
-        //this.lacerateAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 33745);
-        //this.lacerateAura = await fetchWCLDebuffs(this.reportId + "?", this.start, this.end, 33745, 5);
     }
 
     eventToUnit(ev, unit) { // Unit should be "source" or "target"

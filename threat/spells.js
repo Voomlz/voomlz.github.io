@@ -641,7 +641,6 @@ function handler_misdirectionCast() {
         let t = ev.type;
         let source = fight.eventToUnit(ev, "source");
         let target = fight.eventToUnit(ev, "target");
-        console.log("Misdirection from " + source.name + " to " + target.name);
         source.setMdTarget(target);
         source.setMdStack(3);
     }
