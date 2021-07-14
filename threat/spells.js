@@ -498,9 +498,23 @@ function handler_threatOnHit(threatValue) {
     }
 }
 
-function handler_devastate(devastateValue, sunderValue) {
+function handler_sunderArmor(threatValue) {
+    return (ev, fight) => {
+        if (ev.type === "applydebuffstack" || ev.type === "") {
+            threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+        }
+    }
+}
+
+
+function handler_devastate(devastateValue) {
     return (ev, fight) => {
         if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
+
+        /*
+
+        //Try to manage that in sunder buff application
+
 
         // Check if expose armor is up during the cast
         for (let aura in fight.exposeAura) {
@@ -512,7 +526,9 @@ function handler_devastate(devastateValue, sunderValue) {
                 }
             }
         }
-        threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + devastateValue + sunderValue);
+
+         */
+        threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + devastateValue);
     }
 }
 
@@ -1077,9 +1093,9 @@ const spellFunctions = {
     30356: handler_threatOnHit(307, "Shield Slam"), //Rank 6
 
     //Devastate
-    20243: handler_devastate(100, 261, "devastate (Rank 1)"), //Rank 1
-    30016: handler_devastate(100, 261, "devastate (Rank 2)"), //Rank 2
-    30022: handler_devastate(100, 301.5, "devastate (Rank 3)"), //Rank 3
+    20243: handler_devastate(100, "devastate (Rank 1)"), //Rank 1
+    30016: handler_devastate(100, "devastate (Rank 2)"), //Rank 2
+    30022: handler_devastate(100, "devastate (Rank 3)"), //Rank 3
 
     // CF https://github.com/magey/tbc-warrior/wiki/Threat-Values
 
@@ -1135,9 +1151,9 @@ const spellFunctions = {
 
     /* Abilities */
     //Sunder Armor
-    7386: handler_castCanMiss(45), // Rank 1
-    11597: handler_castCanMiss(261, "Sunder Armor"), //Rank 5
-    25225: handler_castCanMiss(301.5, "Sunder Armor"), //Rank 6
+    7386: handler_sunderArmor(45), // Rank 1
+    11597: handler_sunderArmor(261, "Sunder Armor"), //Rank 5
+    25225: handler_sunderArmor(301.5, "Sunder Armor"), //Rank 6
 
     //Battleshout
     11551: handler_threatOnBuff(52, "Battle Shout"), //Rank 6
