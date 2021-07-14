@@ -708,6 +708,7 @@ const spellFunctions = {
     34106: handler_zero, // Arpen from bloodfurnance
     35166: handler_zero, // Bloodlust brooch
     28866: handler_zero, // Kiss of the spider
+    26480: handler_zero, // Badge of the Swarmguard
 
 
 // Paladin
@@ -1019,6 +1020,7 @@ const spellFunctions = {
     23396: handler_zero, //("Restorative Potion (Restoration) Dispel"), //Restorative Potion (Restoration) Dispel
     28508: handler_zero, // Destruction pot
     28507: handler_zero, // Haste pot
+    22838: handler_zero, // Haste pot
     29529: handler_zero, // Drums of battle
     35476: handler_zero, // Drums of battle
     185848: handler_zero, // Greater Drums of battle
