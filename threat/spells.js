@@ -70,6 +70,7 @@ const talents = {
                 return getThreatCoefficient(1 + 0.05 * rank);
             }
         },
+        /*
         "Improved Berserker Stance": {
             maxRank: 5,
             coeff: function (buffs, rank = 0) {
@@ -77,6 +78,8 @@ const talents = {
                 return getThreatCoefficient(1 - 0.02 * rank);
             }
         },
+
+         */
     },
     Druid: {
         "Feral Instinct": {
@@ -109,7 +112,8 @@ const talents = {
                 let amp = 1 + Math.floor(rank * 50 / 3) / 100;
                 return getThreatCoefficient({2: (1 + 0.6 * amp) / 1.6});
             }
-        },
+        }
+            /*,
         "Fanaticism": {
             maxRank: 5,
             coeff: function (buffs, rank = 0) {
@@ -118,6 +122,8 @@ const talents = {
                 return getThreatCoefficient(1 - (0.06 * rank));
             }
         }
+
+             */
     },
 
     Priest: {
@@ -500,7 +506,7 @@ function handler_threatOnHit(threatValue) {
 
 function handler_sunderArmor(threatValue) {
     return (ev, fight) => {
-        if (ev.type === "applydebuffstack" || ev.type === "") {
+        if (ev.type === "applydebuffstack" || ev.type === "refreshdebuff") {
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
         }
     }
