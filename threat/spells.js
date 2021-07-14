@@ -441,11 +441,6 @@ function handler_zero() {
 
 function handler_castCanMiss(threatValue) {
     return (ev, fight) => {
-        if (25225 === ev.guid || ev.ability.guid === 25225) {
-            console.log("Sunder");
-            console.log(JSON.stringify(ev));
-        }
-
         let t = ev.type;
         if (t === "cast") {
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
@@ -506,34 +501,15 @@ function handler_threatOnHit(threatValue) {
 
 function handler_sunderArmor(threatValue) {
     return (ev, fight) => {
-        if (ev.type === "applydebuffstack" || ev.type === "refreshdebuff") {
+        if (ev.type === "refreshdebuff" || ev.type === "applydebuff") {
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
         }
     }
 }
 
-
 function handler_devastate(devastateValue) {
     return (ev, fight) => {
         if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-
-        /*
-
-        //Try to manage that in sunder buff application
-
-
-        // Check if expose armor is up during the cast
-        for (let aura in fight.exposeAura) {
-            for (let bandIdx in fight.exposeAura[aura].bands) {
-                let band = fight.exposeAura[aura].bands[bandIdx];
-                if (ev.timestamp > band.startTime && band.endTime > ev.timestamp) {
-                    threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + devastateValue);
-                    return;
-                }
-            }
-        }
-
-         */
         threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + devastateValue);
     }
 }
