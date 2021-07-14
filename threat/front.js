@@ -19,7 +19,7 @@ function loadPage() {
     scroll(0, 0);
 
     const idParam = getParameterByName('id');
-    const fightParam = getParameterByName('fight');
+    const fightParam = getParameterByName('fightId');
     const enemyParam = getParameterByName('enemy');
     const targetParam = getParameterByName('target');
 
@@ -36,8 +36,9 @@ function loadPage() {
         selectEnemy();
     }
     if (targetParam) {
-        document.getElementById("targetSelect").value = targetParam;
-        selectTarget(targetParam);
+        let [reportId, fightId, enemyId, targetId] = targetParam.split(";");
+        document.getElementById("targetSelect").value = targetId;
+        //selectTarget(targetId);
     }
 
 }
