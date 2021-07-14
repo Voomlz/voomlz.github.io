@@ -72,7 +72,7 @@ const talents = {
         },
         "Improved Berserker Stance": {
             maxRank: 5,
-            coeff: function (buffs, rank = 5) {
+            coeff: function (buffs, rank = 0) {
                 if (!(7381 in buffs)) return getThreatCoefficient(1);
                 return getThreatCoefficient(1 - 0.02 * rank);
             }
@@ -435,6 +435,11 @@ function handler_zero() {
 
 function handler_castCanMiss(threatValue) {
     return (ev, fight) => {
+        if (25225 === ev.guid || ev.ability.guid === 25225) {
+            console.log("Sunder");
+            console.log(JSON.stringify(ev));
+        }
+
         let t = ev.type;
         if (t === "cast") {
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
@@ -991,8 +996,8 @@ const spellFunctions = {
     23267: handler_damage, //("Firebolt (Perdition's Proc)"),
     18833: handler_damage, //("Firebolt (Alcor's Proc)"),
 
-    21992: handler_threatOnHit(150), // Thunderfury
-    27648: handler_threatOnDebuff(63, "Thunderfury"),
+    21992: handler_modDamagePlusThreat(0.5, 63), // Thunderfury
+    27648: handler_zero,
 
     /* Thorn Effects */
     9910: handler_damage, //("Thorns"),  //Thorns (Rank 6)
