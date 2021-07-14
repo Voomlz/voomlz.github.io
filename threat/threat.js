@@ -541,7 +541,7 @@ class Player extends Unit {
         for (let i = 0; i < events.length; ++i) {
             if (!("ability" in events[i])) continue;
             if (Unit.eventToKey(events[i], "source") !== this.key) continue;
-            if (![20925, 20927, 20928].includes(events[i].ability.guid)) continue;
+            if (![20925, 20927, 20928, 27179].includes(events[i].ability.guid)) continue;
             this.buffs[25780] = true;
             this.tank = true;
             return;
