@@ -366,7 +366,7 @@ class Unit {
 
     handleMisdirectionDamage(amount, ev, fight) {
         if (this.mdStack !== 0) {
-            if(ev.ability.guid === 27016) return;
+            if (ev.ability.guid === 27016) return;
             this.mdStack--;
             let b = fight.eventToUnit(ev, "target");
             if (!this.mdTarget || !b) return;
@@ -378,7 +378,7 @@ class Unit {
     }
 
     threatCoeff(ability) {
-                //, event) { // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
+        //, event) { // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
 
         /*
         let auras = playersAuras.get(this.key);
@@ -465,6 +465,7 @@ class Player extends Unit {
 
         this.checkWarrior(events); // Extra stance detection
         this.checkPaladin(events); // Extra Righteous Fury detection
+        this.checkBear(events); // Extra Bear detection
         this.checkFaction(tranquilAir); // BoS and tranquil air
         this.checkEnchants(); // Gloves and cloack enchants
         let a = info.initialBuffs;
@@ -541,6 +542,21 @@ class Player extends Unit {
             if (Unit.eventToKey(events[i], "source") !== this.key) continue;
             if (![20925, 20927, 20928, 27179].includes(events[i].ability.guid)) continue;
             this.buffs[25780] = true;
+            this.tank = true;
+            return;
+        }
+    }
+
+    // Extra Mangle Bear detection
+    checkBear(events) {
+        if (this.type !== "Druid") return;
+        if (this.dies) return;
+        if (!this.isBuffInferred(9634)) return;
+        for (let i = 0; i < events.length; ++i) {
+            if (!("ability" in events[i])) continue;
+            if (Unit.eventToKey(events[i], "source") !== this.key) continue;
+            if (![33878, 33986, 33987].includes(events[i].ability.guid)) continue;
+            this.buffs[9634] = true;
             this.tank = true;
             return;
         }
