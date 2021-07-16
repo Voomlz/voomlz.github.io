@@ -366,11 +366,12 @@ class Unit {
 
     handleMisdirectionDamage(amount, ev, fight) {
         if (this.mdStack !== 0) {
+            if(ev.ability.guid === 27016) return;
             this.mdStack--;
             let b = fight.eventToUnit(ev, "target");
             if (!this.mdTarget || !b) return;
             console.log("MD: Redirecting " + amount + " from " + this.name + " to " + this.mdTarget.name);
-            b.addThreat(this.mdTarget.key, amount, ev.timestamp, "Misdirect (" + ev.ability.name + ")", this.threatCoeff(ev.ability));
+            b.addThreat(this.mdTarget.key, amount, ev.timestamp, "Misdirect (" + ev.ability.name + ")", this.mdTarget.threatCoeff(ev.ability));
             return true;
         }
         return false;
@@ -485,15 +486,15 @@ class Player extends Unit {
 
     checkEnchants() {
         for (const combatantInfoElement of combatantInfo) {
-            if (combatantInfoElement.sourceID == this.key) {
+            if (combatantInfoElement.sourceID === this.key) {
                 let gear = combatantInfoElement.gear;
                 for (const g of gear) {
                     let enchant = g.permanentEnchant;
                     if (enchant != null) {
-                        if (enchant == 2613) { // gloves threat enchant
+                        if (enchant === 2613) { // gloves threat enchant
                             this.buffs[2613] = true;
                         }
-                        if (enchant == 2621) { // cloack threat enchant
+                        if (enchant === 2621) { // cloack threat enchant
                             this.buffs[2621] = true;
                         }
                     }
