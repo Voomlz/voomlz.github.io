@@ -14,6 +14,9 @@ function showAndHideDisclaimer() {
 function showAndHideChangelog() {
     showAndHide("changelog");
 }
+function showAndHideTutotial() {
+    showAndHide("tutorial");
+}
 
 function loadPage() {
     scroll(0, 0);

@@ -16,7 +16,8 @@
 
         gtag('config', 'G-NMLK7NHP6Z');
     </script>
-    <script data-ad-client="ca-pub-3448992463946827" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-3448992463946827" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script src="threat/colors.js"></script>
     <script src="threat/spells.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -125,6 +126,10 @@
 </div>
 
 <div id="info">
+    <div id="discord">
+        <a href="https://discord.gg/3J4FGUNfW7">
+            Join us on discord!</a>
+    </div>
     <button onclick="showAndHideDisclaimer()">Disclaimer</button>
     <div id="disclaimer" style="display:none">
         <p>Warrior tank threat seem to be getting accurate</p>
@@ -190,6 +195,35 @@
             <li>Thunderfury nerf</li>
             <li>Adding missdirection beta</li>
             <li>Nightbane Threat wipe when he flies</li>
+        </ul>
+    </div>
+    <button onclick="showAndHideTutotial()">Tutotial</button>
+    <div id="tutotial" style="display:none">
+        <ul>
+            <li>1. Go to warcraft logs and copy your report. Can use directly the entire url (ex:
+                https://classic.warcraftlogs.com/reports/TvCLWArKDBYbw6Hk#fight=last) or only the id (ex:
+                TvCLWArKDBYbw6Hk)
+            </li>
+            <li>2. Go to https://voomlz.github.io/</li>
+            <li>3. Past your ID/report url in 'Report ID'</li>
+            <li>4. Clic on 'Fetch'</li>
+            <li>5. Select the fight you wanna see</li>
+            <li>6. Clic on 'Fetch/Refresh'</li>
+        </ul>
+        Going further
+        <ul>
+            <li>7. Select the player you wanna see details in 'Target'</li>
+            <li>8. Check In the 'buffs' table that everything is correctly set up (salvation, stances, and other
+                buffs)
+            </li>
+            <li>8.1 If buffs are not correctly inferred automatically, force them</li>
+            <li>8.2 click on 'Fetch/Refresh' after modifying buffs to recalculate new threat</li>
+            <li>9. You can share the graphs (now only sharing the report, wip) by copying the url and sharing it</li>
+        </ul>
+        If something seem incorrect
+        <ul>
+            <li>1. Try to force refresh the website (ctrl f5 on chrome)</li>
+            <li>2. Double check the default buffs that were inferred to the players</li>
         </ul>
     </div>
 </div>
