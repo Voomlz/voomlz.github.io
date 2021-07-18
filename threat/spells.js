@@ -113,17 +113,17 @@ const talents = {
                 return getThreatCoefficient({2: (1 + 0.6 * amp) / 1.6});
             }
         }
-            /*,
-        "Fanaticism": {
-            maxRank: 5,
-            coeff: function (buffs, rank = 0) {
-                // Not modifying when righteous fury is up
-                if ((25780 in buffs)) return getThreatCoefficient(1);
-                return getThreatCoefficient(1 - (0.06 * rank));
-            }
+        /*,
+    "Fanaticism": {
+        maxRank: 5,
+        coeff: function (buffs, rank = 0) {
+            // Not modifying when righteous fury is up
+            if ((25780 in buffs)) return getThreatCoefficient(1);
+            return getThreatCoefficient(1 - (0.06 * rank));
         }
+    }
 
-             */
+         */
     },
 
     Priest: {
@@ -528,6 +528,18 @@ function handler_bossDropThreatOnHit(pct) {
     }
 }
 
+function handler_hatefulstrike(mainTankThreat, offTankThreat) {
+    return (ev, fight) => {
+        // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
+        if (ev.type !== "damage") return; //|| (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || ev.hitType === 0) return;
+        let a = fight.eventToUnit(ev, "source");
+        let b = fight.eventToUnit(ev, "target");
+        if (!a || !b) return;
+        a.addThreat(a.target.key, mainTankThreat, ev.timestamp, ev.ability.name, 1);
+        a.addThreat(b.key, offTankThreat, ev.timestamp, ev.ability.name, 1);
+    }
+}
+
 function handler_bossDropThreatOnDebuff(pct) {
     return (ev, fight) => {
         if (ev.type !== "applydebuff") return;
@@ -712,6 +724,10 @@ const spellFunctions = {
     28833: handler_bossPartialThreatWipeOnCast(.5), // Mark of Blaumeux
     28832: handler_bossPartialThreatWipeOnCast(.5), // Mark of Korth'azz
 
+    // testing if it works like Patchwerk ? Only on off tank?
+    // 33813: handler_hatefulstrike(1000, 2000), // Gruul's hurtfulstrike
+    28308: handler_hatefulstrike(1000, 2000), // Patchwerk's hateful strike
+
     17624: handler_vanish, // Flask of Petrification
 
     // Trinkets
@@ -745,11 +761,11 @@ const spellFunctions = {
     20923: handler_damage, // Consecration r4
     20924: handler_damage, // Consecration r5
     24239: handler_damage, // Hammer of Wrath
+
     20925: handler_modDamage(1.35), // Holy Shield r1
     20927: handler_modDamage(1.35), // Holy Shield r2
     20928: handler_modDamage(1.35), // Holy Shield r3
     27179: handler_modDamage(1.35), // Holy Shield r4
-
 
     31935: handler_modDamage(1.3), // Avenger shield r1
     32699: handler_modDamage(1.3), // Avenger shield r2
@@ -993,7 +1009,7 @@ const spellFunctions = {
     23267: handler_damage, //("Firebolt (Perdition's Proc)"),
     18833: handler_damage, //("Firebolt (Alcor's Proc)"),
 
-    21992: handler_modDamagePlusThreat(0.5, 63), // Thunderfury
+    21992: handler_modDamagePlusThreat(.5, 63), // Thunderfury
     27648: handler_zero,
 
     /* Thorn Effects */
@@ -1239,6 +1255,8 @@ const spellFunctions = {
     6795: threatFunctions.concat(handler_taunt, handler_markSourceOnMiss(borders.taunt)), //("Growl"),
     5229: handler_energize, //("Enrage"),
     17057: handler_energize, //("Furor"),
+
+    31786: handler_energize, // Spiritual Attunement
 
     8983: handler_zero, //("Bash"), //TODO test bash threat
 
