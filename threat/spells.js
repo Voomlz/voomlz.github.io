@@ -282,7 +282,10 @@ const threatFunctions = {
     sourceThreatenTarget(ev, fight, amount, useThreatCoeffs = true, extraCoeff = 1) { // extraCoeff is only used for tooltip text
         let a = fight.eventToUnit(ev, "source");
         let b = fight.eventToUnit(ev, "target");
-        if (!a || !b) return;
+        if (!a || !b) {
+            console.log("Erreur pour " + JSON.stringify(ev));
+            return;
+        }
         let coeff = (useThreatCoeffs ? a.threatCoeff(ev.ability) : 1) * extraCoeff;
 
         b.addThreat(a.key, amount, ev.timestamp, ev.ability.name, coeff);
@@ -530,8 +533,13 @@ function handler_bossDropThreatOnHit(pct) {
 
 function handler_hatefulstrike(mainTankThreat, offTankThreat) {
     return (ev, fight) => {
+        if (document.getElementById("gruul-hurtfull").checked === false) return;
+
+        let threatVal = document.getElementById("gruul-hurtfull-value").value;
+        if(threatVal) mainTankThreat = threatVal;
+
         // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
-        if (ev.type !== "damage") return; //|| (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || ev.hitType === 0) return;
+        if ((ev.type !== "damage") || /*(ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || */ ev.hitType === 0) return;
         let a = fight.eventToUnit(ev, "source");
         let b = fight.eventToUnit(ev, "target");
         if (!a || !b) return;
@@ -740,7 +748,7 @@ const spellFunctions = {
     28832: handler_bossPartialThreatWipeOnCast(.5), // Mark of Korth'azz
 
     // testing if it works like Patchwerk ? Only on off tank?
-    // 33813: handler_hatefulstrike(1000, 2000), // Gruul's hurtfulstrike
+    33813: handler_hatefulstrike(1500, 0), // Gruul's hurtfulstrike
     28308: handler_hatefulstrike(1000, 2000), // Patchwerk's hateful strike
 
     17624: handler_vanish, // Flask of Petrification
