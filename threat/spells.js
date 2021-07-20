@@ -596,6 +596,21 @@ function handler_partialThreatWipeOnCast(pct) {
     }
 }
 
+function handler_partialThreatWipeOnEvent(pct) {
+    return (ev, fight) => {
+        if (ev.type !== "applybuff" && ev.type !== "removebuff") return;
+        let u = fight.eventToUnit(ev, "source");
+        if (!u) return;
+        let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
+        for (let k in enemies) {
+            if (enemies[k].threat[u.key]) {
+                console.log("Invis " + ev.type);
+                enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * pct, ev.timestamp, ev.ability.name);
+            }
+        }
+    }
+}
+
 function handler_threatOnDebuff(threatValue) {
     return (ev, fight) => {
         let t = ev.type;
@@ -831,6 +846,7 @@ const spellFunctions = {
 
 // Mage
     10181: handler_damage, // Frostbolt
+    66 : handler_partialThreatWipeOnEvent(.75), // invisibility : 20% per second of buff... we emulate it roughly and dirty
 
 // Rogue
     1856: handler_vanish, 1857: handler_vanish, // Vanish
