@@ -537,7 +537,7 @@ function handler_hatefulstrike(mainTankThreat, offTankThreat) {
         if (document.getElementById("gruul-hurtfull").checked === false) return;
 
         let threatVal = document.getElementById("gruul-hurtfull-value").value;
-        if(threatVal) mainTankThreat = threatVal;
+        if (threatVal) mainTankThreat = threatVal;
 
         // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
         if ((ev.type !== "damage") || /*(ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || */ ev.hitType === 0) return;
@@ -620,7 +620,7 @@ function handler_partialThreatWipeOnEvent(pct) {
                 } else if (ev.type === "removebuff") {
 
                     let timeElapsed = ev.timestamp - u.lastInvisibility;
-                    let nbSecondElapsed = Math.floor(timeElapsed/1000);
+                    let nbSecondElapsed = Math.floor(timeElapsed / 1000);
                     let currentThreat = enemies[k].threat[u.key].currentThreat;
 
                     // scale up by x%
@@ -730,10 +730,26 @@ function handler_timelapse(ev, fight) {
 const spellFunctions = {
 
     18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
+
+    10101: handler_bossDropThreatOnHit(0.5), // Knock Away variants
+    18813: handler_bossDropThreatOnHit(0.5),
+    18945: handler_bossDropThreatOnHit(0.5),
+    20686: handler_bossDropThreatOnHit(0.5),
+    23382: handler_bossDropThreatOnHit(0.5),
+    30121: handler_bossDropThreatOnHit(0.5),
+    32077: handler_bossDropThreatOnHit(0.5),
+    32959: handler_bossDropThreatOnHit(0.5),
+    37597: handler_bossDropThreatOnHit(0.5),
+    40486: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil
+
+
     23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
     18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
     19633: handler_bossDropThreatOnHit(.75), // Onyxia Knock Away
+    25778: handler_bossDropThreatOnHit(.75), // Knock Away Generic
+    31389: handler_bossDropThreatOnHit(.75), // Knock Away Generic
     37102: handler_bossDropThreatOnHit(.75), // Crystalcore Devastator (TK) Knock Away
+    30013: handler_bossThreatWipeOnCast, // Disarm (etheral thief in kara) removes threat
     20534: handler_bossDropThreatOnCast(0), // Majordomo Teleport
     20566: handler_bossThreatWipeOnCast, // Wrath of Ragnaros
     23138: handler_bossThreatWipeOnCast, // Gate of Shazzrah
@@ -871,7 +887,7 @@ const spellFunctions = {
 
 // Mage
     10181: handler_damage, // Frostbolt
-    66 : handler_partialThreatWipeOnEvent(.2), // invisibility : 20% per second of buff
+    66: handler_partialThreatWipeOnEvent(.2), // invisibility : 20% per second of buff
 
 // Rogue
     1856: handler_vanish, 1857: handler_vanish, // Vanish
