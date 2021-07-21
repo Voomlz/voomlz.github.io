@@ -733,6 +733,7 @@ const spellFunctions = {
     23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
     18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
     19633: handler_bossDropThreatOnHit(.75), // Onyxia Knock Away
+    37102: handler_bossDropThreatOnHit(.75), // Crystalcore Devastator (TK) Knock Away
     20534: handler_bossDropThreatOnCast(0), // Majordomo Teleport
     20566: handler_bossThreatWipeOnCast, // Wrath of Ragnaros
     23138: handler_bossThreatWipeOnCast, // Gate of Shazzrah
