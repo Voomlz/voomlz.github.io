@@ -533,6 +533,7 @@ function handler_bossDropThreatOnHit(pct) {
 
 function handler_hatefulstrike(mainTankThreat, offTankThreat) {
     return (ev, fight) => {
+        if (document.getElementById("gruul-hurtfull") === null) return;
         if (document.getElementById("gruul-hurtfull").checked === false) return;
 
         let threatVal = document.getElementById("gruul-hurtfull-value").value;
