@@ -288,9 +288,10 @@ class ThreatTrace {
 }
 
 class Unit {
-    constructor(key, name, type, events, mdStack = 0, mdTarget = null) { // Info is an object from WCL API
+    constructor(key, name, type, events, mdStack = 0, mdTarget = null, lastInvisibility = 0) { // Info is an object from WCL API
         this.mdStack = mdStack;
         this.mdTarget = mdTarget;
+        this.lastInvisibility = lastInvisibility;
         this.key = key;
         this.name = name;
         this.type = type;
@@ -362,6 +363,10 @@ class Unit {
 
     setMdTarget(value) {
         this.mdTarget = value;
+    }
+
+    setLastInvisibility(value) {
+        this.lastInvisibility = value;
     }
 
     handleMisdirectionDamage(amount, ev, fight) {

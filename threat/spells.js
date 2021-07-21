@@ -609,11 +609,26 @@ function handler_partialThreatWipeOnEvent(pct) {
         if (ev.type !== "applybuff" && ev.type !== "removebuff") return;
         let u = fight.eventToUnit(ev, "source");
         if (!u) return;
+
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
         for (let k in enemies) {
             if (enemies[k].threat[u.key]) {
-                console.log("Invis " + ev.type);
-                enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * pct, ev.timestamp, ev.ability.name);
+                if (ev.type === "applybuff") {
+                    u.setLastInvisibility(ev.timestamp);
+                    enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * (1 - pct), ev.timestamp, ev.ability.name);
+                } else if (ev.type === "removebuff") {
+
+                    let timeElapsed = ev.timestamp - u.lastInvisibility;
+                    let nbSecondElapsed = Math.floor(timeElapsed/1000);
+                    let currentThreat = enemies[k].threat[u.key].currentThreat;
+
+                    // scale up by x%
+                    currentThreat = currentThreat * (1 + (pct / (1 - pct)));
+                    // Then remove threat for the amount of time spent in invis
+                    currentThreat = nbSecondElapsed * (1 - nbSecondElapsed * pct);
+
+                    enemies[k].setThreat(u.key, currentThreat, ev.timestamp, ev.ability.name);
+                }
             }
         }
     }
@@ -854,7 +869,7 @@ const spellFunctions = {
 
 // Mage
     10181: handler_damage, // Frostbolt
-    66 : handler_partialThreatWipeOnEvent(.75), // invisibility : 20% per second of buff... we emulate it roughly and dirty
+    66 : handler_partialThreatWipeOnEvent(.2), // invisibility : 20% per second of buff
 
 // Rogue
     1856: handler_vanish, 1857: handler_vanish, // Vanish
