@@ -659,31 +659,14 @@ function handler_threatOnDebuffOrDamage(threatValue) {
 function handler_lacerate(threatValue, tickMultiplier) {
     return (ev, fight) => {
 
-        let t = ev.type;
-        if (t === "refreshdebuff") {
-            return;
-        }
-        if (t === "applydebuff") {
-            threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-            return;
-        }
-
         // miss dodge ect
         if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
 
-        if (ev.type !== "damage" && ev.tick && ev.tick === true) {
-            // Ticks have 0.x multiplier
+        if (ev.tick) {
             threatFunctions.sourceThreatenTarget(ev, fight, (ev.amount + (ev.absorbed || 0)) * tickMultiplier);
             return;
         }
-
-        if (ev.type !== "damage" || ev.hitType === 1) {
-            threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0));
-        } else {
-            // Ticks have 0.2 multiplier
-            threatFunctions.sourceThreatenTarget(ev, fight, (ev.amount + (ev.absorbed || 0)) * tickMultiplier);
-        }
-
+        threatFunctions.sourceThreatenTarget(ev, fight, (ev.amount + (ev.absorbed || 0)) + threatValue);
     }
 }
 
@@ -746,7 +729,7 @@ const spellFunctions = {
     23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
     18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
     19633: handler_bossDropThreatOnHit(.75), // Onyxia Knock Away
-    25778: handler_bossDropThreatOnHit(.75), // Knock Away Generic
+    25778: handler_bossDropThreatOnHit(.75), // Void Reaver, Fathom Lurker, Fathom Sporebat, Underbog Lord, Knock Away
     31389: handler_bossDropThreatOnHit(.75), // Knock Away Generic
     37102: handler_bossDropThreatOnHit(.75), // Crystalcore Devastator (TK) Knock Away
     30013: handler_bossThreatWipeOnCast, // Disarm (etheral thief in kara) removes threat
@@ -1135,6 +1118,7 @@ const spellFunctions = {
     11567: handler_threatOnHit(145, "Heroic Strike"),
     25286: handler_threatOnHit(175, "Heroic Strike"), // (AQ)Rank 9
     29707: handler_threatOnHit(196, "Heroic Strike"), // Rank 10
+    30324: handler_threatOnHit(220, "Heroic Strike"), // Unused rank ?
 
     //Shield Slam
     23922: handler_threatOnHit(178, "Shield Slam (Rank 1)"), //Rank 1
@@ -1218,6 +1202,7 @@ const spellFunctions = {
 
     // Commanding shout
     469: handler_threatOnDebuff(68, "Commanding Shout"),
+    // 469: handler_threatOnDebuff(58, "Commanding Shout"), // 58 threat on Omen (tbc vanilla)
 
     //Mocking Blow
     20560: threatFunctions.concat(handler_damage, handler_markSourceOnMiss(borders.taunt)), //("Mocking Blow"),
@@ -1292,11 +1277,16 @@ const spellFunctions = {
 
     // Lacerate
     // https://zidnae.gitlab.io/tbc-armor-penetration-calc/tbc_bear_tc.html
-    33745: handler_lacerate(267, 0.5, "Lacerate"),
+    // 33745: handler_lacerate(267, 0.5, "Lacerate"),
+    // zidnae 267 threat, 0.5 coef
+    // OMEN   285 threat, 0.2 coef
+    33745: handler_lacerate(285, 0.5, "Lacerate"),
 
     // Speculation on modifier https://wowwiki-archive.fandom.com/wiki/Mangle_(bear)
     // Mangle (Bear) has a threat modifier of 1.5x damage done.
     // Patch 2.1.0 : Damage increased by 15%, but bonus threat reduced so that overall threat generation will be unchanged.
+    // TODO : Need to add 15% when using 2 part T6 (in P3)
+    // https://tbc.wowhead.com/spell=38447/improved-mangle
     33878: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 1)"),
     33986: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 2)"),
     33987: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 3)"),
@@ -1333,6 +1323,8 @@ const spellFunctions = {
     8998: handler_castCanMiss(-240, "Cower (Rank 1)"),
     9000: handler_castCanMiss(-390, "Cower (Rank 2)"),
     9892: handler_castCanMiss(-600, "Cower"),
+    31709: handler_castCanMiss(-800, "Cower"),
+    27004: handler_castCanMiss(-1170, "Cower"),
 
     /* Healing */
     //TODO
