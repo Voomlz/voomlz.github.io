@@ -1107,6 +1107,7 @@ const spellFunctions = {
     185848: handler_zero, // Greater Drums of battle
 
     32182: handler_zero, // Heroism
+    2825: handler_zero, // Bloodlust
 
     /* Physical */
     12721: handler_damage, //("Deep Wounds"),
