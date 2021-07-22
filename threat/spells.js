@@ -507,6 +507,16 @@ function handler_sunderArmor(threatValue) {
         if (ev.type === "refreshdebuff" || ev.type === "applydebuff") {
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
         }
+        if (ev.type === "cast") {
+            threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+        }
+        /*
+        // TODO look into this?
+        else if (ev.type === "damage") {
+            threatFunctions.sourceThreatenTarget(ev, fight, -threatValue);
+        }
+         */
+
     }
 }
 
