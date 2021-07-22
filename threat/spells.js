@@ -1365,6 +1365,8 @@ const spellFunctions = {
     22896: handler_heal, //("Frienzed Regeneration"),
 
     24932: handler_zero, //("Leader of the Pack"),
+    // No threat since 2.1 https://wowpedia.fandom.com/wiki/Improved_Leader_of_the_Pack
+    34299: handler_zero, //("Improved Leader of the Pack"),
 
     /* Items */
     13494: handler_zero, //("Manual Crowd Pummeler"),
