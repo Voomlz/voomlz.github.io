@@ -506,6 +506,7 @@ function handler_sunderArmor(threatValue) {
     return (ev, fight) => {
         if (ev.type === "refreshdebuff" || ev.type === "applydebuff") {
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+            return;
         }
         if (ev.type === "cast") {
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
