@@ -793,7 +793,6 @@ const spellFunctions = {
     28866: handler_zero, // Kiss of the spider
     26480: handler_zero, // Badge of the Swarmguard
 
-
 // Paladin
     25898: handler_threatOnBuff(60), // GBoK
     25890: handler_threatOnBuff(60), // GBoL

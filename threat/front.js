@@ -14,7 +14,7 @@ function showAndHideDisclaimer() {
 function showAndHideChangelog() {
     showAndHide("changelog");
 }
-function showAndHideTutotial() {
+function showAndHideTutorial() {
     showAndHide("tutorial");
 }
 
@@ -31,16 +31,17 @@ function loadPage() {
         selectReport();
     }
     if (fightParam) {
-        document.getElementById("fightSelect").value = fightParam;
+        document.getElementById("fightSelect").selectedIndex = fightParam;
         selectFight();
     }
     if (enemyParam) {
-        document.getElementById("enemySelect").value = enemyParam;
+        document.getElementById("enemySelect").selectedIndex = enemyParam;
         selectEnemy();
     }
+
     if (targetParam) {
         let [reportId, fightId, enemyId, targetId] = targetParam.split(";");
-        document.getElementById("targetSelect").value = targetId;
+        document.getElementById("targetSelect").selectedIndex = targetId;
         //selectTarget(targetId);
     }
 
