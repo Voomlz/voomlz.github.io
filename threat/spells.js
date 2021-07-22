@@ -502,29 +502,33 @@ function handler_threatOnHit(threatValue) {
     }
 }
 
+let lastSunderEvent;
+
 function handler_sunderArmor(threatValue) {
     return (ev, fight) => {
-        if (ev.type === "refreshdebuff" || ev.type === "applydebuff") {
+        if (ev.type === "cast") {
             threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
             return;
         }
-        if (ev.type === "cast") {
-            threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-        }
-        /*
-        // TODO look into this?
-        else if (ev.type === "damage") {
-            threatFunctions.sourceThreatenTarget(ev, fight, -threatValue);
-        }
-         */
 
+        if (ev.type === "refreshdebuff" || ev.type === "applydebuff") {
+            lastSunderEvent = ev;
+        }
     }
 }
 
-function handler_devastate(devastateValue) {
+function handler_devastate(devastateValue, sunderValue) {
     return (ev, fight) => {
         if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
         threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + devastateValue);
+
+        if (lastSunderEvent) {
+            if (lastSunderEvent.timestamp === ev.timestamp) {
+                let a = fight.eventToUnit(ev, "source");
+                let b = fight.eventToUnit(ev, "target");
+                b.addThreat(a.key, sunderValue, ev.timestamp, "Devastate " + ev.ability.name, a.threatCoeff(ev.ability));
+            }
+        }
     }
 }
 
@@ -1140,9 +1144,9 @@ const spellFunctions = {
     30356: handler_threatOnHit(307, "Shield Slam"), //Rank 6
 
     //Devastate
-    20243: handler_devastate(100, "devastate (Rank 1)"), //Rank 1
-    30016: handler_devastate(100, "devastate (Rank 2)"), //Rank 2
-    30022: handler_devastate(100, "devastate (Rank 3)"), //Rank 3
+    20243: handler_devastate(100, 301.5, "devastate (Rank 1)"), //Rank 1
+    30016: handler_devastate(100, 301.5, "devastate (Rank 2)"), //Rank 2
+    30022: handler_devastate(100, 301.5, "devastate (Rank 3)"), //Rank 3
 
     // CF https://github.com/magey/tbc-warrior/wiki/Threat-Values
 
