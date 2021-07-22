@@ -526,7 +526,7 @@ function handler_devastate(devastateValue, sunderValue) {
             if (lastSunderEvent.timestamp === ev.timestamp) {
                 let a = fight.eventToUnit(ev, "source");
                 let b = fight.eventToUnit(ev, "target");
-                b.addThreat(a.key, sunderValue, ev.timestamp, "Devastate " + ev.ability.name, a.threatCoeff(ev.ability));
+                b.addThreat(a.key, sunderValue, ev.timestamp, lastSunderEvent.ability.name + " (Devastate)", a.threatCoeff(ev.ability));
             }
         }
     }

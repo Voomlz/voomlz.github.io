@@ -9,7 +9,6 @@ let recolorPlot = () => {
 let colorByClass = true;
 
 let combatantInfo = [];
-let playersAuras = new Map();
 
 function loadPage() {
     scroll(0, 0);
