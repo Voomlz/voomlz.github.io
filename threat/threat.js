@@ -9,6 +9,7 @@ let recolorPlot = () => {
 let colorByClass = true;
 
 let combatantInfo = [];
+let nightBaneNextLanding;
 
 function loadPage() {
     scroll(0, 0);
@@ -881,6 +882,19 @@ class Fight {
                     break;
             }
         }
+
+        // hack for nightbane
+        if (nightBaneNextLanding) {
+            if (ev.timestamp > nightBaneNextLanding) {
+                let u = this.eventToUnit(ev, "target");
+                if (!u) return;
+                for (let k in u.threat) {
+                    u.setThreat(k, 0, nightBaneNextLanding, "Landing Threat Wipe");
+                }
+                nightBaneNextLanding = null;
+            }
+        }
+
         let f = handler_basic;
         if ("ability" in ev && ev.ability.guid in spellFunctions) {
             f = spellFunctions[ev.ability.guid];
