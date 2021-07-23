@@ -303,6 +303,15 @@ const threatFunctions = {
             enemies[k].addThreat(u.key, amount / numEnemies, ev.timestamp, ev.ability.name, coeff);
         }
     },
+    unitThreatenEnemies(ev, unit, fight, amount, useThreatCoeffs = true) {
+        let u = fight.eventToUnit(ev, unit);
+        if (!u) return;
+        let coeff = useThreatCoeffs ? u.threatCoeff(ev.ability) : 1;
+        let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
+        for (let k in enemies) {
+            enemies[k].addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
+        }
+    },
     unitLeaveCombat(ev, unit, fight, text) {
         let u = fight.eventToUnit(ev, unit);
         if (!u) return;
@@ -595,6 +604,19 @@ function handler_bossThreatWipeOnCast(ev, fight) {
     }
 }
 
+function handler_nightbaneThreatWipeOnCast(ev, fight) {
+    if (ev.type !== "cast") return;
+    let u = fight.eventToUnit(ev, "source");
+    let secondThreatWipeTimestamp = (ev.timestamp + 45*1000);
+    if (!u) return;
+    for (let k in u.threat) {
+        u.setThreat(k, 0, ev.timestamp, ev.ability.name);
+
+        // Second threat wipe seem to be always 45 sec after rain of bones
+        u.setThreat(k, 0, secondThreatWipeTimestamp, "ev.ability.name");
+    }
+}
+
 function handler_bossPartialThreatWipeOnCast(pct) {
     return (ev, fight) => {
         if (ev.type !== "cast") return;
@@ -703,6 +725,15 @@ function handler_threatOnBuff(threatValue) {
     }
 }
 
+// From my testing, battle and commanding shout aren't splitting threat on tbc anymore
+function handler_threatOnBuffUnsplit(threatValue) {
+    return (ev, fight) => {
+        let t = ev.type;
+        if (t !== "applybuff" && t !== "refreshbuff") return;
+        threatFunctions.unitThreatenEnemies(ev, "source", fight, threatValue);
+    }
+}
+
 function handler_taunt(ev, fight) {
     if (ev.type !== "applydebuff") return;
     let u = fight.eventToUnit(ev, "target");
@@ -771,7 +802,7 @@ const spellFunctions = {
     26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
     11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
     28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
-    37098: handler_bossThreatWipeOnCast, // Nightbane's Rain of Bones
+    37098: handler_nightbaneThreatWipeOnCast, // Nightbane's Rain of Bones
     29060: handler_taunt, // Deathknight Understudy Taunt
     28835: handler_bossPartialThreatWipeOnCast(.5), // Mark of Zeliek
     28834: handler_bossPartialThreatWipeOnCast(.5), // Mark of Mograine
@@ -1208,17 +1239,17 @@ const spellFunctions = {
     25225: handler_sunderArmor(301.5, "Sunder Armor"), //Rank 6
 
     //Battleshout
-    11551: handler_threatOnBuff(52, "Battle Shout"), //Rank 6
-    25289: handler_threatOnBuff(60, "Battle Shout"), //Rank 7 (AQ)
-    2048: handler_threatOnBuff(69, "Battle Shout"), //Rank 8
+    11551: handler_threatOnBuffUnsplit(52, "Battle Shout"), //Rank 6
+    25289: handler_threatOnBuffUnsplit(60, "Battle Shout"), //Rank 7 (AQ)
+    2048: handler_threatOnBuffUnsplit(69, "Battle Shout"), //Rank 8
 
     //Demo Shout
     11556: handler_threatOnDebuff(43, "Demoralizing Shout"),
     25203: handler_threatOnDebuff(56, "Demoralizing Shout"), //Rank 7
 
     // Commanding shout
-    469: handler_threatOnDebuff(68, "Commanding Shout"),
-    // 469: handler_threatOnDebuff(58, "Commanding Shout"), // 58 threat on Omen (tbc vanilla)
+    469: handler_threatOnBuffUnsplit(69, "Commanding Shout"),
+    // 469: handler_threatOnBuff(58, "Commanding Shout"), // 58 threat on Omen (tbc vanilla)
 
     //Mocking Blow
     20560: threatFunctions.concat(handler_damage, handler_markSourceOnMiss(borders.taunt)), //("Mocking Blow"),
