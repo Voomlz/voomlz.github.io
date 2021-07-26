@@ -607,7 +607,7 @@ function handler_bossThreatWipeOnCast(ev, fight) {
 function handler_nightbaneThreatWipeOnCast(ev, fight) {
     if (ev.type !== "cast") return;
     let u = fight.eventToUnit(ev, "source");
-    nightBaneNextLanding = (ev.timestamp + 40*1000);
+    nightBaneNextLanding = (ev.timestamp + 40 * 1000);
     if (!u) return;
     for (let k in u.threat) {
         u.setThreat(k, 0, ev.timestamp, ev.ability.name);
@@ -1096,6 +1096,7 @@ const spellFunctions = {
 
     /* Thorn Effects */
     9910: handler_damage, //("Thorns"),  //Thorns (Rank 6)
+    26992: handler_damage, //("Thorns"),  //Thorns (Rank 7)
     17275: handler_damage, //("Heart of the Scale"), //Heart of the Scale
     22600: handler_damage, //("Force Reactive Disk"), //Force Reactive
     11350: handler_zero, //("Oil of Immolation"),   //Oil of Immolation (buff)
@@ -1103,7 +1104,14 @@ const spellFunctions = {
 
     /* Explosives */
     13241: handler_damage, //("Goblin Sapper Charge"), //Goblin Sapper Charge
-
+    30486: handler_damage, //Super Sapper Charge
+    39965: handler_damage, //Frost Grenades
+    30217: handler_damage, //Adamantite Grenade
+    30461: handler_damage, //The Bigger One
+    19821: handler_damage, //Arcane Bomb
+    30216: handler_damage, //Fel Iron Bomb
+    46567: handler_damage, //Rocket Launch
+    // TODO : Need to double check if slow/stun effects add threat modifier on some explosives
 
     /* Zero Threat Abilities */
     71: handler_zero,		// Defensive Stance
