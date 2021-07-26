@@ -602,7 +602,7 @@ function handler_bossThreatWipeOnCast(ev, fight) {
 function handler_nightbaneThreatWipeOnCast(ev, fight) {
     if (ev.type !== "cast") return;
     let u = fight.eventToUnit(ev, "source");
-    nightBaneNextLanding = (ev.timestamp + 40 * 1000);
+    nightBaneNextLanding = (ev.timestamp + 45 * 1000);
     if (!u) return;
     for (let k in u.threat) {
         u.setThreat(k, 0, ev.timestamp, ev.ability.name);

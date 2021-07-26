@@ -885,13 +885,15 @@ class Fight {
 
         // hack for nightbane
         if (nightBaneNextLanding) {
-            if (ev.timestamp > nightBaneNextLanding) {
-                let u = this.eventToUnit(ev, "target");
-                if (!u) return;
-                for (let k in u.threat) {
-                    u.setThreat(k, 0, nightBaneNextLanding, "Landing Threat Wipe");
+            if (ev.sourceIsFriendly && !ev.targetIsFriendly) {
+                if (ev.timestamp > nightBaneNextLanding) {
+                    let u = this.eventToUnit(ev, "target");
+                    if (!u) return;
+                    for (let k in u.threat) {
+                        u.setThreat(k, 0, nightBaneNextLanding, "Landing Threat Wipe");
+                    }
+                    nightBaneNextLanding = null;
                 }
-                nightBaneNextLanding = null;
             }
         }
 
