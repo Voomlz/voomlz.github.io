@@ -803,6 +803,13 @@ const spellFunctions = {
     35166: handler_zero, // Bloodlust brooch
     28866: handler_zero, // Kiss of the spider
     26480: handler_zero, // Badge of the Swarmguard
+    26481: handler_zero, // Badge of the Swarmguard - arpen
+
+    // Gear proc
+    21165: handler_zero, // Blacksmith mace
+
+    // Enchant proc
+    28093: handler_zero, // Lightning speed - mongoose weapon
 
 // Paladin
     25898: handler_threatOnBuff(60), // GBoK
@@ -1033,6 +1040,7 @@ const spellFunctions = {
     25454: handler_modDamage(1), // Earth Shock r8
 
     16246: handler_zero, // Clearcasting
+    25584: handler_zero, // Windfury Attack (buff only)
 
     24398: handler_zero, // Water Shield cast R1
     33736: handler_zero, // Water shield cast R2
