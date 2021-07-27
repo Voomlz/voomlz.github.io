@@ -283,7 +283,6 @@ const threatFunctions = {
         let a = fight.eventToUnit(ev, "source");
         let b = fight.eventToUnit(ev, "target");
         if (!a || !b) {
-            console.log("Erreur pour " + JSON.stringify(ev));
             return;
         }
         let coeff = (useThreatCoeffs ? a.threatCoeff(ev.ability) : 1) * extraCoeff;
@@ -531,11 +530,13 @@ function handler_devastate(devastateValue, sunderValue) {
         if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
         threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0) + devastateValue);
 
+        // Little hack to manage the case where we have multiple warrior sundering.
+        // In WCL, only one will be considered as source of all sunder debuff on one target.
         if (lastSunderEvent) {
             if (lastSunderEvent.timestamp === ev.timestamp) {
-                let a = fight.eventToUnit(ev, "source");
-                let b = fight.eventToUnit(ev, "target");
-                b.addThreat(a.key, sunderValue, ev.timestamp, lastSunderEvent.ability.name + " (Devastate)", a.threatCoeff(ev.ability));
+                let source = fight.eventToUnit(ev, "source");
+                let target = fight.eventToUnit(ev, "target");
+                target.addThreat(source.key, sunderValue, ev.timestamp, lastSunderEvent.ability.name + " (Devastate)", source.threatCoeff(lastSunderEvent.ability));
             }
         }
     }
@@ -701,16 +702,6 @@ function handler_lacerate(threatValue, tickMultiplier) {
             return;
         }
         threatFunctions.sourceThreatenTarget(ev, fight, (ev.amount + (ev.absorbed || 0)) + threatValue);
-    }
-}
-
-function handler_misdirectionCast() {
-    return (ev, fight) => {
-        let t = ev.type;
-        let source = fight.eventToUnit(ev, "source");
-        let target = fight.eventToUnit(ev, "target");
-        source.setMdTarget(target);
-        source.setMdStack(3);
     }
 }
 
@@ -1035,7 +1026,7 @@ const spellFunctions = {
     // Misdirection cast
     //34477: handler_misdirectionCast(),
     // Misdirection buff
-    35079: handler_misdirectionCast(),
+    //35079: handler_misdirectionCast(),
 
 // Shaman
     8042: handler_modDamage(1), // Earth Shock r1

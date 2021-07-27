@@ -278,7 +278,6 @@ const threatFunctions = {
         let a = fight.eventToUnit(ev, "source");
         let b = fight.eventToUnit(ev, "target");
         if (!a || !b) {
-            console.log("Erreur pour " + JSON.stringify(ev));
             return;
         }
         let coeff = (useThreatCoeffs ? a.threatCoeff(ev.ability) : 1) * extraCoeff;
@@ -699,16 +698,6 @@ function handler_lacerate(threatValue, tickMultiplier) {
     }
 }
 
-function handler_misdirectionCast() {
-    return (ev, fight) => {
-        let t = ev.type;
-        let source = fight.eventToUnit(ev, "source");
-        let target = fight.eventToUnit(ev, "target");
-        source.setMdTarget(target);
-        source.setMdStack(3);
-    }
-}
-
 function handler_threatOnBuff(threatValue) {
     return (ev, fight) => {
         let t = ev.type;
@@ -1030,7 +1019,7 @@ const spellFunctions = {
     // Misdirection cast
     //34477: handler_misdirectionCast(),
     // Misdirection buff
-    35079: handler_misdirectionCast(),
+    //35079: handler_misdirectionCast(),
 
 // Shaman
     8042: handler_modDamage(1), // Earth Shock r1

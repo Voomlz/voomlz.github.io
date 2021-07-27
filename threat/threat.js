@@ -9,6 +9,7 @@ let recolorPlot = () => {
 let colorByClass = true;
 
 let combatantInfo = [];
+const globalMdAuras = [];
 let nightBaneNextLanding;
 
 function loadPage() {
@@ -116,6 +117,14 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
         t = json.nextPageTimestamp;
     }
     return auras;
+}
+
+async function fetchWCLMisdirectionUptime(path, start, end, source) {
+    let query = `report/tables/buffs/${path}&start=${start}&end=${end}&abilityid=35079&sourceid=${source}`;
+    let json = await fetchWCLv1(query);
+    if (!json) throw "Could not parse report " + path;
+    json.auras.source = source;
+    return json.auras;
 }
 
 class ThreatTrace {
@@ -288,9 +297,8 @@ class ThreatTrace {
 }
 
 class Unit {
-    constructor(key, name, type, events, mdStack = 0, mdTarget = null, lastInvisibility = 0) { // Info is an object from WCL API
-        this.mdStack = mdStack;
-        this.mdTarget = mdTarget;
+    constructor(key, name, type, events, lastInvisibility = 0) { // Info is an object from WCL API
+        this.mdStacksPerBand = [];
         this.lastInvisibility = lastInvisibility;
         this.key = key;
         this.name = name;
@@ -357,28 +365,37 @@ class Unit {
         if (this.initialCoeff > 1) this.tank = true;
     }
 
-    setMdStack(value) {
-        this.mdStack = value;
-    }
-
-    setMdTarget(value) {
-        this.mdTarget = value;
-    }
-
     setLastInvisibility(value) {
         this.lastInvisibility = value;
     }
 
     handleMisdirectionDamage(amount, ev, fight) {
-        if (this.mdStack !== 0) {
-            if (ev.ability.guid === 27016) return;
-            this.mdStack--;
-            let b = fight.eventToUnit(ev, "target");
-            if (!this.mdTarget || !b) return;
-            console.log("MD: Redirecting " + amount + " from " + this.name + " to " + this.mdTarget.name);
-            b.addThreat(this.mdTarget.key, amount, ev.timestamp, "Misdirect (" + ev.ability.name + ")", this.mdTarget.threatCoeff(ev.ability));
-            return true;
+        if (ev.ability.guid === 27016) return false;
+        // filter serpent sting
+
+        let mdAuraForThis = globalMdAuras[this.key];
+        for (let i in mdAuraForThis) {
+            let md = mdAuraForThis[i];
+            for (let j in md.bands) {
+                let band = md.bands[j];
+
+                // Adding a delay for projectile traveling time...
+                // 3 seconds
+                if (ev.timestamp >= band.startTime && band.endTime + (3 * 1000) >= ev.timestamp) {
+                    if (!this.mdStacksPerBand[band.startTime]) {
+                        this.mdStacksPerBand[band.startTime] = 3;
+                    } else if (this.mdStacksPerBand[band.startTime] !== 1) {
+                        this.mdStacksPerBand[band.startTime] = this.mdStacksPerBand[band.startTime] - 1;
+                    } else continue;
+                    let b = fight.eventToUnit(ev, "target");
+                    console.log("[" + ev.timestamp + "]MD: Redirecting " + amount + " from " + this.name + " to " + md.name);
+                    b.addThreat(md.id, amount, ev.timestamp, "Misdirect (" + ev.ability.name + ")", this.threatCoeff(ev.ability));
+                    return true;
+                }
+            }
         }
+
+
         return false;
     }
 
@@ -440,7 +457,7 @@ class Unit {
         return key;
     }
 
-    // Empty functions to enable blind calls
+// Empty functions to enable blind calls
     setThreat() {
     }
 
@@ -774,6 +791,15 @@ class Fight {
                 lastTime = this.events[i].timestamp;
             }
         }
+
+        for (let f in this.globalUnits) {
+
+            if (this.globalUnits[f].type === "Hunter") {
+                let misdirectionUptime = await fetchWCLMisdirectionUptime(this.reportId + "?", this.start, this.end, this.globalUnits[f].id);
+                misdirectionUptime.source = this.globalUnits[f].id;
+                globalMdAuras[this.globalUnits[f].id] = misdirectionUptime;
+            }
+        }
     }
 
     eventToUnit(ev, unit) { // Unit should be "source" or "target"
@@ -910,6 +936,9 @@ class Fight {
         this.units = {};
 
         for (let i = 0; i < this.events.length; ++i) {
+            this.eventToUnit(this.events[i], "source");
+        }
+        for (let i = 0; i < this.events.length; ++i) {
             this.processEvent(this.events[i]);
         }
     }
@@ -1014,36 +1043,6 @@ function selectReport() {
     }).catch(printError);
 }
 
-function selectFight() {
-    let el = document.querySelector("#fightSelect");
-    let el_enemySelect = document.querySelector("#enemySelect");
-    let i = el.selectedIndex;
-    if (i === -1) return;
-    let s = el.options[i].value;
-    let [reportId, fightId] = s.split(";");
-    let f = reports[reportId].fights[fightId]
-    enableInput(false);
-    f.fetch().then(() => {
-        f.process();
-        let j = el_enemySelect.selectedIndex;
-        let prevSelection = "";
-        if (j !== -1) prevSelection = el_enemySelect.options[j].value;
-        j = 0;
-        el_enemySelect.innerHTML = "";
-        for (let k in f.enemies) {
-            let u = f.enemies[k];
-            let el_u = document.createElement("option");
-            el_u.value = reportId + ";" + fightId + ";" + k;
-            el_u.textContent = u.name + " - " + k;
-            el_enemySelect.appendChild(el_u);
-            if (el_u.value === prevSelection) el_enemySelect.selectedIndex = j;
-            j += 1;
-        }
-        selectEnemy();
-        enableInput(true);
-    }).catch(printError);
-}
-
 function selectEnemy() {
     try {
         let el = document.querySelector("#enemySelect");
@@ -1117,4 +1116,38 @@ function createCheckbox(el_out, checked, text, callback) {
     el_label.textContent = text;
     el_out.appendChild(el_checkbox);
     el_out.appendChild(el_label);
+}
+
+function selectFight(index) {
+    let el = document.querySelector("#fightSelect");
+    let el_enemySelect = document.querySelector("#enemySelect");
+    let i;
+    if (index)
+        i = index;
+    else
+        i = el.selectedIndex;
+    if (i === -1) return;
+    let s = el.options[i].value;
+    let [reportId, fightId] = s.split(";");
+    let f = reports[reportId].fights[fightId];
+    enableInput(false);
+    f.fetch().then(() => {
+        f.process();
+        let j = el_enemySelect.selectedIndex;
+        let prevSelection = "";
+        if (j !== -1) prevSelection = el_enemySelect.options[j].value;
+        j = 0;
+        el_enemySelect.innerHTML = "";
+        for (let k in f.enemies) {
+            let u = f.enemies[k];
+            let el_u = document.createElement("option");
+            el_u.value = reportId + ";" + fightId + ";" + k;
+            el_u.textContent = u.name + " - " + k;
+            el_enemySelect.appendChild(el_u);
+            if (el_u.value === prevSelection) el_enemySelect.selectedIndex = j;
+            j += 1;
+        }
+        selectEnemy();
+        enableInput(true);
+    }).catch(printError);
 }
