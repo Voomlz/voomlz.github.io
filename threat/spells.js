@@ -112,18 +112,15 @@ const talents = {
                 let amp = 1 + Math.floor(rank * 50 / 3) / 100;
                 return getThreatCoefficient({2: (1 + 0.6 * amp) / 1.6});
             }
+        },
+        "Fanaticism": {
+            maxRank: 5,
+            coeff: function (buffs, rank = 0) {
+                // Not modifying when righteous fury is up
+                if ((25780 in buffs)) return getThreatCoefficient(1);
+                return getThreatCoefficient(1 - (0.06 * rank));
+            }
         }
-        /*,
-    "Fanaticism": {
-        maxRank: 5,
-        coeff: function (buffs, rank = 0) {
-            // Not modifying when righteous fury is up
-            if ((25780 in buffs)) return getThreatCoefficient(1);
-            return getThreatCoefficient(1 - (0.06 * rank));
-        }
-    }
-
-         */
     },
 
     Priest: {

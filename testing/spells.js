@@ -72,8 +72,8 @@ const talents = {
         },
         "Improved Berserker Stance": {
             maxRank: 5,
-            coeff: function (buffs, rank = 0) {
-                if (!(7381 in buffs)) return getThreatCoefficient(1);
+            coeff: function (buffs, rank = 5) {
+                if (!(2458 in buffs)) return getThreatCoefficient(1);
                 return getThreatCoefficient(1 - 0.02 * rank);
             }
         },
@@ -109,8 +109,7 @@ const talents = {
                 let amp = 1 + Math.floor(rank * 50 / 3) / 100;
                 return getThreatCoefficient({2: (1 + 0.6 * amp) / 1.6});
             }
-        }
-        ,
+        },
         "Fanaticism": {
             maxRank: 5,
             coeff: function (buffs, rank = 0) {
