@@ -70,16 +70,13 @@ const talents = {
                 return getThreatCoefficient(1 + 0.05 * rank);
             }
         },
-        /*
         "Improved Berserker Stance": {
             maxRank: 5,
-            coeff: function (buffs, rank = 0) {
-                if (!(7381 in buffs)) return getThreatCoefficient(1);
+            coeff: function (buffs, rank = 5) {
+                if (!(2458 in buffs)) return getThreatCoefficient(1);
                 return getThreatCoefficient(1 - 0.02 * rank);
             }
         },
-
-         */
     },
     Druid: {
         "Feral Instinct": {
