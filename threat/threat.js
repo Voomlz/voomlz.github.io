@@ -64,7 +64,7 @@ async function fetchWCLv1(path) {
 async function fetchWCLreport(path, start, end) {
     let t = start;
     let events = [];
-    let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff","energize","absorbed","healabsorbed","leech","drain", "removebuff") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
+    let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","healing","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff","energize","absorbed","healabsorbed","leech","drain", "removebuff") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
     while (typeof t === "number") {
         let json = await fetchWCLv1(`report/events/${path}&start=${t}&end=${end}&filter=${filter}`);
         if (!json.events) throw "Could not parse report " + path;
@@ -752,14 +752,6 @@ class Fight {
     async fetch() {
         combatantInfo = await fetchWCLCombatantInfo(this.reportId + "?", 0, this.end);
 
-        /*
-        for(const combatantInfoElement of combatantInfo) {
-            let source = combatantInfoElement.sourceID;
-            let playerAuras = fetchWCLPlayerBuffs(this.reportId + "?", 0, this.end, source);
-            playersAuras.set(source, playerAuras);
-        }
-         */
-
         if ("events" in this) return;
         this.events = await fetchWCLreport(this.reportId + "?", this.start, this.end);
         // Custom events
@@ -935,7 +927,8 @@ class Fight {
         this.enemies = {};
         this.units = {};
 
-        for (let i = 0; i < this.events.length; ++i) {
+        // Force instanciate all units so we don't have a bug with MD pull
+        for (let i = 0; i < 300; ++i) {
             this.eventToUnit(this.events[i], "source");
         }
         for (let i = 0; i < this.events.length; ++i) {

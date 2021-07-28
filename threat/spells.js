@@ -536,6 +536,13 @@ function handler_devastate(devastateValue, sunderValue) {
     }
 }
 
+function handler_threatAsTargetHealed(ev, fight) {
+    if (ev.type === "cast") return;
+    console.log(JSON.stringify(ev));
+    threatFunctions.unitThreatenEnemiesSplit(ev, "target", fight, ev.amount / 2, false);
+}
+
+
 function handler_bossDropThreatOnHit(pct) {
     return (ev, fight) => {
         // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
@@ -944,6 +951,8 @@ const spellFunctions = {
     27804: handler_zero, // Holy Nova r5
     27805: handler_zero, // Holy Nova r6
 
+    33110: handler_threatAsTargetHealed, // Prayer of mending
+
 // Warlock
     18288: handler_zero, // Amplify Curse
     603: handler_threatOnDebuffOrDamage(120), // Curse of Doom
@@ -1073,6 +1082,8 @@ const spellFunctions = {
     // Elemental mastery
     16166: handler_zero, // Rank 6
 
+    379: handler_threatAsTargetHealed, // Earth shield = threat to player healed
+
 // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
     1: handler_damage,
     /* Consumables */
@@ -1171,7 +1182,7 @@ const spellFunctions = {
     23924: handler_threatOnHit(229, "Shield Slam (Rank 3)"), //Rank 3
     23925: handler_threatOnHit(254, "Shield Slam (Rank 4)"), //Rank 4
     25258: handler_threatOnHit(278, "Shield Slam (Rank 5)"), //Rank 5
-    30356: handler_threatOnHit(307, "Shield Slam"), //Rank 6
+    30356: handler_threatOnHit(305, "Shield Slam"), //Rank 6
 
     //Devastate
     20243: handler_devastate(100, 301.5, "devastate (Rank 1)"), //Rank 1
