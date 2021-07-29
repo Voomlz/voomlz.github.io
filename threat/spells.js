@@ -541,7 +541,6 @@ function handler_devastate(devastateValue, sunderValue) {
 
 function handler_threatAsTargetHealed(ev, fight) {
     if (ev.type === "cast") return;
-    console.log(JSON.stringify(ev));
     threatFunctions.unitThreatenEnemiesSplit(ev, "target", fight, ev.amount / 2, true);
 }
 
