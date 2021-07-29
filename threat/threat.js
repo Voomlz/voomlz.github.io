@@ -823,7 +823,11 @@ class Fight {
         return this.units[k];
     }
 
-    instanciateUnit(ev) { // Unit should be "source" or "target"
+    instanciateUnit(ev) {
+        if (!ev) {
+            console.log(JSON.stringify(ev));
+            return;
+        }
         let k = Unit.eventToKey(ev, "source");
         if (!k || k == -1) return;
         if (!(k in this.units)) {
@@ -955,7 +959,9 @@ class Fight {
         this.units = {};
 
         // Force instanciate all units so we don't have a bug with MD pull
-        for (let i = 0; i < 300; ++i) {
+        let number = this.events.length < 300 ? this.events.length: 300;
+        for (let i = 0; i < number; ++i) {
+
             this.instanciateUnit(this.events[i]);
         }
         for (let i = 0; i < this.events.length; ++i) {
