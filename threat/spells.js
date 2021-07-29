@@ -247,7 +247,7 @@ const auraImplications = {
         6552: 2458, 6554: 2458, //Pummel
         355: 71, //Taunt
         676: 71, //Disarm
-        6572: 71, 6574: 71, 7379: 71, 11600: 71, 11601: 71, 25288: 71, 25269: 71 , 30357: 71,//Revenge
+        6572: 71, 6574: 71, 7379: 71, 11600: 71, 11601: 71, 25288: 71, 25269: 71 , 30357: 71, //Revenge
         2565: 71, //Shield Block
         871: 71, //Shield Wall
         23922: 71, 23923: 71, 23924: 71, 23925: 71, 25258: 71, 30356: 71, // Shield slam
@@ -542,7 +542,7 @@ function handler_devastate(devastateValue, sunderValue) {
 function handler_threatAsTargetHealed(ev, fight) {
     if (ev.type === "cast") return;
     console.log(JSON.stringify(ev));
-    threatFunctions.unitThreatenEnemiesSplit(ev, "target", fight, ev.amount / 2, false);
+    threatFunctions.unitThreatenEnemiesSplit(ev, "target", fight, ev.amount / 2, true);
 }
 
 
@@ -954,8 +954,6 @@ const spellFunctions = {
     27804: handler_zero, // Holy Nova r5
     27805: handler_zero, // Holy Nova r6
 
-    33110: handler_threatAsTargetHealed, // Prayer of mending
-
 // Warlock
     18288: handler_zero, // Amplify Curse
     603: handler_threatOnDebuffOrDamage(120), // Curse of Doom
@@ -1084,8 +1082,6 @@ const spellFunctions = {
 
     // Elemental mastery
     16166: handler_zero, // Rank 6
-
-    379: handler_threatAsTargetHealed, // Earth shield = threat to player healed
 
 // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
     1: handler_damage,
@@ -1387,6 +1383,9 @@ const spellFunctions = {
 
     /* Healing */
     //TODO
+    33778: handler_threatAsTargetHealed, // Final tick of life bloom
+    379: handler_threatAsTargetHealed, // Earth shield = threat to player healed
+    33110: handler_threatAsTargetHealed, // Prayer of mending
 
     /* Abilities */
     16857: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 1)"),
