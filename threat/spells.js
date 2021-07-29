@@ -302,7 +302,13 @@ const threatFunctions = {
     unitThreatenEnemiesSplitOnHealRedirect(ev, unit, fight, amount) {
         let u = fight.eventToUnit(ev, unit);
         if (!u) return;
-        let coeff = u.threatCoeff();
+        let coeff;
+        if (u.type === "Paladin") {
+            // Only holy abilities (prayer of mending here) have coef
+            coeff = u.threatCoeff(ev.ability);
+        } else {
+            coeff = u.threatCoeff();
+        }
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
         let numEnemies = 0;
         for (let k in enemies) {
