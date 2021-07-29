@@ -299,6 +299,19 @@ const threatFunctions = {
             enemies[k].addThreat(u.key, amount / numEnemies, ev.timestamp, ev.ability.name, coeff);
         }
     },
+    unitThreatenEnemiesSplitOnHealRedirect(ev, unit, fight, amount) {
+        let u = fight.eventToUnit(ev, unit);
+        if (!u) return;
+        let coeff = u.threatCoeff();
+        let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
+        let numEnemies = 0;
+        for (let k in enemies) {
+            if (enemies[k].alive) numEnemies += 1;
+        }
+        for (let k in enemies) {
+            enemies[k].addThreat(u.key, amount / numEnemies, ev.timestamp, ev.ability.name, coeff);
+        }
+    },
     unitThreatenEnemies(ev, unit, fight, amount, useThreatCoeffs = true) {
         let u = fight.eventToUnit(ev, unit);
         if (!u) return;
@@ -541,9 +554,8 @@ function handler_devastate(devastateValue, sunderValue) {
 
 function handler_threatAsTargetHealed(ev, fight) {
     if (ev.type === "cast") return;
-    threatFunctions.unitThreatenEnemiesSplit(ev, "target", fight, ev.amount / 2, true);
+    threatFunctions.unitThreatenEnemiesSplitOnHealRedirect(ev, "target", fight, ev.amount / 2);
 }
-
 
 function handler_bossDropThreatOnHit(pct) {
     return (ev, fight) => {

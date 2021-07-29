@@ -12,6 +12,7 @@ let combatantInfo = [];
 const globalMdAuras = [];
 let nightBaneNextLanding;
 
+/*
 function loadPage() {
     scroll(0, 0);
     const wclUrl = getParameterByName('id');
@@ -20,6 +21,8 @@ function loadPage() {
         selectReport();
     }
 }
+*/
+
 
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -509,7 +512,7 @@ class Player extends Unit {
 
     checkEnchants() {
         for (const combatantInfoElement of combatantInfo) {
-            if (combatantInfoElement.sourceID === this.key) {
+            if (combatantInfoElement.sourceID == this.key) {
                 let gear = combatantInfoElement.gear;
                 for (const g of gear) {
                     let enchant = g.permanentEnchant;
@@ -597,7 +600,9 @@ class NPC extends Unit {
     checkTargetExists(unitId, time) {
         if (unitId === -1) return;
         if (!(unitId in this.threat)) {
-            if (!(unitId in this.fightUnits)) throw "Unknown unit " + unitId + ".";
+            if (!(unitId in this.fightUnits)) {
+                throw "Unknown unit " + unitId + ".";
+            }
             this.threat[unitId] = new ThreatTrace(this.fightUnits[unitId], time, this.fight);
         }
         return this.threat[unitId];
@@ -818,6 +823,28 @@ class Fight {
         return this.units[k];
     }
 
+    instanciateUnit(ev) { // Unit should be "source" or "target"
+        let k = Unit.eventToKey(ev, "source");
+        if (!k || k == -1) return;
+        if (!(k in this.units)) {
+            let [a, b] = this.eventToFriendliesAndEnemies(ev, "source");
+            let [id, ins] = k.split(".");
+            let u = this.globalUnits[id];
+            if (!u) {
+                if (DEBUGMODE) console.log("Invalid unit", ev, "source", this.globalUnits);
+                return;
+            }
+            let t = u.type;
+            if (t === "NPC" || t === "Boss" || t === "Pet") {
+                return;
+            } else {
+                a[k] = new Player(k, this.globalUnits[id], this.events, this.tranquilAir);
+            }
+            this.units[k] = a[k];
+        }
+        return this.units[k];
+    }
+
     eventToFriendliesAndEnemies(ev, unit) {
         let friendly = ev[unit + "IsFriendly"];
         let friendlies = friendly ? this.friendlies : this.enemies;
@@ -929,7 +956,7 @@ class Fight {
 
         // Force instanciate all units so we don't have a bug with MD pull
         for (let i = 0; i < 300; ++i) {
-            this.eventToUnit(this.events[i], "source");
+            this.instanciateUnit(this.events[i]);
         }
         for (let i = 0; i < this.events.length; ++i) {
             this.processEvent(this.events[i]);
@@ -994,6 +1021,7 @@ class Report {
         }
     }
 }
+
 
 const reports = {};
 
