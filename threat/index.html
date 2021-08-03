@@ -117,13 +117,6 @@
             <td>Target</td>
             <td colspan="2"><select id="targetSelect" onchange="selectTarget()"></select></td>
         </tr>
-        <tr style="display:none">
-            <td>Beta Gruul hurtful</td>
-            <td colspan="2">
-                <label for="gruul-hurtfull">Active</label><input type="checkbox" id="gruul-hurtfull" name="gruul">
-                <label for="gruul-hurtfull-value">Value</label><input type="text" id="gruul-hurtfull-value" name="gruul">
-            </td>
-        </tr>
     </table>
 </div>
 <div id="outputContainer">
@@ -132,27 +125,28 @@
 </div>
 
 <div id="info">
-    <div>
-        <p>TBCC implementation is still in progress</p>
+    <div id="discord">
         <a href="https://discord.gg/3J4FGUNfW7">
             Join us on discord!</a>
     </div>
-    <div>
-        <a href="https://voomlz.github.io/">
-            /!\ Graphs without beta stuff here  /!\</a>
-    </div>
-    <button onclick="showAndHideDisclaimer()">Disclaimer</button>
+    <button onclick="showAndHideDisclaimer()">Note</button>
     <div id="disclaimer" style="display:none">
-        <p>Druid tank threat is still unreliable</p>
-        <p>Warrior tank threat seem to be getting accurate</p>
-        <p>For any feedback or inconsistencies feel free to DM me on discord Vooml#6203.
-            Provide a log url and threat meter add on to ease debugging :)</p>
+        <p>Threat is calculated from the combat logs. Some inaccuracies can occur.</p>
+        <p>Tanks threat is getting on point</p>
+        <p>For any feedback or inconsistencies feel free to join us on <a href="https://discord.gg/3J4FGUNfW7">
+            discord</a>.
+        </p>
     </div>
     <button onclick="showAndHideChangelog()">Changelog</button>
     <div id="changelog" style="display:none">
         <h2>Changelog:</h2>
         <h3>Quality of life:</h3>
         <ul>
+            <li>New browser extension to open directly the threat graph from warcraft logs</li>
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/wcl-threat-link/">
+                Firefox</a>
+            <a href="https://chrome.google.com/webstore/detail/wcl-threat-link/pbhoiekekddmkjfkoalcohlpjgfabkjn?hl=en">
+                Chrome</a>
             <li>Adding warcraft log url as parameter with '?id=' i.e :</li>
             <a href="https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2">
                 https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2</a>
@@ -188,11 +182,16 @@
             <li>Adding enchancement reduction talent</li>
             <li>Adding elemental reduction talent</li>
             <li>Adding earth shock</li>
+            <li>Adding Lightning Overload procs</li>
             <li>Earth shock modifier modified to 1 (instead of 2 in classic)</li>
         </ul>
         <h3>Hunter</h3>
         <ul>
             <li>Adding Missdirection</li>
+        </ul>
+        <h3>Mage</h3>
+        <ul>
+            <li>Adding dummy invisibility. Removing 25% threat when cast and when fades. Need to be fixed to be x% per second or X value per second. Needs more testing and custome code</li>
         </ul>
         <h3>Paladin</h3>
         <ul>
@@ -206,6 +205,35 @@
             <li>Thunderfury nerf</li>
             <li>Adding missdirection beta</li>
             <li>Nightbane Threat wipe when he flies</li>
+        </ul>
+    </div>
+    <button onclick="showAndHideTutorial()">Tutorial</button>
+    <div id="tutorial" style="display:none">
+        <ul>
+            <li>1. Go to warcraft logs and copy your report. Can use directly the entire url (ex:
+                https://classic.warcraftlogs.com/reports/TvCLWArKDBYbw6Hk#fight=last) or only the id (ex:
+                TvCLWArKDBYbw6Hk)
+            </li>
+            <li>2. Go to https://voomlz.github.io/</li>
+            <li>3. Past your ID/report url in 'Report ID'</li>
+            <li>4. Clic on 'Fetch'</li>
+            <li>5. Select the fight you wanna see</li>
+            <li>6. Clic on 'Fetch/Refresh'</li>
+        </ul>
+        Going further
+        <ul>
+            <li>7. Select the player you wanna see details in 'Target'</li>
+            <li>8. Check In the 'buffs' table that everything is correctly set up (salvation, stances, and other
+                buffs)
+            </li>
+            <li>8.1 If buffs are not correctly inferred automatically, force them</li>
+            <li>8.2 click on 'Fetch/Refresh' after modifying buffs to recalculate new threat</li>
+            <li>9. You can share the graphs (now only sharing the report, wip) by copying the url and sharing it</li>
+        </ul>
+        If something seem incorrect
+        <ul>
+            <li>1. Try to force refresh the website (ctrl f5 on chrome)</li>
+            <li>2. Double check the default buffs that were inferred to the players</li>
         </ul>
     </div>
 </div>
