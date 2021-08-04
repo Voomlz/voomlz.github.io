@@ -626,6 +626,21 @@ function handler_bossThreatWipeOnCast(ev, fight) {
     }
 }
 
+function handler_hydrossThreatWipeOnCast(ev, fight) {
+    if (ev.type !== "cast") return;
+    let u = fight.eventToUnit(ev, "source");
+
+    let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, u);
+
+    for (let i in enemies) {
+        if (enemies[i].alive) {
+            for (let k in enemies[i].threat) {
+                enemies[i].setThreat(k, 0, ev.timestamp, "Change phase");
+            }
+        }
+    }
+}
+
 function handler_nightbaneThreatWipeOnCast(ev, fight) {
     if (ev.type !== "cast") return;
     let u = fight.eventToUnit(ev, "source");
@@ -812,6 +827,7 @@ const spellFunctions = {
     26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
     11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
     28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
+    25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
     37098: handler_nightbaneThreatWipeOnCast, // Nightbane's Rain of Bones
     29060: handler_taunt, // Deathknight Understudy Taunt
     28835: handler_bossPartialThreatWipeOnCast(.5), // Mark of Zeliek
@@ -1189,8 +1205,8 @@ const spellFunctions = {
     11565: handler_threatOnHit(118, "Heroic Strike"),
     11566: handler_threatOnHit(137, "Heroic Strike"),
     11567: handler_threatOnHit(145, "Heroic Strike"),
-    25286: handler_threatOnHit(175, "Heroic Strike"), // (AQ)Rank 9
-    29707: handler_threatOnHit(196, "Heroic Strike"), // Rank 10
+    25286: handler_threatOnHit(173, "Heroic Strike"), // (AQ)Rank 9
+    29707: handler_threatOnHit(194, "Heroic Strike"), // Rank 10
     30324: handler_threatOnHit(220, "Heroic Strike"), // Unused rank ?
 
     //Shield Slam
