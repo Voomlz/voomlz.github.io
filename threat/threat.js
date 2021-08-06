@@ -223,12 +223,16 @@ class ThreatTrace {
         let keys = Object.keys(a);
         keys.sort((x, y) => a[y] - a[x]);
         let totalThreat = 0;
+        let data = [];
         for (let i = 0; i < keys.length; ++i) {
             let k = keys[i];
             totalThreat += a[k];
             addRow([k, a[k], a[k] / rangeWidth]);
+            data.push([k, a[k], a[k] / rangeWidth]);
         }
         addRow(["Total", totalThreat, totalThreat / rangeWidth]);
+        data.push(["Total", totalThreat, totalThreat / rangeWidth]);
+        console.log(JSON.stringify(data));
         el_div.appendChild(el_table);
     }
 
@@ -391,9 +395,11 @@ class Unit {
                         this.mdStacksPerBand[band.startTime] = this.mdStacksPerBand[band.startTime] - 1;
                     } else continue;
                     let b = fight.eventToUnit(ev, "target");
-                    console.log("[" + ev.timestamp + "]MD: Redirecting " + amount + " from " + this.name + " to " + md.name);
-                    b.addThreat(md.id, amount, ev.timestamp, "Misdirect (" + ev.ability.name + ")", this.threatCoeff(ev.ability));
-                    return true;
+                    if (b) {
+                        console.log("[" + ev.timestamp + "]MD: Redirecting " + amount + " from " + this.name + " to " + md.name);
+                        b.addThreat(md.id, amount, ev.timestamp, "Misdirect (" + ev.ability.name + ")", this.threatCoeff(ev.ability));
+                        return true;
+                    }
                 }
             }
         }
@@ -1013,6 +1019,7 @@ class Report {
                     break;
             }
         }
+
         if (this.faction) {
             for (let u of allFriendlies) u.faction = this.faction;
         }

@@ -641,11 +641,10 @@ function handler_hydrossThreatWipeOnCast(ev, fight) {
     }
 }
 
-function handler_nightbaneThreatWipeOnCast(ev, fight) {
+function handler_nightbaneThreatWipeOnCast(ev, fight, delay) {
     if (ev.type !== "cast") return;
     let u = fight.eventToUnit(ev, "source");
-    // 43 sec is the timer from DBM
-    nightBaneNextLanding = (ev.timestamp + 43 * 1000);
+    nightBaneNextLanding = (ev.timestamp + delay);
     if (!u) return;
     for (let k in u.threat) {
         u.setThreat(k, 0, ev.timestamp, ev.ability.name);
@@ -827,8 +826,9 @@ const spellFunctions = {
     26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
     11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
     28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
+    //37676: handler_nightbaneThreatWipeOnCast((43 * 1000)), // Leotheras demon form
     25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
-    37098: handler_nightbaneThreatWipeOnCast, // Nightbane's Rain of Bones
+    37098: handler_nightbaneThreatWipeOnCast((43 * 1000)), // Nightbane's Rain of Bones. delay : 43 sec is the timer according to DBM
     29060: handler_taunt, // Deathknight Understudy Taunt
     28835: handler_bossPartialThreatWipeOnCast(.5), // Mark of Zeliek
     28834: handler_bossPartialThreatWipeOnCast(.5), // Mark of Mograine
