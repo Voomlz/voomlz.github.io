@@ -247,7 +247,7 @@ const auraImplications = {
         6552: 2458, 6554: 2458, //Pummel
         355: 71, //Taunt
         676: 71, //Disarm
-        6572: 71, 6574: 71, 7379: 71, 11600: 71, 11601: 71, 25288: 71, 25269: 71 , 30357: 71, //Revenge
+        6572: 71, 6574: 71, 7379: 71, 11600: 71, 11601: 71, 25288: 71, 25269: 71, 30357: 71, //Revenge
         2565: 71, //Shield Block
         871: 71, //Shield Wall
         23922: 71, 23923: 71, 23924: 71, 23925: 71, 25258: 71, 30356: 71, // Shield slam
@@ -641,13 +641,15 @@ function handler_hydrossThreatWipeOnCast(ev, fight) {
     }
 }
 
-function handler_nightbaneThreatWipeOnCast(ev, fight, delay) {
-    if (ev.type !== "cast") return;
-    let u = fight.eventToUnit(ev, "source");
-    nightBaneNextLanding = (ev.timestamp + delay);
-    if (!u) return;
-    for (let k in u.threat) {
-        u.setThreat(k, 0, ev.timestamp, ev.ability.name);
+function handler_nightbaneThreatWipeOnCast(delay) {
+    return (ev, fight) => {
+        if (ev.type !== "cast") return;
+        let u = fight.eventToUnit(ev, "source");
+        nightBaneNextLanding = (ev.timestamp + delay);
+        if (!u) return;
+        for (let k in u.threat) {
+            u.setThreat(k, 0, ev.timestamp, ev.ability.name);
+        }
     }
 }
 
