@@ -63,7 +63,7 @@ const buffMultipliers = {
 // The leaf elements are functions (buffs,rank) => threatCoefficient
 const talents = {
     Warrior: {
-        Defiance: {
+        "Defiance": {
             maxRank: 3,
             coeff: function (buffs, rank = 3) {
                 if (!(71 in buffs)) return getThreatCoefficient(1);
@@ -75,6 +75,17 @@ const talents = {
             coeff: function (buffs, rank = 5) {
                 if (!(2458 in buffs)) return getThreatCoefficient(1);
                 return getThreatCoefficient(1 - 0.02 * rank);
+            }
+        },
+        "Tactical Mastery": {
+            maxRank: 3,
+            coeff: function (buffs, rank = 3, spellId) {
+                if (!(71 in buffs)) return getThreatCoefficient(1);
+                return getThreatCoefficient(
+                    1 + 0.21 * rank * (spellId in {
+                        23881: true, 23892: true, 23893: true, 23894: true, 23888: true, 23885: true, 23891: true, // Bloodthirst
+                        12294: true, 21551: true, 21552: true, 21553: true, 25248: true, 30330: true, // Mortal Strike
+                    }))
             }
         },
     },
