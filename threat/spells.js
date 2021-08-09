@@ -546,7 +546,7 @@ function handler_sunderArmor(threatValue) {
             return;
         }
 
-        if (ev.type === "applydebuff") {
+        if (ev.type === "applydebuffstack") {
             lastSunderEvent = ev;
         }
     }
