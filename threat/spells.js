@@ -1098,6 +1098,7 @@ const spellFunctions = {
 
     16246: handler_zero, // Clearcasting
     25584: handler_zero, // Windfury Attack (buff only)
+    30802: handler_zero, // Unleashed rage
 
     24398: handler_zero, // Water Shield cast R1
     33736: handler_zero, // Water shield cast R2
