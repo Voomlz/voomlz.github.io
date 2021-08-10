@@ -861,6 +861,7 @@ const spellFunctions = {
     28866: handler_zero, // Kiss of the spider
     26480: handler_zero, // Badge of the Swarmguard
     26481: handler_zero, // Badge of the Swarmguard - arpen
+    33649: handler_zero, // Hourglass of the Unraveller - GT2 trinket
 
     // Gear proc
     21165: handler_zero, // Blacksmith mace
@@ -1336,6 +1337,7 @@ const spellFunctions = {
     12969: handler_zero, //("Flurry (Rank 4)"), //Flurry (Rank 4)
     12970: handler_zero, //("Flurry (Rank 5)"), //Flurry (Rank 5)
     12328: handler_zero, //("Death Wish"), //Death Wish
+    12292: handler_zero, //("Death Wish"), //Death Wish tbcc rank ?
     871: handler_zero, //("Shield Wall"),
     1719: handler_zero, //("Recklessness"), //Recklessness
     12323: handler_zero, //("Piercing Howl"), //Piercing Howl
