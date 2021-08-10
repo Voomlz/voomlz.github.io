@@ -1357,14 +1357,16 @@ const spellFunctions = {
 
     // https://tbc.wowhead.com/guides/feral-druid-tank-burning-crusade-classic
 
-    6807: handler_threatOnHit(344, "Maul (Rank 1)"),
-    6808: handler_threatOnHit(344, "Maul (Rank 2)"),
-    6809: handler_threatOnHit(344, "Maul (Rank 3)"),
-    8972: handler_threatOnHit(344, "Maul (Rank 4)"),
-    9745: handler_threatOnHit(344, "Maul (Rank 5)"),
-    9880: handler_threatOnHit(344, "Maul (Rank 6)"),
-    9881: handler_threatOnHit(344, "Maul (Rank 7)"),
-    26996: handler_threatOnHit(344, "Maul (Rank 8)"),
+    // zidnae 322 or 344; unclear
+    // OMEN   322
+    6807: handler_threatOnHit(322 / 67 * 10, "Maul (Rank 1)"),
+    6808: handler_threatOnHit(322 / 67 * 18, "Maul (Rank 2)"),
+    6809: handler_threatOnHit(322 / 67 * 26, "Maul (Rank 3)"),
+    8972: handler_threatOnHit(322 / 67 * 34, "Maul (Rank 4)"),
+    9745: handler_threatOnHit(322 / 67 * 42, "Maul (Rank 5)"),
+    9880: handler_threatOnHit(322 / 67 * 50, "Maul (Rank 6)"),
+    9881: handler_threatOnHit(322 / 67 * 58, "Maul (Rank 7)"),
+    26996: handler_threatOnHit(322, "Maul (Rank 8)"),
 
     779: handler_modDamage(1, "Swipe (Rank 1)"),
     780: handler_modDamage(1, "Swipe (Rank 2)"),
@@ -1380,10 +1382,9 @@ const spellFunctions = {
 
     // Lacerate
     // https://zidnae.gitlab.io/tbc-armor-penetration-calc/tbc_bear_tc.html
-    // 33745: handler_lacerate(267, 0.5, "Lacerate"),
     // zidnae 267 threat, 0.5 coef
     // OMEN   285 threat, 0.2 coef
-    33745: handler_lacerate(285, 0.5, "Lacerate"),
+    33745: handler_lacerate(267, 0.5, "Lacerate"),
 
     // Speculation on modifier https://wowwiki-archive.fandom.com/wiki/Mangle_(bear)
     // Mangle (Bear) has a threat modifier of 1.5x damage done.
