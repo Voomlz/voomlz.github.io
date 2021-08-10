@@ -1097,6 +1097,9 @@ const spellFunctions = {
     25454: handler_modDamage(1), // Earth Shock r8
 
     16246: handler_zero, // Clearcasting
+    8516: handler_zero, // Windfury Attack (buff only) R1
+    10608: handler_zero, // Windfury Attack (buff only) R2
+    10610: handler_zero, // Windfury Attack (buff only) R3
     25584: handler_zero, // Windfury Attack (buff only)
     30802: handler_zero, // Unleashed rage
 
@@ -1168,7 +1171,6 @@ const spellFunctions = {
     71: handler_zero,		// Defensive Stance
     2457: handler_zero,		// Battle Stance
     2458: handler_zero,		// Berserker Stance
-    10610: handler_zero, //("Windfury Totem"), //Windfury Totem
     20572: handler_zero, //("Blood Fury"), //Blood Fury
     26296: handler_zero, //("Berserking (Troll racial)"), //Berserking (Troll racial)
     26635: handler_zero, //("Berserking (Troll racial)"), //Berserking (Troll racial)
