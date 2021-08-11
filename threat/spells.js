@@ -1385,7 +1385,7 @@ const spellFunctions = {
 
     // Rage generation, allegedly 0 threat
     16959: handler_zero, // Primal Fury
-    // 17057: handler_zero, // Furor
+    17057: handler_zero, // Furor
     // 5229: handler_zero, // Enrage
 
     // Lacerate
@@ -1412,7 +1412,7 @@ const spellFunctions = {
 
     6795: threatFunctions.concat(handler_taunt, handler_markSourceOnMiss(borders.taunt)), //("Growl"),
     5229: handler_energize, //("Enrage"),
-    17057: handler_energize, //("Furor"),
+    // 17057: handler_energize, //("Furor"),
 
     31786: handler_energize, // Spiritual Attunement
 
