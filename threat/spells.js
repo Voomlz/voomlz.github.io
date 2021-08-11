@@ -951,9 +951,10 @@ const spellFunctions = {
     19941: handler_modHeal(.5), // Flash of Light r4
     19942: handler_modHeal(.5), // Flash of Light r5
     19943: handler_modHeal(.5), // Flash of Light r6
-//633: handler_modHeal(.5), // Lay on Hands r1 - Generates a total threat of heal * .5 instead of heal * .25
-//2800: handler_modHeal(.5), // Lay on Hands r2
-//10310: handler_modHeal(.5), // Lay on Hands r3
+    //633: handler_modHeal(.5), // Lay on Hands r1 - Generates a total threat of heal * .5 instead of heal * .25
+    //2800: handler_modHeal(.5), // Lay on Hands r2
+    //10310: handler_modHeal(.5), // Lay on Hands r3
+    //27154: handler_modHeal(.5), // Lay on Hands r4
     25914: handler_modHeal(.5), // Holy Shock r1
     25913: handler_modHeal(.5), // Holy Shock r2
     25903: handler_modHeal(.5), // Holy Shock r3
@@ -1350,6 +1351,9 @@ const spellFunctions = {
     /* Consumable */
     6613: handler_zero, //("Great Rage Potion"), //Great Rage Potion
     17528: handler_zero, //("Mighty Rage Potion"), //Mighty Rage Potion
+    28515: handler_zero, // Iron shield pot
+    13455: handler_zero, // Greater stoneshield pot
+    4623: handler_zero, // Lesser stoneshield pot
 
 
     /* Forms */
