@@ -496,8 +496,8 @@ class Player extends Unit {
 
         this.checkWarrior(events); // Extra stance detection
         this.checkPaladin(events); // Extra Righteous Fury detection
-        this.checkBear(events); // Extra Bear detection
-        this.checkFaction(tranquilAir); // BoS and tranquil air
+        // this.checkBear(events); // Extra Bear detection
+        // this.checkFaction(tranquilAir); // BoS and tranquil air
         this.checkEnchants(); // Gloves and cloack enchants
         let a = info.initialBuffs;
         for (let k in a) {
