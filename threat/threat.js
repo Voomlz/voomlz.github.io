@@ -56,7 +56,7 @@ async function fetchWCLv1(path) {
     if (!response) throw "Could not fetch " + path;
     if (response.status != 200) {
         if (response.type == "cors") {
-            throw "Fetch error. The service may be throttled.";
+            throw "Fetch error. Warcraftlogs may be down or logs private.";
         }
         throw "Fetch error.";
     }
