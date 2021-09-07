@@ -300,6 +300,13 @@ class ThreatTrace {
             el_table.appendChild(els[0]);
         }
         el_div.appendChild(el_table);
+        let labelOverrideTalents = document.createElement("LABEL");
+        labelOverrideTalents.textContent = "Force override talents";
+        let buttonOverrideTalents = document.createElement("INPUT");
+        buttonOverrideTalents.setAttribute("type", "checkbox");
+        buttonOverrideTalents.setAttribute("id", "buttonOverrideTalents");
+        el_div.appendChild(labelOverrideTalents)
+        el_div.appendChild(buttonOverrideTalents)
     }
 }
 
@@ -354,7 +361,7 @@ class Unit {
                     } else if (t === "removedebuff") {
                         delete this.buffs[768];
                     }
-                }
+                }t
                 if (buffEvents[t] === 1) {
                     this.buffs[aid] = true;
                 } else {
@@ -517,6 +524,13 @@ class Player extends Unit {
     }
 
     checkEnchants() {
+
+        let elementById = document.getElementById("buttonOverrideTalents");
+        if(elementById) {
+            if (elementById.value) {
+                return;
+            }
+        }
         for (const combatantInfoElement of combatantInfo) {
             if (combatantInfoElement.sourceID == this.key) {
                 // Talent format [0/44/17]
@@ -566,6 +580,7 @@ class Player extends Unit {
                 for (const a of auras) {
                     this.buffs[a.ability] = true;
                 }
+
                 let gear = combatantInfoElement.gear;
                 for (const g of gear) {
                     let enchant = g.permanentEnchant;
@@ -580,16 +595,6 @@ class Player extends Unit {
                 }
             }
         }
-    }
-
-    // Blessing of Salvation and Tranquil Air detection
-    checkFaction(tranquilAir = false) {
-        if (this.dies || this.tank) return;
-        if (1038 in this.buffs || !this.isBuffInferred(25895)) return;
-        this.buffs[25895] = true;
-        if (!tranquilAir || !this.isBuffInferred(25909)) return;
-        this.buffs[25909] = true;
-
     }
 
     // Extra stance detection
