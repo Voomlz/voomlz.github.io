@@ -763,11 +763,12 @@ function handler_threatOnBuff(threatValue) {
 }
 
 // From my testing, battle and commanding shout aren't splitting threat on tbc anymore
-function handler_threatOnBuffUnsplit(threatValue) {
+// Also used for pet food bug
+function handler_threatOnBuffUnsplit(threatValue, useCoeff) {
     return (ev, fight) => {
         let t = ev.type;
         if (t !== "applybuff" && t !== "refreshbuff") return;
-        threatFunctions.unitThreatenEnemies(ev, "source", fight, threatValue);
+        threatFunctions.unitThreatenEnemies(ev, "source", fight, threatValue, useCoeff);
     }
 }
 
@@ -1083,10 +1084,8 @@ const spellFunctions = {
     29858: handler_partialThreatWipeOnCast(.5),// Soulshatter
 
     //hunter
-    // Misdirection cast
-    //34477: handler_misdirectionCast(),
-    // Misdirection buff
-    //35079: handler_misdirectionCast(),
+    43771: handler_threatOnBuffUnsplit(5000, false, "Pet Feeding"), // Pet food (bugged?) in current tbc - 20 str
+    33272: handler_threatOnBuffUnsplit(5000, false, "Pet Feeding"), // Pet food (bugged?) in current tbc - Sporeggar
 
 // Shaman
     8042: handler_modDamage(1), // Earth Shock r1
@@ -1299,16 +1298,16 @@ const spellFunctions = {
     25225: handler_sunderArmor(301.5, "Sunder Armor"), //Rank 6
 
     //Battleshout
-    11551: handler_threatOnBuffUnsplit(52, "Battle Shout"), //Rank 6
-    25289: handler_threatOnBuffUnsplit(60, "Battle Shout"), //Rank 7 (AQ)
-    2048: handler_threatOnBuffUnsplit(69, "Battle Shout"), //Rank 8
+    11551: handler_threatOnBuffUnsplit(52, true, "Battle Shout"), //Rank 6
+    25289: handler_threatOnBuffUnsplit(60, true, "Battle Shout"), //Rank 7 (AQ)
+    2048: handler_threatOnBuffUnsplit(69, true, "Battle Shout"), //Rank 8
 
     //Demo Shout
     11556: handler_threatOnDebuff(43, "Demoralizing Shout"),
     25203: handler_threatOnDebuff(56, "Demoralizing Shout"), //Rank 7
 
     // Commanding shout
-    469: handler_threatOnBuffUnsplit(69, "Commanding Shout"),
+    469: handler_threatOnBuffUnsplit(69, true, "Commanding Shout"),
     // 469: handler_threatOnBuff(58, "Commanding Shout"), // 58 threat on Omen (tbc vanilla)
 
     //Mocking Blow
