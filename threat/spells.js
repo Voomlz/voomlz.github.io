@@ -840,6 +840,7 @@ const spellFunctions = {
     26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
     11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
     28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
+    33237: handler_bossThreatWipeOnCast, // Kiggler the Crazed arcane explosion - HKM fight
     //37676: handler_nightbaneThreatWipeOnCast((43 * 1000)), // Leotheras demon form
     25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
     37098: handler_nightbaneThreatWipeOnCast((43 * 1000)), // Nightbane's Rain of Bones. delay : 43 sec is the timer according to DBM
