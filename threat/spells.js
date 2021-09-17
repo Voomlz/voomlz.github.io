@@ -652,6 +652,22 @@ function handler_hydrossThreatWipeOnCast(ev, fight) {
     }
 }
 
+function handler_leotherasWhirlwind(ev, fight) {
+
+    if (ev.type !== "applybuff" && ev.type !== "removebuff" ) return;
+    let u = fight.eventToUnit(ev, "source");
+
+    let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, u);
+
+    for (let i in enemies) {
+        if (enemies[i].alive) {
+            for (let k in enemies[i].threat) {
+                enemies[i].setThreat(k, 0, ev.timestamp, "Whirlwind threat reset");
+            }
+        }
+    }
+}
+
 function handler_nightbaneThreatWipeOnCast(delay) {
     return (ev, fight) => {
         if (ev.type !== "cast") return;
@@ -842,13 +858,16 @@ const spellFunctions = {
     28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
     33237: handler_bossThreatWipeOnCast, // Kiggler the Crazed arcane explosion - HKM fight
     //37676: handler_nightbaneThreatWipeOnCast((43 * 1000)), // Leotheras demon form
-    25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
     37098: handler_nightbaneThreatWipeOnCast((43 * 1000)), // Nightbane's Rain of Bones. delay : 43 sec is the timer according to DBM
     29060: handler_taunt, // Deathknight Understudy Taunt
     28835: handler_bossPartialThreatWipeOnCast(.5), // Mark of Zeliek
     28834: handler_bossPartialThreatWipeOnCast(.5), // Mark of Mograine
     28833: handler_bossPartialThreatWipeOnCast(.5), // Mark of Blaumeux
     28832: handler_bossPartialThreatWipeOnCast(.5), // Mark of Korth'azz
+
+    /*  SSC */
+    25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
+    37640: handler_leotherasWhirlwind, // Leotheras WW
 
     // testing if it works like Patchwerk ? Only on off tank?
     33813: handler_hatefulstrike(1500, 0), // Gruul's hurtfulstrike
