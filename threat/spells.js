@@ -263,7 +263,8 @@ const auraImplications = {
         871: 71, //Shield Wall
         23922: 71, 23923: 71, 23924: 71, 23925: 71, 25258: 71, 30356: 71, // Shield slam
     },
-    /*Druid: {
+    /*
+    Druid: {
         6807: 9634, 6808: 9634, 6809: 9634, 8972: 9634, 9745: 9634, 9880: 9634, 9881: 9634, 26996: 9634, //Maul
         779: 9634, 780: 9634, 769: 9634, 9754: 9634, 9908: 9634, 26997: 9634, //Swipe
         99: 9634, 1735: 9634, 9490: 9634, 9747: 9634, 9898: 9634, 26998: 9634, //Demoralizing Roar
@@ -284,7 +285,8 @@ const auraImplications = {
         9913: 768, //Prowl
         9846: 768, //Tiger's Fury
         1850: 768, 9821: 768, //Dash
-    }*/
+    }
+    */
 }
 
 const threatFunctions = {
@@ -564,6 +566,7 @@ function handler_devastate(devastateValue, sunderValue) {
             if (lastSunderEvent.timestamp === ev.timestamp) {
                 let source = fight.eventToUnit(ev, "source");
                 let target = fight.eventToUnit(ev, "target");
+                if (!source) return; if (!target) return;
                 target.addThreat(source.key, sunderValue, ev.timestamp, lastSunderEvent.ability.name + " (Devastate)", source.threatCoeff(lastSunderEvent.ability));
             }
         }
