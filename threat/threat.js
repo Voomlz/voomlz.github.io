@@ -1,6 +1,6 @@
 "use strict";
 
-const throttleTime = 250;
+const throttleTime = 150;
 let apikey = "b91955fd65954650000220e85bd79c3d";
 let plotXRange = [-Infinity, Infinity];
 let plotData = [];
