@@ -268,17 +268,18 @@ const auraImplications = {
         779: 9634, 780: 9634, 769: 9634, 9754: 9634, 9908: 9634, 26997: 9634, //Swipe
         99: 9634, 1735: 9634, 9490: 9634, 9747: 9634, 9898: 9634, 26998: 9634, //Demoralizing Roar
         33878: 9634, 33986: 9634, 33987: 9634, // mangle bear
+        33876: 9634, 33982: 9634, 33983: 9634, // mangle cat
         33745: 9634, // lacerate
         6795: 9634, //Growl
         5229: 9634, //Enrage
         17057: 9634, //Furor
         8983: 9634, //Bash
         9850: 768, //Claw
-        9830: 768, //Shred
+        5221: 768, 6800: 768, 8992: 768, 9829: 768, 9830: 768, 27002: 768,  //Shred
         9904: 768, //Rake
-        22829: 768, //Ferocious Bite
+        24248: 768, 31018: 768, 22828: 768, 22829: 768, //Ferocious Bite
         9867: 768, //Ravage
-        9896: 768, //Rip
+        9896: 768, 27008: 768, //Rip
         9827: 768, //Pounce
         9913: 768, //Prowl
         9846: 768, //Tiger's Fury
@@ -654,7 +655,7 @@ function handler_hydrossThreatWipeOnCast(ev, fight) {
 
 function handler_leotherasWhirlwind(ev, fight) {
 
-    if (ev.type !== "applybuff" && ev.type !== "removebuff" ) return;
+    if (ev.type !== "applybuff" && ev.type !== "removebuff") return;
     let u = fight.eventToUnit(ev, "source");
 
     let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, u);

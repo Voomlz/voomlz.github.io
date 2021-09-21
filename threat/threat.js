@@ -361,7 +361,7 @@ class Unit {
                     } else if (t === "removedebuff") {
                         delete this.buffs[768];
                     }
-                }t
+                }
                 if (buffEvents[t] === 1) {
                     this.buffs[aid] = true;
                 } else {
@@ -410,7 +410,6 @@ class Unit {
                 }
             }
         }
-
 
         return false;
     }
@@ -505,7 +504,8 @@ class Player extends Unit {
         this.checkPaladin(events); // Extra Righteous Fury detection
         // this.checkBear(events); // Extra Bear detection
         // this.checkFaction(tranquilAir); // BoS and tranquil air
-        this.checkEnchants(); // Gloves and cloack enchants
+        this.checkInitalStatus(); // Gloves and cloack enchants, talents and buffs
+
         let a = info.initialBuffs;
         for (let k in a) {
             if (a[k] === 1) {
@@ -516,6 +516,7 @@ class Player extends Unit {
                 a[k] = 4 - (k in this.buffs);
             }
         }
+
         this.initialCoeff = this.threatCoeff();
     }
 
@@ -523,7 +524,7 @@ class Player extends Unit {
         return (this.global.initialBuffs[buffId] - 3) % 3 >= 0;
     }
 
-    checkEnchants() {
+    checkInitalStatus() {
 
         let overrideTalents = false;
         let elementById = document.getElementById("buttonOverrideTalents");
@@ -532,7 +533,9 @@ class Player extends Unit {
                 overrideTalents = true;
             }
         }
+
         for (const combatantInfoElement of combatantInfo) {
+
             if (combatantInfoElement.sourceID == this.key) {
                 if (!overrideTalents) {
                     // Talent format [0/44/17]
@@ -596,6 +599,7 @@ class Player extends Unit {
                         }
                     }
                 }
+                return;
             }
         }
     }
@@ -884,12 +888,17 @@ class Fight {
         return this.units[k];
     }
 
-    instanciateUnit(ev) {
+    instanciateUnit(ev, existingUnits) {
         if (!ev) {
             console.log(JSON.stringify(ev));
             return;
         }
         let k = Unit.eventToKey(ev, "source");
+
+        for (let key in existingUnits) {
+            if (existingUnits[key] === k) return
+        }
+
         if (!k || k == -1) return;
         if (!(k in this.units)) {
             let [a, b] = this.eventToFriendliesAndEnemies(ev, "source");
@@ -907,7 +916,7 @@ class Fight {
             }
             this.units[k] = a[k];
         }
-        return this.units[k];
+        return k;
     }
 
     eventToFriendliesAndEnemies(ev, unit) {
@@ -1019,11 +1028,14 @@ class Fight {
         this.enemies = {};
         this.units = {};
 
+        let existingUnits = [];
+
         // Force instanciate all units so we don't have a bug with MD pull
         let number = this.events.length < 300 ? this.events.length : 300;
         for (let i = 0; i < number; ++i) {
 
-            this.instanciateUnit(this.events[i]);
+            existingUnits.push(this.instanciateUnit(this.events[i], existingUnits));
+
         }
         for (let i = 0; i < this.events.length; ++i) {
             this.processEvent(this.events[i]);
