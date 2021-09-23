@@ -702,6 +702,8 @@ function handler_partialThreatWipeOnCast(pct) {
         if (!u) return;
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
         for (let k in enemies) {
+            // Double check if units are still valid
+            if (!enemies[k].threat) continue;
             if (enemies[k].threat[u.key]) {
                 enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * pct, ev.timestamp, ev.ability.name);
             }
