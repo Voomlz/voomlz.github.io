@@ -969,7 +969,7 @@ const spellFunctions = {
     32699: handler_modDamage(1.3), // Avenger shield r2
     32700: handler_modDamage(1.3), // Avenger shield r3
 
-    31789: threatFunctions.concat(handler_righteousDefense, handler_markSourceOnMiss(borders.taunt)), // Righteous Defense
+   // 31789: threatFunctions.concat(handler_righteousDefense, handler_markSourceOnMiss(borders.taunt)), // Righteous Defense
 
     20268: handler_zero, // Mana from judgement of wisdom r1
     20352: handler_zero, // Mana from judgement of wisdom r2
