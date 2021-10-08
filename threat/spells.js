@@ -562,11 +562,13 @@ function handler_devastate(devastateValue, sunderValue) {
 
         // Little hack to manage the case where we have multiple warrior sundering.
         // In WCL, only one will be considered as source of all sunder debuff on one target.
+
         if (lastSunderEvent) {
             if (lastSunderEvent.timestamp === ev.timestamp) {
                 let source = fight.eventToUnit(ev, "source");
                 let target = fight.eventToUnit(ev, "target");
-                if (!source) return; if (!target) return;
+                if (!source) return;
+                if (!target) return;
                 target.addThreat(source.key, sunderValue, ev.timestamp, lastSunderEvent.ability.name + " (Devastate)", source.threatCoeff(lastSunderEvent.ability));
             }
         }
@@ -719,23 +721,26 @@ function handler_partialThreatWipeOnEvent(pct) {
         if (!u) return;
 
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
+
         for (let k in enemies) {
-            if (enemies[k].threat[u.key]) {
-                if (ev.type === "applybuff") {
-                    u.setLastInvisibility(ev.timestamp);
-                    enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * (1 - pct), ev.timestamp, ev.ability.name);
-                } else if (ev.type === "removebuff") {
+            if (enemies[k].threat) {
+                if (enemies[k].threat[u.key]) {
+                    if (ev.type === "applybuff") {
+                        u.setLastInvisibility(ev.timestamp);
+                        enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat * (1 - pct), ev.timestamp, ev.ability.name);
+                    } else if (ev.type === "removebuff") {
 
-                    let timeElapsed = ev.timestamp - u.lastInvisibility;
-                    let nbSecondElapsed = Math.floor(timeElapsed / 1000);
-                    let currentThreat = enemies[k].threat[u.key].currentThreat;
+                        let timeElapsed = ev.timestamp - u.lastInvisibility;
+                        let nbSecondElapsed = Math.floor(timeElapsed / 1000);
+                        let currentThreat = enemies[k].threat[u.key].currentThreat;
 
-                    // scale up by x%
-                    currentThreat = currentThreat * (1 + (pct / (1 - pct)));
-                    // Then remove threat for the amount of time spent in invis
-                    currentThreat = nbSecondElapsed * (1 - nbSecondElapsed * pct);
+                        // scale up by x%
+                        currentThreat = currentThreat * (1 + (pct / (1 - pct)));
+                        // Then remove threat for the amount of time spent in invis
+                        currentThreat = nbSecondElapsed * (1 - nbSecondElapsed * pct);
 
-                    enemies[k].setThreat(u.key, currentThreat, ev.timestamp, ev.ability.name);
+                        enemies[k].setThreat(u.key, currentThreat, ev.timestamp, ev.ability.name);
+                    }
                 }
             }
         }
@@ -972,7 +977,7 @@ const spellFunctions = {
     32699: handler_modDamage(1.3), // Avenger shield r2
     32700: handler_modDamage(1.3), // Avenger shield r3
 
-   // 31789: threatFunctions.concat(handler_righteousDefense, handler_markSourceOnMiss(borders.taunt)), // Righteous Defense
+    // 31789: threatFunctions.concat(handler_righteousDefense, handler_markSourceOnMiss(borders.taunt)), // Righteous Defense
 
     20268: handler_zero, // Mana from judgement of wisdom r1
     20352: handler_zero, // Mana from judgement of wisdom r2
