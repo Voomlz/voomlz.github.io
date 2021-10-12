@@ -674,6 +674,22 @@ function handler_leotherasWhirlwind(ev, fight) {
     }
 }
 
+function handler_VashjBarrier(ev, fight) {
+
+    if (ev.type !== "applybuff" && ev.type !== "removebuff") return;
+    let u = fight.eventToUnit(ev, "source");
+
+    let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, u);
+
+    for (let i in enemies) {
+        if (enemies[i].alive) {
+            for (let k in enemies[i].threat) {
+                enemies[i].setThreat(k, 0, ev.timestamp, "Barrier threat reset");
+            }
+        }
+    }
+}
+
 function handler_nightbaneThreatWipeOnCast(delay) {
     return (ev, fight) => {
         if (ev.type !== "cast") return;
@@ -922,6 +938,7 @@ const spellFunctions = {
     /*  SSC */
     25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
     37640: handler_leotherasWhirlwind, // Leotheras WW
+    38112: handler_VashjBarrier, // Vashj Barrier
 
     // testing if it works like Patchwerk ? Only on off tank?
     33813: handler_hatefulstrike(1500, 0), // Gruul's hurtfulstrike
