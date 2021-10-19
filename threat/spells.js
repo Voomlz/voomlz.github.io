@@ -1196,12 +1196,16 @@ const spellFunctions = {
     10610: handler_zero, // Windfury Attack (buff only) R3
     25584: handler_zero, // Windfury Attack (buff only)
     30802: handler_zero, // Unleashed rage
+    30823: handler_zero, // Shamanistic Rage
+    43339: handler_zero, // T5 bonus set
+    16280: handler_zero, // Flurry
 
     24398: handler_zero, // Water Shield cast R1
     33736: handler_zero, // Water shield cast R2
 
     23575: handler_zero, // Water shield mana R2
     33737: handler_zero, // Water shield mana R2
+
 
     // Lightning Bolt from https://tbc.wowhead.com/spell=30681/lightning-overload makes 0 threat
     45284: handler_zero, // Rank 1
