@@ -954,6 +954,7 @@ const spellFunctions = {
     26480: handler_zero, // Badge of the Swarmguard
     26481: handler_zero, // Badge of the Swarmguard - arpen
     33649: handler_zero, // Hourglass of the Unraveller - GT2 trinket
+    51955: handler_zero, // Dire Drunkard
 
     // Gear proc
     21165: handler_zero, // Blacksmith mace
@@ -1196,7 +1197,8 @@ const spellFunctions = {
     10610: handler_zero, // Windfury Attack (buff only) R3
     25584: handler_zero, // Windfury Attack (buff only)
     30802: handler_zero, // Unleashed rage
-    30823: handler_zero, // Shamanistic Rage
+    30823: handler_zero, // Shamanistic Rage - cast
+    30824: handler_zero, // Shamanistic Rage - buff
     43339: handler_zero, // T5 bonus set
     16280: handler_zero, // Flurry
 
