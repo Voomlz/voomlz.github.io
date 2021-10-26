@@ -23,75 +23,11 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="threat/threat.js"></script>
     <script src="threat/front.js"></script>
-    <style>
-        body {
-            margin: 0;
-            min-height: 2000px
-        }
 
-        body, #input * {
-            background-color: #222;
-            color: #fff
-        }
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-        #input :disabled {
-            color: #555
-        }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        table {
-            border-collapse: collapse;
-        }
-
-        td, th {
-            height: 20px;
-            border: 1px solid white;
-            padding: 3px;
-        }
-
-        #progressBarContainer {
-            padding: 0;
-        }
-
-        #progressBar {
-            height: 26px;
-            background-color: #888;
-            width: 0;
-        }
-
-        #input input, #input select {
-            min-width: 350px;
-            width: 100%;
-            box-sizing: border-box
-        }
-
-        #input button {
-            width: 100px
-        }
-
-        #outputContainer {
-            display: flex;
-            flex-wrap: wrap
-        }
-
-        #threatTableContainer, #threatTableContainer table {
-            margin: 20px
-        }
-
-        input.talent {
-            width: 30px
-        }
-
-        .colorPicker {
-            padding: 0;
-            width: 20px;
-            height: 20px;
-            margin-right: 5px
-        }
-
-        .checkbox {
-            margin-left: 20px
-        }
-    </style>
 </head>
 <body onload="loadPage()">
 <div id="input">
@@ -100,14 +36,14 @@
             <td>Report ID</td>
             <td><input type="text" id="reportSelect"></td>
             <td>
-                <button onclick="selectReport()">Fetch</button>
+                <button class="btn btn-secondary" onclick="selectReport()">Fetch</button>
             </td>
         </tr>
         <tr>
             <td>Fight</td>
             <td><select id="fightSelect"></select></td>
             <td>
-                <button onclick="selectFight()">Fetch/Refresh</button>
+                <button class="btn btn-secondary" onclick="selectFight()">Fetch/Refresh</button>
             </td>
         </tr>
         <tr>
@@ -130,7 +66,7 @@
         <a href="https://discord.gg/3J4FGUNfW7">
             Join us on discord!</a>
     </div>
-    <button onclick="showAndHideDisclaimer()">Note</button>
+    <button class="btn btn-secondary" onclick="showAndHideDisclaimer()">Note</button>
     <div id="disclaimer" style="display:none">
         <p>Private logs cannot be imported.</p>
         <p>Leotheras' threat wipe is not yet implemented.</p>
@@ -139,7 +75,7 @@
             discord</a>.
         </p>
     </div>
-    <button onclick="showAndHideChangelog()">Changelog</button>
+    <button class="btn btn-secondary" onclick="showAndHideChangelog()">Changelog</button>
     <div id="changelog" style="display:none">
         <h2>Changelog:</h2>
         <h3>Quality of life:</h3>
@@ -209,7 +145,7 @@
             <li>Nightbane Threat wipe when he flies</li>
         </ul>
     </div>
-    <button onclick="showAndHideTutorial()">Tutorial</button>
+    <button class="btn btn-secondary" onclick="showAndHideTutorial()">Tutorial</button>
     <div id="tutorial" style="display:none">
         <ul>
             <li>1. Go to warcraft logs and copy your report. Can use directly the entire url (ex:

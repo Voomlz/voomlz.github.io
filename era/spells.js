@@ -551,6 +551,7 @@ const spellFunctions = {
 28834: handler_bossPartialThreatWipeOnCast(.5), // Mark of Mograine
 28833: handler_bossPartialThreatWipeOnCast(.5), // Mark of Blaumeux
 28832: handler_bossPartialThreatWipeOnCast(.5), // Mark of Korth'azz
+	29210: handler_bossThreatWipeOnCast, // Noth's blink
 
 17624: handler_vanish, // Flask of Petrification
 

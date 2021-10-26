@@ -30,10 +30,13 @@ function loadPage() {
         document.getElementById("reportSelect").value = idParam;
         selectReport();
     }
+
     if (fightParam) {
-        document.getElementById("fightSelect").selectedIndex = fightParam;
-        selectFight();
+        let selectedIndex = parseInt(fightParam);
+        sleep(5000);
+        selectFight(selectedIndex);
     }
+
     if (enemyParam) {
         document.getElementById("enemySelect").selectedIndex = enemyParam;
         selectEnemy();

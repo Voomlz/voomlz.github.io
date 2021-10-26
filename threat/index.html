@@ -16,12 +16,14 @@
 
         gtag('config', 'G-NMLK7NHP6Z');
     </script>
-    <script data-ad-client="ca-pub-3448992463946827" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-3448992463946827" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script src="colors.js"></script>
     <script src="spells.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="threat.js"></script>
     <script src="front.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -99,14 +101,14 @@
             <td>Report ID</td>
             <td><input type="text" id="reportSelect"></td>
             <td>
-                <button onclick="selectReport()">Fetch</button>
+                <button class="btn btn-secondary" onclick="selectReport()">Fetch</button>
             </td>
         </tr>
         <tr>
             <td>Fight</td>
             <td><select id="fightSelect"></select></td>
             <td>
-                <button onclick="selectFight()">Fetch/Refresh</button>
+                <button class="btn btn-secondary" onclick="selectFight()">Fetch/Refresh</button>
             </td>
         </tr>
         <tr>
@@ -129,87 +131,17 @@
         <a href="https://discord.gg/3J4FGUNfW7">
             Join us on discord!</a>
     </div>
-    <button onclick="showAndHideDisclaimer()">Note</button>
+    <button class="btn btn-secondary" onclick="showAndHideDisclaimer()">Note</button>
     <div id="disclaimer" style="display:none">
         <p>Private logs cannot be imported.</p>
         <p>Leotheras' threat wipe is not yet implemented.</p>
         <p>Threat is calculated from the combat logs. Some inaccuracies can occur.</p>
-        <p>Tanks threat is getting on point</p>
         <p>For any feedback or inconsistencies feel free to join us on <a href="https://discord.gg/3J4FGUNfW7">
             discord</a>.
         </p>
     </div>
-    <button onclick="showAndHideChangelog()">Changelog</button>
-    <div id="changelog" style="display:none">
-        <h2>Changelog:</h2>
-        <h3>Quality of life:</h3>
-        <ul>
-            <li>New browser extension to open directly the threat graph from warcraft logs</li>
-            <a href="https://addons.mozilla.org/en-US/firefox/addon/wcl-threat-link/">
-                Firefox</a>
-            <a href="https://chrome.google.com/webstore/detail/wcl-threat-link/pbhoiekekddmkjfkoalcohlpjgfabkjn?hl=en">
-                Chrome</a>
-            <li>Adding warcraft log url as parameter with '?id=' i.e :</li>
-            <a href="https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2">
-                https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2</a>
-        </ul>
-        <h3>Warriors:</h3>
-        <ul>
-            <li>New Shield Slam</li>
-            <li>New Heroic Strike</li>
-            <li>Adding devastate</li>
-            <li>Reworking devastate, no sunder threat when expose armor is up</li>
-            <li>Rework Revenge</li>
-            <li>Rework Thunderclap</li>
-            <li>Adding Improved berserker stance</li>
-            <li>Fix Defiance talent</li>
-        </ul>
-        <h3>Druid feral:</h3>
-        <ul>
-            <li>New FF</li>
-            <li>New Demoralizing shout</li>
-            <li>Adding Lacerate</li>
-            <li>Adding Mangle</li>
-            <li>Rework Swipe</li>
-            <li>Rework Maul</li>
-            <li>Fix Feral instict</li>
-        </ul>
-        <h3>Warlock</h3>
-        <ul>
-            <li>Adding Soulshatter</li>
-            <li>Adding Destructive reach</li>
-        </ul>
-        <h3>Shaman</h3>
-        <ul>
-            <li>Adding enchancement reduction talent</li>
-            <li>Adding elemental reduction talent</li>
-            <li>Adding earth shock</li>
-            <li>Adding Lightning Overload procs</li>
-            <li>Earth shock modifier modified to 1 (instead of 2 in classic)</li>
-        </ul>
-        <h3>Hunter</h3>
-        <ul>
-            <li>Adding Missdirection</li>
-        </ul>
-        <h3>Mage</h3>
-        <ul>
-            <li>Adding dummy invisibility. Removing 25% threat when cast and when fades. Need to be fixed to be x% per second or X value per second. Needs more testing and custome code</li>
-        </ul>
-        <h3>Paladin</h3>
-        <ul>
-            <li>Adding rework of Holy shield</li>
-            <li>Adding rework of Avenger shield</li>
-        </ul>
-        <h3>Misc</h3>
-        <ul>
-            <li>Better handling of horde salvation</li>
-            <li>Adding Threat on gloves abd Subtlety buff, automatically</li>
-            <li>Thunderfury nerf</li>
-            <li>Adding missdirection beta</li>
-            <li>Nightbane Threat wipe when he flies</li>
-        </ul>
-    </div>
-    <button onclick="showAndHideTutorial()">Tutorial</button>
+    <button class="btn btn-secondary" onclick="showAndHideChangelog()">Changelog</button>
+    <button class="btn btn-secondary" onclick="showAndHideTutorial()">Tutorial</button>
     <div id="tutorial" style="display:none">
         <ul>
             <li>1. Go to warcraft logs and copy your report. Can use directly the entire url (ex:
