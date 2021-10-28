@@ -677,17 +677,12 @@ function handler_leotherasWhirlwind(ev, fight) {
 function handler_VashjBarrier(ev, fight) {
 
     if (ev.type !== "applybuff" && ev.type !== "removebuff") return;
-    let u = fight.eventToUnit(ev, "source");
+    let t = fight.eventToUnit(ev, "target");
 
-    let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, u);
-
-    for (let i in enemies) {
-        if (enemies[i].alive) {
-            for (let k in enemies[i].threat) {
-                enemies[i].setThreat(k, 0, ev.timestamp, "Barrier threat reset");
-            }
-        }
+    for (let k in t.threat) {
+        t.setThreat(k, 0, ev.timestamp, "Barrier threat reset");
     }
+
 }
 
 function handler_nightbaneThreatWipeOnCast(delay) {
