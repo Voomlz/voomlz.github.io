@@ -682,7 +682,6 @@ function handler_VashjBarrier(ev, fight) {
     for (let k in t.threat) {
         t.setThreat(k, 0, ev.timestamp, "Barrier threat reset");
     }
-
 }
 
 function handler_nightbaneThreatWipeOnCast(delay) {
