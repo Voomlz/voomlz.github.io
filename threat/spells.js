@@ -1055,7 +1055,9 @@ const spellFunctions = {
     66: handler_partialThreatWipeOnEvent(.2), // invisibility : 20% per second of buff
 
 // Rogue
-    1856: handler_vanish, 1857: handler_vanish, // Vanish
+    1856: handler_vanish,
+    1857: handler_vanish, // Vanish
+    26889: handler_vanish, // Vanish
     1966: handler_castCanMissNoCoefficient(-150), // Feint r1
     6768: handler_castCanMissNoCoefficient(-240), // Feint r2
     8637: handler_castCanMissNoCoefficient(-390), // Feint r3
