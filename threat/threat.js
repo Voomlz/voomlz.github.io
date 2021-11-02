@@ -528,7 +528,7 @@ class Player extends Unit {
 
         let overrideTalents = false;
         let elementById = document.getElementById("buttonOverrideTalents");
-        if(elementById) {
+        if (elementById) {
             if (elementById.value) {
                 overrideTalents = true;
             }
@@ -583,19 +583,24 @@ class Player extends Unit {
                 }
 
                 let auras = combatantInfoElement.auras;
-                for (const a of auras) {
-                    this.buffs[a.ability] = true;
+
+                if (auras) {
+                    for (const a of auras) {
+                        this.buffs[a.ability] = true;
+                    }
                 }
 
                 let gear = combatantInfoElement.gear;
-                for (const g of gear) {
-                    let enchant = g.permanentEnchant;
-                    if (enchant != null) {
-                        if (enchant === 2613) { // gloves threat enchant
-                            this.buffs[2613] = true;
-                        }
-                        if (enchant === 2621) { // cloack threat enchant
-                            this.buffs[2621] = true;
+                if (gear) {
+                    for (const g of gear) {
+                        let enchant = g.permanentEnchant;
+                        if (enchant != null) {
+                            if (enchant === 2613) { // gloves threat enchant
+                                this.buffs[2613] = true;
+                            }
+                            if (enchant === 2621) { // cloack threat enchant
+                                this.buffs[2621] = true;
+                            }
                         }
                     }
                 }
