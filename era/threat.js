@@ -723,14 +723,18 @@ function selectReport() {
 	}).catch(printError);
 }
 
-function selectFight() {
+function selectFight(index) {
 	let el = document.querySelector("#fightSelect");
 	let el_enemySelect = document.querySelector("#enemySelect");
-	let i = el.selectedIndex;
+	let i;
+	if (index)
+		i = index;
+	else
+		i = el.selectedIndex;
 	if (i === -1) return;
 	let s = el.options[i].value;
 	let [reportId, fightId] = s.split(";");
-	let f = reports[reportId].fights[fightId]
+	let f = reports[reportId].fights[fightId];
 	enableInput(false);
 	f.fetch().then(() => {
 		f.process();
@@ -827,3 +831,13 @@ function createCheckbox(el_out, checked, text, callback) {
 	el_out.appendChild(el_checkbox);
 	el_out.appendChild(el_label);
 }
+
+function getParameterByName(name, url = window.location.href) {
+	name = name.replace(/[\[\]]/g, '\\$&');
+	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
