@@ -1034,12 +1034,15 @@ const spellFunctions = {
     10328: handler_modHeal(.5), // Holy Light r7
     10329: handler_modHeal(.5), // Holy Light r8
     25292: handler_modHeal(.5), // Holy Light r9
+    27135: handler_modHeal(.5), // Holy Light r10
+    27136: handler_modHeal(.5), // Holy Light r11
     19750: handler_modHeal(.5), // Flash of Light r1
     19939: handler_modHeal(.5), // Flash of Light r2
     19940: handler_modHeal(.5), // Flash of Light r3
     19941: handler_modHeal(.5), // Flash of Light r4
     19942: handler_modHeal(.5), // Flash of Light r5
     19943: handler_modHeal(.5), // Flash of Light r6
+    27137: handler_modHeal(.5), // Flash of Light r7
     //633: handler_modHeal(.5), // Lay on Hands r1 - Generates a total threat of heal * .5 instead of heal * .25
     //2800: handler_modHeal(.5), // Lay on Hands r2
     //10310: handler_modHeal(.5), // Lay on Hands r3
