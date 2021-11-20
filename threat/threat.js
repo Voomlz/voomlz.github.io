@@ -1036,7 +1036,7 @@ class Fight {
         let existingUnits = [];
 
         // Force instanciate all units so we don't have a bug with MD pull
-        let number = this.events.length < 300 ? this.events.length : 300;
+        let number = this.events.length < 450 ? this.events.length : 450;
         for (let i = 0; i < number; ++i) {
 
             existingUnits.push(this.instanciateUnit(this.events[i], existingUnits));
