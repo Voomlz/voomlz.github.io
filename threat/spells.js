@@ -1177,8 +1177,9 @@ const spellFunctions = {
     29858: handler_partialThreatWipeOnCast(.5),// Soulshatter
 
     //hunter
-    43771: handler_threatOnBuffUnsplit(5000, false, "Pet Feeding"), // Pet food (bugged?) in current tbc - 20 str
-    33272: handler_threatOnBuffUnsplit(5000, false, "Pet Feeding"), // Pet food (bugged?) in current tbc - Sporeggar
+    // 43771: handler_threatOnBuffUnsplit(5000, false, "Pet Feeding"), // Pet food (bugged?) in current tbc - 20 str
+    // 33272: handler_threatOnBuffUnsplit(5000, false, "Pet Feeding"), // Pet food (bugged?) in current tbc - Sporeggar
+    // Bug fixed https://tbc.wowhead.com/news/burning-crusade-classic-hotfixes-for-october-4th-2021-kiblers-bits-threat-324414
 
 // Shaman
     8042: handler_modDamage(1), // Earth Shock r1
