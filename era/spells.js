@@ -160,6 +160,7 @@ const fixateBuffs = {
 const notableBuffs = {
 	23397: true, // Nefarian's warrior class call
 	23398: true, // Druid class call
+	29232: true, // Fungal Bloom
 };
 for (let k in buffMultipliers) notableBuffs[k] = true;
 for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
@@ -500,11 +501,35 @@ function handler_hatefulstrike(mainTankThreat, offTankThreat) {
 	return (ev, fight) => {
 		// hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
 		if ((ev.type !== "damage") || (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || ev.hitType === 0) return;
-		let a = fight.eventToUnit(ev, "source");
+		let source = fight.eventToUnit(ev, "source");
 		let b = fight.eventToUnit(ev, "target");
-		if (!a || !b) return;
-		a.addThreat(a.target.key, mainTankThreat, ev.timestamp, ev.ability.name, 1);
-		a.addThreat(b.key, offTankThreat, ev.timestamp, ev.ability.name, 1);
+		if (!source || !b) return;
+
+		let threatList = [];
+		for (let i in source.threat) {
+			threatList[i] = source.threat[i];
+		}
+		threatList.sort((a, b) => a.currentThreat<b.currentThreat? 1:-1);
+		threatList = threatList.filter(value => ((value.target.type === "Warrior") || (value.target.type === "Rogue")));
+
+		// Assuming they are in melee
+		threatList = threatList.slice(1,4);
+
+		// Fucks up when people not in melee range..
+		// Would need to filter based on x, y
+		// Or update a table of 'last attack' ..
+
+		// console.log(JSON.stringify(source));
+		console.log(JSON.stringify(b.x));
+
+		//hyzx6F3Wf4CmP8nc
+
+		for (let i in threatList) {
+			console.log(JSON.stringify(threatList[i].target.name));
+			source.addThreat(threatList[i].target.key, offTankThreat, ev.timestamp, ev.ability.name, 1);
+		}
+
+		source.addThreat(source.target.key, mainTankThreat, ev.timestamp, ev.ability.name, 1);
 	}
 }
 

@@ -11,6 +11,7 @@ let colorByClass = true;
 let combatantInfo = [];
 const globalMdAuras = [];
 let nightBaneNextLanding;
+let nbMurloc;
 
 /*
 function loadPage() {
@@ -591,6 +592,8 @@ class Player extends Unit {
                 }
 
                 let gear = combatantInfoElement.gear;
+                if (this.name == "Bkz")
+                    console.log(JSON.stringify(gear))
                 if (gear) {
                     for (const g of gear) {
                         let enchant = g.permanentEnchant;
@@ -601,6 +604,10 @@ class Player extends Unit {
                             if (enchant === 2621) { // cloack threat enchant
                                 this.buffs[2621] = true;
                             }
+                        }
+                        if (g.id == 30621) {
+                            console.log("Prism equiped !")
+                            this.buffs[38326] = true;
                         }
                     }
                 }
@@ -822,6 +829,7 @@ class Fight {
         this.faction = faction;
         this.reportId = reportId;
         this.tranquilAir = false;
+        nbMurloc = 0;
     }
 
     async fetch() {

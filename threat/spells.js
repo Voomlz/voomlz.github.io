@@ -60,6 +60,11 @@ const buffMultipliers = {
     2621: getThreatCoefficient(0.98),		// subtlety enchants
 }
 
+const buffModifier = {
+    38326: getThreatCoefficient(0.98), // Prism of Inner Calm
+
+}
+
 // The leaf elements are functions (buffs,rank) => threatCoefficient
 const talents = {
     Warrior: {
@@ -293,11 +298,19 @@ const threatFunctions = {
     sourceThreatenTarget(ev, fight, amount, useThreatCoeffs = true, extraCoeff = 1) { // extraCoeff is only used for tooltip text
         let a = fight.eventToUnit(ev, "source");
         let b = fight.eventToUnit(ev, "target");
+        // console.log(JSON.stringify(a.buffs));
+        // if (ev.type)
+        for (let i in a.gear) {
+            console.log("buff " + i)
+            if (i === 38326){
+                console.log("Prism !")
+                console.log(JSON.stringify(ev));
+            }
+        }
         if (!a || !b) {
             return;
         }
         let coeff = (useThreatCoeffs ? a.threatCoeff(ev.ability) : 1) * extraCoeff;
-
         b.addThreat(a.key, amount, ev.timestamp, ev.ability.name, coeff);
     },
     unitThreatenEnemiesSplit(ev, unit, fight, amount, useThreatCoeffs = true) {
@@ -306,6 +319,7 @@ const threatFunctions = {
         let coeff = useThreatCoeffs ? u.threatCoeff(ev.ability) : 1;
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
         let numEnemies = 0;
+
         for (let k in enemies) {
             if (enemies[k].alive) numEnemies += 1;
         }
@@ -658,6 +672,58 @@ function handler_hydrossThreatWipeOnCast(ev, fight) {
     }
 }
 
+function handler_removeThreatOnCast(threatValue) {
+    return (ev, fight) => {
+        let u = fight.eventToUnit(ev, "source");
+
+        let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, u);
+        for (let i in enemies) {
+            if (enemies[i].alive) {
+                for (let k in enemies[i].threat) {
+                    enemies[k].setThreat(u.key, enemies[k].threat[u.key].currentThreat - threatValue, ev.timestamp, ev.ability.name);
+                }
+            }
+        }
+    }
+}
+
+function handler_MoroEarthquake(ev, fight) {
+
+    if (ev.type !== "cast") return;
+    let u = fight.eventToUnit(ev, "source");
+
+    console.log(JSON.stringify(ev))
+
+    // instanciate 12 first murlocks
+
+    let index;
+
+    for (let i = 1; i<12; ++i) {
+        index = parseFloat("467."+(i + nbMurloc))
+        console.log("index " + index)
+        console.log(fight.enemies[index]);
+        if (fight.enemies[parseFloat("467."+(i + nbMurloc))]) {
+            let enemy = fight.enemies[index];
+            enemy.alive = true;
+            let a = u.checkTargetExists(index, ev.timestamp);
+            console.log(a)
+            /*
+            let threatTrace = new ThreatTrace(fight.enemies[parseFloat("467."+(i + nbMurloc))], ev.timestamp, fight);
+            console.log("threatTrace " + JSON.stringify(threatTrace))
+            let enemy = fight.enemies[parseFloat("467."+(i + nbMurloc))];
+
+             */
+            // enemy.threat.(threatTrace)
+            // enemy.alive = true;
+            // ev.enemies.add(enemy);
+            //
+        }
+
+    }
+    nbMurloc = 11;
+
+}
+
 function handler_leotherasWhirlwind(ev, fight) {
 
     if (ev.type !== "applybuff" && ev.type !== "removebuff") return;
@@ -932,11 +998,12 @@ const spellFunctions = {
     /*  SSC */
     25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
     37640: handler_leotherasWhirlwind, // Leotheras WW
+    37764: handler_MoroEarthquake, // Leotheras WW
     38112: handler_VashjBarrier, // Vashj Barrier
 
     // testing if it works like Patchwerk ? Only on off tank?
     33813: handler_hatefulstrike(1500, 0), // Gruul's hurtfulstrike
-    28308: handler_hatefulstrike(1000, 2000), // Patchwerk's hateful strike
+    28308: handler_hatefulstrike(1000, 1500), // Patchwerk's hateful strike
 
     17624: handler_vanish, // Flask of Petrification
 
@@ -949,6 +1016,8 @@ const spellFunctions = {
     26481: handler_zero, // Badge of the Swarmguard - arpen
     33649: handler_zero, // Hourglass of the Unraveller - GT2 trinket
     51955: handler_zero, // Dire Drunkard
+    // https://tbc.wowhead.com/spell=35352/soothe#comments
+    35352: handler_removeThreatOnCast(901), // Prism of Inner Calm
 
     // Gear proc
     21165: handler_zero, // Blacksmith mace
