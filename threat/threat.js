@@ -11,6 +11,7 @@ let colorByClass = true;
 let combatantInfo = [];
 const globalMdAuras = [];
 let nightBaneNextLanding;
+let t6DruidSet = [31042, 31034, 31039, 31044, 31048, 34556, 34444, 34573];
 
 /*
 function loadPage() {
@@ -319,6 +320,7 @@ class Unit {
         this.type = type;
         this.spellSchool = preferredSpellSchools[type] || 1;
         this.baseThreatCoeff = baseThreatCoefficients[type] || getThreatCoefficient(1);
+        this.nbDruidT6Part = 0;
         this.buffs = {};
         this.alive = true;
         this.dies = false;
@@ -591,8 +593,17 @@ class Player extends Unit {
                 }
 
                 let gear = combatantInfoElement.gear;
+                // console.log(JSON.stringify(gear));
                 if (gear) {
                     for (const g of gear) {
+
+
+                        if(t6DruidSet.includes(g.id)) {
+                            console.log("Druid T 6 part plus plus")
+                            // console.log(JSON.stringify(g))
+
+                            this.nbDruidT6Part++;
+                        }
                         let enchant = g.permanentEnchant;
                         if (enchant != null) {
                             if (enchant === 2613) { // gloves threat enchant
@@ -825,7 +836,7 @@ class Fight {
     }
 
     async fetch() {
-        combatantInfo = await fetchWCLCombatantInfo(this.reportId + "?", 0, this.end);
+        combatantInfo = await fetchWCLCombatantInfo(this.reportId + "?", this.start, this.end);
 
         if ("events" in this) return;
         this.events = await fetchWCLreport(this.reportId + "?", this.start, this.end);

@@ -509,6 +509,18 @@ function handler_modDamage(multiplier) {
     }
 }
 
+function handler_mangleModDamage() {
+    return (ev, fight) => {
+        if (ev.type !== "damage") return;
+        let source = fight.eventToUnit(ev, "source");
+        let multiplier = (1 + (1.5 - 1.15) / 1.15);
+        if (source.nbDruidT6Part >= 2) {
+            multiplier = 1.65;
+        }
+        threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0), true, multiplier);
+    }
+}
+
 function handler_modHeal(multiplier) {
     return (ev, fight) => {
         if (ev.type !== "heal") return;
@@ -1498,9 +1510,9 @@ const spellFunctions = {
     // Patch 2.1.0 : Damage increased by 15%, but bonus threat reduced so that overall threat generation will be unchanged.
     // TODO : Need to add 15% when using 2 part T6 (in P3)
     // https://tbc.wowhead.com/spell=38447/improved-mangle
-    33878: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 1)"),
-    33986: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 2)"),
-    33987: handler_modDamage((1 + (1.5 - 1.15) / 1.15), "Mangle (Bear) (Rank 3)"),
+    33878: handler_mangleModDamage("Mangle (Bear) (Rank 1)"),
+    33986: handler_mangleModDamage("Mangle (Bear) (Rank 2)"),
+    33987: handler_mangleModDamage("Mangle (Bear) (Rank 3)"),
 
     99: handler_threatOnDebuff(9, "Demoralizing Roar (Rank 1)"),
     1735: handler_threatOnDebuff(15, "Demoralizing Roar (Rank 2)"),
