@@ -515,7 +515,7 @@ function handler_mangleModDamage() {
         let source = fight.eventToUnit(ev, "source");
         let multiplier = (1 + (1.5 - 1.15) / 1.15);
         if (source.nbDruidT6Part >= 2) {
-            multiplier = 1.65;
+            multiplier = 1.5;
         }
         threatFunctions.sourceThreatenTarget(ev, fight, ev.amount + (ev.absorbed || 0), true, multiplier);
     }
