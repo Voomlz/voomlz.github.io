@@ -606,6 +606,32 @@ function handler_bossDropThreatOnHit(pct) {
     }
 }
 
+let lastSpellReflectEvent;
+
+function handler_spellReflectCast(ev) {
+    lastSpellReflectEvent = ev;
+}
+
+function handler_selfDamageOnSpellReflect() {
+    return (ev, fight) => {
+
+        if (ev.targetIsFriendly === false) {
+            let a = fight.eventToUnit(ev, "source");
+            let b = fight.eventToUnit(ev, "target");
+            if (!a || !b) return;
+
+            if (lastSpellReflectEvent) {
+                if ((ev.timestamp - lastSpellReflectEvent.timestamp) < 5000) {
+                    let source = fight.eventToUnit(lastSpellReflectEvent, "source");
+                    let target = fight.eventToUnit(ev, "target");
+
+                    target.addThreat(source.key, ev.amount, ev.timestamp, ev.ability.name + " (Spell Reflect)", source.threatCoeff(ev.ability));
+                }
+            }
+        }
+    }
+}
+
 function handler_hatefulstrike(mainTankThreat, offTankThreat) {
     return (ev, fight) => {
         if (document.getElementById("gruul-hurtfull") === null) return;
@@ -900,8 +926,6 @@ const spellFunctions = {
     32959: handler_bossDropThreatOnHit(0.5),
     37597: handler_bossDropThreatOnHit(0.5),
     40486: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil
-
-
     23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
     18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
     19633: handler_bossDropThreatOnHit(.75), // Onyxia Knock Away
@@ -945,6 +969,10 @@ const spellFunctions = {
     25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
     37640: handler_leotherasWhirlwind, // Leotheras WW
     38112: handler_VashjBarrier, // Vashj Barrier
+
+    /* BT */
+    41470: handler_selfDamageOnSpellReflect(0.5), // Council, for spell reflect
+
 
     // testing if it works like Patchwerk ? Only on off tank?
     33813: handler_hatefulstrike(1500, 0), // Gruul's hurtfulstrike
@@ -1385,7 +1413,6 @@ const spellFunctions = {
     11580: handler_modDamage(1.75), // Thunder Clap r5
     11581: handler_modDamage(1.75), // Thunder Clap r6
 
-
     //Hamstring
     1715: handler_modDamagePlusThreat(1.25, 20), // R1
     7372: handler_threatOnHit(101), // R2, from outdated sheet
@@ -1430,6 +1457,9 @@ const spellFunctions = {
 
     //Rend
     11574: handler_damage, //("Rend"),
+
+    // Spell reflect
+    23920: handler_spellReflectCast,
 
 
     /* Zero threat abilities */
