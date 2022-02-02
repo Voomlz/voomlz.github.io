@@ -734,6 +734,21 @@ function handler_nightbaneThreatWipeOnCast(delay) {
     }
 }
 
+function handler_illidanEndP2ThreatWipeOnCast(ev, fight) {
+    if (ev.type !== "cast") return;
+    let u = fight.eventToUnit(ev, "source");
+
+    let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, u);
+
+    for (let i in enemies) {
+        if (enemies[i].alive) {
+            for (let k in enemies[i].threat) {
+                enemies[i].setThreat(k, 0, ev.timestamp, "Change phase");
+            }
+        }
+    }
+}
+
 function handler_bossPartialThreatWipeOnCast(pct) {
     return (ev, fight) => {
         if (ev.type !== "cast") return;
@@ -925,7 +940,6 @@ const spellFunctions = {
     32077: handler_bossDropThreatOnHit(0.5),
     32959: handler_bossDropThreatOnHit(0.5),
     37597: handler_bossDropThreatOnHit(0.5),
-    40486: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil
     23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
     18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
     19633: handler_bossDropThreatOnHit(.75), // Onyxia Knock Away
@@ -971,7 +985,14 @@ const spellFunctions = {
     38112: handler_VashjBarrier, // Vashj Barrier
 
     /* BT */
-    41470: handler_selfDamageOnSpellReflect(0.5), // Council, for spell reflect
+    41470: handler_selfDamageOnSpellReflect, // Council, for spell reflect
+    40486: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil
+    41476: handler_bossThreatWipeOnCast, // Veras (Council)
+    39635: handler_bossThreatWipeOnCast, // Illidan Throw glaive (P2)
+    39873: handler_illidanEndP2ThreatWipeOnCast, // Illidan Glaive return (End of P2)
+    // 40683: handler_bossThreatWipeOnCast, // Illidan enrage
+    40647: handler_bossThreatWipeOnCast, // Illidan Shadow prison
+
 
 
     // testing if it works like Patchwerk ? Only on off tank?
