@@ -40,7 +40,7 @@ async function fetchWCLreport(path, start, end) {
 	let t = start;
 	let events = [];
 	let width = end - start;
-	let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff","energize","absorbed","healabsorbed","leech","drain") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
+	let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff","resourcechange","absorbed","healabsorbed","leech","drain") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
 	while (typeof t === "number") {
 		let json = await fetchWCLv1(`report/events/${path}&start=${t}&end=${end}&filter=${filter}`);
 		if (!json.events) throw "Could not parse report " + path;

@@ -53,6 +53,8 @@ async function fetchWCLv1(path) {
     await sleep(d);
     console.assert(path.length < 1900, "URL may be too long: " + path);
 
+    console.log(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`)
+
     let response = await fetch(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`);
     if (!response) throw "Could not fetch " + path;
     if (response.status != 200) {
@@ -68,7 +70,7 @@ async function fetchWCLv1(path) {
 async function fetchWCLreport(path, start, end) {
     let t = start;
     let events = [];
-    let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","healing","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff","energize","absorbed","healabsorbed","leech","drain", "removebuff") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
+    let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","healing","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff", "resourcechange","resourcechange","absorbed","healabsorbed","leech","drain", "removebuff") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
     while (typeof t === "number") {
         let json = await fetchWCLv1(`report/events/${path}&start=${t}&end=${end}&filter=${filter}`);
         if (!json.events) throw "Could not parse report " + path;

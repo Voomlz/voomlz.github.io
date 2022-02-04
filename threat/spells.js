@@ -381,15 +381,16 @@ function handler_mindcontrol(ev, fight) {
     }
 }
 
-function handler_energize(ev, fight) {
-    if (ev.type !== "energize") return;
+function handler_resourcechange(ev, fight) {
+    console.log(ev);
+    if (ev.type !== "resourcechange") return;
     let diff = ev.resourceChange - ev.waste;
     // Not sure if threat should be given to "target" instead...
     threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, (ev.resourceChangeType === 0) ? (diff / 2) : (diff * 5), false);
 }
 
-function handler_energizeCoeff(ev, fight) {
-    if (ev.type !== "energize") return;
+function handler_resourcechangeCoeff(ev, fight) {
+    if (ev.type !== "resourcechange") return;
     let diff = ev.resourceChange - ev.waste;
     // Not sure if threat should be given to "target" instead...
     threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, (ev.resourceChangeType === 0) ? (diff / 2) : (diff * 5), true);
@@ -410,9 +411,9 @@ function handler_basic(ev, fight) {
             if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
             threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
             break;
-        case "energize":
-            if (DEBUGMODE) console.log("Unhandled energize.", ev);
-            handler_energize(ev, fight);
+        case "resourcechange":
+            if (DEBUGMODE) console.log("Unhandled resourcechange.", ev);
+            handler_resourcechange(ev, fight);
             break;
         case "applybuff":
         case "refreshbuff":
@@ -1260,7 +1261,7 @@ const spellFunctions = {
     30802: handler_zero, // Unleashed rage
     30807: handler_zero, // Unleashed rage
     30823: handler_zero, // Shamanistic Rage - cast
-    30824: handler_energize, // Shamanistic Rage - buff
+    30824: handler_resourcechange, // Shamanistic Rage - buff
     // 43339: handler_zero, // Focused
     16280: handler_zero, // Flurry
 
@@ -1486,11 +1487,11 @@ const spellFunctions = {
     /* Zero threat abilities */
     355: threatFunctions.concat(handler_taunt, handler_markSourceOnMiss(borders.taunt)), //("Taunt"), //Taunt
     1161: handler_markSourceOnMiss(borders.taunt), //("Challenging Shout"), //Challenging Shout
-    2687: handler_energizeCoeff, //("Bloodrage"), //Bloodrage (cast)
-    29131: handler_energize, //("Bloodrage"), //Bloodrage (buff)
+    2687: handler_resourcechangeCoeff, //("Bloodrage"), //Bloodrage (cast)
+    29131: handler_resourcechange, //("Bloodrage"), //Bloodrage (buff)
     29478: handler_zero, //("Battlegear of Might"), //Battlegear of Might
     23602: handler_zero, //("Shield Specialization"), //Shield Specialization
-    12964: handler_energize, //("Unbridled Wrath"), //Unbridled Wrath
+    12964: handler_resourcechange, //("Unbridled Wrath"), //Unbridled Wrath
     11578: handler_zero, //("Charge"), //Charge
     7922: handler_zero, //("Charge Stun"), //Charge Stun
     18499: handler_zero, //("Berserker Rage"), //Berserker Rage
@@ -1573,10 +1574,10 @@ const spellFunctions = {
     26998: handler_threatOnDebuff(39, "Demoralizing Roar"),
 
     6795: threatFunctions.concat(handler_taunt, handler_markSourceOnMiss(borders.taunt)), //("Growl"),
-    5229: handler_energize, //("Enrage"),
-    // 17057: handler_energize, //("Furor"),
+    5229: handler_resourcechange, //("Enrage"),
+    // 17057: handler_resourcechange, //("Furor"),
 
-    31786: handler_energize, // Spiritual Attunement
+    31786: handler_resourcechange, // Spiritual Attunement
 
     8983: handler_zero, //("Bash"), //TODO test bash threat
 
