@@ -383,7 +383,6 @@ function handler_mindcontrol(ev, fight) {
 }
 
 function handler_resourcechange(ev, fight) {
-    console.log(ev);
     if (ev.type !== "resourcechange") return;
     let diff = ev.resourceChange - ev.waste;
     // Not sure if threat should be given to "target" instead...

@@ -317,6 +317,7 @@ class Unit {
     constructor(key, name, type, events, lastInvisibility = 0) { // Info is an object from WCL API
         this.mdStacksPerBand = [];
         this.lastInvisibility = lastInvisibility;
+        this.insignificance = false;
         this.key = key;
         this.name = name;
         this.type = type;
@@ -434,6 +435,8 @@ class Unit {
         }
 
          */
+
+        if (this.insignificance) return 0;
 
         let spellSchool = ability ? ability.type : this.spellSchool;
         let spellId = ability ? ability.guid : null;
@@ -966,6 +969,11 @@ class Fight {
                     break;
                 case "applybuff":
                 case "applydebuff":
+                    if (ev.ability.guid === 40618) {
+                        let target = this.eventToUnit(ev, "target");
+                        target.insignificance = true;
+                    }
+                    break;
                 case "refreshbuff":
                 case "refreshdebuff":
                     i = ev.ability.guid;
@@ -1015,6 +1023,10 @@ class Fight {
                         let t = u.checkTargetExists(v.key, ev.timestamp);
                         delete t.fixates[ev.ability.name];
                         t.addMark(ev.timestamp, ev.ability.name + " fades");
+                    }
+                    if (ev.ability.guid === 40618) {
+                        let target = this.eventToUnit(ev, "target");
+                        target.insignificance = true;
                     }
                     break;
             }
