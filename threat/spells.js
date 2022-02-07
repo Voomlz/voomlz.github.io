@@ -988,6 +988,7 @@ const spellFunctions = {
     /* BT */
     41470: handler_selfDamageOnSpellReflect, // Council, for spell reflect
     40486: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil
+    40618: handler_zero, // Gurtog Bloodboil insignificance
     41476: handler_bossThreatWipeOnCast, // Veras (Council)
     39635: handler_bossThreatWipeOnCast, // Illidan Throw glaive (P2)
     39873: handler_illidanEndP2ThreatWipeOnCast, // Illidan Glaive return (End of P2)
