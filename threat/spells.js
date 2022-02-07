@@ -596,6 +596,14 @@ function handler_threatAsTargetHealed(ev, fight) {
 
 function handler_bossDropThreatOnHit(pct) {
     return (ev, fight) => {
+        if (ev.ability.guid === 40597) {
+            let a = fight.eventToUnit(ev, "source");
+            let b = fight.eventToUnit(ev, "target");
+            if (!a || !b) return;
+            a.checkTargetExists(b.key, ev.timestamp);
+            a.setThreat(b.key, a.threat[b.key].currentThreat * pct, ev.timestamp, ev.ability.name);
+            return;
+        }
         // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
         // https://discordapp.com/channels/383596811517952002/673932163736928256/714590608819486740
         // [00:27] ResultsMayVary: Just to expand on this. Spell threat drops (resists) cause threat loss. Physical misses (dodges/parries) do not cause threat drops.
@@ -989,6 +997,8 @@ const spellFunctions = {
     /* BT */
     41470: handler_selfDamageOnSpellReflect, // Council, for spell reflect
     40486: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil
+    40597: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil - Eject
+
     40618: handler_zero, // Gurtog Bloodboil insignificance
     41476: handler_bossThreatWipeOnCast, // Veras (Council)
     39635: handler_bossThreatWipeOnCast, // Illidan Throw glaive (P2)

@@ -1004,7 +1004,17 @@ class Fight {
                     }
                     break;
                 case "removebuff":
+                    if (ev.ability.guid === 40618 || ev.ability.guid === 40604) {
+                        let target = this.eventToUnit(ev, "target");
+                        target.insignificance = false;
+                    }
+                    break;
                 case "removedebuff":
+                    if (ev.ability.guid === 40618 || ev.ability.guid === 40604) {
+                        let target = this.eventToUnit(ev, "target");
+                        target.insignificance = false;
+                    }
+                    break;
                     i = ev.ability.guid;
                     if (!(i in notableBuffs)) break;
                     u = this.eventToUnit(ev, "target");
@@ -1024,11 +1034,6 @@ class Fight {
                         delete t.fixates[ev.ability.name];
                         t.addMark(ev.timestamp, ev.ability.name + " fades");
                     }
-                    if (ev.ability.guid === 40618 || ev.ability.guid === 40604) {
-                        let target = this.eventToUnit(ev, "target");
-                        target.insignificance = false;
-                    }
-                    break;
             }
         }
 
