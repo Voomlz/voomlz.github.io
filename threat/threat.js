@@ -53,7 +53,7 @@ async function fetchWCLv1(path) {
     await sleep(d);
     console.assert(path.length < 1900, "URL may be too long: " + path);
 
-    console.log(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`)
+    // console.log(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`)
 
     let response = await fetch(`https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`);
     if (!response) throw "Could not fetch " + path;
@@ -969,7 +969,7 @@ class Fight {
                     break;
                 case "applybuff":
                 case "applydebuff":
-                    if (ev.ability.guid === 40618) {
+                    if (ev.ability.guid === 40618 || ev.ability.guid === 40604) {
                         let target = this.eventToUnit(ev, "target");
                         target.insignificance = true;
                     }
@@ -1024,9 +1024,9 @@ class Fight {
                         delete t.fixates[ev.ability.name];
                         t.addMark(ev.timestamp, ev.ability.name + " fades");
                     }
-                    if (ev.ability.guid === 40618) {
+                    if (ev.ability.guid === 40618 || ev.ability.guid === 40604) {
                         let target = this.eventToUnit(ev, "target");
-                        target.insignificance = true;
+                        target.insignificance = false;
                     }
                     break;
             }

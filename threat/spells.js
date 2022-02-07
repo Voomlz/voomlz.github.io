@@ -230,6 +230,7 @@ const fixateBuffs = {
     1161: true, // Challenging Shout
     5209: true, // Challenging Roar
     6795: true, // Growl
+    40604: true, // Gurtogg Fel Rage
     694: true, 7400: true, 7402: true, 20559: true, 20560: true, // Mocking Blow
     29060: true, // Deathknight Understudy Taunt
 }
