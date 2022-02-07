@@ -46,6 +46,7 @@ const buffNames = {
 
 const buffMultipliers = {
     1038: getThreatCoefficient(0.7),		// BoS
+    40618: getThreatCoefficient(0),		// Gurtogg Insignificance
     25895: getThreatCoefficient(0.7),		// GBoS
     25909: getThreatCoefficient(0.8),		// Tranquil Air Totem Aura
     71: getThreatCoefficient(1.3),		// Defensive Stance
