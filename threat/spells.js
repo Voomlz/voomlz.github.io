@@ -996,8 +996,8 @@ const spellFunctions = {
 
     /* BT */
     41470: handler_selfDamageOnSpellReflect, // Council, for spell reflect
-    40486: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil
-    40597: handler_bossDropThreatOnHit(0.5), // Gurtog Bloodboil - Eject
+    40486: handler_bossDropThreatOnHit(0.75), // Gurtog Bloodboil
+    40597: handler_bossDropThreatOnHit(0.75), // Gurtog Bloodboil - Eject
 
     40618: handler_zero, // Gurtog Bloodboil insignificance
     41476: handler_bossThreatWipeOnCast, // Veras (Council)
