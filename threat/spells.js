@@ -97,6 +97,15 @@ const talents = {
                 if (!(5487 in buffs) && !(9634 in buffs)) return getThreatCoefficient(1);
                 return getThreatCoefficient((1.3 + 0.05 * rank) / 1.3);
             }
+        },
+        "Subtlety": {
+            maxRank: 5,
+            coeff: (_, rank = 3, spellId) => getThreatCoefficient(1 - 0.04 * rank * (spellId in {
+                8936: true, 8938: true, 8940: true, 8941: true, 9750: true, 9856: true, 9857: true, 9858: true, 26980: true,
+                774: true, 1058: true, 1430: true, 2090: true, 2091: true, 3627: true, 8910: true, 9839: true, 9840: true, 9841: true, 25299: true, 26981: true, 26982: true, 26982: true,
+                5185: true, 5186: true, 5187: true, 5188: true, 5189: true, 6778: true, 8903: true, 9758: true, 9888: true, 9889: true, 25297: true, 26978: true, 26979: true,
+                740: true, 8918: true, 9862: true, 9863: true, 26983: true,
+            })),
         }
     },
     Mage: {
