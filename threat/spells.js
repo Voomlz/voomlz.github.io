@@ -410,7 +410,8 @@ function handler_basic(ev, fight) {
             break;
         case "heal":
             if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-            threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
+            //threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
+            threatFunctions.unitThreatenEnemies(ev, "source", fight, ev.amount / 2);
             break;
         case "resourcechange":
             if (DEBUGMODE) console.log("Unhandled resourcechange.", ev);
