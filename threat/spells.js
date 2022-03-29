@@ -876,7 +876,12 @@ function handler_threatOnBuff(threatValue) {
     return (ev, fight) => {
         let t = ev.type;
         if (t !== "applybuff" && t !== "refreshbuff") return;
-        threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, threatValue);
+        let u = fight.eventToUnit(ev, "source");
+        let useCoeff = true;
+        if (u.type === "Paladin") {
+            useCoeff = false;
+        }
+        threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, threatValue, useCoeff);
     }
 }
 
@@ -1049,9 +1054,13 @@ const spellFunctions = {
 // Paladin
     25898: handler_threatOnBuff(60), // GBoK
     25890: handler_threatOnBuff(60), // GBoL
+    27145: handler_threatOnBuff(60), // GBoL
     25916: handler_threatOnBuff(60), // GBoM
+    27141: handler_threatOnBuff(60), // GBoM
+    25782: handler_threatOnBuff(60), // GBoM
     25895: handler_threatOnBuff(60), // GBoS
     25899: handler_threatOnBuff(60), // GBoSanc
+    27169: handler_threatOnBuff(60), // GBoSanc
     25894: handler_threatOnBuff(54), // GBoW
     25918: handler_threatOnBuff(60), // GBoW
     19742: handler_threatOnBuff(14), // BoW
