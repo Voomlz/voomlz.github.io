@@ -335,12 +335,20 @@ const threatFunctions = {
             coeff = u.threatCoeff();
         }
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
-        let numEnemies = 0;
-        for (let k in enemies) {
-            if (enemies[k].alive) numEnemies += 1;
-        }
-        for (let k in enemies) {
-            enemies[k].addThreat(u.key, amount / numEnemies, ev.timestamp, ev.ability.name, coeff);
+
+
+        if (splitHealingThreatOption) {
+            let numEnemies = 0;
+            for (let k in enemies) {
+                if (enemies[k].alive) numEnemies += 1;
+            }
+            for (let k in enemies) {
+                enemies[k].addThreat(u.key, amount / numEnemies, ev.timestamp, ev.ability.name, coeff);
+            }
+        } else {
+            for (let k in enemies) {
+                enemies[k].addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
+            }
         }
     },
     unitThreatenEnemies(ev, unit, fight, amount, useThreatCoeffs = true) {
@@ -420,10 +428,10 @@ function handler_basic(ev, fight) {
         case "heal":
             if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
 
-            if(splitHealingThreatOption) {
-                threatFunctions.unitThreatenEnemies(ev, "source", fight, ev.amount / 2);
+            if (splitHealingThreatOption) {
+                threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
             } else {
-                threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount);
+                threatFunctions.unitThreatenEnemies(ev, "source", fight, ev.amount / 2);
             }
 
             break;
@@ -1012,7 +1020,6 @@ const spellFunctions = {
     39873: handler_illidanEndP2ThreatWipeOnCast, // Illidan Glaive return (End of P2)
     // 40683: handler_bossThreatWipeOnCast, // Illidan enrage
     40647: handler_bossThreatWipeOnCast, // Illidan Shadow prison
-
 
 
     // testing if it works like Patchwerk ? Only on off tank?
