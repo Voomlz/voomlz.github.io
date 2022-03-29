@@ -317,11 +317,19 @@ const threatFunctions = {
         let coeff = useThreatCoeffs ? u.threatCoeff(ev.ability) : 1;
         let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
         let numEnemies = 0;
-        for (let k in enemies) {
-            if (enemies[k].alive) numEnemies += 1;
+
+        if (splitHealingThreatOption) {
+            for (let k in enemies) {
+                if (enemies[k].alive) numEnemies += 1;
+            }
+            for (let k in enemies) {
+                enemies[k].addThreat(u.key, amount / numEnemies, ev.timestamp, ev.ability.name, coeff);
+            }
         }
-        for (let k in enemies) {
-            enemies[k].addThreat(u.key, amount / numEnemies, ev.timestamp, ev.ability.name, coeff);
+        else {
+            for (let k in enemies) {
+                enemies[k].addThreat(u.key, amount , ev.timestamp, ev.ability.name, coeff);
+            }
         }
     },
     unitThreatenEnemiesSplitOnHealRedirect(ev, unit, fight, amount) {
@@ -427,13 +435,7 @@ function handler_basic(ev, fight) {
             break;
         case "heal":
             if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-
-            if (splitHealingThreatOption) {
-                threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
-            } else {
-                threatFunctions.unitThreatenEnemies(ev, "source", fight, ev.amount / 2);
-            }
-
+            threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
             break;
         case "resourcechange":
             if (DEBUGMODE) console.log("Unhandled resourcechange.", ev);
