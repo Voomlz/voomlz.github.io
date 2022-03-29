@@ -12,6 +12,7 @@ let combatantInfo = [];
 const globalMdAuras = [];
 let nightBaneNextLanding;
 let t6DruidSet = [31042, 31034, 31039, 31044, 31048, 34556, 34444, 34573];
+let splitHealingThreatOption = true;
 
 /*
 function loadPage() {
@@ -780,6 +781,11 @@ class NPC extends Unit {
         });
         createCheckbox(el_div, fight.tranquilAir, "Tranquil Air", x => {
             fight.tranquilAir = x;
+            fight.process();
+            selectEnemy();
+        });
+        createCheckbox(el_div, splitHealingThreatOption, "Split healing threat", x => {
+            splitHealingThreatOption = x;
             fight.process();
             selectEnemy();
         });
