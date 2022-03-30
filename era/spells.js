@@ -545,7 +545,7 @@ function handler_magneticPull() {
             if (source.name !== friendlies[k].name) {
                 if (!("threat" in source)) return;
                 for (let i in enemies) {
-                    if (source.target.name !== enemies[i]) {
+                    if (source.target.name !== enemies[i].name) {
                         if (friendlies[k].threat[i]) {
                             let threat = {};
                             threat = {
