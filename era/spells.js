@@ -534,13 +534,49 @@ function handler_threatOnBuff(threatValue) {
     }
 }
 
+function handler_magneticPull() {
+    return (ev, fight) => {
+
+        let source = fight.eventToUnit(ev, "source");
+        let [friendlies, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
+
+        let threatList = [];
+        for (let k in friendlies) {
+            if (source.name !== friendlies[k].name) {
+                if (!("threat" in source)) return;
+                for (let i in enemies) {
+                    if (friendlies[k].threat[i]) {
+                        let threat = {};
+                        threat = {
+                            'threat': friendlies[k].threat[i].currentThreat,
+                            'unit': enemies[i]
+                        }
+                        threatList.push(threat);
+                    }
+                }
+
+                let sortedThreatList = sortByKey(threatList, 'threat');
+                let topThreat = sortedThreatList.slice(-1)[0];
+
+                let maxThreat = 0;
+                for (let j in source.threat) {
+                    maxThreat = Math.max(maxThreat, source.threat[j].currentThreat);
+                }
+
+                source.setThreat(topThreat.unit.key, maxThreat, ev.timestamp, ev.ability.name);
+                source.target = topThreat;
+            }
+        }
+    }
+}
+
 function handler_hatefulstrike(mainTankThreat) {
     return (ev, fight) => {
         // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
         if ((ev.type !== "damage") || (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || ev.hitType === 0) return;
-        let a = fight.eventToUnit(ev, "source");
-        let b = fight.eventToUnit(ev, "target");
-        if (!a || !b) return;
+        let source = fight.eventToUnit(ev, "source");
+        let target = fight.eventToUnit(ev, "target");
+        if (!source || !target) return;
 
         let meleeRangedThreat = [];
         let [friendlies, enemies] = fight.eventToFriendliesAndEnemies(ev, "target");
@@ -557,12 +593,11 @@ function handler_hatefulstrike(mainTankThreat) {
 
                 // Order patchwerk threat list, take the first 4th in this condition
 
-                if (a.threat[k]) {
-                    a.threat[k].currentThreat;
-                    var threat = {};
+                if (source.threat[k]) {
+                    let threat = {};
                     threat = {
-                        'threat': a.threat[k].currentThreat,
-                        'unit':friendlies[k]
+                        'threat': source.threat[k].currentThreat,
+                        'unit': friendlies[k]
                     }
                     meleeRangedThreat.push(threat);
                 }
@@ -572,7 +607,7 @@ function handler_hatefulstrike(mainTankThreat) {
         let topFourThreatInMelee = meleeRangedThreat.slice(-4)
 
         for (let topFour in topFourThreatInMelee) {
-            a.addThreat(topFourThreatInMelee[topFour].unit.key, mainTankThreat, ev.timestamp, ev.ability.name, 1);
+            source.addThreat(topFourThreatInMelee[topFour].unit.key, mainTankThreat, ev.timestamp, ev.ability.name, 1);
         }
     }
 }
@@ -644,6 +679,8 @@ const spellFunctions = {
     29210: handler_bossThreatWipeOnCast, // Noth's blink
     29211: handler_bossThreatWipeOnCast, // Noth's blink new id?
     28308: handler_hatefulstrike(800), // Patchwerk's hateful strike
+    28339: handler_magneticPull(), // Feungen, exchange tanks
+    28338: handler_magneticPull(), // Stalagg, exchange tanks
 
     17624: handler_vanish, // Flask of Petrification
 
