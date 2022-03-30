@@ -545,13 +545,15 @@ function handler_magneticPull() {
             if (source.name !== friendlies[k].name) {
                 if (!("threat" in source)) return;
                 for (let i in enemies) {
-                    if (friendlies[k].threat[i]) {
-                        let threat = {};
-                        threat = {
-                            'threat': friendlies[k].threat[i].currentThreat,
-                            'unit': enemies[i]
+                    if (source.target.name !== enemies[i]) {
+                        if (friendlies[k].threat[i]) {
+                            let threat = {};
+                            threat = {
+                                'threat': friendlies[k].threat[i].currentThreat,
+                                'unit': enemies[i]
+                            }
+                            threatList.push(threat);
                         }
-                        threatList.push(threat);
                     }
                 }
 
@@ -564,7 +566,7 @@ function handler_magneticPull() {
                 }
 
                 source.setThreat(topThreat.unit.key, maxThreat, ev.timestamp, ev.ability.name);
-                source.target = topThreat;
+                //source.target = topThreat;
             }
         }
     }
