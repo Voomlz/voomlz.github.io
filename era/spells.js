@@ -534,7 +534,7 @@ function handler_threatOnBuff(threatValue) {
     }
 }
 
-function handler_hatefulstrike(mainTankThreat, offTankThreat) {
+function handler_hatefulstrike(mainTankThreat) {
     return (ev, fight) => {
         // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
         if ((ev.type !== "damage") || (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || ev.hitType === 0) return;
@@ -643,7 +643,7 @@ const spellFunctions = {
     28832: handler_bossPartialThreatWipeOnCast(.5), // Mark of Korth'azz
     29210: handler_bossThreatWipeOnCast, // Noth's blink
     29211: handler_bossThreatWipeOnCast, // Noth's blink new id?
-    28308: handler_hatefulstrike(1000, 1500), // Patchwerk's hateful strike
+    28308: handler_hatefulstrike(800), // Patchwerk's hateful strike
 
     17624: handler_vanish, // Flask of Petrification
 
