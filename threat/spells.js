@@ -1639,8 +1639,8 @@ const spellFunctions = {
     27004: handler_castCanMiss(-1170, "Cower"),
 
     /* Healing */
-    //TODO
-    33778: handler_threatAsTargetHealed, // Final tick of life bloom
+    // As of mars 30 2022, blizzard apparently changed final tick of life bloom's behaviour
+    // 33778: handler_threatAsTargetHealed, // Final tick of life bloom
     379: handler_threatAsTargetHealed, // Earth shield = threat to player healed
     33110: handler_threatAsTargetHealed, // Prayer of mending
 
