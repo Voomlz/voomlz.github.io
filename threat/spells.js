@@ -101,10 +101,47 @@ const talents = {
         "Subtlety": {
             maxRank: 5,
             coeff: (_, rank = 5, spellId) => getThreatCoefficient(1 - 0.04 * rank * (spellId in {
-                8936: true, 8938: true, 8940: true, 8941: true, 9750: true, 9856: true, 9857: true, 9858: true, 26980: true,
-                774: true, 1058: true, 1430: true, 2090: true, 2091: true, 3627: true, 8910: true, 9839: true, 9840: true, 9841: true, 25299: true, 26981: true, 26982: true, 26982: true,
-                5185: true, 5186: true, 5187: true, 5188: true, 5189: true, 6778: true, 8903: true, 9758: true, 9888: true, 9889: true, 25297: true, 26978: true, 26979: true,
-                740: true, 8918: true, 9862: true, 9863: true, 26983: true,
+                8936: true,
+                8938: true,
+                8940: true,
+                8941: true,
+                9750: true,
+                9856: true,
+                9857: true,
+                9858: true,
+                26980: true,
+                774: true,
+                1058: true,
+                1430: true,
+                2090: true,
+                2091: true,
+                3627: true,
+                8910: true,
+                9839: true,
+                9840: true,
+                9841: true,
+                25299: true,
+                26981: true,
+                26982: true,
+                26982: true,
+                5185: true,
+                5186: true,
+                5187: true,
+                5188: true,
+                5189: true,
+                6778: true,
+                8903: true,
+                9758: true,
+                9888: true,
+                9889: true,
+                25297: true,
+                26978: true,
+                26979: true,
+                740: true,
+                8918: true,
+                9862: true,
+                9863: true,
+                26983: true,
             })),
         }
     },
@@ -878,9 +915,6 @@ function handler_threatOnBuff(threatValue) {
         if (t !== "applybuff" && t !== "refreshbuff") return;
         let u = fight.eventToUnit(ev, "source");
         let useCoeff = true;
-        if (u.type === "Paladin") {
-            useCoeff = false;
-        }
         threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, threatValue, useCoeff);
     }
 }
@@ -1056,8 +1090,8 @@ const spellFunctions = {
     25890: handler_threatOnBuff(60), // GBoL
     27145: handler_threatOnBuff(60), // GBoL
     25916: handler_threatOnBuff(60), // GBoM
-    27141: handler_threatOnBuff(60), // GBoM
     25782: handler_threatOnBuff(60), // GBoM
+    27141: handler_threatOnBuff(60), // GBoM
     25895: handler_threatOnBuff(60), // GBoS
     25899: handler_threatOnBuff(60), // GBoSanc
     27169: handler_threatOnBuff(60), // GBoSanc
