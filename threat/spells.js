@@ -1088,21 +1088,26 @@ const spellFunctions = {
 // Paladin
     25898: handler_threatOnBuff(60), // GBoK
     25890: handler_threatOnBuff(60), // GBoL
-    27145: handler_threatOnBuff(60), // GBoL
+    27145: handler_threatOnBuff(69), // GBoL r2
+    27144: handler_threatOnBuff(69), // BoL r4
     25916: handler_threatOnBuff(60), // GBoM
     25782: handler_threatOnBuff(60), // GBoM
-    27141: handler_threatOnBuff(60), // GBoM
+    27141: handler_threatOnBuff(70), // GBoM r 3
+    27140: handler_threatOnBuff(70), // BoM r 8
     25895: handler_threatOnBuff(60), // GBoS
     25899: handler_threatOnBuff(60), // GBoSanc
-    27169: handler_threatOnBuff(60), // GBoSanc
+    27169: handler_threatOnBuff(70), // GBoSanc r 2
     25894: handler_threatOnBuff(54), // GBoW
     25918: handler_threatOnBuff(60), // GBoW
+    27143: handler_threatOnBuff(70), // GBoW r3
     19742: handler_threatOnBuff(14), // BoW
     19850: handler_threatOnBuff(24), // BoW
     19852: handler_threatOnBuff(34), // BoW
     19853: handler_threatOnBuff(44), // BoW
     19854: handler_threatOnBuff(54), // BoW
     25290: handler_threatOnBuff(60), // BoW
+    27142: handler_threatOnBuff(70), // BoW r 7
+    27168: handler_threatOnBuff(70), // Sanctuary R5
     20293: threatFunctions.concat(handler_threatOnBuff(58), handler_damage), // Seal of Righteousness r8
     27155: threatFunctions.concat(handler_threatOnBuff(58), handler_damage), // Seal of Righteousness r9
     20286: handler_damage, // Judgement of Righteousness
