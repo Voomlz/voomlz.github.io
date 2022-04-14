@@ -1107,7 +1107,6 @@ const spellFunctions = {
     19854: handler_threatOnBuff(54), // BoW
     25290: handler_threatOnBuff(60), // BoW
     27142: handler_threatOnBuff(70), // BoW r 7
-    27168: handler_threatOnBuff(70), // Sanctuary R5
     20293: threatFunctions.concat(handler_threatOnBuff(58), handler_damage), // Seal of Righteousness r8
     27155: threatFunctions.concat(handler_threatOnBuff(58), handler_damage), // Seal of Righteousness r9
     20286: handler_damage, // Judgement of Righteousness
