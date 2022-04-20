@@ -1328,6 +1328,12 @@ const spellFunctions = {
     10414: handler_modDamage(1), // Earth Shock r7
     25454: handler_modDamage(1), // Earth Shock r8
 
+    8056: handler_modDamage(2), // Frost Shock r1
+    8058: handler_modDamage(2), // Frost Shock r2
+    10472: handler_modDamage(2), // Frost Shock r3
+    10473: handler_modDamage(2), // Frost Shock r4
+    25464: handler_modDamage(2), // Frost Shock r5
+
     16246: handler_zero, // Clearcasting
     8516: handler_zero, // Windfury Attack (buff only) R1
     10608: handler_zero, // Windfury Attack (buff only) R2
