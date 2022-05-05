@@ -216,7 +216,7 @@ const talents = {
         "Spirit Weapons": {
             maxRank: 1,
             // Only for melee (1) attacks
-            coeff: (_, rank = 1) => getThreatCoefficient({1: 1 - 0.3}),
+            coeff: (_, rank = 1) => getThreatCoefficient({1: 1 - 0.3 * rank}),
         },
         "Elemental Precision (fire)": {
             maxRank: 3,
