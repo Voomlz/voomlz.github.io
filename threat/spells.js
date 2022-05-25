@@ -446,6 +446,7 @@ function handler_mindcontrol(ev, fight) {
 }
 
 function handler_resourcechange(ev, fight) {
+
     if (ev.type !== "resourcechange") return;
     let diff = ev.resourceChange - ev.waste;
     // Not sure if threat should be given to "target" instead...
@@ -511,6 +512,9 @@ function handler_mark(ev, fight) {
     if ("target" in ev && ev.target.id === -1) return; // Target is environment
     let a = fight.eventToUnit(ev, "source");
     let b = fight.eventToUnit(ev, "target");
+    if (ev.ability.guid === 1) {
+        a.lastTarget = b;
+    }
     if (!a || !b) return;
     a.targetAttack(b.key, ev.timestamp, ev.ability.name);
     if (ev.ability.guid === 1 || ev.ability.guid < 0) {
@@ -913,7 +917,6 @@ function handler_threatOnBuff(threatValue) {
     return (ev, fight) => {
         let t = ev.type;
         if (t !== "applybuff" && t !== "refreshbuff") return;
-        let u = fight.eventToUnit(ev, "source");
         let useCoeff = true;
         threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, threatValue, useCoeff);
     }
@@ -934,25 +937,19 @@ function handler_righteousDefense(ev, fight) {
     let target = fight.eventToUnit(ev, "target");
     let source = fight.eventToUnit(ev, "source");
 
-    console.log("target : " + target.name);
 
     if (!target || !source) return;
-    // if (!("threat" in target)) return;
 
     let maxThreat = 0;
 
     let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, source);
     for (let j in enemies) {
 
-        console.log("Checking enemy : " + enemies[j].name);
-
-        for (let k in enemies[j].threat) {
-            if (k === target.key) {
-                maxThreat = Math.max(maxThreat, enemies[j].threat[k].currentThreat);
-            }
+        if ((enemies[j].lastTarget.global  ) && enemies[j].threat[enemies[j].lastTarget.global.id]) {
+            maxThreat = Math.max(maxThreat, enemies[j].threat[enemies[j].lastTarget.global.id].currentThreat);
+        } else {
+            return;
         }
-
-        console.log("giving " + source.name + " : " + maxThreat + " threat on " + enemies[j].name);
 
         enemies[j].setThreat(source.key, maxThreat, ev.timestamp, ev.ability.name);
         enemies[j].target = source;
@@ -1126,7 +1123,7 @@ const spellFunctions = {
     32699: handler_modDamage(1.3), // Avenger shield r2
     32700: handler_modDamage(1.3), // Avenger shield r3
 
-    // 31789: threatFunctions.concat(handler_righteousDefense, handler_markSourceOnMiss(borders.taunt)), // Righteous Defense
+    31789: threatFunctions.concat(handler_righteousDefense, handler_markSourceOnMiss(borders.taunt)), // Righteous Defense
 
     20268: handler_zero, // Mana from judgement of wisdom r1
     20352: handler_zero, // Mana from judgement of wisdom r2

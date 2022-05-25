@@ -319,6 +319,7 @@ class Unit {
         this.mdStacksPerBand = [];
         this.lastInvisibility = lastInvisibility;
         this.insignificance = false;
+        this.lastTarget = {};
         this.key = key;
         this.name = name;
         this.type = type;
