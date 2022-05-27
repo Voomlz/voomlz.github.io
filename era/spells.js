@@ -53,6 +53,7 @@ const buffMultipliers = {
     768: getThreatCoefficient(0.71),		// Cat Form
     25780: getThreatCoefficient({2: 1.6}),	// Righteous Fury
     26400: getThreatCoefficient(0.3),		// Fetish of the Sand Reaver
+    //29232: getThreatCoefficient(0), 		// Fungal Bloom
 }
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
@@ -176,6 +177,7 @@ const fixateBuffs = {
 const notableBuffs = {
     23397: true, // Nefarian's warrior class call
     23398: true, // Druid class call
+    29232: true, // Druid class call
 };
 for (let k in buffMultipliers) notableBuffs[k] = true;
 for (let k in invulnerabilityBuffs) notableBuffs[k] = true;

@@ -295,6 +295,11 @@ class Unit {
         let spellSchool = ability ? ability.type : this.spellSchool;
         let spellId = ability ? ability.guid : null;
         let c = this.baseThreatCoeff(spellSchool);
+        if (this.buffs[29232]) {
+            if (spellId !== 1) {
+                return 0;
+            }
+        }
         for (let i in this.buffs) {
             if (i in buffMultipliers) c *= buffMultipliers[i](spellSchool);
         }
@@ -691,6 +696,12 @@ class Fight {
                         delete u.buffs[5487];
                         delete u.buffs[9634];
                         u.buffs[768] = true;
+                    }
+                    if (i === 29232 && ev.type === "applydebuff") { // Fungal Bloom
+                        u.buffs[29232] = true;
+                    }
+                    if (i === 29232 && ev.type === "removedebuff") { // Fungal Bloom
+                        u.buffs[29232] = false;
                     }
                     u.buffs[i] = true;
                     [_, enemies] = this.eventToFriendliesAndEnemies(ev, "target");
