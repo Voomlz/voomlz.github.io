@@ -362,10 +362,9 @@ const threatFunctions = {
             for (let k in enemies) {
                 enemies[k].addThreat(u.key, amount / numEnemies, ev.timestamp, ev.ability.name, coeff);
             }
-        }
-        else {
+        } else {
             for (let k in enemies) {
-                enemies[k].addThreat(u.key, amount , ev.timestamp, ev.ability.name, coeff);
+                enemies[k].addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
             }
         }
     },
@@ -945,10 +944,12 @@ function handler_righteousDefense(ev, fight) {
     let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, source);
     for (let j in enemies) {
 
-        if ((enemies[j].lastTarget.global  ) && enemies[j].threat[enemies[j].lastTarget.global.id]) {
-            maxThreat = Math.max(maxThreat, enemies[j].threat[enemies[j].lastTarget.global.id].currentThreat);
-        } else {
-            return;
+        if (enemies[j].lastTarget && enemies[j].threat[enemies[j].lastTarget]) {
+            if ((enemies[j].lastTarget.global) && enemies[j].threat[enemies[j].lastTarget.global.id]) {
+                maxThreat = Math.max(maxThreat, enemies[j].threat[enemies[j].lastTarget.global.id].currentThreat);
+            } else {
+                return;
+            }
         }
 
         enemies[j].setThreat(source.key, maxThreat, ev.timestamp, ev.ability.name);
