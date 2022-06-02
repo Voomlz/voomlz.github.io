@@ -954,19 +954,7 @@ function handler_righteousDefense(ev, fight) {
             enemies[j].setThreat(source.key, maxThreat, ev.timestamp, ev.ability.name);
             enemies[j].target = source;
         }
-
-        /*
-                if (enemies[j].target === target.key) {
-                    console.log("target is in enemy threat list : " + target.name);
-
-                    console.log("giving " + source.name + " : " + enemies[j].threat[target.key].currentThreat + " threat on " + enemies[j].name);
-
-                    source.setThreat(enemies[j].key, enemies[j].threat[target.key].currentThreat, ev.timestamp, ev.ability.name);
-                    enemies[j].target = source;
-                }
-                */
     }
-
 }
 
 function handler_taunt(ev, fight) {
