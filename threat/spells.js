@@ -944,16 +944,16 @@ function handler_righteousDefense(ev, fight) {
     let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, source);
     for (let j in enemies) {
 
-        if (enemies[j].lastTarget && enemies[j].threat[enemies[j].lastTarget]) {
-            if ((enemies[j].lastTarget.global) && enemies[j].threat[enemies[j].lastTarget.global.id]) {
-                maxThreat = Math.max(maxThreat, enemies[j].threat[enemies[j].lastTarget.global.id].currentThreat);
-            } else {
-                return;
-            }
+        if (enemies[j].name === "Unyielding Dead"){
+            continue;
         }
-
-        enemies[j].setThreat(source.key, maxThreat, ev.timestamp, ev.ability.name);
-        enemies[j].target = source;
+        if ((enemies[j].lastTarget.global != null) && enemies[j].threat[enemies[j].lastTarget.global.id] != null) {
+            maxThreat = Math.max(maxThreat, enemies[j].threat[enemies[j].lastTarget.global.id].currentThreat);
+        }
+        if (maxThreat !== 0) {
+            enemies[j].setThreat(source.key, maxThreat, ev.timestamp, ev.ability.name);
+            enemies[j].target = source;
+        }
 
         /*
                 if (enemies[j].target === target.key) {
@@ -1349,6 +1349,8 @@ const spellFunctions = {
 
     23575: handler_zero, // Water shield mana R2
     33737: handler_zero, // Water shield mana R2
+
+    39104: handler_resourcechange, // Totem recall
 
 
     // Lightning Bolt from https://tbc.wowhead.com/spell=30681/lightning-overload makes 0 threat
