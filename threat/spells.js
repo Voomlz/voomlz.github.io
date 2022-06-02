@@ -944,7 +944,7 @@ function handler_righteousDefense(ev, fight) {
     let [enemies, _] = fight.eventToFriendliesAndEnemies(ev, source);
     for (let j in enemies) {
 
-        if (enemies[j].name === "Unyielding Dead"){
+        if (enemies[j].alive === false || enemies[j].lastTarget == null){
             continue;
         }
         if ((enemies[j].lastTarget.global != null) && enemies[j].threat[enemies[j].lastTarget.global.id] != null) {
