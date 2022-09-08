@@ -591,8 +591,8 @@ function handler_hatefulstrike(mainTankThreat) {
 
             let c = Math.sqrt(x1 * x1 + y1 * y1);
 
-            if (c < 1600) {
-                // Arbitraty distance of 1600, we don't really know the exact
+            if (c < 1400) {
+                // Arbitraty distance of 1400, we don't really know the exact
                 //console.log(friendlies[k].name + " is in melee range of patchwerk")
 
                 // Order patchwerk threat list, take the first 4th in this condition
