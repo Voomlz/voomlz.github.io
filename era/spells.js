@@ -417,8 +417,15 @@ function handler_modHeal(multiplier) {
 
 function handler_modDamagePlusThreat(multiplier, bonus) {
     return (ev, fight) => {
+
+        let damage = ev.amount;
+
+        if(ev.id == 25288) {
+            damage = damage - 75;
+        }
+
         if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-        threatFunctions.sourceThreatenTarget(ev, fight, multiplier * (ev.amount + (ev.absorbed || 0)) + bonus);
+        threatFunctions.sourceThreatenTarget(ev, fight, multiplier * (damage + (ev.absorbed || 0)) + bonus);
     }
 }
 
@@ -584,16 +591,25 @@ function handler_hatefulstrike(mainTankThreat) {
 
         let meleeRangedThreat = [];
         let [friendlies, enemies] = fight.eventToFriendliesAndEnemies(ev, "target");
-        for (k in friendlies) {
 
-            let x1 = ev.x - friendlies[k].lastX;
-            let y1 = ev.y - friendlies[k].lastY;
+        let enemyX = 0, enemyY = 0;
 
-            let c = Math.sqrt(x1 * x1 + y1 * y1);
+        for (let k in enemies) {
+            if (enemies[k].name === "Patchwerk") {
+                enemyX = enemies[k].lastX;
+                enemyY = enemies[k].lastY;
+            }
+        }
 
-            if (c < 1400) {
-                // Arbitraty distance of 1400, we don't really know the exact
-                //console.log(friendlies[k].name + " is in melee range of patchwerk")
+        for (let k in friendlies) {
+
+            let x1 = enemyX - friendlies[k].lastX;
+            let y1 = enemyY - friendlies[k].lastY;
+            let c = Math.sqrt((x1 * x1) + (y1 * y1));
+
+            if (c < 10) {
+                // Arbitraty distance of 10, we don't really know the exact
+                // console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
 
                 // Order patchwerk threat list, take the first 4th in this condition
 

@@ -297,7 +297,7 @@ class Unit {
         let c = this.baseThreatCoeff(spellSchool);
         if (this.buffs[29232]) {
             if (spellId !== 1) {
-                return 0;
+                //return 0;
             }
         }
         for (let i in this.buffs) {
@@ -698,7 +698,11 @@ class Fight {
                         u.buffs[768] = true;
                     }
                     if (i === 29232 && ev.type === "applydebuff") { // Fungal Bloom
-                        u.buffs[29232] = true;
+                        if (u.type !== "Mage") {
+                            u.buffs[29232] = true;
+                        } else {
+                            u.buffs[29232] = false;
+                        }
                     }
                     if (i === 29232 && ev.type === "removedebuff") { // Fungal Bloom
                         u.buffs[29232] = false;
@@ -744,17 +748,25 @@ class Fight {
         let source = this.eventToUnit(ev, "source");
         if (source) {
             if (ev.x) {
-                source.lastX = ev.x;
-                source.lastY = ev.y;
+                if (ev.type !== "damage") {
+                    if (source.name === "Naxxramas") {
+                        console.log(JSON.stringify(ev))
+                    }
+                    // fix losing the decimal point due to casting data type
+                    source.lastX = ev.x/100;
+                    source.lastY = ev.y/100;
+                }
             }
         }
+        /*
         let target = this.eventToUnit(ev, "target");
         if (target) {
             if (ev.x) {
-                target.lastX = ev.x;
-                target.lastY = ev.y;
+                target.lastX = ev.x/100;
+                target.lastY = ev.y/100;
             }
         }
+         */
 
         let f = handler_basic;
         if ("ability" in ev && ev.ability.guid in spellFunctions) {

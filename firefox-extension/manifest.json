@@ -1,5 +1,5 @@
 {
-  "name": "WCL Threat Link test",
+  "name": "WCL Threat Link",
   "description": "Link Warcraft logs to TBCC threat graph",
   "version": "1.3",
   "manifest_version": 2,
