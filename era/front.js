@@ -28,13 +28,14 @@ function loadPage() {
 
     if (idParam) {
         document.getElementById("reportSelect").value = idParam;
-        selectReport();
-    }
-
-    if (fightParam) {
-        let selectedIndex = parseInt(fightParam);
-        sleep(5000);
-        selectFight(selectedIndex);
+        selectReport().then(function() {
+            if (fightParam) {
+                const fightIndex = parseInt(fightParam) - 1;
+                const el_fightSelect = document.getElementById("fightSelect");
+                el_fightSelect.value = el_fightSelect.options[fightIndex].value;
+                selectFight();
+            }
+        })
     }
 
     if (enemyParam) {

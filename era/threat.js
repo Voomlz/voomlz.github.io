@@ -859,7 +859,7 @@ function selectReport() {
     el.style.borderColor = null;
     if (!(reportId in reports)) reports[reportId] = new Report(reportId);
     enableInput(false);
-    reports[reportId].fetch().then(() => {
+    return reports[reportId].fetch().then(() => {
         for (let id in reports[reportId].fights) {
             let f = reports[reportId].fights[id];
             let el_f = document.createElement("option");
