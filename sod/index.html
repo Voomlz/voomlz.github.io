@@ -2,174 +2,213 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NMLK7NHP6Z"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NMLK7NHP6Z"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
-        gtag('js', new Date());
+      gtag("js", new Date());
 
-        gtag('config', 'G-NMLK7NHP6Z');
+      gtag("config", "G-NMLK7NHP6Z");
     </script>
-    <script data-ad-client="ca-pub-3448992463946827" async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script src="colors.js"></script>
+    <script
+      data-ad-client="ca-pub-3448992463946827"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script src="../era/colors.js"></script>
     <script src="spells.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="threat.js"></script>
-    <script src="front.js"></script>
+    <script src="../era/threat.js"></script>
+    <script src="../era/front.js"></script>
 
     <style>
-        body {
-            margin: 0;
-            min-height: 2000px
-        }
+      body {
+        margin: 0;
+        min-height: 2000px;
+      }
 
-        body, #input * {
-            background-color: #222;
-            color: #fff
-        }
+      body,
+      #input * {
+        background-color: #222;
+        color: #fff;
+      }
 
-        #input :disabled {
-            color: #555
-        }
+      #input :disabled {
+        color: #555;
+      }
 
-        table {
-            border-collapse: collapse;
-        }
+      table {
+        border-collapse: collapse;
+      }
 
-        td, th {
-            height: 20px;
-            border: 1px solid white;
-            padding: 3px;
-        }
+      td,
+      th {
+        height: 20px;
+        border: 1px solid white;
+        padding: 3px;
+      }
 
-        #progressBarContainer {
-            padding: 0;
-        }
+      #progressBarContainer {
+        padding: 0;
+      }
 
-        #progressBar {
-            height: 26px;
-            background-color: #888;
-            width: 0;
-        }
+      #progressBar {
+        height: 26px;
+        background-color: #888;
+        width: 0;
+      }
 
-        #input input, #input select {
-            min-width: 350px;
-            width: 100%;
-            box-sizing: border-box
-        }
+      #input input,
+      #input select {
+        min-width: 350px;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-        #input button {
-            width: 100px
-        }
+      #input button {
+        width: 100px;
+      }
 
-        #outputContainer {
-            display: flex;
-            flex-wrap: wrap
-        }
+      #outputContainer {
+        display: flex;
+        flex-wrap: wrap;
+      }
 
-        #threatTableContainer, #threatTableContainer table {
-            margin: 20px
-        }
+      #threatTableContainer,
+      #threatTableContainer table {
+        margin: 20px;
+      }
 
-        input.talent {
-            width: 30px
-        }
+      input.talent {
+        width: 30px;
+      }
 
-        .colorPicker {
-            padding: 0;
-            width: 20px;
-            height: 20px;
-            margin-right: 5px
-        }
+      .colorPicker {
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
 
-        .checkbox {
-            margin-left: 20px
-        }
+      .checkbox {
+        margin-left: 20px;
+      }
     </style>
-</head>
-<body onload="loadPage()">
-<div id="input">
-    <table>
+  </head>
+  <body onload="loadPage()">
+    <div id="input">
+      <table>
         <tr>
-            <td>Report ID</td>
-            <td><input type="text" id="reportSelect"></td>
-            <td>
-                <button class="btn btn-secondary" onclick="selectReport()">Fetch</button>
-            </td>
+          <td>Report ID</td>
+          <td><input type="text" id="reportSelect" /></td>
+          <td>
+            <button class="btn btn-secondary" onclick="selectReport()">
+              Fetch
+            </button>
+          </td>
         </tr>
         <tr>
-            <td>Fight</td>
-            <td><select id="fightSelect"></select></td>
-            <td>
-                <button class="btn btn-secondary" onclick="selectFight()">Fetch/Refresh</button>
-            </td>
+          <td>Fight</td>
+          <td><select id="fightSelect"></select></td>
+          <td>
+            <button class="btn btn-secondary" onclick="selectFight()">
+              Fetch/Refresh
+            </button>
+          </td>
         </tr>
         <tr>
-            <td>Enemy</td>
-            <td colspan="2"><select id="enemySelect" onchange="selectEnemy()"></select></td>
+          <td>Enemy</td>
+          <td colspan="2">
+            <select id="enemySelect" onchange="selectEnemy()"></select>
+          </td>
         </tr>
         <tr>
-            <td>Target</td>
-            <td colspan="2"><select id="targetSelect" onchange="selectTarget()"></select></td>
+          <td>Target</td>
+          <td colspan="2">
+            <select id="targetSelect" onchange="selectTarget()"></select>
+          </td>
         </tr>
-    </table>
-</div>
-<div id="outputContainer">
-    <div id="output"></div>
-    <div id="threatTableContainer"></div>
-</div>
+      </table>
+    </div>
+    <div id="outputContainer">
+      <div id="output"></div>
+      <div id="threatTableContainer"></div>
+    </div>
 
-<div id="info">
-    <div id="discord">
-        <a href="https://discord.gg/3J4FGUNfW7">
-            Join us on discord!</a>
-    </div>
-    <button class="btn btn-secondary" onclick="showAndHideDisclaimer()">Note</button>
-    <div id="disclaimer" style="display:none">
+    <div id="info">
+      <div id="discord">
+        <a href="https://discord.gg/3J4FGUNfW7"> Join us on discord!</a>
+      </div>
+      <button class="btn btn-secondary" onclick="showAndHideDisclaimer()">
+        Note
+      </button>
+      <div id="disclaimer" style="display: none">
         <p>Private logs cannot be imported.</p>
-        <p>This is the old version of classic threat from https://github.com/nuiva/nuiva.github.io hosted for classic
-            era.</p>
-        <p>For any feedback or inconsistencies feel free to join us on <a href="https://discord.gg/3J4FGUNfW7">
-            discord</a>.
+        <p>
+          This is the old version of classic threat from
+          https://github.com/nuiva/nuiva.github.io hosted for classic era.
         </p>
-    </div>
-    <button class="btn btn-secondary" onclick="showAndHideChangelog()">Changelog</button>
-    <button class="btn btn-secondary" onclick="showAndHideTutorial()">Tutorial</button>
-    <div id="tutorial" style="display:none">
+        <p>
+          For any feedback or inconsistencies feel free to join us on
+          <a href="https://discord.gg/3J4FGUNfW7"> discord</a>.
+        </p>
+      </div>
+      <button class="btn btn-secondary" onclick="showAndHideChangelog()">
+        Changelog
+      </button>
+      <button class="btn btn-secondary" onclick="showAndHideTutorial()">
+        Tutorial
+      </button>
+      <div id="tutorial" style="display: none">
         <ul>
-            <li>1. Go to warcraft logs and copy your report. Can use directly the entire url (ex:
-                https://classic.warcraftlogs.com/reports/TvCLWArKDBYbw6Hk#fight=last) or only the id (ex:
-                TvCLWArKDBYbw6Hk)
-            </li>
-            <li>2. Go to https://voomlz.github.io/</li>
-            <li>3. Past your ID/report url in 'Report ID'</li>
-            <li>4. Clic on 'Fetch'</li>
-            <li>5. Select the fight you wanna see</li>
-            <li>6. Clic on 'Fetch/Refresh'</li>
+          <li>
+            1. Go to warcraft logs and copy your report. Can use directly the
+            entire url (ex:
+            https://classic.warcraftlogs.com/reports/TvCLWArKDBYbw6Hk#fight=last)
+            or only the id (ex: TvCLWArKDBYbw6Hk)
+          </li>
+          <li>2. Go to https://voomlz.github.io/</li>
+          <li>3. Past your ID/report url in 'Report ID'</li>
+          <li>4. Clic on 'Fetch'</li>
+          <li>5. Select the fight you wanna see</li>
+          <li>6. Clic on 'Fetch/Refresh'</li>
         </ul>
         Going further
         <ul>
-            <li>7. Select the player you wanna see details in 'Target'</li>
-            <li>8. Check In the 'buffs' table that everything is correctly set up (salvation, stances, and other
-                buffs)
-            </li>
-            <li>8.1 If buffs are not correctly inferred automatically, force them</li>
-            <li>8.2 click on 'Fetch/Refresh' after modifying buffs to recalculate new threat</li>
-            <li>9. You can share the graphs (now only sharing the report, wip) by copying the url and sharing it</li>
+          <li>7. Select the player you wanna see details in 'Target'</li>
+          <li>
+            8. Check In the 'buffs' table that everything is correctly set up
+            (salvation, stances, and other buffs)
+          </li>
+          <li>
+            8.1 If buffs are not correctly inferred automatically, force them
+          </li>
+          <li>
+            8.2 click on 'Fetch/Refresh' after modifying buffs to recalculate
+            new threat
+          </li>
+          <li>
+            9. You can share the graphs (now only sharing the report, wip) by
+            copying the url and sharing it
+          </li>
         </ul>
         If something seem incorrect
         <ul>
-            <li>1. Try to force refresh the website (ctrl f5 on chrome)</li>
-            <li>2. Double check the default buffs that were inferred to the players</li>
+          <li>1. Try to force refresh the website (ctrl f5 on chrome)</li>
+          <li>
+            2. Double check the default buffs that were inferred to the players
+          </li>
         </ul>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>
