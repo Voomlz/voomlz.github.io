@@ -1,4 +1,4 @@
-let url = "https://devilinaus.github.io/voomlz.github.io/fresh/?id=" + location.origin + location.pathname;
+let url = "https://devilinaus.github.io/voomlz.github.io/sod/?id=" + location.origin + location.pathname;
 let bigTabContainer = document.getElementById("top-level-view-tabs");
 let anchor = document.createElement("a");
 
@@ -19,3 +19,4 @@ anchor.appendChild(spanIcon);
 anchor.appendChild(spanText);
 
 bigTabContainer.appendChild(anchor);
+
