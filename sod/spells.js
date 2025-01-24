@@ -65,9 +65,9 @@ const buffMultipliers = {
 	2458:  getThreatCoefficient(0.8),		// Berserker Stance
 	5487:  getThreatCoefficient(1.3),		// Bear Form
 	9634:  getThreatCoefficient(1.3),		// Dire Bear Form
-	24858: getThreatCoefficient({[School.Arcane]:0.7, [School.Nature]:0.7}), // Moonkin Form Arcane & Nature
+	24858: getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}), // Moonkin Form Arcane & Nature
 	768:   getThreatCoefficient(0.71),		// Cat Form
-	25780: getThreatCoefficient({2:1.6}),	// Righteous Fury
+	25780: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
 	456339: getThreatCoefficient(2.0),	// Ferocity
 }
 
@@ -114,15 +114,15 @@ const talents = {
 	Mage: {
 		"Arcane Subtlety": {
 			maxRank: 2,
-			coeff: (_,rank=2) => getThreatCoefficient({64: 1-0.2*rank}),
+			coeff: (_,rank=2) => getThreatCoefficient({[School.Arcane]: 1-0.2*rank}),
 		},
 		"Burning Soul": {
 			maxRank: 2,
-			coeff: (_,rank=2) => getThreatCoefficient({4: 1-0.15*rank}),
+			coeff: (_,rank=2) => getThreatCoefficient({[School.Fire]: 1-0.15*rank}),
 		},
 		"Frost Channeling": {
 			maxRank: 3,
-			coeff: (_,rank=3) => getThreatCoefficient({16: 1-0.1*rank}),
+			coeff: (_,rank=3) => getThreatCoefficient({[School.Frost]: 1-0.1*rank}),
 		}
 	},
 
@@ -161,7 +161,7 @@ const talents = {
 		},
 		"Shadow Affinity": {
 			maxRank: 3,
-			coeff: (_,rank=3) => getThreatCoefficient({32: 1-Math.floor(rank*25/3)/100}),
+			coeff: (_,rank=3) => getThreatCoefficient({[School.Shadow]: 1-Math.floor(rank*25/3)/100}),
 		}
 	},
 	Shaman: {
@@ -721,8 +721,7 @@ const spellFunctions = {
 27805: handler_zero, // Holy Nova r6
 
 // Hunter
-1213816: handler_modDamage(2), // Damage Shield Dmg +80
-1213813: handler_modDamage(2), // Damage Shield Dmg +100
+5384: handler_vanish, // Feign Death
 20736: handler_threatOnHit(110), // Distracting Shot r1
 14274: handler_threatOnHit(160), // Distracting Shot r2
 15629: handler_threatOnHit(250), // Distracting Shot r3
@@ -732,7 +731,6 @@ const spellFunctions = {
 781: handler_castCanMiss(-140),  // Disengage Rank 1
 14272: handler_castCanMiss(-280), // Disengage Rank 2
 14273: handler_castCanMiss(-405), // Disengage Rank 3
-467271: handler_modDamage(2.25), // Dragonbreath (Hand Cannon Item)
 
 // Warlock
 18288: handler_zero, // Amplify Curse
@@ -822,23 +820,28 @@ const spellFunctions = {
 // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
 		1: handler_damage,
         /* Consumables */
-        11374: handler_threatOnDebuff(90, "Gift of Arthas"),
+        11374: handler_threatOnDebuff(90), // Gift of Arthas
         /* Damage/Weapon Procs */
-        20007: handler_zero, //("Heroic Strength (Crusader)"),
-        18138: handler_damage, //("Shadow Bolt (Deathbringer Proc)"),
-        24388: handler_damage, //("Brain Damage (Lobotomizer Proc)"),
-        23267: handler_damage, //("Firebolt (Perdition's Proc)"),
-        18833: handler_damage, //("Firebolt (Alcor's Proc)"),
+        20007: handler_zero, // Heroic Strength (Crusader)
+        18138: handler_damage, // Shadow Bolt (Deathbringer Proc)
+        24388: handler_damage, // Brain Damage (Lobotomizer Proc)
+        23267: handler_damage, // Firebolt (Perdition's Proc)
+        18833: handler_damage, // Firebolt (Alcor's Proc)
         
         21992: threatFunctions.concat(handler_damage, handler_threatOnDebuff(90)), // Thunderfury
-        27648: handler_threatOnDebuff(145, "Thunderfury"),
+        27648: handler_threatOnDebuff(145), // Thunderfury
+        467271: handler_modDamage(2.25), // Dragonbreath (Dragonbreath Hand Cannon)
         
         /* Thorn Effects */
-         9910: handler_damage, //("Thorns"),  //Thorns (Rank 6)
-        17275: handler_damage, //("Heart of the Scale"), //Heart of the Scale
-        22600: handler_damage, //("Force Reactive Disk"), //Force Reactive
-        11350: handler_zero, //("Oil of Immolation"),   //Oil of Immolation (buff)
-        11351: handler_damage, //("Oil of Immolation"), //Oil of Immolation (dmg)
+         9910: handler_damage, // Thorns (Rank 6)
+        17275: handler_damage, // Heart of the Scale
+        22600: handler_damage, // Force Reactive
+        11350: handler_zero, // Oil of Immolation (buff)
+        11351: handler_damage, // Oil of Immolation (dmg)
+        
+        // Razorbramble/Razorspike gear
+        1213816: handler_modDamage(2), // Damage Shield Dmg +80
+        1213813: handler_modDamage(2), // Damage Shield Dmg +100
         
         /* Explosives */
         13241: handler_damage, //("Goblin Sapper Charge"), //Goblin Sapper Charge
