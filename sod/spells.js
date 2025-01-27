@@ -65,6 +65,7 @@ const buffMultipliers = {
 	2458:  getThreatCoefficient(0.8),		// Berserker Stance
 	5487:  getThreatCoefficient(1.3),		// Bear Form
 	9634:  getThreatCoefficient(1.3),		// Dire Bear Form
+	456332:  getThreatCoefficient(1.3 + 0.20 / 1.3),		// Druid T1 6pc (Additive, not multiplicative)
 	24858: getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}), // Moonkin Form Arcane & Nature
 	768:   getThreatCoefficient(0.71),		// Cat Form
 	25780: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
@@ -99,11 +100,7 @@ const talents = {
 			maxRank: 5,
 			coeff: function(buffs, rank=5) {
 				if (!(5487 in buffs) && !(9634 in buffs)) return getThreatCoefficient(1);
-        // T1 6pc
-        if (456332 in buffs) {
-          return getThreatCoefficient(1.3 + 0.20 + (0.03 * rank)); // confirmed additive in the SoD druid disc
-        }        
-        return getThreatCoefficient(1.3 + (0.03 * rank)); // confirmed additive in the SoD druid disc
+        return getThreatCoefficient((1.3 + 0.03 * rank) / 1.3); // additive, not multiplicative
 			}
 	
 		},
@@ -246,14 +243,19 @@ const auraImplications = {
 		871: 71, //Shield Wall
 	},
 	Druid: {
+    // Dire Bear Form
 		6807: 9634, 6808: 9634, 6809: 9634, 8972: 9634, 9745: 9634, 9880: 9634, 9881: 9634, //Maul
 		779: 9634, 780: 9634, 769: 9634, 9754: 9634, 9908: 9634, //Swipe
+		414644: 9634, 414644: 9634, //Lacerate
+		407995: 9634, //Mangle (Bear)
 		99: 9634, 1735: 9634, 9490: 9634, 9747: 9634, 9898: 9634, //Demoralizing Roar
 		6795: 9634, //Growl
 		5229: 9634, //Enrage
 		17057: 9634, //Furor
 		8983: 9634, //Bash
+    // Cat Form
 		9850: 768, //Claw
+		407993: 768, //Mangle (Cat)
 		9830: 768, //Shred
 		9904: 768, //Rake
 		22829: 768, //Ferocious Bite
@@ -261,7 +263,9 @@ const auraImplications = {
 		9896: 768, //Rip
 		9827: 768, //Pounce
 		9913: 768, //Prowl
-		9846: 768, //Tiger's Fury
+		9846: 768, 417045: 768, //Tiger's Fury
+		407988: 768, //Savage Roar
+		411128: 768, //Swipe (Cat)
 		1850: 768, 9821: 768, //Dash
 	}
 }
@@ -1023,8 +1027,8 @@ const spellFunctions = {
          9754: handler_modDamage(3.5, "Swipe (Rank 4)"),
          9908: handler_modDamage(3.5, "Swipe"),
 
-       414644: handler_modDamage(3.5), // Lacerate
-       414647: handler_modDamage(3.5), // Lacerate
+       414644: handler_modDamage(3.5), // Lacerate (Initial)
+       414647: handler_modDamage(3.5), // Lacerate (Dot?)
 
            99: handler_threatOnDebuff(9, "Demoralizing Roar (Rank 1)"),
          1735: handler_threatOnDebuff(15, "Demoralizing Roar (Rank 2)"),
