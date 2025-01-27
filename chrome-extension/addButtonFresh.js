@@ -1,7 +1,5 @@
 let url =
-  "https://devilinaus.github.io/voomlz.github.io/fresh/?id=" +
-  location.origin +
-  location.pathname;
+  "https://voomlz.github.io/fresh/?id=" + location.origin + location.pathname;
 let bigTabContainer = document.getElementById("top-level-view-tabs");
 let anchor = document.createElement("a");
 
