@@ -99,7 +99,11 @@ const talents = {
 			maxRank: 5,
 			coeff: function(buffs, rank=5) {
 				if (!(5487 in buffs) && !(9634 in buffs)) return getThreatCoefficient(1);
-				return getThreatCoefficient((1.3 + 0.03 * rank) / 1.3);
+        // T1 6pc
+        if (456332 in buffs) {
+          return getThreatCoefficient(1.3 + 0.20 + (0.03 * rank)); // confirmed additive in the SoD druid disc
+        }        
+        return getThreatCoefficient(1.3 + (0.03 * rank)); // confirmed additive in the SoD druid disc
 			}
 	
 		},
@@ -1001,8 +1005,10 @@ const spellFunctions = {
         9634: handler_zero, //(1.45, "Bear Form"),
         768: handler_zero, //(0.71, "Cat Form"),
 
-        /* Bear */
-5209: handler_markSourceOnMiss(borders.taunt), // Challenging Roar
+        /* Bear - See SoD Druid disc: https://discord.com/channels/253205420225724416/1186591609819762750/1310758667561467934 */
+        // Mangle is 1.0x threat
+
+         5209: handler_markSourceOnMiss(borders.taunt), // Challenging Roar
          6807: handler_modDamage(1.75, "Maul (Rank 1)"),
          6808: handler_modDamage(1.75, "Maul (Rank 2)"),
          6809: handler_modDamage(1.75, "Maul (Rank 3)"),
@@ -1011,11 +1017,14 @@ const spellFunctions = {
          9880: handler_modDamage(1.75, "Maul (Rank 6)"),
          9881: handler_modDamage(1.75, "Maul"),
 
-          779: handler_modDamage(1.75, "Swipe (Rank 1)"),
-          780: handler_modDamage(1.75, "Swipe (Rank 2)"),
-          769: handler_modDamage(1.75, "Swipe (Rank 3)"),
-         9754: handler_modDamage(1.75, "Swipe (Rank 4)"),
-         9908: handler_modDamage(1.75, "Swipe"),
+          779: handler_modDamage(3.5, "Swipe (Rank 1)"),
+          780: handler_modDamage(3.5, "Swipe (Rank 2)"),
+          769: handler_modDamage(3.5, "Swipe (Rank 3)"),
+         9754: handler_modDamage(3.5, "Swipe (Rank 4)"),
+         9908: handler_modDamage(3.5, "Swipe"),
+
+       414644: handler_modDamage(3.5), // Lacerate
+       414647: handler_modDamage(3.5), // Lacerate
 
            99: handler_threatOnDebuff(9, "Demoralizing Roar (Rank 1)"),
          1735: handler_threatOnDebuff(15, "Demoralizing Roar (Rank 2)"),
