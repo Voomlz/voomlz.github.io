@@ -1,5 +1,4 @@
-let url =
-  "https://voomlz.github.io/era/?id=" + location.origin + location.pathname;
+let url = "https://voomlz.github.io/era/?id=" + location.origin + location.pathname;
 let bigTabContainer = document.getElementById("top-level-view-tabs");
 let anchor = document.createElement("a");
 
