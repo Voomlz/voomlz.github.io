@@ -1,5 +1,5 @@
 let url =
-  "https://devilinaus.github.io/voomlz.github.io/era/?id=" +
+  "https://devilinaus.github.io/voomlz.github.io/sod/?id=" +
   location.origin +
   location.pathname;
 let bigTabContainer = document.getElementById("top-level-view-tabs");

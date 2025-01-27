@@ -1,16 +1,19 @@
-let url = "https://voomlz.github.io/fresh/?id=" + location.origin + location.pathname;
+let url =
+  "https://devilinaus.github.io/voomlz.github.io/fresh/?id=" +
+  location.origin +
+  location.pathname;
 let bigTabContainer = document.getElementById("top-level-view-tabs");
 let anchor = document.createElement("a");
 
 let spanText = document.createElement("span");
 spanText.className = "big-tab-text";
-spanText.appendChild(document.createElement('br'));
-spanText.innerHTML = "<br> Threat Graph"
-spanText.class = "big-tab view-type-tab selected"
+spanText.appendChild(document.createElement("br"));
+spanText.innerHTML = "<br> Threat Graph";
+spanText.class = "big-tab view-type-tab selected";
 
 let spanIcon = document.createElement("span");
 spanIcon.className = "zmdi zmdi-chart";
-spanIcon.class = "big-tab view-type-tab selected"
+spanIcon.class = "big-tab view-type-tab selected";
 
 anchor.href = url;
 anchor.id = "threat-graph-link";
