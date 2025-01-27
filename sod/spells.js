@@ -68,7 +68,7 @@ const buffMultipliers = {
 	24858: getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}), // Moonkin Form Arcane & Nature
 	768:   getThreatCoefficient(0.71),		// Cat Form
 	25780: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
-	456339: getThreatCoefficient(2.0),	// Ferocity
+	456339: getThreatCoefficient(2.0),	// Ferocity (Hunter T1 2pc)
 }
 
 const PaladinValues = {
