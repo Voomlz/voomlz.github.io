@@ -67,7 +67,7 @@ const buffMultipliers = {
 	9634:  getThreatCoefficient(1.3),		// Dire Bear Form
 	456332:  getThreatCoefficient(1.3 + 0.20 / 1.3),		// Druid T1 6pc (Additive, not multiplicative)
 	24858: getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}), // Moonkin Form Arcane & Nature
-	768:   getThreatCoefficient(0.71),		// Cat Form
+	768:   getThreatCoefficient(0.70),		// Cat Form
 	25780: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
 	456339: getThreatCoefficient(2.0),	// Ferocity (Hunter T1 2pc)
 }
