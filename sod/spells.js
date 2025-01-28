@@ -36,12 +36,12 @@ const buffNames = {
 	2457: "Battle Stance",
 	2458: "Berserker Stance",
 	412513: "Gladiator Stance",
-	5487: "Bear Form",
-	9634: "Dire Bear Form",
-	768: "Cat Form",
+	[Druid.Form.Bear]: "Bear Form",
+	[Druid.Form.DireBear]: "Dire Bear Form",
+	[Druid.Form.Cat]: "Cat Form",
 	25780: "Righteous Fury",
 	456339: "Ferocity",
-	24858: "Moonkin Form"
+	[Druid.Form.Moonkin]: "Moonkin Form"
 }
 
 const School = {
@@ -63,25 +63,48 @@ const buffMultipliers = {
 	412513:getThreatCoefficient(0.7),	    // Gladiator Stance
 	2457:  getThreatCoefficient(0.8),		// Battle Stance
 	2458:  getThreatCoefficient(0.8),		// Berserker Stance
-	5487:  getThreatCoefficient(1.3),		// Bear Form
-	9634:  getThreatCoefficient(1.3),		// Dire Bear Form
+	[Druid.Form.Bear]:      getThreatCoefficient(1.3),		// Bear Form
+	[Druid.Form.DireBear]:  getThreatCoefficient(1.3),		// Dire Bear Form
 	456332:  getThreatCoefficient(1.3 + 0.20 / 1.3),		// Druid T1 6pc (Additive, not multiplicative)
-	24858: getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}), // Moonkin Form Arcane & Nature
-	768:   getThreatCoefficient(0.70),		// Cat Form
+	[Druid.Form.Moonkin]: getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}), // Moonkin Form Arcane & Nature
+	768:   getThreatCoefficient(0.71),		// Cat Form
 	25780: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
 	456339: getThreatCoefficient(2.0),	// Ferocity (Hunter T1 2pc)
 }
 
-const PaladinValues = {
-	PhysicalBase: 1.5,  // Physical damage coefficient for Tank Rune
-	HolyWithImpRF: 2.85, // Holy damage coefficient with Improved Righteous Fury
-	HolyWithoutImpRF: 2.23, // Holy damage coefficient without Improved Righteous Fury
-	OldValues: {
-		NonHoly: 1.0, // Old non-Holy value
-		HolyRFNonImp: 1.6, // Old Holy value without Imp RF
-		HolyImpRF: 1.9 // Old Holy value with Imp RF
-	}
+const Paladin = {
+  Mods: {
+    PhysicalBase: 1.5,  // Physical damage coefficient for Tank Rune
+    HolyWithImpRF: 2.85, // Holy damage coefficient with Improved Righteous Fury
+    HolyWithoutImpRF: 2.23, // Holy damage coefficient without Improved Righteous Fury
+    OldValues: {
+      NonHoly: 1.0, // Old non-Holy value
+      HolyRFNonImp: 1.6, // Old Holy value without Imp RF
+      HolyImpRF: 1.9 // Old Holy value with Imp RF
+    }
+  },
 }
+
+
+const Druid = {
+  Form: {
+    Bear: 5487,
+    DireBear: 9634,
+    Cat: 768,
+    Tree: 439733,
+    Moonkin: 24858,
+  },
+  Mods: {
+    DireBear: 1.3,
+    FeralInstinct: 0.03,
+    Lacerate: 3.5,
+    Swipe: 3.5,
+  },
+  Spell: {
+    Starsurge: 417157,
+    Starfall: 439753,
+  },
+};
 
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
@@ -99,16 +122,16 @@ const talents = {
 		"Feral Instinct": {
 			maxRank: 5,
 			coeff: function(buffs, rank=5) {
-				if (!(5487 in buffs) && !(9634 in buffs)) return getThreatCoefficient(1);
-        return getThreatCoefficient((1.3 + 0.03 * rank) / 1.3); // additive, not multiplicative
+				if (!(Druid.Form.Bear in buffs) && !(Druid.Form.DireBear in buffs)) return getThreatCoefficient(1);
+        return getThreatCoefficient((Druid.Mods.DireBear + Druid.Mods.FeralInstinct * rank) / Druid.Mods.DireBear); // additive, not multiplicative
 			}
 	
 		},
 		"Moonkin Form": {
 			maxRank: 1,
 			coeff: function(buffs) {
-				if (!(24858 in buffs) && !(443359 in buffs)) return getThreatCoefficient(1);
-				return getThreatCoefficient({[School.Arcane]:0.7, [School.Nature]:0.7});
+				if (!(Druid.Form.Moonkin in buffs)) return getThreatCoefficient(1);
+				return getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7});
 			}
 		}
 	},
@@ -223,6 +246,10 @@ for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
 for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
 
+const Cat = Druid.Form.Cat;
+const Bear = Druid.Form.DireBear;
+const Moonkin = Druid.Form.Moonkin;
+
 const auraImplications = {
 	Warrior: {
 		7384: 2457, 7887: 2457, 11584: 2457, 11585: 2457, //Overpower
@@ -244,29 +271,35 @@ const auraImplications = {
 	},
 	Druid: {
     // Dire Bear Form
-		6807: 9634, 6808: 9634, 6809: 9634, 8972: 9634, 9745: 9634, 9880: 9634, 9881: 9634, //Maul
-		779: 9634, 780: 9634, 769: 9634, 9754: 9634, 9908: 9634, //Swipe
-		414644: 9634, 414644: 9634, //Lacerate
-		407995: 9634, //Mangle (Bear)
-		99: 9634, 1735: 9634, 9490: 9634, 9747: 9634, 9898: 9634, //Demoralizing Roar
-		6795: 9634, //Growl
-		5229: 9634, //Enrage
-		17057: 9634, //Furor
-		8983: 9634, //Bash
+		6807: Bear, 6808: Bear, 6809: Bear, 8972: Bear, 9745: Bear, 9880: Bear, 9881: Bear, //Maul
+		779: Bear, 780: Bear, 769: Bear, 9754: Bear, 9908: Bear, //Swipe
+		414644: Bear, 414644: Bear, //Lacerate
+		407995: Bear, //Mangle (Bear)
+		99: Bear, 1735: Bear, 9490: Bear, 9747: Bear, 9898: Bear, //Demoralizing Roar
+		6795: Bear, //Growl
+		5229: Bear, //Enrage
+		17057: Bear, //Furor
+		8983: Bear, //Bash
+    
     // Cat Form
-		9850: 768, //Claw
-		407993: 768, //Mangle (Cat)
-		9830: 768, //Shred
-		9904: 768, //Rake
-		22829: 768, //Ferocious Bite
-		9867: 768, //Ravage
-		9896: 768, //Rip
-		9827: 768, //Pounce
-		9913: 768, //Prowl
-		9846: 768, 417045: 768, //Tiger's Fury
-		407988: 768, //Savage Roar
-		411128: 768, //Swipe (Cat)
-		1850: 768, 9821: 768, //Dash
+		9850: Cat, //Claw
+		407993: Cat, //Mangle (Cat)
+		9830: Cat, //Shred
+		9904: Cat, //Rake
+		22829: Cat, //Ferocious Bite
+		9867: Cat, //Ravage
+		9896: Cat, //Rip
+		9827: Cat, //Pounce
+		9913: Cat, //Prowl
+		9846: Cat, 417045: Cat, //Tiger's Fury
+		407988: Cat, //Savage Roar
+		411128: Cat, //Swipe (Cat)
+		1850: Cat, 9821: Cat, //Dash
+
+    // Moonkin Form - Since Starsurge and Starfall are Boomy skills, and take up Nourish and
+    // Lifebloom slots, we can assume these abilities imply Moonkin form
+    [Druid.Spell.Starsurge]: Moonkin,
+    [Druid.Spell.Starfall]: Moonkin,
 	}
 }
 
@@ -1006,8 +1039,8 @@ const spellFunctions = {
 
 
         /* Forms */
-        9634: handler_zero, //(1.45, "Bear Form"),
-        768: handler_zero, //(0.71, "Cat Form"),
+        [Druid.Form.DireBear]: handler_zero, //(1.45, "Bear Form"),
+        [Druid.Form.Cat]: handler_zero, //(0.71, "Cat Form"),
 
         /* Bear - See SoD Druid disc: https://discord.com/channels/253205420225724416/1186591609819762750/1310758667561467934 */
         // Mangle is 1.0x threat
