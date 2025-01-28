@@ -16,15 +16,33 @@ function getThreatCoefficient(values) {
 }
 
 const preferredSpellSchools = {
-	Mage: 16,		// Frost
-	Priest: 2,		// Holy
-	Paladin: 2,		// Holy
-	Warlock: 32,	// Shadow
+	Mage: School.Frost,
+	Priest: School.Holy,
+	Paladin: School.Holy,
+	Warlock: School.Shadow,
 	// Others will be defaulted to 1 = physical
 }
 
+const Rogue = {
+  Mods: {
+    Base: 0.71,
+    JustAFleshWound: 1.65,
+    MainGauche: 0.51,
+  },
+  Spell: {
+    Tease: 410412,
+    SinisterStrikeR7: 11293,
+    SinisterStrikeR8: 11294,
+    PoisonedKnife: 425012,
+  },
+  Buff: {
+    JustAFleshWound: 400014,
+    MainGauche: 462752,
+  },
+};
+
 const baseThreatCoefficients = {
-	Rogue:   getThreatCoefficient(0.71),
+	Rogue:   getThreatCoefficient(Rogue.Mods.Base),
 	// Others will be defaulted to 1
 }
 
@@ -40,8 +58,9 @@ const buffNames = {
 	[Druid.Form.DireBear]: "Dire Bear Form",
 	[Druid.Form.Cat]: "Cat Form",
 	25780: "Righteous Fury",
-	456339: "Ferocity",
-	[Druid.Form.Moonkin]: "Moonkin Form"
+	[Hunter.Buff.Ferocity]: "Ferocity",
+	[Druid.Form.Moonkin]: "Moonkin Form",
+	[Rogue.Buff.JustAFleshWound]: "Just a Flesh Wound"
 }
 
 const School = {
@@ -69,7 +88,8 @@ const buffMultipliers = {
 	[Druid.Form.Moonkin]: getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}), // Moonkin Form Arcane & Nature
 	768:   getThreatCoefficient(0.71),		// Cat Form
 	25780: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
-	456339: getThreatCoefficient(2.0),	// Ferocity (Hunter T1 2pc)
+	[Hunter.Buff.Ferocity]: getThreatCoefficient(2.0),	// Ferocity (Hunter T1 2pc)
+	[Rogue.Buff.JustAFleshWound]: getThreatCoefficient(Rogue.Mods.JustAFleshWound),
 }
 
 const Paladin = {
@@ -103,6 +123,24 @@ const Druid = {
   Spell: {
     Starsurge: 417157,
     Starfall: 439753,
+  },
+};
+
+const Hunter = {
+  Buff: {
+    Ferocity: 456339,
+  },
+  Spell: {
+    FeignDeath: 5384,
+    DistractingShotR1: 20736,
+    DistractingShotR2: 14274,
+    DistractingShotR3: 15629,
+    DistractingShotR4: 15630,
+    DistractingShotR5: 15631,
+    DistractingShotR6: 15632,
+    DisengageR1: 781, // Disengage Rank 1
+    DisengageR2: 14272, // Disengage Rank 2
+    DisengageR3: 14273, // Disengage Rank 3
   },
 };
 
@@ -234,6 +272,7 @@ const fixateBuffs = {
 	6795: true, // Growl
 	694: true, 7400: true, 7402: true, 20559: true, 20560: true, // Mocking Blow
 	29060: true, // Deathknight Understudy Taunt
+	[Rogue.Spell.Tease]: true,
 }
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
@@ -737,6 +776,12 @@ const spellFunctions = {
 11303: handler_castCanMissNoCoefficient(-600), // Feint r4
 25302: handler_castCanMissNoCoefficient(-800), // Feint r5
 
+// Rogue: SoD. Info from the compendium: https://docs.google.com/document/d/1BCCkILiz9U-VcX7489WGam2cK_Dm8InahnpQ3bS-UxA/edit?usp=sharing
+[Rogue.Spell.Tease]: threatFunctions.concat(handler_taunt, handler_markSourceOnMiss(borders.taunt)),
+// TODO: these are only while Main Gauche is active
+[Rogue.Spell.SinisterStrikeR8]: handler_modDamage(Rogue.Mods.MainGauche),
+[Rogue.Spell.PoisonedKnife]: handler_modDamage(Rogue.Mods.MainGauche),
+
 // Priest
 6788: handler_zero, // Weakened Soul
 8092: handler_threatOnHit(40), // Mind Blast r1
@@ -762,16 +807,16 @@ const spellFunctions = {
 27805: handler_zero, // Holy Nova r6
 
 // Hunter
-5384: handler_vanish, // Feign Death
-20736: handler_threatOnHit(110), // Distracting Shot r1
-14274: handler_threatOnHit(160), // Distracting Shot r2
-15629: handler_threatOnHit(250), // Distracting Shot r3
-15630: handler_threatOnHit(350), // Distracting Shot r4
-15631: handler_threatOnHit(465), // Distracting Shot r5
-15632: handler_threatOnHit(600), // Distracting Shot r6
-781: handler_castCanMiss(-140),  // Disengage Rank 1
-14272: handler_castCanMiss(-280), // Disengage Rank 2
-14273: handler_castCanMiss(-405), // Disengage Rank 3
+[Hunter.Spell.FeignDeath]: handler_vanish, // Feign Death
+[Hunter.Spell.DistractingShotR1]: handler_threatOnHit(110), // Distracting Shot r1
+[Hunter.Spell.DistractingShotR2]: handler_threatOnHit(160), // Distracting Shot r2
+[Hunter.Spell.DistractingShotR3]: handler_threatOnHit(250), // Distracting Shot r3
+[Hunter.Spell.DistractingShotR4]: handler_threatOnHit(350), // Distracting Shot r4
+[Hunter.Spell.DistractingShotR5]: handler_threatOnHit(465), // Distracting Shot r5
+[Hunter.Spell.DistractingShotR6]: handler_threatOnHit(600), // Distracting Shot r6
+[Hunter.Spell.DisengageR1]: handler_castCanMiss(-140),  // Disengage Rank 1
+[Hunter.Spell.DisengageR2]: handler_castCanMiss(-280), // Disengage Rank 2
+[Hunter.Spell.DisengageR3]: handler_castCanMiss(-405), // Disengage Rank 3
 
 // Warlock
 18288: handler_zero, // Amplify Curse
