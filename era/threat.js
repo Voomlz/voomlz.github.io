@@ -183,7 +183,8 @@ class ThreatTrace {
         let a = this.target.global.initialBuffs;
         for (let k in a) {
             let els = ["tr", "td", "td", "select", "option", "option", "option", "option", "option"].map(s => document.createElement(s));
-            els[1].textContent = buffNames[k] + " " + buffMultipliers[k](this.target.spellSchool);
+            const coefficient = typeof buffMultipliers[k] === 'function' ? buffMultipliers[k](this.target.spellSchool) : '';
+            els[1].textContent = buffNames[k] + " " + coefficient;
             els[4].textContent = "Infer";
             els[5].textContent = "On";
             els[6].textContent = "Off";
@@ -301,7 +302,16 @@ class Unit {
             }
         }
         for (let i in this.buffs) {
-            if (i in buffMultipliers) c *= buffMultipliers[i](spellSchool);
+            if (i in buffMultipliers) {
+              if (typeof buffMultipliers[i] === 'function') {
+                c *= buffMultipliers[i](spellSchool);
+              }
+              // Allow applying a coefficient per spellId or via a combination of other buffs
+              if (typeof buffMultipliers[i] === 'object' && spellId && 'coeff' in buffMultipliers[i]) {
+                const {coeff} = buffMultipliers[i];
+                c *= coeff(this.buffs, spellId)(spellSchool);
+              }
+            }
         }
         for (let i in this.talents) {
             let t = this.talents[i];
@@ -796,7 +806,7 @@ class Report {
         let allFriendlies = [...this.data.friendlies, ...this.data.friendlyPets];
         for (let f of allFriendlies) {
             // The settings for these buffs are displayed for all classes
-            f.initialBuffs = {1038: 0, 25895: 0, 25909: 0,};
+            f.initialBuffs = {...initialBuffs.All};
             // Copy talents from the global structure to this player
             f.talents = {};
             for (let talentName in talents[f.type]) {
@@ -807,24 +817,20 @@ class Report {
                     coeff: t.coeff,
                 }
             }
-            // Get faction and add class-specific initial buff settings
+            // Add class-specific initial buff settings
+            if (initialBuffs[f.type]) {
+                for (let initialBuffId in initialBuffs[f.type]) {
+                    f.initialBuffs[initialBuffId] = initialBuffs[f.type][initialBuffId];
+                } 
+            }
+            
+            // Get faction
             switch (f.type) {
                 case "Paladin":
-                    f.initialBuffs[25780] = 0;	// Righteous Fury
                     this.faction = "Alliance";
                     break;
                 case "Shaman":
                     this.faction = "Horde";
-                    break;
-                case "Warrior":
-                    f.initialBuffs[71] = 0;		// Stances
-                    f.initialBuffs[2457] = 0;
-                    f.initialBuffs[2458] = 0;
-                    break;
-                case "Druid":
-                    f.initialBuffs[5487] = 0;	// Forms
-                    f.initialBuffs[9634] = 0;
-                    f.initialBuffs[768] = 0;
                     break;
             }
         }
