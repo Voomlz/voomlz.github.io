@@ -818,10 +818,8 @@ class Report {
                 }
             }
             // Add class-specific initial buff settings
-            if (initialBuffs[f.type]) {
-                for (let initialBuffId in initialBuffs[f.type]) {
-                    f.initialBuffs[initialBuffId] = initialBuffs[f.type][initialBuffId];
-                } 
+            if (typeof initialBuffs[f.type] === 'object') {
+                f.initialBuffs = {...f.initialBuffs, ...initialBuffs[f.type]};
             }
             
             // Get faction
