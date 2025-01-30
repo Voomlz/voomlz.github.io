@@ -93,7 +93,6 @@ const Druid = {
     Lifebloom: 408124,
     LifebloomTick: 408245,
     Nourish: 408247,
-    Efflorescence: 417148,
     LivingSeed: 414683,
   },
 };
@@ -251,7 +250,6 @@ const talents = {
         [Druid.Spell.Lifebloom]: true,
         [Druid.Spell.LifebloomTick]: true,
         [Druid.Spell.Nourish]: true,
-        [Druid.Spell.Efflorescence]: true,
         [Druid.Spell.LivingSeed]: true,
       })),
     }
@@ -329,24 +327,32 @@ const talents = {
           [Rogue.Spell.SinisterStrikeR8]: true,
           [Rogue.Spell.PoisonedKnife]: true,
         };
-        if (!(Rogue.Buff.MainGauche in buffs) && !(spellId in moddedSpells)) return getThreatCoefficient(1);
-
-        return getThreatCoefficient(Rogue.Mods.MainGauche);
+        if (Rogue.Buff.MainGauche in buffs && spellId in moddedSpells) {
+          return getThreatCoefficient(Rogue.Mods.MainGauche);
+        }
+        
+        return getThreatCoefficient(1);
+      }
+    },
+    "Just a Flesh Wound": {
+      maxRank: 1,
+      coeff: (buffs, rank = 0) => {
+        if (rank || Rogue.Buff.JustAFleshWound in buffs) {
+          return getThreatCoefficient(Rogue.Mods.JustAFleshWound);
+        }
+        
+        return getThreatCoefficient(1);
       }
     },
     "S03 - Item - T1 - Rogue - Tank 2P Bonus": {
       maxRank: 1,
-      coeff: (buffs, rank = 1, spellId) => {
+      coeff: (buffs, rank = 0, spellId) => {
         const moddedSpells = {
           [Rogue.Spell.CrimsonTempest]: true,
           [Rogue.Spell.Blunderbuss]: true,
           [Rogue.Spell.FanOfKnives]: true,
         };
-        if (
-            Rogue.Buff.JustAFleshWound in buffs 
-            && Rogue.Buff.BladeDance in buffs 
-            && Rogue.Buff.T1_Tank_2pc in buffs // TODO: does this buff show in logs?
-            && spellId in moddedSpells) {
+        if (rank && Rogue.Buff.BladeDance in buffs && spellId in moddedSpells) {
           return getThreatCoefficient(Rogue.Mods.T1_Tank_2pc);
         }
         return getThreatCoefficient(1);
@@ -401,6 +407,10 @@ for (let k in buffMultipliers) notableBuffs[k] = true;
 for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
 for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
+for (let id of Object.values(Rogue.Buff)) notableBuffs[id] = true;
+for (let id of Object.values(Druid.Buff)) notableBuffs[id] = true;
+for (let id of Object.values(Hunter.Buff)) notableBuffs[id] = true;
+
 
 const Cat = Druid.Form.Cat;
 const Bear = Druid.Form.DireBear;
