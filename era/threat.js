@@ -560,8 +560,8 @@ class NPC extends Unit {
                 gridcolor: "#666",
                 linecolor: "#999"
             },
-            width: 1920,
-            height: 1080,
+            width: window.innerWidth * .80,
+            height: (window.innerWidth * .80) / (1920/1080),
             hovermode: "closest",
             plot_bgcolor: "#222",
             paper_bgcolor: "#222",
@@ -860,15 +860,36 @@ function selectReport() {
     if (!(reportId in reports)) reports[reportId] = new Report(reportId);
     enableInput(false);
     return reports[reportId].fetch().then(() => {
-        for (let id in reports[reportId].fights) {
-            let f = reports[reportId].fights[id];
-            let el_f = document.createElement("option");
-            el_f.value = reportId + ";" + id;
-            el_f.textContent = f.name + " - " + id;
-            el_fightSelect.appendChild(el_f);
-            enableInput(true);
+        const fights = Object.values(reports[reportId].fights);
+        
+        fights.sort((a, b) => encounterSort(a) - encounterSort(b));
+        
+        let lastEncounterId = 0;
+        for (const f of fights) {
+          if (encounterSort(f) >= TRASH_ID && lastEncounterId < TRASH_ID) {
+            const option = document.createElement("option");
+            option.textContent = '--- TRASH ---';
+            option.disabled = true;
+            el_fightSelect.appendChild(option);
+          }
+
+          const option = document.createElement("option");
+          option.value = reportId + ";" + f.id;
+          option.textContent = f.name + " - " + f.id;
+          
+          el_fightSelect.appendChild(option);
+
+
+          lastEncounterId = encounterSort(f);
         }
+
+        enableInput(true);
     }).catch(printError);
+}
+
+const TRASH_ID = 9999999;
+function encounterSort({encounter, id}) {
+  return encounter === 0 ? TRASH_ID + id : encounter + id;
 }
 
 function selectFight(index) {
