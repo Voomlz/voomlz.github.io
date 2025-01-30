@@ -41,6 +41,25 @@ const preferredSpellSchools = {
 	// Others will be defaulted to 1 = physical
 }
 
+const Paladin = {
+  Mods: {
+    PhysicalBase: 1.5,  // Physical damage coefficient for Tank Rune
+    HolyWithImpRF: 2.85, // Holy damage coefficient with Improved Righteous Fury
+    HolyWithoutImpRF: 2.23, // Holy damage coefficient without Improved Righteous Fury
+    OldValues: {
+      NonHoly: 1.0, // Old non-Holy value
+      HolyRFNonImp: 1.6, // Old Holy value without Imp RF
+      HolyImpRF: 1.9 // Old Holy value with Imp RF
+    },
+    Salvation: 0.7,
+  },
+  Buff: {
+    Salv: 1038,
+    GreaterSalv: 25895,
+    RighteousFury: 25780,
+  }
+}
+
 const Rogue = {
   Mods: {
     Base: 0.71,
@@ -58,6 +77,7 @@ const Rogue = {
     SinisterStrikeR8: 11294,
     Tease: 410412,
     UnfairAdvantage: 432274,
+    MainGauche: 424919,
   },
   Buff: {
     JustAFleshWound: 400014,
@@ -123,9 +143,36 @@ const baseThreatCoefficients = {
 	// Others will be defaulted to 1
 }
 
+/** Sets certain buffs to always show as toggles per class */
+const initialBuffs = {
+  All: {
+    [Paladin.Buff.Salv]: 0, 
+    [Paladin.Buff.GreaterSalv]: 0, 
+    25909: 0
+  },
+  Paladin: {
+    [Paladin.Buff.RighteousFury]: 0,
+  },
+  Warrior: {
+    71: 0,		// Stances
+    2457: 0,
+    2458: 0,
+  },
+  Druid: {
+    [Druid.Form.Bear]: 0,	// Forms
+    [Druid.Form.DireBear]: 0,
+    [Druid.Form.Cat]: 0,
+  },
+  Rogue: {
+    [Rogue.Buff.JustAFleshWound]: 0,
+    [Rogue.Buff.T1_Tank_2pc]: 3,
+  }
+};
+
 const buffNames = {
-	1038: "Blessing of Salvation",
-	25895: "Greater Blessing of Salvation",
+	[Paladin.Buff.Salv]: "Blessing of Salvation",
+	[Paladin.Buff.GreaterSalv]: "Greater Blessing of Salvation",
+	[Paladin.Buff.RighteousFury]: "Righteous Fury",
 	25909: "Tranquil Air Totem",
 	71: "Defensive Stance",
 	2457: "Battle Stance",
@@ -134,7 +181,6 @@ const buffNames = {
 	[Druid.Form.Bear]: "Bear Form",
 	[Druid.Form.DireBear]: "Dire Bear Form",
 	[Druid.Form.Cat]: "Cat Form",
-	25780: "Righteous Fury",
 	[Hunter.Buff.T1_Ranged_2pc]: "Ferocity",
 	[Druid.Form.Moonkin]: "Moonkin Form",
 	
@@ -144,8 +190,9 @@ const buffNames = {
 }
 
 const buffMultipliers = {
-	1038:  getThreatCoefficient(0.7),		// BoS
-	25895: getThreatCoefficient(0.7),		// GBoS
+	[Paladin.Buff.Salv]:  getThreatCoefficient(Paladin.Mods.Salvation),		// BoS
+	[Paladin.Buff.GreaterSalv]: getThreatCoefficient(Paladin.Mods.Salvation),		// GBoS
+	[Paladin.Buff.RighteousFury]: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
 	25909: getThreatCoefficient(0.8),		// Tranquil Air Totem Aura
 	71:    getThreatCoefficient(1.3),		// Defensive Stance
 	412513:getThreatCoefficient(0.7),	    // Gladiator Stance
@@ -156,22 +203,39 @@ const buffMultipliers = {
 	[Druid.Buff.T1_Tank_6pc]: getAdditiveThreatCoefficient(Druid.Mods.T1_Tank_6pc, Druid.Mods.DireBear),
 	[Druid.Form.Moonkin]:   getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}),
 	[Druid.Form.Cat]:       getThreatCoefficient(Druid.Mods.Cat),		// Cat Form
-	25780: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
 	[Hunter.Buff.T1_Ranged_2pc]: getThreatCoefficient(Hunter.Mods.T1_Ranged_2pc),
-	[Rogue.Buff.JustAFleshWound]: getThreatCoefficient(Rogue.Mods.JustAFleshWound),
-}
-
-const Paladin = {
-  Mods: {
-    PhysicalBase: 1.5,  // Physical damage coefficient for Tank Rune
-    HolyWithImpRF: 2.85, // Holy damage coefficient with Improved Righteous Fury
-    HolyWithoutImpRF: 2.23, // Holy damage coefficient without Improved Righteous Fury
-    OldValues: {
-      NonHoly: 1.0, // Old non-Holy value
-      HolyRFNonImp: 1.6, // Old Holy value without Imp RF
-      HolyImpRF: 1.9 // Old Holy value with Imp RF
+	
+  [Rogue.Buff.JustAFleshWound]: getThreatCoefficient(Rogue.Mods.JustAFleshWound),
+  [Rogue.Buff.MainGauche]: {
+    coeff: (buffs, spellId) => {
+      const moddedSpells = {
+        // TODO: lower ranks
+        [Rogue.Spell.SinisterStrikeR7]: true,
+        [Rogue.Spell.SinisterStrikeR8]: true,
+        [Rogue.Spell.PoisonedKnife]: true,
+      };
+      if (spellId in moddedSpells) {
+        return getThreatCoefficient(Rogue.Mods.MainGauche);
+      }
+      
+      return getThreatCoefficient(1);
     }
   },
+  [Rogue.Buff.T1_Tank_2pc]: {
+    coeff: (buffs, spellId) => {
+      const moddedSpells = {
+        [Rogue.Spell.CrimsonTempest]: true,
+        [Rogue.Spell.Blunderbuss]: true,
+        [Rogue.Spell.FanOfKnives]: true,
+      };
+      if (Rogue.Buff.BladeDance in buffs && 
+          Rogue.Buff.JustAFleshWound in buffs && 
+          spellId in moddedSpells) {
+        return getThreatCoefficient(Rogue.Mods.T1_Tank_2pc);
+      }
+      return getThreatCoefficient(1);
+    }
+  }
 }
 
 
@@ -317,49 +381,6 @@ const talents = {
 				})),
 		},
 	},
-  Rogue: {
-    "Main Gauche": {
-      maxRank: 1,
-      coeff: (buffs, rank = 1, spellId) => {
-        const moddedSpells = {
-          // TODO: lower ranks
-          [Rogue.Spell.SinisterStrikeR7]: true,
-          [Rogue.Spell.SinisterStrikeR8]: true,
-          [Rogue.Spell.PoisonedKnife]: true,
-        };
-        if (Rogue.Buff.MainGauche in buffs && spellId in moddedSpells) {
-          return getThreatCoefficient(Rogue.Mods.MainGauche);
-        }
-        
-        return getThreatCoefficient(1);
-      }
-    },
-    "Just a Flesh Wound": {
-      maxRank: 1,
-      coeff: (buffs, rank = 0) => {
-        // only add coefficient if NOT already found in buffs, since it's already a buffMultiplier
-        if (rank && !(Rogue.Buff.JustAFleshWound in buffs)) {
-          return getThreatCoefficient(Rogue.Mods.JustAFleshWound);
-        }
-        
-        return getThreatCoefficient(1);
-      }
-    },
-    "S03 - Item - T1 - Rogue - Tank 2P Bonus": {
-      maxRank: 1,
-      coeff: (buffs, rank = 0, spellId) => {
-        const moddedSpells = {
-          [Rogue.Spell.CrimsonTempest]: true,
-          [Rogue.Spell.Blunderbuss]: true,
-          [Rogue.Spell.FanOfKnives]: true,
-        };
-        if (rank && Rogue.Buff.BladeDance in buffs && spellId in moddedSpells) {
-          return getThreatCoefficient(Rogue.Mods.T1_Tank_2pc);
-        }
-        return getThreatCoefficient(1);
-      }
-    }
-  }
 }
 
 // These make dots green-bordered
@@ -467,7 +488,10 @@ const auraImplications = {
     // Lifebloom slots, we can assume these abilities imply Moonkin form
     [Druid.Spell.Starsurge]: Moonkin,
     [Druid.Spell.Starfall]: Moonkin,
-	}
+	},
+  Rogue: {
+    [Rogue.Spell.MainGauche]: Rogue.Buff.JustAFleshWound,
+  }
 }
 
 const threatFunctions = {
