@@ -337,7 +337,8 @@ const talents = {
     "Just a Flesh Wound": {
       maxRank: 1,
       coeff: (buffs, rank = 0) => {
-        if (rank || Rogue.Buff.JustAFleshWound in buffs) {
+        // only add coefficient if NOT already found in buffs, since it's already a buffMultiplier
+        if (rank && !(Rogue.Buff.JustAFleshWound in buffs)) {
           return getThreatCoefficient(Rogue.Mods.JustAFleshWound);
         }
         
