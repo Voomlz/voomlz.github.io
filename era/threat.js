@@ -860,15 +860,36 @@ function selectReport() {
     if (!(reportId in reports)) reports[reportId] = new Report(reportId);
     enableInput(false);
     return reports[reportId].fetch().then(() => {
-        for (let id in reports[reportId].fights) {
-            let f = reports[reportId].fights[id];
-            let el_f = document.createElement("option");
-            el_f.value = reportId + ";" + id;
-            el_f.textContent = f.name + " - " + id;
-            el_fightSelect.appendChild(el_f);
-            enableInput(true);
+        const fights = Object.values(reports[reportId].fights);
+
+        fights.sort((a, b) => encounterSort(a) - encounterSort(b));
+
+        let lastEncounterId = 0;
+        for (const f of fights) {
+            if (encounterSort(f) >= TRASH_ID && lastEncounterId < TRASH_ID) {
+              const option = document.createElement("option");
+              option.textContent = '--- TRASH ---';
+              option.disabled = true;
+              el_fightSelect.appendChild(option);
+            }
+
+            const option = document.createElement("option");
+            option.value = reportId + ";" + f.id;
+            option.textContent = f.name + " - " + f.id;
+
+            el_fightSelect.appendChild(option);
+
+
+            lastEncounterId = encounterSort(f);
         }
+
+        enableInput(true);
     }).catch(printError);
+}
+
+const TRASH_ID = 9999999;
+function encounterSort({encounter, id}) {
+    return encounter === 0 ? TRASH_ID + id : encounter + id;
 }
 
 function selectFight(index) {
@@ -891,11 +912,15 @@ function selectFight(index) {
         if (j !== -1) prevSelection = el_enemySelect.options[j].value;
         j = 0;
         el_enemySelect.innerHTML = "";
-        for (let k in f.enemies) {
-            let u = f.enemies[k];
+
+        const sortedEnemies = Object.keys(f.enemies).map(k => f.enemies[k]);
+
+        sortedEnemies.sort((a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name));
+
+        for (let enemy of sortedEnemies) {
             let el_u = document.createElement("option");
-            el_u.value = reportId + ";" + fightId + ";" + k;
-            el_u.textContent = u.name + " - " + k;
+            el_u.value = reportId + ";" + fightId + ";" + enemy.key;
+            el_u.textContent = enemy.name + " - " + enemy.key;
             el_enemySelect.appendChild(el_u);
             if (el_u.value === prevSelection) el_enemySelect.selectedIndex = j;
             j += 1;
@@ -921,12 +946,16 @@ function selectEnemy() {
         if (j !== -1) prevSelection = el_targetSelect.options[j].value.split(";")[3];
         el_targetSelect.innerHTML = "";
         j = 0;
-        for (let k in u.threat) {
+        const sortedTargets = Object.keys(u.threat).map(k => u.threat[k].target);
+        
+        sortedTargets.sort((a, b) => a.name.localeCompare(b.name));
+
+        for (let target of sortedTargets) {
             let el_u = document.createElement("option");
-            el_u.value = s + ";" + k;
-            el_u.textContent = u.threat[k].target.name + " - " + u.threat[k].target.key;
+            el_u.value = s + ";" + target.key;
+            el_u.textContent = target.name + " - " + target.key;
             el_targetSelect.appendChild(el_u);
-            if (k === prevSelection) el_targetSelect.selectedIndex = j;
+            if (target.key === prevSelection) el_targetSelect.selectedIndex = j;
             j += 1;
         }
         selectTarget();
