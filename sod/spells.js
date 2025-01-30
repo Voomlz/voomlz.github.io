@@ -4,6 +4,17 @@ let borders = {
 	taunt: [3, "#ffa500"],
 }
 
+const School = {
+	Physical: 1,
+	Holy: 2,
+	Fire: 4,
+	Nature: 8,
+	Frost: 16,
+	Shadow: 32,
+	Arcane: 64, 
+}
+
+
 function getThreatCoefficient(values) {
 	if (typeof values === "number") {
 		values = {0: values};
@@ -13,6 +24,13 @@ function getThreatCoefficient(values) {
 		if (spellSchool in values) return values[spellSchool];
 		return values[0];
 	}
+}
+
+/** 
+ * Adds an additive threat coefficient on top of another. Since the coefficients are multiplied.
+ */
+function getAdditiveThreatCoefficient(value, base) {
+  return getThreatCoefficient((base + value) / base)
 }
 
 const preferredSpellSchools = {
@@ -26,18 +44,76 @@ const preferredSpellSchools = {
 const Rogue = {
   Mods: {
     Base: 0.71,
-    JustAFleshWound: 1.65,
-    MainGauche: 0.51,
+    JustAFleshWound: 1.855, // taken from compendium
+    MainGauche: 1.51,
+    T1_Tank_2pc: 2.0,
   },
   Spell: {
-    Tease: 410412,
+    Blunderbuss: 436564,
+    CrimsonTempest: 412096,
+    FanOfKnives: 409240,
+    PoisonedKnife: 425012,
     SinisterStrikeR7: 11293,
     SinisterStrikeR8: 11294,
-    PoisonedKnife: 425012,
+    Tease: 410412,
   },
   Buff: {
     JustAFleshWound: 400014,
     MainGauche: 462752,
+    BladeDance: 400012,
+    T1_Tank_2pc: 457349,
+  },
+};
+
+const Druid = {
+  Form: {
+    Bear: 5487,
+    DireBear: 9634,
+    Cat: 768,
+    Tree: 439733,
+    Moonkin: 24858,
+  },
+  Mods: {
+    Cat: 0.71,
+    DireBear: 1.3,
+    FeralInstinct: 0.03,
+    Lacerate: 3.5,
+    Swipe: 3.5,
+    T1_Tank_6pc: 0.20
+  },
+  Buff: {
+    T1_Tank_6pc: 456332,
+  },
+  Spell: {
+    Starsurge: 417157,
+    Starfall: 439753,
+    WildGrowth: 408120,
+    Lifebloom: 408124,
+    LifebloomTick: 408245,
+    Nourish: 408247,
+    Efflorescence: 417148,
+    LivingSeed: 414683,
+  },
+};
+
+const Hunter = {
+  Buff: {
+    T1_Ranged_2pc: 456339, // Ferocity
+  },
+  Mods: {
+    T1_Ranged_2pc: 2.0,
+  },
+  Spell: {
+    FeignDeath: 5384,
+    DistractingShotR1: 20736,
+    DistractingShotR2: 14274,
+    DistractingShotR3: 15629,
+    DistractingShotR4: 15630,
+    DistractingShotR5: 15631,
+    DistractingShotR6: 15632,
+    DisengageR1: 781,
+    DisengageR2: 14272,
+    DisengageR3: 14273,
   },
 };
 
@@ -58,20 +134,12 @@ const buffNames = {
 	[Druid.Form.DireBear]: "Dire Bear Form",
 	[Druid.Form.Cat]: "Cat Form",
 	25780: "Righteous Fury",
-	[Hunter.Buff.Ferocity]: "Ferocity",
+	[Hunter.Buff.T1_Ranged_2pc]: "Ferocity",
 	[Druid.Form.Moonkin]: "Moonkin Form",
-	[Rogue.Buff.JustAFleshWound]: "Just a Flesh Wound"
-}
-
-const School = {
-	Physical: 1,
-	Holy: 2,
-	Fire: 4,
-	Nature: 8,
-	Frost: 16,
-	Shadow: 32,
-	Arcane: 64, 
-
+	
+  [Rogue.Buff.JustAFleshWound]: "Just a Flesh Wound",
+	[Rogue.Buff.MainGauche]: "Main Gauche",
+  [Rogue.Buff.T1_Tank_2pc]: "S03 - Item - T1 - Rogue - Tank 2P Bonus",
 }
 
 const buffMultipliers = {
@@ -82,13 +150,13 @@ const buffMultipliers = {
 	412513:getThreatCoefficient(0.7),	    // Gladiator Stance
 	2457:  getThreatCoefficient(0.8),		// Battle Stance
 	2458:  getThreatCoefficient(0.8),		// Berserker Stance
-	[Druid.Form.Bear]:      getThreatCoefficient(1.3),		// Bear Form
-	[Druid.Form.DireBear]:  getThreatCoefficient(1.3),		// Dire Bear Form
-	456332:  getThreatCoefficient(1.3 + 0.20 / 1.3),		// Druid T1 6pc (Additive, not multiplicative)
-	[Druid.Form.Moonkin]: getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}), // Moonkin Form Arcane & Nature
-	768:   getThreatCoefficient(0.71),		// Cat Form
+	[Druid.Form.Bear]:      getThreatCoefficient(Druid.Mods.DireBear),
+	[Druid.Form.DireBear]:  getThreatCoefficient(Druid.Mods.DireBear),
+	[Druid.Buff.T1_Tank_6pc]: getAdditiveThreatCoefficient(Druid.Mods.T1_Tank_6pc, Druid.Mods.DireBear),
+	[Druid.Form.Moonkin]:   getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}),
+	[Druid.Form.Cat]:       getThreatCoefficient(Druid.Mods.Cat),		// Cat Form
 	25780: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
-	[Hunter.Buff.Ferocity]: getThreatCoefficient(2.0),	// Ferocity (Hunter T1 2pc)
+	[Hunter.Buff.T1_Ranged_2pc]: getThreatCoefficient(Hunter.Mods.T1_Ranged_2pc),
 	[Rogue.Buff.JustAFleshWound]: getThreatCoefficient(Rogue.Mods.JustAFleshWound),
 }
 
@@ -104,45 +172,6 @@ const Paladin = {
     }
   },
 }
-
-
-const Druid = {
-  Form: {
-    Bear: 5487,
-    DireBear: 9634,
-    Cat: 768,
-    Tree: 439733,
-    Moonkin: 24858,
-  },
-  Mods: {
-    DireBear: 1.3,
-    FeralInstinct: 0.03,
-    Lacerate: 3.5,
-    Swipe: 3.5,
-  },
-  Spell: {
-    Starsurge: 417157,
-    Starfall: 439753,
-  },
-};
-
-const Hunter = {
-  Buff: {
-    Ferocity: 456339,
-  },
-  Spell: {
-    FeignDeath: 5384,
-    DistractingShotR1: 20736,
-    DistractingShotR2: 14274,
-    DistractingShotR3: 15629,
-    DistractingShotR4: 15630,
-    DistractingShotR5: 15631,
-    DistractingShotR6: 15632,
-    DisengageR1: 781, // Disengage Rank 1
-    DisengageR2: 14272, // Disengage Rank 2
-    DisengageR3: 14273, // Disengage Rank 3
-  },
-};
 
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
@@ -161,7 +190,7 @@ const talents = {
 			maxRank: 5,
 			coeff: function(buffs, rank=5) {
 				if (!(Druid.Form.Bear in buffs) && !(Druid.Form.DireBear in buffs)) return getThreatCoefficient(1);
-        return getThreatCoefficient((Druid.Mods.DireBear + Druid.Mods.FeralInstinct * rank) / Druid.Mods.DireBear); // additive, not multiplicative
+        return getAdditiveThreatCoefficient(Druid.Mods.FeralInstinct * rank, Druid.Mods.DireBear);
 			}
 	
 		},
@@ -171,7 +200,59 @@ const talents = {
 				if (!(Druid.Form.Moonkin in buffs)) return getThreatCoefficient(1);
 				return getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7});
 			}
-		}
+		},
+    "Subtlety": {
+      maxRank: 5,
+      coeff: (_, rank = 5, spellId) => getThreatCoefficient(1 - 0.04 * rank * (spellId in {
+        8936: true,
+        8938: true,
+        8940: true,
+        8941: true,
+        9750: true,
+        9856: true,
+        9857: true,
+        9858: true,
+        26980: true,
+        774: true,
+        1058: true,
+        1430: true,
+        2090: true,
+        2091: true,
+        3627: true,
+        8910: true,
+        9839: true,
+        9840: true,
+        9841: true,
+        25299: true,
+        26981: true,
+        26982: true,
+        26982: true,
+        5185: true,
+        5186: true,
+        5187: true,
+        5188: true,
+        5189: true,
+        6778: true,
+        8903: true,
+        9758: true,
+        9888: true,
+        9889: true,
+        25297: true,
+        26978: true,
+        26979: true,
+        740: true,
+        8918: true,
+        9862: true,
+        9863: true,
+        26983: true,
+        [Druid.Spell.WildGrowth]: true,
+        [Druid.Spell.Lifebloom]: true,
+        [Druid.Spell.LifebloomTick]: true,
+        [Druid.Spell.Nourish]: true,
+        [Druid.Spell.Efflorescence]: true,
+        [Druid.Spell.LivingSeed]: true,
+      })),
+    }
 	},
 	Mage: {
 		"Arcane Subtlety": {
@@ -235,7 +316,41 @@ const talents = {
 					1064:true,10622:true,10623:true, // Chain Heal
 				})),
 		},
-	}
+	},
+  Rogue: {
+    "Main Gauche": {
+      maxRank: 1,
+      coeff: (buffs, rank = 1, spellId) => {
+        const moddedSpells = {
+          // TODO: lower ranks
+          [Rogue.Spell.SinisterStrikeR7]: true,
+          [Rogue.Spell.SinisterStrikeR8]: true,
+          [Rogue.Spell.PoisonedKnife]: true,
+        };
+        if (!(Rogue.Buff.MainGauche in buffs) && !(spellId in moddedSpells)) return getThreatCoefficient(1);
+
+        return getThreatCoefficient(Rogue.Mods.MainGauche);
+      }
+    },
+    "S03 - Item - T1 - Rogue - Tank 2P Bonus": {
+      maxRank: 1,
+      coeff: (buffs, rank = 1, spellId) => {
+        const moddedSpells = {
+          [Rogue.Spell.CrimsonTempest]: true,
+          [Rogue.Spell.Blunderbuss]: true,
+          [Rogue.Spell.FanOfKnives]: true,
+        };
+        if (
+            Rogue.Buff.JustAFleshWound in buffs 
+            && Rogue.Buff.BladeDance in buffs 
+            && Rogue.Buff.T1_Tank_2pc in buffs // TODO: does this buff show in logs?
+            && spellId in moddedSpells) {
+          return getThreatCoefficient(Rogue.Mods.T1_Tank_2pc);
+        }
+        return getThreatCoefficient(1);
+      }
+    }
+  }
 }
 
 // These make dots green-bordered
@@ -778,9 +893,6 @@ const spellFunctions = {
 
 // Rogue: SoD. Info from the compendium: https://docs.google.com/document/d/1BCCkILiz9U-VcX7489WGam2cK_Dm8InahnpQ3bS-UxA/edit?usp=sharing
 [Rogue.Spell.Tease]: threatFunctions.concat(handler_taunt, handler_markSourceOnMiss(borders.taunt)),
-// TODO: these are only while Main Gauche is active
-[Rogue.Spell.SinisterStrikeR8]: handler_modDamage(Rogue.Mods.MainGauche),
-[Rogue.Spell.PoisonedKnife]: handler_modDamage(Rogue.Mods.MainGauche),
 
 // Priest
 6788: handler_zero, // Weakened Soul
