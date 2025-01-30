@@ -28,6 +28,24 @@ const baseThreatCoefficients = {
     // Others will be defaulted to 1
 }
 
+/** Sets certain buffs to always show as toggles per class */
+const initialBuffs = {
+  All: {1038: 0, 25895: 0, 25909: 0},
+  Paladin: {
+    25780: 0,
+  },
+  Warrior: {
+    71: 0,		// Stances
+    2457: 0,
+    2458: 0,
+  },
+  Druid: {
+    5487: 0,	// Forms
+    9634: 0,
+    768: 0,
+  }
+};
+
 const buffNames = {
     1038: "Blessing of Salvation",
     25895: "Greater Blessing of Salvation",
