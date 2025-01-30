@@ -47,6 +47,7 @@ const Rogue = {
     JustAFleshWound: 1.855, // taken from compendium
     MainGauche: 1.51,
     T1_Tank_2pc: 2.0,
+    UnfairAdvantage: 1.50,
   },
   Spell: {
     Blunderbuss: 436564,
@@ -56,6 +57,7 @@ const Rogue = {
     SinisterStrikeR7: 11293,
     SinisterStrikeR8: 11294,
     Tease: 410412,
+    UnfairAdvantage: 432274,
   },
   Buff: {
     JustAFleshWound: 400014,
@@ -893,6 +895,7 @@ const spellFunctions = {
 
 // Rogue: SoD. Info from the compendium: https://docs.google.com/document/d/1BCCkILiz9U-VcX7489WGam2cK_Dm8InahnpQ3bS-UxA/edit?usp=sharing
 [Rogue.Spell.Tease]: threatFunctions.concat(handler_taunt, handler_markSourceOnMiss(borders.taunt)),
+[Rogue.Spell.UnfairAdvantage]: handler_modDamage(Rogue.Mods.UnfairAdvantage),
 
 // Priest
 6788: handler_zero, // Weakened Soul
