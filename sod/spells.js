@@ -27,7 +27,9 @@ function getThreatCoefficient(values) {
 }
 
 /** 
- * Adds an additive threat coefficient on top of another. Since the coefficients are multiplied.
+ * Adds an additive threat coefficient on top of another, since the coefficients are usually multiplied.
+ * 
+ * This should be just the additive part i.e. 0.15 and not the multiplicative coefficient of 1.15
  */
 function getAdditiveThreatCoefficient(value, base) {
   return getThreatCoefficient((base + value) / base)
@@ -329,7 +331,7 @@ const talents = {
 			maxRank: 5,
 			coeff: function(buffs, rank=5) {
 				if (!(Warrior.Stance.Defensive in buffs)) return getThreatCoefficient(1);
-				return getAdditiveThreatCoefficient(1 + Warrior.Mods.Defiance * rank, Warrior.Mods.DefensiveStance);
+				return getAdditiveThreatCoefficient(Warrior.Mods.Defiance * rank, Warrior.Mods.DefensiveStance);
 			}
 		},
 		'Furious Thunder (Rune)': {
