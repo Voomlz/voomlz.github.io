@@ -39,6 +39,49 @@ const preferredSpellSchools = {
 	Paladin: School.Holy,
 	Warlock: School.Shadow,
 	// Others will be defaulted to 1 = physical
+};
+
+const Warrior = {
+  Stance: {
+    Defensive: 71,
+    Battle: 2457,
+    Berserker: 2458,
+    Gladiator: 412513,
+  },
+  Mods: {
+    DefensiveStance: 1.3,
+    Defiance: 0.03, // 3% per point up to 15%
+    OtherStances: 0.80,
+    GladiatorStance: 0.70,
+    /** Base shield slam mod */
+    ShieldSlam: 2.0,
+    /** Base Revenge mod */
+    Revenge: 2.25,
+    /** 2.0x to Shield Slam */
+    TAQ_Tank_6pc: 2.0,
+    /** 1.5x to Thunder Clap with the rune */
+    FuriousThunder: 1.5,
+    /** 1.5x to Devastate only when in Def stance */
+    RuneOfDevastate: 1.5,
+  },
+  Spell: {
+    Devastate: 20243, // Original
+    DevastateSoD: 403196, // SoD version
+    ShieldSlamR1: 23922,
+    ShieldSlamR2: 23923,
+    ShieldSlamR3: 23924,
+    ShieldSlamR4: 23925,
+    ThunderClapR1: 6343,
+		ThunderClapR2: 8198,
+		ThunderClapR3: 8204,
+		ThunderClapR4: 8205,
+		ThunderClapR5: 11580,
+		ThunderClapR6: 11581,
+  },
+  Buff: {
+    TAQ_Tank_6pc: 1214162,
+    RuneOfDevastate: 403195,
+  },
 }
 
 const Paladin = {
@@ -154,9 +197,12 @@ const initialBuffs = {
     [Paladin.Buff.RighteousFury]: 0,
   },
   Warrior: {
-    71: 0,		// Stances
-    2457: 0,
-    2458: 0,
+    [Warrior.Stance.Defensive]: 0,		// Stances
+    [Warrior.Stance.Battle]: 0,
+    [Warrior.Stance.Berserker]: 0,
+    [Warrior.Stance.Gladiator]: 0,
+    [Warrior.Buff.TAQ_Tank_6pc]: 3, // inferred off
+    [Warrior.Buff.RuneOfDevastate]: 0,
   },
   Druid: {
     [Druid.Form.Bear]: 0,	// Forms
@@ -174,10 +220,14 @@ const buffNames = {
 	[Paladin.Buff.GreaterSalv]: "Greater Blessing of Salvation",
 	[Paladin.Buff.RighteousFury]: "Righteous Fury",
 	25909: "Tranquil Air Totem",
-	71: "Defensive Stance",
-	2457: "Battle Stance",
-	2458: "Berserker Stance",
-	412513: "Gladiator Stance",
+	
+  [Warrior.Stance.Defensive]: "Defensive Stance",
+	[Warrior.Stance.Battle]: "Battle Stance",
+	[Warrior.Stance.Berserker]: "Berserker Stance",
+	[Warrior.Stance.Gladiator]: "Gladiator Stance",
+	[Warrior.Buff.TAQ_Tank_6pc]: "S03 - Item - TAQ - Warrior - Tank 4P Bonus",
+	[Warrior.Buff.RuneOfDevastate]: "Rune of Devastate",
+
 	[Druid.Form.Bear]: "Bear Form",
 	[Druid.Form.DireBear]: "Dire Bear Form",
 	[Druid.Form.Cat]: "Cat Form",
@@ -193,17 +243,50 @@ const buffMultipliers = {
 	[Paladin.Buff.Salv]:  getThreatCoefficient(Paladin.Mods.Salvation),		// BoS
 	[Paladin.Buff.GreaterSalv]: getThreatCoefficient(Paladin.Mods.Salvation),		// GBoS
 	[Paladin.Buff.RighteousFury]: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
-	25909: getThreatCoefficient(0.8),		// Tranquil Air Totem Aura
-	71:    getThreatCoefficient(1.3),		// Defensive Stance
-	412513:getThreatCoefficient(0.7),	    // Gladiator Stance
-	2457:  getThreatCoefficient(0.8),		// Battle Stance
-	2458:  getThreatCoefficient(0.8),		// Berserker Stance
+	
+  25909: getThreatCoefficient(0.8),		// Tranquil Air Totem Aura
+	
+  [Warrior.Stance.Defensive]: getThreatCoefficient(Warrior.Mods.DefensiveStance),
+	[Warrior.Stance.Battle]:    getThreatCoefficient(Warrior.Mods.OtherStances),
+	[Warrior.Stance.Berserker]: getThreatCoefficient(Warrior.Mods.OtherStances),
+	[Warrior.Stance.Gladiator]: getThreatCoefficient(Warrior.Mods.GladiatorStance),
+  [Warrior.Buff.TAQ_Tank_6pc]: {
+    coeff: (buffs, spellId) => {
+      const moddedSpells = {
+        [Warrior.Spell.ShieldSlamR1]: true,
+        [Warrior.Spell.ShieldSlamR2]: true,
+        [Warrior.Spell.ShieldSlamR3]: true,
+        [Warrior.Spell.ShieldSlamR4]: true,
+      };
+      if (spellId in moddedSpells) {
+        return getThreatCoefficient(Warrior.Mods.TAQ_Tank_6pc);
+      }
+      
+      return getThreatCoefficient(1);
+    }
+  },
+  [Warrior.Buff.RuneOfDevastate]: {
+    coeff: (buffs, spellId) => {
+      const moddedSpells = {
+        [Warrior.Spell.Devastate]: true,
+        [Warrior.Spell.DevastateSoD]: true,
+      };
+      if (Warrior.Stance.Defensive in buffs && spellId in moddedSpells) {
+        return getThreatCoefficient(Warrior.Mods.RuneOfDevastate);
+      }
+      
+      return getThreatCoefficient(1);
+    }
+  },
+
+
 	[Druid.Form.Bear]:      getThreatCoefficient(Druid.Mods.DireBear),
 	[Druid.Form.DireBear]:  getThreatCoefficient(Druid.Mods.DireBear),
 	[Druid.Buff.T1_Tank_6pc]: getAdditiveThreatCoefficient(Druid.Mods.T1_Tank_6pc, Druid.Mods.DireBear),
 	[Druid.Form.Moonkin]:   getThreatCoefficient({[School.Arcane]: 0.7, [School.Nature]: 0.7}),
 	[Druid.Form.Cat]:       getThreatCoefficient(Druid.Mods.Cat),		// Cat Form
-	[Hunter.Buff.T1_Ranged_2pc]: getThreatCoefficient(Hunter.Mods.T1_Ranged_2pc),
+	
+  [Hunter.Buff.T1_Ranged_2pc]: getThreatCoefficient(Hunter.Mods.T1_Ranged_2pc),
 	
   [Rogue.Buff.JustAFleshWound]: getThreatCoefficient(Rogue.Mods.JustAFleshWound),
   [Rogue.Buff.MainGauche]: {
@@ -245,8 +328,25 @@ const talents = {
 		Defiance: {
 			maxRank: 5,
 			coeff: function(buffs, rank=5) {
-				if (!(71 in buffs)) return getThreatCoefficient(1);
-				return getThreatCoefficient(1 + 0.03 * rank);
+				if (!(Warrior.Stance.Defensive in buffs)) return getThreatCoefficient(1);
+				return getAdditiveThreatCoefficient(1 + Warrior.Mods.Defiance * rank, Warrior.Mods.DefensiveStance);
+			}
+		},
+		'Furious Thunder (Rune)': {
+			maxRank: 1,
+			coeff: function(buffs, rank='0', spellId) {
+        const thunderClap = {
+          [Warrior.Spell.ThunderClapR1]: true,
+          [Warrior.Spell.ThunderClapR2]: true,
+          [Warrior.Spell.ThunderClapR3]: true,
+          [Warrior.Spell.ThunderClapR4]: true,
+          [Warrior.Spell.ThunderClapR5]: true,
+          [Warrior.Spell.ThunderClapR6]: true,
+        }
+				if (Number(rank) && spellId in thunderClap) {
+          return getThreatCoefficient(Warrior.Mods.FuriousThunder);
+        }
+				return getThreatCoefficient(1);
 			}
 		},
 	},
@@ -429,6 +529,7 @@ for (let k in buffMultipliers) notableBuffs[k] = true;
 for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
 for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
+for (let id of Object.values(Warrior.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Rogue.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Druid.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Hunter.Buff)) notableBuffs[id] = true;
@@ -438,24 +539,29 @@ const Cat = Druid.Form.Cat;
 const Bear = Druid.Form.DireBear;
 const Moonkin = Druid.Form.Moonkin;
 
+const Battle = Warrior.Stance.Battle;
+const Defensive = Warrior.Stance.Defensive;
+const Berserker = Warrior.Stance.Berserker;
+
 const auraImplications = {
 	Warrior: {
-		7384: 2457, 7887: 2457, 11584: 2457, 11585: 2457, //Overpower
-		100: 2457, 6178: 2457, 11578: 2457, //Charge
-		6343: 2457, 8198: 2457, 8204: 2457, 8205: 2457, 11580: 2457, 11581: 2457, //Thunderclap
-		694: 2457, 7400: 2457, 7402: 2457, 20559: 2457, 20560: 2457, //Mocking Blow
-		20230: 2457, //Retaliation
-		12292: 2457, //Sweeping Strikes
-		20252: 2458, 20617: 2458, 20616: 2458, //Intercept
-		1680: 2458, //Whirlwind
-		18499: 2458, //Berserker Rage
-		1719: 2458, //Recklessness
-		6552: 2458, 6554: 2458, //Pummel
-		355: 71, //Taunt
-		676: 71, //Disarm
-		6572: 71, 6574: 71, 7379: 71, 11600: 71, 11601: 71, 25288: 71, //Revenge
-		2565: 71, //Shield Block
-		871: 71, //Shield Wall
+		7384: Battle, 7887: Battle, 11584: Battle, 11585: Battle, //Overpower
+		100: Battle, 6178: Battle, 11578: Battle, //Charge
+		6343: Battle, 8198: Battle, 8204: Battle, 8205: Battle, 11580: Battle, 11581: Battle, //Thunderclap
+		694: Battle, 7400: Battle, 7402: Battle, 20559: Battle, 20560: Battle, //Mocking Blow
+		20230: Battle, //Retaliation
+		12292: Battle, //Sweeping Strikes
+		20252: Berserker, 20617: Berserker, 20616: Berserker, //Intercept
+		1680: Berserker, //Whirlwind
+		18499: Berserker, //Berserker Rage
+		1719: Berserker, //Recklessness
+		6552: Berserker, 6554: Berserker, //Pummel
+		355: Defensive, //Taunt
+		676: Defensive, //Disarm
+		6572: Defensive, 6574: Defensive, 7379: Defensive, 11600: Defensive, 11601: Defensive, 25288: Defensive, //Revenge
+		2565: Defensive, //Shield Block
+		871: Defensive, //Shield Wall
+		[Warrior.Spell.DevastateSoD]: Defensive,
 	},
 	Druid: {
     // Dire Bear Form
@@ -1084,9 +1190,9 @@ const spellFunctions = {
     
     
         /* Zero Threat Abilities */
-		71:    handler_zero,		// Defensive Stance
-		2457:  handler_zero,		// Battle Stance
-		2458:  handler_zero,		// Berserker Stance
+        [Warrior.Stance.Defensive]: handler_zero,		// Defensive Stance
+        [Warrior.Stance.Battle]:    handler_zero,		// Battle Stance
+        [Warrior.Stance.Berserker]: handler_zero,		// Berserker Stance
         10610: handler_zero, //("Windfury Totem"), //Windfury Totem
         20572: handler_zero, //("Blood Fury"), //Blood Fury
         26296: handler_zero, //("Berserking (Troll racial)"), //Berserking (Troll racial)
@@ -1131,10 +1237,10 @@ const spellFunctions = {
         25286: handler_threatOnHit(175, "Heroic Strike"), // (AQ)
      
         //Shield Slam
-        23922: handler_threatOnHit(178, "Shield Slam (Rank 1)"), //Rank 1
-        23923: handler_threatOnHit(203, "Shield Slam (Rank 2)"), //Rank 2
-        23924: handler_threatOnHit(229, "Shield Slam (Rank 3)"), //Rank 3
-        23925: handler_threatOnHit(254, "Shield Slam"), //Rank 4
+      [Warrior.Spell.ShieldSlamR1]: handler_modDamage(Warrior.Mods.ShieldSlam),
+      [Warrior.Spell.ShieldSlamR2]: handler_modDamage(Warrior.Mods.ShieldSlam),
+      [Warrior.Spell.ShieldSlamR3]: handler_modDamage(Warrior.Mods.ShieldSlam),
+      [Warrior.Spell.ShieldSlamR4]: handler_modDamage(Warrior.Mods.ShieldSlam),
      
 		// Shield Bash
 		72: handler_modDamagePlusThreat(1.5, 36),
@@ -1142,8 +1248,8 @@ const spellFunctions = {
 		1672: handler_modDamagePlusThreat(1.5, 96), // THREAT UNKNOWN
 
         //Revenge
-        11601: handler_modDamagePlusThreat(2.25, 243), //Rank 5
-        25288: handler_modDamagePlusThreat(2.25, 270), //Rank 6 (AQ)
+        11601: handler_modDamagePlusThreat(Warrior.Mods.Revenge, 243), //Rank 5
+        25288: handler_modDamagePlusThreat(Warrior.Mods.Revenge, 270), //Rank 6 (AQ)
         12798: handler_zero, //("Revenge Stun"),           //Revenge Stun
      
         //Cleave
