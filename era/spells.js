@@ -240,7 +240,20 @@ const auraImplications = {
         9846: 768, //Tiger's Fury
         1850: 768, 9821: 768, //Dash
     }
-}
+};
+
+/** 
+ * Allows one to check the combatantInfo and infer buffs and talents. 
+ * 
+ * Here is a good place to check gear and apply Tier set bonus buffs. e.g. Check for 2pc gear, apply
+ * the buff. Then, in buffMultipliers, you can apply global coefficients or to specific spells.
+ */
+const combatantImplications = {
+  All: (info, buffs, talents) => {
+    // set via buffs[id] = true;
+  },
+  Warrior: (combatantInfo, buffs, talents) => {},
+};
 
 const threatFunctions = {
     sourceThreatenTarget(ev, fight, amount, useThreatCoeffs = true, extraCoeff = 1) { // extraCoeff is only used for tooltip text
