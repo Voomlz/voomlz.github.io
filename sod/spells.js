@@ -183,6 +183,17 @@ const Hunter = {
   },
 };
 
+const Items = {
+  Enchant: {
+    GlovesThreat: 25072,
+    CloakSubtlety: 25084,
+  },
+  Mods: {
+    GlovesThreat: 1.02,
+    CloakSubtlety: 1 - 0.02,
+  }
+}
+
 const baseThreatCoefficients = {
 	Rogue:   getThreatCoefficient(Rogue.Mods.Base),
 	// Others will be defaulted to 1
@@ -239,6 +250,9 @@ const buffNames = {
   [Rogue.Buff.JustAFleshWound]: "Just a Flesh Wound",
 	[Rogue.Buff.MainGauche]: "Main Gauche",
   [Rogue.Buff.T1_Tank_2pc]: "S03 - Item - T1 - Rogue - Tank 2P Bonus",
+
+  [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
+  [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
 }
 
 const buffMultipliers = {
@@ -320,7 +334,10 @@ const buffMultipliers = {
       }
       return getThreatCoefficient(1);
     }
-  }
+  },
+
+  [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
+  [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),
 }
 
 
@@ -601,6 +618,27 @@ const auraImplications = {
     [Rogue.Spell.MainGauche]: Rogue.Buff.JustAFleshWound,
   }
 }
+
+/** 
+ * Allows one to check the combatantInfo and infer buffs and talents. 
+ * 
+ * Here is a good place to check gear and apply Tier set bonus buffs. e.g. Check for 2pc gear, apply
+ * the buff. Then, in buffMultipliers, you can apply global coefficients or to specific spells.
+ */
+const combatantImplications = {
+  All: (unit, buffs) => {
+    if (unit.gear.some(g => g.permanentEnchant === Items.Enchant.GlovesThreat)) {
+      // console.log('applying gloves threat enchant');
+      buffs[Items.Enchant.GlovesThreat] = true;
+    }
+
+    if (unit.gear.some(g => g.permanentEnchant === Items.Enchant.CloakSubtlety)) {
+      // console.log('applying cloak Subtlety enchant');
+      buffs[Items.Enchant.CloakSubtlety] = true;
+    }
+  },
+  Warrior: (unit, buffs, talents) => {},
+};
 
 const threatFunctions = {
 	sourceThreatenTarget(ev, fight, amount, useThreatCoeffs = true, extraCoeff = 1) { // extraCoeff is only used for tooltip text
