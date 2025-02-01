@@ -8,6 +8,8 @@ let recolorPlot = () => {
 };
 let colorByClass = true;
 
+const SCROLLBAR_WIDTH = 16;
+
 function printError(e) {
     console.log(e);
     alert("Error:\n" + e + "\n\nRefresh the page to start again.");
@@ -570,8 +572,8 @@ class NPC extends Unit {
                 gridcolor: "#666",
                 linecolor: "#999"
             },
-            width: window.innerWidth * .80,
-            height: (window.innerWidth * .80) / (1920/1080),
+            width: window.innerWidth - SCROLLBAR_WIDTH,
+            height: (window.innerWidth - SCROLLBAR_WIDTH) / (1920/1080),
             hovermode: "closest",
             plot_bgcolor: "#222",
             paper_bgcolor: "#222",
