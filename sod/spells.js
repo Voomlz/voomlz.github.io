@@ -59,8 +59,10 @@ const Warrior = {
     ShieldSlam: 2.0,
     /** Base Revenge mod */
     Revenge: 2.25,
+    /** 1.20 in defensive stance */
+    T1_Tank_6pc: 1.20,
     /** 2.0x to Shield Slam */
-    TAQ_Tank_6pc: 2.0,
+    TAQ_Tank_4pc: 2.0,
     /** 1.5x to Thunder Clap with the rune */
     FuriousThunder: 1.5,
     /** 1.5x to Devastate only when in Def stance */
@@ -80,8 +82,32 @@ const Warrior = {
 		ThunderClapR5: 11580,
 		ThunderClapR6: 11581,
   },
+  Tier: {
+    T1_Tank: {
+      Helm: 226488,
+      Shoulders: 226491,
+      Chest: 226489,
+      Legs: 226490,
+      Feet: 226487,
+      Bracers: 226484,
+      Belt: 226485,
+      Hands: 226486,
+    },
+    T2_Tank_CoreForged: {
+      Helm: 232259,
+      // TODO
+    },
+    TAQ_Tank: {
+      Helm: 233375,
+      Shoulders: 233376,
+      Chest: 233373,
+      Legs: 233374,
+      Feet: 233372,
+    },
+  },
   Buff: {
-    TAQ_Tank_6pc: 1214162,
+    T1_Tank_6pc: 457651,
+    TAQ_Tank_4pc: 1214162,
     RuneOfDevastate: 403195,
   },
 }
@@ -214,7 +240,8 @@ const initialBuffs = {
     [Warrior.Stance.Battle]: 0,
     [Warrior.Stance.Berserker]: 0,
     [Warrior.Stance.Gladiator]: 0,
-    [Warrior.Buff.TAQ_Tank_6pc]: 3, // inferred off
+    [Warrior.Buff.T1_Tank_6pc]: 3, // inferred off
+    [Warrior.Buff.TAQ_Tank_4pc]: 3, // inferred off
     [Warrior.Buff.RuneOfDevastate]: 0,
   },
   Druid: {
@@ -238,7 +265,8 @@ const buffNames = {
 	[Warrior.Stance.Battle]: "Battle Stance",
 	[Warrior.Stance.Berserker]: "Berserker Stance",
 	[Warrior.Stance.Gladiator]: "Gladiator Stance",
-	[Warrior.Buff.TAQ_Tank_6pc]: "S03 - Item - TAQ - Warrior - Tank 4P Bonus",
+	[Warrior.Buff.T1_Tank_6pc]: "S03 - Item - T1 - Warrior - Tank 6P Bonus",
+	[Warrior.Buff.TAQ_Tank_4pc]: "S03 - Item - TAQ - Warrior - Tank 4P Bonus",
 	[Warrior.Buff.RuneOfDevastate]: "Rune of Devastate",
 
 	[Druid.Form.Bear]: "Bear Form",
@@ -266,7 +294,15 @@ const buffMultipliers = {
 	[Warrior.Stance.Battle]:    getThreatCoefficient(Warrior.Mods.OtherStances),
 	[Warrior.Stance.Berserker]: getThreatCoefficient(Warrior.Mods.OtherStances),
 	[Warrior.Stance.Gladiator]: getThreatCoefficient(Warrior.Mods.GladiatorStance),
-  [Warrior.Buff.TAQ_Tank_6pc]: {
+  [Warrior.Buff.T1_Tank_6pc]: {
+    coeff: (buffs, spellId) => {
+      if (Warrior.Stance.Defensive in buffs) {
+        return getThreatCoefficient(Warrior.Mods.T1_Tank_6pc);
+      }
+      return getThreatCoefficient(1);
+    }
+  },
+  [Warrior.Buff.TAQ_Tank_4pc]: {
     coeff: (buffs, spellId) => {
       const moddedSpells = {
         [Warrior.Spell.ShieldSlamR1]: true,
@@ -275,7 +311,7 @@ const buffMultipliers = {
         [Warrior.Spell.ShieldSlamR4]: true,
       };
       if (spellId in moddedSpells) {
-        return getThreatCoefficient(Warrior.Mods.TAQ_Tank_6pc);
+        return getThreatCoefficient(Warrior.Mods.TAQ_Tank_4pc);
       }
       
       return getThreatCoefficient(1);
@@ -637,7 +673,23 @@ const combatantImplications = {
       buffs[Items.Enchant.CloakSubtlety] = true;
     }
   },
-  Warrior: (unit, buffs, talents) => {},
+  Warrior: (unit, buffs, talents) => {
+    const taq = Object.values(Warrior.Tier.TAQ_Tank);
+
+    if (unit.gear.filter(item => taq.includes(item.id)).length >= 4) {
+      buffs[Warrior.Buff.TAQ_Tank_4pc] = true;
+    }
+
+    const t1 = Object.values(Warrior.Tier.T1_Tank);
+    if (unit.gear.filter(item => t1.includes(item.id)).length >= 6) {
+      buffs[Warrior.Buff.T1_Tank_6pc] = true;
+    }
+
+    const t2CoreForged = Object.values(Warrior.Tier.T2_Tank_CoreForged);
+    if (unit.gear.filter(item => t2CoreForged.includes(item.id)).length >= 6) {
+      buffs[Warrior.Buff.T1_Tank_6pc] = true;
+    }
+  },
 };
 
 const threatFunctions = {
