@@ -113,6 +113,13 @@ const Warrior = {
 }
 
 const Paladin = {
+  /**
+   * From the Light Club disc:
+   * - Hand of Reckoning applies a 1.5 baseline tank threat multiplier to all threat
+   * - Non holy threat is multiplied by 1.5
+   * - Holy threat without imp. RF with HoR is 2.23
+   * - Holy threat with imp. RF and HoR is 2.85
+   */
   Mods: {
     PhysicalBase: 1.5,  // Physical damage coefficient for Tank Rune
     HolyWithImpRF: 2.85, // Holy damage coefficient with Improved Righteous Fury
