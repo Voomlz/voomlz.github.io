@@ -1,6 +1,6 @@
 "use strict";
 
-const throttleTime = 250;
+const throttleTime = 150;
 let apikey = "b91955fd65954650000220e85bd79c3d";
 let plotXRange = [-Infinity, Infinity];
 let plotData = [];
@@ -44,8 +44,7 @@ async function fetchWCLv1(path) {
 async function fetchWCLreport(path, start, end) {
     let t = start;
     let events = [];
-    let width = end - start;
-    let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff","resourcechange","absorbed","healabsorbed","leech","drain") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
+    let filter = encodeURI(`type IN ("death","cast","begincast") OR ability.id IN (${Object.keys(notableBuffs).join(',')}) OR (type IN ("damage","heal","healing","miss","applybuff","applybuffstack","refreshbuff","applydebuff","applydebuffstack","refreshdebuff","resourcechange","absorbed","healabsorbed","leech","drain", "removebuff") AND ability.id NOT IN (${zeroThreatSpells.join(",")}))`);
     while (typeof t === "number") {
         let json = await fetchWCLv1(`report/events/${path}&start=${t}&end=${end}&filter=${filter}`);
         if (!json.events) throw "Could not parse report " + path;
@@ -53,6 +52,51 @@ async function fetchWCLreport(path, start, end) {
         t = json.nextPageTimestamp;
     }
     return events;
+}
+
+async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
+
+    let t = start;
+    let auras = [];
+    while (typeof t === "number") {
+        let query = `report/tables/debuffs/${path}&start=${t}&end=${end}&hostility=1&abilityid=${abilityId}`;
+        if (stack) {
+            query = query + `&filter=stack%3D${stack}`
+        }
+        let json = await fetchWCLv1(query);
+        if (!json.auras) throw "Could not parse report " + path;
+        auras.push(...json.auras);
+        t = json.nextPageTimestamp;
+    }
+    return auras;
+}
+
+async function fetchWCLCombatantInfo(path, start, end) {
+
+    let t = start;
+    let events = [];
+    while (typeof t === "number") {
+        let filter = encodeURI(`type IN ("combatantinfo")`);
+        let query = `report/events/${path}&start=${t}&end=${end}&filter=${filter}`;
+        let json = await fetchWCLv1(query);
+        if (!json.events) throw "Could not parse report " + path;
+        events.push(...json.events);
+        t = json.nextPageTimestamp;
+    }
+    return events;
+}
+
+async function fetchWCLPlayerBuffs(path, start, end, source) {
+    let t = start;
+    let auras = [];
+    while (typeof t === "number") {
+        let query = `report/tables/buffs/${path}&start=${t}&end=${end}&hostility=0&targetid=${source}`;
+        let json = await fetchWCLv1(query);
+        if (!json.auras) throw "Could not parse report " + path;
+        auras.push(...json.auras);
+        t = json.nextPageTimestamp;
+    }
+    return auras;
 }
 
 class ThreatTrace {
@@ -185,7 +229,8 @@ class ThreatTrace {
         let a = this.target.global.initialBuffs;
         for (let k in a) {
             let els = ["tr", "td", "td", "select", "option", "option", "option", "option", "option"].map(s => document.createElement(s));
-            els[1].textContent = buffNames[k] + " " + buffMultipliers[k](this.target.spellSchool);
+            const coefficient = typeof buffMultipliers[k] === 'function' ? buffMultipliers[k](this.target.spellSchool) : '';
+            els[1].textContent = buffNames[k] + " " + coefficient;
             els[4].textContent = "Infer";
             els[5].textContent = "On";
             els[6].textContent = "Off";
@@ -297,13 +342,17 @@ class Unit {
         let spellSchool = ability ? ability.type : this.spellSchool;
         let spellId = ability ? ability.guid : null;
         let c = this.baseThreatCoeff(spellSchool);
-        if (this.buffs[29232]) {
-            if (spellId !== 1) {
-                //return 0;
-            }
-        }
         for (let i in this.buffs) {
-            if (i in buffMultipliers) c *= buffMultipliers[i](spellSchool);
+            if (i in buffMultipliers) {
+              if (typeof buffMultipliers[i] === 'function') {
+                c *= buffMultipliers[i](spellSchool);
+              }
+              // Allow applying a coefficient per spellId or via a combination of other buffs
+              if (typeof buffMultipliers[i] === 'object' && spellId && 'coeff' in buffMultipliers[i]) {
+                const {coeff} = buffMultipliers[i];
+                c *= coeff(this.buffs, spellId)(spellSchool);
+              }
+            }
         }
         for (let i in this.talents) {
             let t = this.talents[i];
@@ -361,14 +410,19 @@ class Unit {
 
 // Class for players and pets
 class Player extends Unit {
-    constructor(key, info, events, tranquilAir = false) {
+    constructor(key, info, events, combatantInfos, tranquilAir  = false) {
         super(key, info.name, info.type, events);
         this.global = info;
         this.talents = info.talents;
+        this.combatantInfos = combatantInfos;
+
         console.assert("initialBuffs" in info, "Player info not properly initialised.", info);
+        
         this.checkWarrior(events); // Extra stance detection
         this.checkPaladin(events); // Extra Righteous Fury detection
         this.checkFaction(tranquilAir); // BoS and tranquil air
+        this.checkInitalStatus(); // Check gear (enchants), talents and initial buffs
+
         let a = info.initialBuffs;
         for (let k in a) {
             if (a[k] === 1) {
@@ -384,6 +438,19 @@ class Player extends Unit {
 
     isBuffInferred(buffId) {
         return (this.global.initialBuffs[buffId] - 3) % 3 >= 0;
+    }
+
+    checkInitalStatus() {
+        for (const c of this.combatantInfos) {
+            // initial auras
+            if (c?.auras) {
+                for (const aura of c.auras) {
+                    this.buffs[aura.ability] = true;
+                }
+            }
+            combatantImplications.All?.(c, this.buffs, this.talents);
+            combatantImplications[this.type]?.(c, this.buffs, this.talents);
+        }
     }
 
     // Blessing of Salvation and Tranquil Air detection
@@ -594,11 +661,15 @@ class Fight {
         this.faction = faction;
         this.reportId = reportId;
         this.tranquilAir = false;
+        this.combatantInfos = [];
     }
 
     async fetch() {
         if ("events" in this) return;
         this.events = await fetchWCLreport(this.reportId + "?", this.start, this.end);
+        if (this.combatantInfos.length === 0) {
+          this.combatantInfos = await fetchWCLCombatantInfo(this.reportId + "?", this.start, this.end);
+        }
         // Custom events
         if (this.encounter === 791) { // High Priestess Arlokk
             let u;
@@ -647,7 +718,7 @@ class Fight {
             if (t === "NPC" || t === "Boss" || t === "Pet") {
                 a[k] = new NPC(k, u, this.events, this);
             } else {
-                a[k] = new Player(k, this.globalUnits[id], this.events, this.tranquilAir);
+                a[k] = new Player(k, this.globalUnits[id], this.events, this.combatantInfos.filter(i => i.sourceID === Number(id)), this.tranquilAir);
             }
             this.units[k] = a[k];
         }
@@ -798,7 +869,7 @@ class Report {
         let allFriendlies = [...this.data.friendlies, ...this.data.friendlyPets];
         for (let f of allFriendlies) {
             // The settings for these buffs are displayed for all classes
-            f.initialBuffs = {1038: 0, 25895: 0, 25909: 0,};
+            f.initialBuffs = {...initialBuffs.All};
             // Copy talents from the global structure to this player
             f.talents = {};
             for (let talentName in talents[f.type]) {
@@ -809,24 +880,18 @@ class Report {
                     coeff: t.coeff,
                 }
             }
-            // Get faction and add class-specific initial buff settings
+            // Add class-specific initial buff settings
+            if (typeof initialBuffs[f.type] === 'object') {
+                f.initialBuffs = {...f.initialBuffs, ...initialBuffs[f.type]};
+            }
+            
+            // Get faction
             switch (f.type) {
                 case "Paladin":
-                    f.initialBuffs[25780] = 0;	// Righteous Fury
                     this.faction = "Alliance";
                     break;
                 case "Shaman":
                     this.faction = "Horde";
-                    break;
-                case "Warrior":
-                    f.initialBuffs[71] = 0;		// Stances
-                    f.initialBuffs[2457] = 0;
-                    f.initialBuffs[2458] = 0;
-                    break;
-                case "Druid":
-                    f.initialBuffs[5487] = 0;	// Forms
-                    f.initialBuffs[9634] = 0;
-                    f.initialBuffs[768] = 0;
                     break;
             }
         }

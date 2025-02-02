@@ -28,6 +28,24 @@ const baseThreatCoefficients = {
     // Others will be defaulted to 1
 }
 
+/** Sets certain buffs to always show as toggles per class */
+const initialBuffs = {
+  All: {1038: 0, 25895: 0, 25909: 0},
+  Paladin: {
+    25780: 0,
+  },
+  Warrior: {
+    71: 0,		// Stances
+    2457: 0,
+    2458: 0,
+  },
+  Druid: {
+    5487: 0,	// Forms
+    9634: 0,
+    768: 0,
+  }
+};
+
 const buffNames = {
     1038: "Blessing of Salvation",
     25895: "Greater Blessing of Salvation",
@@ -222,7 +240,20 @@ const auraImplications = {
         9846: 768, //Tiger's Fury
         1850: 768, 9821: 768, //Dash
     }
-}
+};
+
+/** 
+ * Allows one to check the combatantInfo and infer buffs and talents. 
+ * 
+ * Here is a good place to check gear and apply Tier set bonus buffs. e.g. Check for 2pc gear, apply
+ * the buff. Then, in buffMultipliers, you can apply global coefficients or to specific spells.
+ */
+const combatantImplications = {
+  All: (info, buffs, talents) => {
+    // set via buffs[id] = true;
+  },
+  Warrior: (combatantInfo, buffs, talents) => {},
+};
 
 const threatFunctions = {
     sourceThreatenTarget(ev, fight, amount, useThreatCoeffs = true, extraCoeff = 1) { // extraCoeff is only used for tooltip text
