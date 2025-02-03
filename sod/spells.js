@@ -909,6 +909,20 @@ function handler_threatOnHit(threatValue) {
     }
 }
 
+function handler_heroicStrikeThreatOnHit(threatValue) {
+  return (ev, fight) => {
+      if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
+
+      let a = fight.eventToUnit(ev, "source");
+      let b = fight.eventToUnit(ev, "target");
+      if (!a || !b) return;
+
+      b.addThreat(a.key, ev.amount + (ev.absorbed || 0), ev.timestamp, ev.ability.name, a.threatCoeff(ev.ability));
+      b.addThreat(a.key, threatValue + (ev.absorbed || 0), ev.timestamp, ev.ability.name + " (bonus)", a.threatCoeff(ev.ability));
+
+  }
+}
+
 function handler_bossDropThreatOnHit(pct) {
 	return (ev, fight) => {
 		// hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
@@ -988,6 +1002,103 @@ function handler_threatOnBuff(threatValue) {
 	}
 }
 
+function handler_magneticPull() {
+  return (ev, fight) => {
+
+      let source = fight.eventToUnit(ev, "source");
+      let [friendlies, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
+
+      let threatList = [];
+      for (let k in friendlies) {
+          if (source.name !== friendlies[k].name) {
+              if (!("threat" in source)) return;
+              for (let i in enemies) {
+                  if (source.target.name !== enemies[i].name) {
+                      if (friendlies[k].threat[i]) {
+                          let threat = {};
+                          threat = {
+                              'threat': friendlies[k].threat[i].currentThreat,
+                              'unit': enemies[i]
+                          }
+                          threatList.push(threat);
+                      }
+                  }
+              }
+
+              let sortedThreatList = sortByKey(threatList, 'threat');
+              let topThreat = sortedThreatList.slice(-1)[0];
+
+              let maxThreat = 0;
+              for (let j in source.threat) {
+                  maxThreat = Math.max(maxThreat, source.threat[j].currentThreat);
+              }
+
+              source.setThreat(topThreat.unit.key, maxThreat, ev.timestamp, ev.ability.name);
+              //source.target = topThreat;
+          }
+      }
+  }
+}
+
+function handler_hatefulstrike(mainTankThreat) {
+  return (ev, fight) => {
+      // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
+      if ((ev.type !== "damage") || (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) || ev.hitType === 0) return;
+      let source = fight.eventToUnit(ev, "source");
+      let target = fight.eventToUnit(ev, "target");
+      if (!source || !target) return;
+
+      let meleeRangedThreat = [];
+      let [friendlies, enemies] = fight.eventToFriendliesAndEnemies(ev, "target");
+
+      let enemyX = 0, enemyY = 0;
+
+      for (let k in enemies) {
+          if (enemies[k].name === "Patchwerk") {
+              enemyX = enemies[k].lastX;
+              enemyY = enemies[k].lastY;
+          }
+      }
+
+      for (let k in friendlies) {
+
+          let x1 = enemyX - friendlies[k].lastX;
+          let y1 = enemyY - friendlies[k].lastY;
+          let c = Math.sqrt((x1 * x1) + (y1 * y1));
+
+          if (c < 10) {
+              // Arbitraty distance of 10, we don't really know the exact
+              // console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
+
+              // Order patchwerk threat list, take the first 4th in this condition
+
+              if (source.threat[k]) {
+                  let threat = {};
+                  threat = {
+                      'threat': source.threat[k].currentThreat,
+                      'unit': friendlies[k]
+                  }
+                  meleeRangedThreat.push(threat);
+              }
+          }
+      }
+      sortByKey(meleeRangedThreat, 'threat');
+      let topFourThreatInMelee = meleeRangedThreat.slice(-4)
+
+      for (let topFour in topFourThreatInMelee) {
+          source.addThreat(topFourThreatInMelee[topFour].unit.key, mainTankThreat, ev.timestamp, ev.ability.name, 1);
+      }
+  }
+}
+
+function sortByKey(array, key) {
+  return array.sort(function (a, b) {
+      var x = a[key];
+      var y = b[key];
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+
 function handler_taunt(ev, fight) {
 	if (ev.type !== "applydebuff") return;
 	let u = fight.eventToUnit(ev, "target");
@@ -1046,6 +1157,9 @@ const spellFunctions = {
 28832: handler_bossPartialThreatWipeOnCast(.5), // Mark of Korth'azz
 	29210: handler_bossThreatWipeOnCast, // Noth's blink
 	29211: handler_bossThreatWipeOnCast, // Noth's blink new id?
+  28308: handler_hatefulstrike(800), // Patchwerk's hateful strike
+  28339: handler_magneticPull(), // Feungen, exchange tanks
+  28338: handler_magneticPull(), // Stalagg, exchange tanks
 
 	17624: handler_vanish, // Flask of Petrification
 
@@ -1088,7 +1202,12 @@ const spellFunctions = {
 19888: handler_zero, // Frost Resistance Aura r1
 19897: handler_zero, // Frost Resistance Aura r2
 19898: handler_zero, // Frost Resistance Aura r3
-19876: handler_zero, // S!== "damage" Retribution Aura r3
+19876: handler_zero, // Shadow Resistance Aura r1
+19895: handler_zero, // Shadow Resistance Aura r2
+19896: handler_zero, // Shadow Resistance Aura r3
+7294: handler_damage, // Retribution Aura r1
+10298: handler_damage, // Retribution Aura r2
+10299: handler_damage, // Retribution Aura r3
 10300: handler_damage, // Retribution Aura r4
 10301: handler_damage, // Retribution Aura r5
 20218: handler_zero, // Sanctity Aura
