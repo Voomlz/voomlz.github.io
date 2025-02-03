@@ -1267,7 +1267,7 @@ const spellFunctions = {
 10945: handler_threatOnHit(380), // Mind Blast r7
 10946: handler_threatOnHit(460), // Mind Blast r8
 10947: handler_threatOnHit(540), // Mind Blast r9
-15237: handler_zero, // H!== "damage"oly Nova r1
+15237: handler_zero, // Holy Nova r1
 15430: handler_zero, // Holy Nova r2
 15431: handler_zero, // Holy Nova r3
 27799: handler_zero, // Holy Nova r4
