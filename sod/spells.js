@@ -96,19 +96,11 @@ const Warrior = {
 const Paladin = {
   /**
    * From the Light Club disc:
-   * - Hand of Reckoning applies a 1.5 baseline tank threat multiplier to all threat
-   * - Non holy threat is multiplied by 1.5
-   * - Holy threat without imp. RF with HoR is 2.23
-   * - Holy threat with imp. RF and HoR is 2.85
+   * - Hand of Reckoning rune applies a 1.5 baseline tank threat multiplier to all threat
+   * - Holy threat without imp. RF with HoR is 2.23 (1.6 * 1.5 is 2.4 so it's not applied consitently)
+   * - Holy threat with imp. RF and HoR is 2.85 (= 1.9 * 1.5)
    */
   Mods: {
-    HolyWithImpRF: 2.85, // Holy damage coefficient with Improved Righteous Fury
-    HolyWithoutImpRF: 2.23, // Holy damage coefficient without Improved Righteous Fury
-    OldValues: {
-      NonHoly: 1.0, // Old non-Holy value
-      HolyRFNonImp: 1.6, // Old Holy value without Imp RF
-      HolyImpRF: 1.9 // Old Holy value with Imp RF
-    },
     Salvation: 0.7,
 
     RighteousFury: 1.6,
@@ -116,7 +108,7 @@ const Paladin = {
     /** Total Imp RF buff is 1.9 - 1.6 / 3 */
     ImpRf: (1.9 - 1.6) / 3,
 
-    /** A 1.5 modifier to all attacks (2.85 = 1.9 * 1.5) */
+    /** A 1.5 modifier to all attacks (2.85 = 1.9 (ImpRf) * 1.5) */
     HandOfReckoning: 1.5,
   },
   Buff: {
@@ -290,6 +282,8 @@ const buffMultipliers = {
 	[Paladin.Buff.EngraveHandOfReckoning]: {
     coeff(buffs, spellId) {
       if (Paladin.Buff.RighteousFury in buffs) {
+        // This is applied to all schools incl holy, meaning physical is 1.5, but RF gets buffed from
+        // 1.9 (Imp RF) to 2.85.
         return getThreatCoefficient(Paladin.Mods.HandOfReckoning);
       }
       return getThreatCoefficient(1.0);
