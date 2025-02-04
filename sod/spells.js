@@ -907,19 +907,6 @@ function handler_threatOnHit(threatValue) {
     }
 }
 
-function handler_heroicStrikeThreatOnHit(threatValue) {
-  return (ev, fight) => {
-      if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-
-      let a = fight.eventToUnit(ev, "source");
-      let b = fight.eventToUnit(ev, "target");
-      if (!a || !b) return;
-
-      b.addThreat(a.key, ev.amount + (ev.absorbed || 0), ev.timestamp, ev.ability.name, a.threatCoeff(ev.ability));
-      b.addThreat(a.key, threatValue + (ev.absorbed || 0), ev.timestamp, ev.ability.name + " (bonus)", a.threatCoeff(ev.ability));
-
-  }
-}
 
 function handler_bossDropThreatOnHit(pct) {
 	return (ev, fight) => {
