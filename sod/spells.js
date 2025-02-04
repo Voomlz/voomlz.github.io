@@ -32,7 +32,7 @@ function getThreatCoefficient(values) {
  * This should be just the additive part i.e. 0.15 and not the multiplicative coefficient of 1.15
  */
 function getAdditiveThreatCoefficient(value, base) {
-  return getThreatCoefficient((base + value) / base)
+  return getThreatCoefficient((base + value) / base);
 }
 
 const preferredSpellSchools = {
@@ -82,28 +82,9 @@ const Warrior = {
 		ThunderClapR5: 11580,
 		ThunderClapR6: 11581,
   },
-  Tier: {
-    T1_Tank: {
-      Helm: 226488,
-      Shoulders: 226491,
-      Chest: 226489,
-      Legs: 226490,
-      Feet: 226487,
-      Bracers: 226484,
-      Belt: 226485,
-      Hands: 226486,
-    },
-    T2_Tank_CoreForged: {
-      Helm: 232259,
-      // TODO
-    },
-    TAQ_Tank: {
-      Helm: 233375,
-      Shoulders: 233376,
-      Chest: 233373,
-      Legs: 233374,
-      Feet: 233372,
-    },
+  Set: {
+    T1_Tank: 1719, // handles both T1 and Core Forged T2
+    TAQ_Tank: 1857,
   },
   Buff: {
     T1_Tank_6pc: 457651,
@@ -121,7 +102,6 @@ const Paladin = {
    * - Holy threat with imp. RF and HoR is 2.85
    */
   Mods: {
-    PhysicalBase: 1.5,  // Physical damage coefficient for Tank Rune
     HolyWithImpRF: 2.85, // Holy damage coefficient with Improved Righteous Fury
     HolyWithoutImpRF: 2.23, // Holy damage coefficient without Improved Righteous Fury
     OldValues: {
@@ -130,12 +110,24 @@ const Paladin = {
       HolyImpRF: 1.9 // Old Holy value with Imp RF
     },
     Salvation: 0.7,
+
+    RighteousFury: 1.6,
+
+    /** Total Imp RF buff is 1.9 - 1.6 / 3 */
+    ImpRf: (1.9 - 1.6) / 3,
+
+    /** A 1.5 modifier to all attacks (2.85 = 1.9 * 1.5) */
+    HandOfReckoning: 1.5,
   },
   Buff: {
     Salv: 1038,
     GreaterSalv: 25895,
     RighteousFury: 25780,
-  }
+    EngraveHandOfReckoning: 410001,
+  },
+  Rune: {
+    HandOfReckoning: 6844,
+  },
 }
 
 const Rogue = {
@@ -266,6 +258,7 @@ const buffNames = {
 	[Paladin.Buff.Salv]: "Blessing of Salvation",
 	[Paladin.Buff.GreaterSalv]: "Greater Blessing of Salvation",
 	[Paladin.Buff.RighteousFury]: "Righteous Fury",
+	[Paladin.Buff.EngraveHandOfReckoning]: "Engrave Gloves - Hand of Reckoning",
 	25909: "Tranquil Air Totem",
 	
   [Warrior.Stance.Defensive]: "Defensive Stance",
@@ -293,7 +286,15 @@ const buffNames = {
 const buffMultipliers = {
 	[Paladin.Buff.Salv]:  getThreatCoefficient(Paladin.Mods.Salvation),		// BoS
 	[Paladin.Buff.GreaterSalv]: getThreatCoefficient(Paladin.Mods.Salvation),		// GBoS
-	[Paladin.Buff.RighteousFury]: getThreatCoefficient({[School.Holy]: 1.6}),	// Righteous Fury
+	[Paladin.Buff.RighteousFury]: getThreatCoefficient({[School.Holy]: Paladin.Mods.RighteousFury}),
+	[Paladin.Buff.EngraveHandOfReckoning]: {
+    coeff(buffs, spellId) {
+      if (Paladin.Buff.RighteousFury in buffs) {
+        return getThreatCoefficient(Paladin.Mods.HandOfReckoning);
+      }
+      return getThreatCoefficient(1.0);
+    },
+  },
 	
   25909: getThreatCoefficient(0.8),		// Tranquil Air Totem Aura
 	
@@ -501,13 +502,12 @@ const talents = {
 		"Improved Righteous Fury": {
 			maxRank: 3,
 			coeff: function(buffs, rank=3) {
-				//if (!(407627 in buffs)) return getThreatCoefficient(1);
-				let amp = 1 + Math.floor(rank*50/3) / 100;  
-				return getThreatCoefficient({
-					[School.Physical]: 1.5,  // Physical spells are always 1.5x
-					[School.Holy]: (1 + 0.6 * amp) / 1.6 // Holy coefficient calculation, based on RF talent rank
-				});
-				//return getThreatCoefficient({[School.Physical]:1.5, [School.Holy]:2.85}); // 2.85 Something like this.
+				if (Paladin.Buff.RighteousFury in buffs) {
+          return getThreatCoefficient({
+            [School.Holy]: (1 + rank * Paladin.Mods.ImpRf) / Paladin.Mods.RighteousFury,
+          });
+        }
+        return getThreatCoefficient(1);
 			}
 		}
 	},
@@ -595,6 +595,7 @@ for (let id of Object.values(Warrior.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Rogue.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Druid.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Hunter.Buff)) notableBuffs[id] = true;
+for (let id of Object.values(Paladin.Buff)) notableBuffs[id] = true;
 
 
 const Cat = Druid.Form.Cat;
@@ -681,22 +682,19 @@ const combatantImplications = {
     }
   },
   Warrior: (unit, buffs, talents) => {
-    const taq = Object.values(Warrior.Tier.TAQ_Tank);
-
-    if (unit.gear.filter(item => taq.includes(item.id)).length >= 4) {
+    if (unit.gear.filter(item => item.setID === Warrior.Set.TAQ_Tank).length >= 4) {
       buffs[Warrior.Buff.TAQ_Tank_4pc] = true;
     }
 
-    const t1 = Object.values(Warrior.Tier.T1_Tank);
-    if (unit.gear.filter(item => t1.includes(item.id)).length >= 6) {
-      buffs[Warrior.Buff.T1_Tank_6pc] = true;
-    }
-
-    const t2CoreForged = Object.values(Warrior.Tier.T2_Tank_CoreForged);
-    if (unit.gear.filter(item => t2CoreForged.includes(item.id)).length >= 6) {
+    if (unit.gear.filter(item => item.setID === Warrior.Set.T1_Tank).length >= 6) {
       buffs[Warrior.Buff.T1_Tank_6pc] = true;
     }
   },
+  Paladin: (unit, buffs, talents) => {
+    if (unit.gear.some(g => g.temporaryEnchant === Paladin.Rune.HandOfReckoning)) {
+      buffs[Paladin.Buff.EngraveHandOfReckoning] = true;
+    }
+  }
 };
 
 const threatFunctions = {
