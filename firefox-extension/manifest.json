@@ -13,6 +13,10 @@
       "js": ["addButtonEra.js"]
     },
     {
+      "matches": ["://.fresh.warcraftlogs.com/reports/*"],
+      "js": ["addButtonFresh.js"]
+    },
+    {
       "matches": ["*://*.sod.warcraftlogs.com/reports/*"],
       "js": ["addButtonSod.js"]
     }
