@@ -1,9 +1,9 @@
 {
   "name": "WCL Threat Link",
-  "description": "Link Warcraft logs to TBCC threat graph",
-  "version": "1.3",
+  "description": "Link Warcraft logs to Classic WoW threat graph",
+  "version": "1.4",
   "manifest_version": 3,
-  "content_scripts" : [
+  "content_scripts": [
     {
       "matches": ["*://*.classic.warcraftlogs.com/reports/*"],
       "js": ["addButton.js"]
@@ -11,6 +11,10 @@
     {
       "matches": ["*://*.vanilla.warcraftlogs.com/reports/*"],
       "js": ["addButtonEra.js"]
+    },
+    {
+      "matches": ["*://*.sod.warcraftlogs.com/reports/*"],
+      "js": ["addButtonSod.js"]
     }
   ]
 }
