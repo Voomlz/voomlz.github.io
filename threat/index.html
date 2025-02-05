@@ -2,249 +2,296 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NMLK7NHP6Z"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NMLK7NHP6Z"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
-        gtag('js', new Date());
+      gtag("js", new Date());
 
-        gtag('config', 'G-NMLK7NHP6Z');
+      gtag("config", "G-NMLK7NHP6Z");
     </script>
-    <script data-ad-client="ca-pub-3448992463946827" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script
+      data-ad-client="ca-pub-3448992463946827"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
     <script src="colors.js"></script>
     <script src="spells.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="threat.js"></script>
     <script src="front.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style>
-        body {
-            margin: 0;
-            min-height: 2000px
-        }
+      body {
+        margin: 0;
+        min-height: 2000px;
+      }
 
-        body, #input * {
-            background-color: #222;
-            color: #fff
-        }
+      body,
+      #input * {
+        background-color: #222;
+        color: #fff;
+      }
 
-        #input :disabled {
-            color: #555
-        }
+      #input :disabled {
+        color: #555;
+      }
 
-        table {
-            border-collapse: collapse;
-        }
+      table {
+        border-collapse: collapse;
+      }
 
-        td, th {
-            height: 20px;
-            border: 1px solid white;
-            padding: 3px;
-        }
+      td,
+      th {
+        height: 20px;
+        border: 1px solid white;
+        padding: 3px;
+      }
 
-        #progressBarContainer {
-            padding: 0;
-        }
+      #progressBarContainer {
+        padding: 0;
+      }
 
-        #progressBar {
-            height: 26px;
-            background-color: #888;
-            width: 0;
-        }
+      #progressBar {
+        height: 26px;
+        background-color: #888;
+        width: 0;
+      }
 
-        #input input, #input select {
-            min-width: 350px;
-            width: 100%;
-            box-sizing: border-box
-        }
+      #input input,
+      #input select {
+        min-width: 350px;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-        #input button {
-            width: 100px
-        }
+      #input button {
+        width: 100px;
+      }
 
-        #outputContainer {
-            display: flex;
-            flex-wrap: wrap
-        }
+      #outputContainer {
+        display: flex;
+        flex-wrap: wrap;
+      }
 
-        #threatTableContainer, #threatTableContainer table {
-            margin: 20px
-        }
+      #threatTableContainer,
+      #threatTableContainer table {
+        margin: 20px;
+      }
 
-        input.talent {
-            width: 30px
-        }
+      input.talent {
+        width: 30px;
+      }
 
-        .colorPicker {
-            padding: 0;
-            width: 20px;
-            height: 20px;
-            margin-right: 5px
-        }
+      .colorPicker {
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
 
-        .checkbox {
-            margin-left: 20px
-        }
+      .checkbox {
+        margin-left: 20px;
+      }
     </style>
-</head>
-<body onload="loadPage()">
-<div id="input">
-    <table>
+  </head>
+  <body onload="loadPage()">
+    <div id="input">
+      <table>
         <tr>
-            <td>Report ID</td>
-            <td><input type="text" id="reportSelect"></td>
-            <td>
-                <button onclick="selectReport()">Fetch</button>
-            </td>
+          <td>Report ID</td>
+          <td><input type="text" id="reportSelect" /></td>
+          <td>
+            <button onclick="selectReport()">Fetch</button>
+          </td>
         </tr>
         <tr>
-            <td>Fight</td>
-            <td><select id="fightSelect"></select></td>
-            <td>
-                <button onclick="selectFight()">Fetch/Refresh</button>
-            </td>
+          <td>Fight</td>
+          <td><select id="fightSelect"></select></td>
+          <td>
+            <button onclick="selectFight()">Fetch/Refresh</button>
+          </td>
         </tr>
         <tr>
-            <td>Enemy</td>
-            <td colspan="2"><select id="enemySelect" onchange="selectEnemy()"></select></td>
+          <td>Enemy</td>
+          <td colspan="2">
+            <select id="enemySelect" onchange="selectEnemy()"></select>
+          </td>
         </tr>
         <tr>
-            <td>Target</td>
-            <td colspan="2"><select id="targetSelect" onchange="selectTarget()"></select></td>
+          <td>Target</td>
+          <td colspan="2">
+            <select id="targetSelect" onchange="selectTarget()"></select>
+          </td>
         </tr>
-    </table>
-</div>
-<div id="outputContainer">
-    <div id="output"></div>
-    <div id="threatTableContainer"></div>
-</div>
+      </table>
+    </div>
+    <div id="outputContainer">
+      <div id="output"></div>
+      <div id="threatTableContainer"></div>
+    </div>
 
-<div id="info">
-    <div id="Wrath">
-        Wrath logs are not compatible with the tool.
-        There is no work in progress to make them compatible.
-    </div>
-    <div id="discord">
-        <a href="https://discord.gg/3J4FGUNfW7">
-            Join us on discord!</a>
-    </div>
-    <button onclick="showAndHideDisclaimer()">Note</button>
-    <div id="disclaimer" style="display:none">
+    <div id="info">
+      <div id="Wrath">
+        Wrath logs are not compatible with the tool. There is no work in
+        progress to make them compatible.
+      </div>
+      <div id="discord">
+        <a href="https://discord.gg/3J4FGUNfW7"> Join us on discord!</a>
+      </div>
+      <button onclick="showAndHideDisclaimer()">Note</button>
+      <div id="disclaimer" style="display: none">
         <p>Private logs cannot be imported.</p>
         <p>Leotheras' threat wipe is not yet implemented.</p>
-        <p>Threat is calculated from the combat logs. Some inaccuracies can occur.</p>
-        <p>Tanks threat is getting on point</p>
-        <p>For any feedback or inconsistencies feel free to join us on <a href="https://discord.gg/3J4FGUNfW7">
-            discord</a>.
+        <p>
+          Threat is calculated from the combat logs. Some inaccuracies can
+          occur.
         </p>
-    </div>
-    <button onclick="showAndHideChangelog()">Changelog</button>
-    <div id="changelog" style="display:none">
+        <p>Tanks threat is getting on point</p>
+        <p>
+          For any feedback or inconsistencies feel free to join us on
+          <a href="https://discord.gg/3J4FGUNfW7"> discord</a>.
+        </p>
+      </div>
+      <button onclick="showAndHideChangelog()">Changelog</button>
+      <div id="changelog" style="display: none">
         <h2>Changelog:</h2>
         <h3>Quality of life:</h3>
         <ul>
-            <li>New browser extension to open directly the threat graph from warcraft logs</li>
-            <a href="https://addons.mozilla.org/en-US/firefox/addon/wcl-threat-link/">
-                Firefox</a>
-            <a href="https://chrome.google.com/webstore/detail/wcl-threat-link/pbhoiekekddmkjfkoalcohlpjgfabkjn?hl=en">
-                Chrome</a>
-            <li>Adding warcraft log url as parameter with '?id=' i.e :</li>
-            <a href="https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2">
-                https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2</a>
+          <li>
+            New browser extension to open directly the threat graph from
+            warcraft logs
+          </li>
+          <a
+            href="https://addons.mozilla.org/en-US/firefox/addon/wcl-threat-link/"
+          >
+            Firefox</a
+          >
+          <a
+            href="https://chrome.google.com/webstore/detail/wcl-threat-link/pbhoiekekddmkjfkoalcohlpjgfabkjn?hl=en"
+          >
+            Chrome</a
+          >
+          <li>Adding warcraft log url as parameter with '?id=' i.e :</li>
+          <a
+            href="https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2"
+          >
+            https://voomlz.github.io/threat?id=https://classic.warcraftlogs.com/reports/V84N3Q17vFRaxDhj#fight=12&type=damage-done&source=2</a
+          >
         </ul>
         <h3>Warriors:</h3>
         <ul>
-            <li>New Shield Slam</li>
-            <li>New Heroic Strike</li>
-            <li>Adding devastate</li>
-            <li>Reworking devastate, no sunder threat when expose armor is up</li>
-            <li>Rework Revenge</li>
-            <li>Rework Thunderclap</li>
-            <li>Adding Improved berserker stance</li>
-            <li>Fix Defiance talent</li>
+          <li>New Shield Slam</li>
+          <li>New Heroic Strike</li>
+          <li>Adding devastate</li>
+          <li>Reworking devastate, no sunder threat when expose armor is up</li>
+          <li>Rework Revenge</li>
+          <li>Rework Thunderclap</li>
+          <li>Adding Improved berserker stance</li>
+          <li>Fix Defiance talent</li>
         </ul>
         <h3>Druid feral:</h3>
         <ul>
-            <li>New FF</li>
-            <li>New Demoralizing shout</li>
-            <li>Adding Lacerate</li>
-            <li>Adding Mangle</li>
-            <li>Rework Swipe</li>
-            <li>Rework Maul</li>
-            <li>Fix Feral instict</li>
+          <li>New FF</li>
+          <li>New Demoralizing shout</li>
+          <li>Adding Lacerate</li>
+          <li>Adding Mangle</li>
+          <li>Rework Swipe</li>
+          <li>Rework Maul</li>
+          <li>Fix Feral instict</li>
         </ul>
         <h3>Warlock</h3>
         <ul>
-            <li>Adding Soulshatter</li>
-            <li>Adding Destructive reach</li>
+          <li>Adding Soulshatter</li>
+          <li>Adding Destructive reach</li>
         </ul>
         <h3>Shaman</h3>
         <ul>
-            <li>Adding enchancement reduction talent</li>
-            <li>Adding elemental reduction talent</li>
-            <li>Adding earth shock</li>
-            <li>Adding Lightning Overload procs</li>
-            <li>Earth shock modifier modified to 1 (instead of 2 in classic)</li>
+          <li>Adding enchancement reduction talent</li>
+          <li>Adding elemental reduction talent</li>
+          <li>Adding earth shock</li>
+          <li>Adding Lightning Overload procs</li>
+          <li>Earth shock modifier modified to 1 (instead of 2 in classic)</li>
         </ul>
         <h3>Hunter</h3>
         <ul>
-            <li>Adding Missdirection</li>
+          <li>Adding Missdirection</li>
         </ul>
         <h3>Mage</h3>
         <ul>
-            <li>Adding dummy invisibility. Removing 25% threat when cast and when fades. Need to be fixed to be x% per second or X value per second. Needs more testing and custome code</li>
+          <li>
+            Adding dummy invisibility. Removing 25% threat when cast and when
+            fades. Need to be fixed to be x% per second or X value per second.
+            Needs more testing and custome code
+          </li>
         </ul>
         <h3>Paladin</h3>
         <ul>
-            <li>Adding rework of Holy shield</li>
-            <li>Adding rework of Avenger shield</li>
+          <li>Adding rework of Holy shield</li>
+          <li>Adding rework of Avenger shield</li>
         </ul>
         <h3>Misc</h3>
         <ul>
-            <li>Better handling of horde salvation</li>
-            <li>Adding Threat on gloves abd Subtlety buff, automatically</li>
-            <li>Thunderfury nerf</li>
-            <li>Adding missdirection beta</li>
-            <li>Nightbane Threat wipe when he flies</li>
+          <li>Better handling of horde salvation</li>
+          <li>Adding Threat on gloves abd Subtlety buff, automatically</li>
+          <li>Thunderfury nerf</li>
+          <li>Adding missdirection beta</li>
+          <li>Nightbane Threat wipe when he flies</li>
         </ul>
-    </div>
-    <button onclick="showAndHideTutorial()">Tutorial</button>
-    <div id="tutorial" style="display:none">
+      </div>
+      <button onclick="showAndHideTutorial()">Tutorial</button>
+      <div id="tutorial" style="display: none">
         <ul>
-            <li>1. Go to warcraft logs and copy your report. Can use directly the entire url (ex:
-                https://classic.warcraftlogs.com/reports/TvCLWArKDBYbw6Hk#fight=last) or only the id (ex:
-                TvCLWArKDBYbw6Hk)
-            </li>
-            <li>2. Go to https://voomlz.github.io/</li>
-            <li>3. Past your ID/report url in 'Report ID'</li>
-            <li>4. Clic on 'Fetch'</li>
-            <li>5. Select the fight you wanna see</li>
-            <li>6. Clic on 'Fetch/Refresh'</li>
+          <li>
+            1. Go to warcraft logs and copy your report. Can use directly the
+            entire url (ex:
+            https://classic.warcraftlogs.com/reports/TvCLWArKDBYbw6Hk#fight=last)
+            or only the id (ex: TvCLWArKDBYbw6Hk)
+          </li>
+          <li>2. Go to https://voomlz.github.io/</li>
+          <li>3. Past your ID/report url in 'Report ID'</li>
+          <li>4. Clic on 'Fetch'</li>
+          <li>5. Select the fight you wanna see</li>
+          <li>6. Clic on 'Fetch/Refresh'</li>
         </ul>
         Going further
         <ul>
-            <li>7. Select the player you wanna see details in 'Target'</li>
-            <li>8. Check In the 'buffs' table that everything is correctly set up (salvation, stances, and other
-                buffs)
-            </li>
-            <li>8.1 If buffs are not correctly inferred automatically, force them</li>
-            <li>8.2 click on 'Fetch/Refresh' after modifying buffs to recalculate new threat</li>
-            <li>9. You can share the graphs (now only sharing the report, wip) by copying the url and sharing it</li>
+          <li>7. Select the player you wanna see details in 'Target'</li>
+          <li>
+            8. Check In the 'buffs' table that everything is correctly set up
+            (salvation, stances, and other buffs)
+          </li>
+          <li>
+            8.1 If buffs are not correctly inferred automatically, force them
+          </li>
+          <li>
+            8.2 click on 'Fetch/Refresh' after modifying buffs to recalculate
+            new threat
+          </li>
+          <li>
+            9. You can share the graphs (now only sharing the report, wip) by
+            copying the url and sharing it
+          </li>
         </ul>
         If something seem incorrect
         <ul>
-            <li>1. Try to force refresh the website (ctrl f5 on chrome)</li>
-            <li>2. Double check the default buffs that were inferred to the players</li>
+          <li>1. Try to force refresh the website (ctrl f5 on chrome)</li>
+          <li>
+            2. Double check the default buffs that were inferred to the players
+          </li>
         </ul>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>

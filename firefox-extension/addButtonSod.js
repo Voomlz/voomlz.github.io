@@ -5,8 +5,17 @@ let anchor = document.createElement("a");
 
 let spanText = document.createElement("span");
 spanText.className = "big-tab-text";
-spanText.appendChild(document.createElement("br"));
-spanText.innerHTML = "<br> Threat Graph";
+spanText.style = "position: relative";
+spanText.innerHTML = `<span style="
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    transform: rotate(-8deg);
+    left: 0;
+    top: 8px;
+    font-size: 10px;
+">BETA</span>
+<br> Threat Graph`;
 spanText.class = "big-tab view-type-tab selected";
 
 let spanIcon = document.createElement("span");
