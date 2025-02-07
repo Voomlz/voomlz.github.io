@@ -1,19 +1,5 @@
 let DEBUGMODE = false;
 
-let borders = {
-  taunt: [3, "#ffa500"],
-};
-
-const School = {
-  Physical: 1,
-  Holy: 2,
-  Fire: 4,
-  Nature: 8,
-  Frost: 16,
-  Shadow: 32,
-  Arcane: 64,
-};
-
 function getThreatCoefficient(values) {
   if (typeof values === "number") {
     values = { 0: values };
@@ -40,56 +26,6 @@ const preferredSpellSchools = {
   Paladin: School.Holy,
   Warlock: School.Shadow,
   // Others will be defaulted to 1 = physical
-};
-
-const Warrior = {
-  Stance: {
-    Defensive: 71,
-    Battle: 2457,
-    Berserker: 2458,
-    Gladiator: 412513,
-  },
-  Mods: {
-    DefensiveStance: 1.3,
-    Defiance: 0.03, // 3% per point up to 15%
-    OtherStances: 0.8,
-    GladiatorStance: 0.7,
-    /** Base shield slam mod */
-    ShieldSlam: 2.0,
-    /** Base Revenge mod */
-    Revenge: 2.25,
-    /** 1.20 in defensive stance */
-    T1_Tank_6pc: 1.2,
-    /** 2.0x to Shield Slam */
-    TAQ_Tank_4pc: 2.0,
-    /** 1.5x to Thunder Clap with the rune */
-    FuriousThunder: 1.5,
-    /** 1.5x to Devastate only when in Def stance */
-    RuneOfDevastate: 1.5,
-  },
-  Spell: {
-    Devastate: 20243, // Original
-    DevastateSoD: 403196, // SoD version
-    ShieldSlamR1: 23922,
-    ShieldSlamR2: 23923,
-    ShieldSlamR3: 23924,
-    ShieldSlamR4: 23925,
-    ThunderClapR1: 6343,
-    ThunderClapR2: 8198,
-    ThunderClapR3: 8204,
-    ThunderClapR4: 8205,
-    ThunderClapR5: 11580,
-    ThunderClapR6: 11581,
-  },
-  Set: {
-    T1_Tank: 1719, // handles both T1 and Core Forged T2
-    TAQ_Tank: 1857,
-  },
-  Buff: {
-    T1_Tank_6pc: 457651,
-    TAQ_Tank_4pc: 1214162,
-    RuneOfDevastate: 403195,
-  },
 };
 
 const Paladin = {
@@ -225,15 +161,7 @@ const initialBuffs = {
   Paladin: {
     [Paladin.Buff.RighteousFury]: 0,
   },
-  Warrior: {
-    [Warrior.Stance.Defensive]: 0, // Stances
-    [Warrior.Stance.Battle]: 0,
-    [Warrior.Stance.Berserker]: 0,
-    [Warrior.Stance.Gladiator]: 0,
-    [Warrior.Buff.T1_Tank_6pc]: 3, // inferred off
-    [Warrior.Buff.TAQ_Tank_4pc]: 3, // inferred off
-    [Warrior.Buff.RuneOfDevastate]: 0,
-  },
+  Warrior: warrior.initialBuffs,
   Druid: {
     [Druid.Form.Bear]: 0, // Forms
     [Druid.Form.DireBear]: 0,
@@ -246,19 +174,13 @@ const initialBuffs = {
 };
 
 const buffNames = {
+  ...warrior.buffNames,
+
   [Paladin.Buff.Salv]: "Blessing of Salvation",
   [Paladin.Buff.GreaterSalv]: "Greater Blessing of Salvation",
   [Paladin.Buff.RighteousFury]: "Righteous Fury",
   [Paladin.Buff.EngraveHandOfReckoning]: "Engrave Gloves - Hand of Reckoning",
   25909: "Tranquil Air Totem",
-
-  [Warrior.Stance.Defensive]: "Defensive Stance",
-  [Warrior.Stance.Battle]: "Battle Stance",
-  [Warrior.Stance.Berserker]: "Berserker Stance",
-  [Warrior.Stance.Gladiator]: "Gladiator Stance",
-  [Warrior.Buff.T1_Tank_6pc]: "S03 - Item - T1 - Warrior - Tank 6P Bonus",
-  [Warrior.Buff.TAQ_Tank_4pc]: "S03 - Item - TAQ - Warrior - Tank 4P Bonus",
-  [Warrior.Buff.RuneOfDevastate]: "Rune of Devastate",
 
   [Druid.Form.Bear]: "Bear Form",
   [Druid.Form.DireBear]: "Dire Bear Form",
@@ -275,6 +197,7 @@ const buffNames = {
 };
 
 const buffMultipliers = {
+  ...warrior.buffMultipliers,
   [Paladin.Buff.Salv]: getThreatCoefficient(Paladin.Mods.Salvation), // BoS
   [Paladin.Buff.GreaterSalv]: getThreatCoefficient(Paladin.Mods.Salvation), // GBoS
   [Paladin.Buff.RighteousFury]: getThreatCoefficient({
@@ -292,51 +215,6 @@ const buffMultipliers = {
   },
 
   25909: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
-
-  [Warrior.Stance.Defensive]: getThreatCoefficient(
-    Warrior.Mods.DefensiveStance
-  ),
-  [Warrior.Stance.Battle]: getThreatCoefficient(Warrior.Mods.OtherStances),
-  [Warrior.Stance.Berserker]: getThreatCoefficient(Warrior.Mods.OtherStances),
-  [Warrior.Stance.Gladiator]: getThreatCoefficient(
-    Warrior.Mods.GladiatorStance
-  ),
-  [Warrior.Buff.T1_Tank_6pc]: {
-    coeff: (buffs, spellId) => {
-      if (Warrior.Stance.Defensive in buffs) {
-        return getThreatCoefficient(Warrior.Mods.T1_Tank_6pc);
-      }
-      return getThreatCoefficient(1);
-    },
-  },
-  [Warrior.Buff.TAQ_Tank_4pc]: {
-    coeff: (buffs, spellId) => {
-      const moddedSpells = {
-        [Warrior.Spell.ShieldSlamR1]: true,
-        [Warrior.Spell.ShieldSlamR2]: true,
-        [Warrior.Spell.ShieldSlamR3]: true,
-        [Warrior.Spell.ShieldSlamR4]: true,
-      };
-      if (spellId in moddedSpells) {
-        return getThreatCoefficient(Warrior.Mods.TAQ_Tank_4pc);
-      }
-
-      return getThreatCoefficient(1);
-    },
-  },
-  [Warrior.Buff.RuneOfDevastate]: {
-    coeff: (buffs, spellId) => {
-      const moddedSpells = {
-        [Warrior.Spell.Devastate]: true,
-        [Warrior.Spell.DevastateSoD]: true,
-      };
-      if (Warrior.Stance.Defensive in buffs && spellId in moddedSpells) {
-        return getThreatCoefficient(Warrior.Mods.RuneOfDevastate);
-      }
-
-      return getThreatCoefficient(1);
-    },
-  },
 
   [Druid.Form.Bear]: getThreatCoefficient(Druid.Mods.DireBear),
   [Druid.Form.DireBear]: getThreatCoefficient(Druid.Mods.DireBear),
@@ -394,36 +272,7 @@ const buffMultipliers = {
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
 const talents = {
-  Warrior: {
-    Defiance: {
-      maxRank: 5,
-      coeff: function (buffs, rank = 5) {
-        if (!(Warrior.Stance.Defensive in buffs))
-          return getThreatCoefficient(1);
-        return getAdditiveThreatCoefficient(
-          Warrior.Mods.Defiance * rank,
-          Warrior.Mods.DefensiveStance
-        );
-      },
-    },
-    "Furious Thunder (Rune)": {
-      maxRank: 1,
-      coeff: function (buffs, rank = "0", spellId) {
-        const thunderClap = {
-          [Warrior.Spell.ThunderClapR1]: true,
-          [Warrior.Spell.ThunderClapR2]: true,
-          [Warrior.Spell.ThunderClapR3]: true,
-          [Warrior.Spell.ThunderClapR4]: true,
-          [Warrior.Spell.ThunderClapR5]: true,
-          [Warrior.Spell.ThunderClapR6]: true,
-        };
-        if (Number(rank) && spellId in thunderClap) {
-          return getThreatCoefficient(Warrior.Mods.FuriousThunder);
-        }
-        return getThreatCoefficient(1);
-      },
-    },
-  },
+  Warrior: warrior.talents,
   Druid: {
     "Feral Instinct": {
       maxRank: 5,
@@ -647,6 +496,7 @@ const fixateBuffs = {
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
 const notableBuffs = {
+  ...warrior.notableBuffs,
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -654,7 +504,6 @@ for (let k in buffMultipliers) notableBuffs[k] = true;
 for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
 for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
-for (let id of Object.values(Warrior.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Rogue.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Druid.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Hunter.Buff)) notableBuffs[id] = true;
@@ -664,52 +513,8 @@ const Cat = Druid.Form.Cat;
 const Bear = Druid.Form.DireBear;
 const Moonkin = Druid.Form.Moonkin;
 
-const Battle = Warrior.Stance.Battle;
-const Defensive = Warrior.Stance.Defensive;
-const Berserker = Warrior.Stance.Berserker;
-
 const auraImplications = {
-  Warrior: {
-    7384: Battle,
-    7887: Battle,
-    11584: Battle,
-    11585: Battle, //Overpower
-    100: Battle,
-    6178: Battle,
-    11578: Battle, //Charge
-    6343: Battle,
-    8198: Battle,
-    8204: Battle,
-    8205: Battle,
-    11580: Battle,
-    11581: Battle, //Thunderclap
-    694: Battle,
-    7400: Battle,
-    7402: Battle,
-    20559: Battle,
-    20560: Battle, //Mocking Blow
-    20230: Battle, //Retaliation
-    12292: Battle, //Sweeping Strikes
-    20252: Berserker,
-    20617: Berserker,
-    20616: Berserker, //Intercept
-    1680: Berserker, //Whirlwind
-    18499: Berserker, //Berserker Rage
-    1719: Berserker, //Recklessness
-    6552: Berserker,
-    6554: Berserker, //Pummel
-    355: Defensive, //Taunt
-    676: Defensive, //Disarm
-    6572: Defensive,
-    6574: Defensive,
-    7379: Defensive,
-    11600: Defensive,
-    11601: Defensive,
-    25288: Defensive, //Revenge
-    2565: Defensive, //Shield Block
-    871: Defensive, //Shield Wall
-    [Warrior.Spell.DevastateSoD]: Defensive,
-  },
+  Warrior: warrior.auraImplications,
   Druid: {
     // Dire Bear Form
     6807: Bear,
@@ -786,20 +591,7 @@ const combatantImplications = {
       buffs[Items.Enchant.CloakSubtlety] = true;
     }
   },
-  Warrior: (unit, buffs, talents) => {
-    if (
-      unit.gear.filter((item) => item.setID === Warrior.Set.TAQ_Tank).length >=
-      4
-    ) {
-      buffs[Warrior.Buff.TAQ_Tank_4pc] = true;
-    }
-
-    if (
-      unit.gear.filter((item) => item.setID === Warrior.Set.T1_Tank).length >= 6
-    ) {
-      buffs[Warrior.Buff.T1_Tank_6pc] = true;
-    }
-  },
+  Warrior: warrior.combatantImplications,
   Paladin: (unit, buffs, talents) => {
     if (
       unit.gear.some((g) => g.temporaryEnchant === Paladin.Rune.HandOfReckoning)
@@ -808,528 +600,6 @@ const combatantImplications = {
     }
   },
 };
-
-const threatFunctions = {
-  sourceThreatenTarget(
-    ev,
-    fight,
-    amount,
-    useThreatCoeffs = true,
-    extraCoeff = 1
-  ) {
-    // extraCoeff is only used for tooltip text
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    let coeff = (useThreatCoeffs ? a.threatCoeff(ev.ability) : 1) * extraCoeff;
-    b.addThreat(a.key, amount, ev.timestamp, ev.ability.name, coeff);
-  },
-  unitThreatenEnemiesSplit(ev, unit, fight, amount, useThreatCoeffs = true) {
-    let u = fight.eventToUnit(ev, unit);
-    if (!u) return;
-    let coeff = useThreatCoeffs ? u.threatCoeff(ev.ability) : 1;
-    let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
-    let numEnemies = 0;
-    for (let k in enemies) {
-      if (enemies[k].alive) numEnemies += 1;
-    }
-    for (let k in enemies) {
-      enemies[k].addThreat(
-        u.key,
-        amount / numEnemies,
-        ev.timestamp,
-        ev.ability.name,
-        coeff
-      );
-    }
-  },
-  unitLeaveCombat(ev, unit, fight, text) {
-    let u = fight.eventToUnit(ev, unit);
-    if (!u) return;
-    for (let k in fight.units) {
-      if (!("threat" in fight.units[k]) || !(u.key in fight.units[k].threat))
-        continue;
-      fight.units[k].setThreat(u.key, 0, ev.timestamp, text);
-    }
-  },
-  threatWipe(sources, targets, time, text) {
-    for (let a in sources) {
-      let source = sources[a];
-      for (let targetKey in targets) {
-        source.setThreat(targetKey, 0, time, text);
-      }
-    }
-  },
-  concat() {
-    return (ev, fight) => {
-      for (let i = 0; i < arguments.length; ++i) {
-        // Arguments is from outer func
-        arguments[i](ev, fight);
-      }
-    };
-  },
-};
-
-function handler_vanish(ev, fight) {
-  if (ev.type !== "cast") return;
-  threatFunctions.unitLeaveCombat(ev, "source", fight, ev.ability.name);
-}
-function handler_mindcontrol(ev, fight) {
-  // Event target resets threat on everything on debuff apply and deapply.
-  // Not sure if this is the real behaviour...
-  if (ev.type === "applydebuff") {
-    threatFunctions.unitLeaveCombat(ev, "target", fight, ev.ability.name);
-  } else if (ev.type === "removedebuff") {
-    threatFunctions.unitLeaveCombat(
-      ev,
-      "target",
-      fight,
-      ev.ability.name + " fades"
-    );
-  }
-}
-
-function handler_resourcechange(ev, fight) {
-  if (ev.type !== "resourcechange") return;
-  let diff = ev.resourceChange - ev.waste;
-  // Not sure if threat should be given to "target" instead...
-  threatFunctions.unitThreatenEnemiesSplit(
-    ev,
-    "source",
-    fight,
-    ev.resourceChangeType === 0 ? diff / 2 : diff * 5,
-    false
-  );
-}
-function handler_resourcechangeCoeff(ev, fight) {
-  if (ev.type !== "resourcechange") return;
-  let diff = ev.resourceChange - ev.waste;
-  // Not sure if threat should be given to "target" instead...
-  threatFunctions.unitThreatenEnemiesSplit(
-    ev,
-    "source",
-    fight,
-    ev.resourceChangeType === 0 ? diff / 2 : diff * 5,
-    true
-  );
-}
-
-function handler_basic(ev, fight) {
-  switch (ev.type) {
-    case "damage":
-      threatFunctions.sourceThreatenTarget(
-        ev,
-        fight,
-        ev.amount + (ev.absorbed || 0)
-      );
-      break;
-    case "heal":
-      if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.unitThreatenEnemiesSplit(
-        ev,
-        "source",
-        fight,
-        ev.amount / 2
-      );
-      break;
-    case "resourcechange":
-      if (DEBUGMODE) console.log("Unhandled resourcechange.", ev);
-      handler_resourcechange(ev, fight);
-      break;
-    case "applybuff":
-    case "refreshbuff":
-    case "applybuffstack":
-      if (DEBUGMODE) console.log("Unhandled buff.", ev);
-      if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, 60);
-      break;
-    case "applydebuff":
-    case "applydebuffstack":
-    case "refreshdebuff":
-      if (DEBUGMODE) console.log("Unhandled buff.", ev);
-      if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.sourceThreatenTarget(ev, fight, 120);
-      break;
-    case "death":
-    case "combatantinfo":
-    case "encounterstart":
-    case "encounterend":
-    case "begincast":
-    case "removebuffstack":
-    case "removedebuffstack":
-    case "extraattacks":
-      break;
-    default:
-      if (DEBUGMODE) console.log("Unhandled event.", ev);
-  }
-}
-
-function handler_mark(ev, fight) {
-  if (ev.type !== "cast") return;
-  if ("target" in ev && ev.target.id === -1) return; // Target is environment
-  let a = fight.eventToUnit(ev, "source");
-  let b = fight.eventToUnit(ev, "target");
-  if (!a || !b) return;
-  a.targetAttack(b.key, ev.timestamp, ev.ability.name);
-  if (ev.ability.guid === 1 || ev.ability.guid < 0) {
-    a.target = b;
-  }
-}
-
-function handler_markSourceOnMiss(border) {
-  return (ev, fight) => {
-    if (ev.type !== "damage") return;
-    if (ev.hitType !== 0 && ev.hitType <= 6) return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    b.addMark(a.key, ev.timestamp, "Missed " + ev.ability.name, border);
-  };
-}
-
-function handler_markSourceOnDebuff(border) {
-  return (ev, fight) => {
-    if (!["applydebuff", "applydebuffstack", "refreshdebuff"].includes(ev.type))
-      return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    let s = ev.ability.name;
-    //if (ev.type === "removedebuff") s += " fades";
-    b.addMark(a.key, ev.timestamp, s, border);
-  };
-}
-
-function handler_zero() {}
-
-function handler_castCanMiss(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t === "cast") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-    } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(ev, fight, -threatValue);
-    }
-  };
-}
-
-function handler_castCanMissNoCoefficient(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t === "cast") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue, false);
-    } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(ev, fight, -threatValue, false);
-    }
-  };
-}
-
-function handler_modDamage(multiplier) {
-  return (ev, fight) => {
-    if (ev.type !== "damage") return;
-    threatFunctions.sourceThreatenTarget(
-      ev,
-      fight,
-      ev.amount + (ev.absorbed || 0),
-      true,
-      multiplier
-    );
-  };
-}
-function handler_modHeal(multiplier) {
-  return (ev, fight) => {
-    if (ev.type !== "heal") return;
-    threatFunctions.unitThreatenEnemiesSplit(
-      ev,
-      "source",
-      fight,
-      (multiplier * ev.amount) / 2
-    );
-  };
-}
-
-function handler_modDamagePlusThreat(multiplier, bonus) {
-  return (ev, fight) => {
-    if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-    threatFunctions.sourceThreatenTarget(
-      ev,
-      fight,
-      multiplier * (ev.amount + (ev.absorbed || 0)) + bonus
-    );
-  };
-}
-
-function handler_damage(ev, fight) {
-  if (ev.type !== "damage") return;
-  threatFunctions.sourceThreatenTarget(
-    ev,
-    fight,
-    ev.amount + (ev.absorbed || 0)
-  );
-}
-
-function handler_heal(ev, fight) {
-  if (ev.type !== "heal") return;
-  threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
-}
-
-function handler_threatOnHit(threatValue) {
-  return (ev, fight) => {
-    if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-    threatFunctions.sourceThreatenTarget(
-      ev,
-      fight,
-      ev.amount + (ev.absorbed || 0) + threatValue
-    );
-  };
-}
-
-function handler_bossDropThreatOnHit(pct) {
-  return (ev, fight) => {
-    // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
-    // https://discordapp.com/channels/383596811517952002/673932163736928256/714590608819486740
-    // [00:27] ResultsMayVary: Just to expand on this. Spell threat drops (resists) cause threat loss. Physical misses (dodges/parries) do not cause threat drops.
-    if (
-      ev.type !== "damage" ||
-      (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) ||
-      ev.hitType === 0
-    )
-      return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    a.checkTargetExists(b.key, ev.timestamp);
-    a.setThreat(
-      b.key,
-      a.threat[b.key].currentThreat * pct,
-      ev.timestamp,
-      ev.ability.name
-    );
-  };
-}
-function handler_bossDropThreatOnDebuff(pct) {
-  return (ev, fight) => {
-    if (ev.type !== "applydebuff") return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    a.checkTargetExists(b.key, ev.timestamp);
-    a.setThreat(
-      b.key,
-      a.threat[b.key].currentThreat * pct,
-      ev.timestamp,
-      ev.ability.name
-    );
-  };
-}
-function handler_bossDropThreatOnCast(pct) {
-  return (ev, fight) => {
-    if (ev.type !== "cast") return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    a.checkTargetExists(b.key, ev.timestamp);
-    a.setThreat(
-      b.key,
-      a.threat[b.key].currentThreat * pct,
-      ev.timestamp,
-      ev.ability.name
-    );
-  };
-}
-function handler_bossThreatWipeOnCast(ev, fight) {
-  if (ev.type !== "cast") return;
-  let u = fight.eventToUnit(ev, "source");
-  if (!u) return;
-  for (let k in u.threat) {
-    u.setThreat(k, 0, ev.timestamp, ev.ability.name);
-  }
-}
-function handler_bossPartialThreatWipeOnCast(pct) {
-  return (ev, fight) => {
-    if (ev.type !== "cast") return;
-    let u = fight.eventToUnit(ev, "source");
-    if (!u) return;
-    for (let k in u.threat) {
-      u.setThreat(
-        k,
-        u.threat[k].currentThreat * pct,
-        ev.timestamp,
-        ev.ability.name
-      );
-    }
-  };
-}
-
-function handler_threatOnDebuff(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t !== "applydebuff" && t !== "refreshdebuff") return;
-    threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-  };
-}
-
-function handler_threatOnDebuffOrDamage(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t === "applydebuff") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-    } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(
-        ev,
-        fight,
-        ev.amount + (ev.absorbed || 0)
-      );
-    }
-  };
-}
-
-function handler_threatOnBuff(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t !== "applybuff" && t !== "refreshbuff") return;
-    threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, threatValue);
-  };
-}
-
-function handler_magneticPull() {
-  return (ev, fight) => {
-    let source = fight.eventToUnit(ev, "source");
-    let [friendlies, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
-
-    let threatList = [];
-    for (let k in friendlies) {
-      if (source.name !== friendlies[k].name) {
-        if (!("threat" in source)) return;
-        for (let i in enemies) {
-          if (source.target.name !== enemies[i].name) {
-            if (friendlies[k].threat[i]) {
-              let threat = {};
-              threat = {
-                threat: friendlies[k].threat[i].currentThreat,
-                unit: enemies[i],
-              };
-              threatList.push(threat);
-            }
-          }
-        }
-
-        let sortedThreatList = sortByKey(threatList, "threat");
-        let topThreat = sortedThreatList.slice(-1)[0];
-
-        let maxThreat = 0;
-        for (let j in source.threat) {
-          maxThreat = Math.max(maxThreat, source.threat[j].currentThreat);
-        }
-
-        source.setThreat(
-          topThreat.unit.key,
-          maxThreat,
-          ev.timestamp,
-          ev.ability.name
-        );
-        //source.target = topThreat;
-      }
-    }
-  };
-}
-
-function handler_hatefulstrike(mainTankThreat) {
-  return (ev, fight) => {
-    // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
-    if (
-      ev.type !== "damage" ||
-      (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) ||
-      ev.hitType === 0
-    )
-      return;
-    let source = fight.eventToUnit(ev, "source");
-    let target = fight.eventToUnit(ev, "target");
-    if (!source || !target) return;
-
-    let meleeRangedThreat = [];
-    let [friendlies, enemies] = fight.eventToFriendliesAndEnemies(ev, "target");
-
-    let enemyX = 0,
-      enemyY = 0;
-
-    for (let k in enemies) {
-      if (enemies[k].name === "Patchwerk") {
-        enemyX = enemies[k].lastX;
-        enemyY = enemies[k].lastY;
-      }
-    }
-
-    for (let k in friendlies) {
-      let x1 = enemyX - friendlies[k].lastX;
-      let y1 = enemyY - friendlies[k].lastY;
-      let c = Math.sqrt(x1 * x1 + y1 * y1);
-
-      if (c < 10) {
-        // Arbitraty distance of 10, we don't really know the exact
-        // console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
-
-        // Order patchwerk threat list, take the first 4th in this condition
-
-        if (source.threat[k]) {
-          let threat = {};
-          threat = {
-            threat: source.threat[k].currentThreat,
-            unit: friendlies[k],
-          };
-          meleeRangedThreat.push(threat);
-        }
-      }
-    }
-    sortByKey(meleeRangedThreat, "threat");
-    let topFourThreatInMelee = meleeRangedThreat.slice(-4);
-
-    for (let topFour in topFourThreatInMelee) {
-      source.addThreat(
-        topFourThreatInMelee[topFour].unit.key,
-        mainTankThreat,
-        ev.timestamp,
-        ev.ability.name,
-        1
-      );
-    }
-  };
-}
-
-function sortByKey(array, key) {
-  return array.sort(function (a, b) {
-    var x = a[key];
-    var y = b[key];
-    return x < y ? -1 : x > y ? 1 : 0;
-  });
-}
-
-function handler_taunt(ev, fight) {
-  if (ev.type !== "applydebuff") return;
-  let u = fight.eventToUnit(ev, "target");
-  let v = fight.eventToUnit(ev, "source");
-  if (!u || !v) return;
-  if (!("threat" in u)) return;
-  let maxThreat = 0;
-  for (let k in u.threat) {
-    maxThreat = Math.max(maxThreat, u.threat[k].currentThreat);
-  }
-  u.setThreat(v.key, maxThreat, ev.timestamp, ev.ability.name);
-  u.target = v;
-}
-
-function handler_timelapse(ev, fight) {
-  if (ev.type !== "applydebuff") return;
-  let u = fight.eventToUnit(ev, "source");
-  let v = fight.eventToUnit(ev, "target");
-  if (!u || !v) return;
-  u.setThreat(
-    v.key,
-    u.threat[v.key].currentThreat * v.threatCoeff(),
-    ev.timestamp,
-    ev.ability.name
-  );
-}
 
 const spellFunctions = {
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
@@ -1621,9 +891,6 @@ const spellFunctions = {
   13241: handler_damage, //("Goblin Sapper Charge"), //Goblin Sapper Charge
 
   /* Zero Threat Abilities */
-  [Warrior.Stance.Defensive]: handler_zero, // Defensive Stance
-  [Warrior.Stance.Battle]: handler_zero, // Battle Stance
-  [Warrior.Stance.Berserker]: handler_zero, // Berserker Stance
   10610: handler_zero, //("Windfury Totem"), //Windfury Totem
   20572: handler_zero, //("Blood Fury"), //Blood Fury
   26296: handler_zero, //("Berserking (Troll racial)"), //Berserking (Troll racial)
@@ -1642,130 +909,6 @@ const spellFunctions = {
   17538: handler_zero, //("Elixir of the Mongoose"), //Elixir of the Mongoose
   11359: handler_zero, //("Restorative Potion (Restoration) Buff"), //Restorative Potion (Restoration) Buff
   23396: handler_zero, //("Restorative Potion (Restoration) Dispel"), //Restorative Potion (Restoration) Dispel
-
-  /* Physical */
-  12721: handler_damage, //("Deep Wounds"),
-  6552: handler_threatOnHit(76, "Pummel (Rank 1)"), //TODO: Verify these values ingame
-  6554: handler_threatOnHit(116, "Pummel (Rank 2)"),
-
-  23881: handler_damage, //("Bloodthirst"), //Rank 1
-  23892: handler_damage, //("Bloodthirst"), //Rank 2
-  23893: handler_damage, //("Bloodthirst"), //Rank 3
-  23894: handler_damage, //("Bloodthirst"), //Rank 4
-  23888: handler_zero, //("Bloodthirst"),   //Buff
-  23885: handler_zero, //("Bloodthirst"),   //Buff
-  23891: handler_heal, // BT heal buff
-
-  //Heroic Strike
-  78: handler_threatOnHit(16, "Heroic Strike"),
-  284: handler_threatOnHit(39, "Heroic Strike"),
-  285: handler_threatOnHit(59, "Heroic Strike"),
-  1608: handler_threatOnHit(78, "Heroic Strike"),
-  11564: handler_threatOnHit(98, "Heroic Strike"),
-  11565: handler_threatOnHit(118, "Heroic Strike"),
-  11566: handler_threatOnHit(137, "Heroic Strike"),
-  11567: handler_threatOnHit(145, "Heroic Strike"),
-  25286: handler_threatOnHit(175, "Heroic Strike"), // (AQ)
-
-  //Shield Slam
-  [Warrior.Spell.ShieldSlamR1]: handler_modDamage(Warrior.Mods.ShieldSlam),
-  [Warrior.Spell.ShieldSlamR2]: handler_modDamage(Warrior.Mods.ShieldSlam),
-  [Warrior.Spell.ShieldSlamR3]: handler_modDamage(Warrior.Mods.ShieldSlam),
-  [Warrior.Spell.ShieldSlamR4]: handler_modDamage(Warrior.Mods.ShieldSlam),
-
-  // Shield Bash
-  72: handler_modDamagePlusThreat(1.5, 36),
-  1671: handler_modDamagePlusThreat(1.5, 96),
-  1672: handler_modDamagePlusThreat(1.5, 96), // THREAT UNKNOWN
-
-  //Revenge
-  11601: handler_modDamagePlusThreat(Warrior.Mods.Revenge, 243), //Rank 5
-  25288: handler_modDamagePlusThreat(Warrior.Mods.Revenge, 270), //Rank 6 (AQ)
-  12798: handler_zero, //("Revenge Stun"),           //Revenge Stun
-
-  //Cleave
-  845: handler_threatOnHit(10, "Cleave"), //Rank 1
-  7369: handler_threatOnHit(40, "Cleave"), //Rank 2
-  11608: handler_threatOnHit(60, "Cleave"), //Rank 3
-  11609: handler_threatOnHit(70, "Cleave"), //Rank 4
-  20569: handler_threatOnHit(100, "Cleave"), //Rank 5
-
-  //Whirlwind
-  1680: handler_modDamage(1.25), //("Whirlwind"), //Whirlwind
-  6343: handler_modDamage(2.5), // Thunder Clap r1
-  8198: handler_modDamage(2.5), // Thunder Clap r2
-  8204: handler_modDamage(2.5), // Thunder Clap r3
-  8205: handler_modDamage(2.5), // Thunder Clap r4
-  11580: handler_modDamage(2.5), // Thunder Clap r5
-  11581: handler_modDamage(2.5), // Thunder Clap r6
-
-  //Hamstring
-  1715: handler_modDamagePlusThreat(1.25, 20), // R1
-  7372: handler_threatOnHit(101), // R2, from outdated sheet
-  7373: handler_threatOnHit(145, "Hamstring"),
-
-  //Intercept
-  20252: handler_modDamage(2), //Intercept
-  20253: handler_zero, //("Intercept Stun"),         //Intercept Stun (Rank 1)
-  20616: handler_modDamage(2), //Intercept (Rank 2)
-  20614: handler_zero, //("Intercept Stun"),         //Intercept Stun (Rank 2)
-  20617: handler_modDamage(2), //Intercept (Rank 3)
-  20615: handler_zero, //("Intercept Stun"),         //Intercept Stun (Rank 3)
-
-  //Execute
-  20647: handler_modDamage(1.25, "Execute"),
-
-  /* Abilities */
-  //Sunder Armor
-  7386: handler_castCanMiss(45), // Rank 1
-  11597: handler_castCanMiss(261, "Sunder Armor"), //Rank 5
-
-  //Battleshout
-  11551: handler_threatOnBuff(52, "Battle Shout"), //Rank 6
-  25289: handler_threatOnBuff(60, "Battle Shout"), //Rank 7 (AQ)
-
-  //Demo Shout
-  11556: handler_threatOnDebuff(43, "Demoralizing Shout"),
-
-  //Mocking Blow
-  20560: threatFunctions.concat(
-    handler_damage,
-    handler_markSourceOnMiss(borders.taunt)
-  ), //("Mocking Blow"),
-
-  //Overpower
-  11585: handler_damage, //("Overpower"),
-
-  //Rend
-  11574: handler_damage, //("Rend"),
-
-  /* Zero threat abilities */
-  355: threatFunctions.concat(
-    handler_taunt,
-    handler_markSourceOnMiss(borders.taunt)
-  ), //("Taunt"), //Taunt
-  1161: handler_markSourceOnMiss(borders.taunt), //("Challenging Shout"), //Challenging Shout
-  2687: handler_resourcechangeCoeff, //("Bloodrage"), //Bloodrage (cast)
-  29131: handler_resourcechange, //("Bloodrage"), //Bloodrage (buff)
-  29478: handler_zero, //("Battlegear of Might"), //Battlegear of Might
-  23602: handler_zero, //("Shield Specialization"), //Shield Specialization
-  12964: handler_resourcechange, //("Unbridled Wrath"), //Unbridled Wrath
-  11578: handler_zero, //("Charge"), //Charge
-  7922: handler_zero, //("Charge Stun"), //Charge Stun
-  18499: handler_zero, //("Berserker Rage"), //Berserker Rage
-  12966: handler_zero, //("Flurry (Rank 1)"), //Flurry (Rank 1)
-  12967: handler_zero, //("Flurry (Rank 2)"), //Flurry (Rank 2)
-  12968: handler_zero, //("Flurry (Rank 3)"), //Flurry (Rank 3)
-  12969: handler_zero, //("Flurry (Rank 4)"), //Flurry (Rank 4)
-  12970: handler_zero, //("Flurry (Rank 5)"), //Flurry (Rank 5)
-  12328: handler_zero, //("Death Wish"), //Death Wish
-  871: handler_zero, //("Shield Wall"),
-  1719: handler_zero, //("Recklessness"), //Recklessness
-  12323: handler_zero, //("Piercing Howl"), //Piercing Howl
-  14204: handler_zero, //("Enrage"), //Enrage
-  12975: handler_zero, //("Last Stand (cast)"), //Last Stand (cast)
-  12976: handler_zero, //("Last Stand (buff)"), //Last Stand (buff)
-  2565: handler_zero, //("Shield Block"), //Shield Block
 
   /* Consumable */
   6613: handler_zero, //("Great Rage Potion"), //Great Rage Potion
