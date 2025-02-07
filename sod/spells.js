@@ -1,25 +1,5 @@
 let DEBUGMODE = false;
 
-function getThreatCoefficient(values) {
-  if (typeof values === "number") {
-    values = { 0: values };
-  }
-  if (!(0 in values)) values[0] = 1;
-  return function (spellSchool = 0) {
-    if (spellSchool in values) return values[spellSchool];
-    return values[0];
-  };
-}
-
-/**
- * Adds an additive threat coefficient on top of another, since the coefficients are usually multiplied.
- *
- * This should be just the additive part i.e. 0.15 and not the multiplicative coefficient of 1.15
- */
-function getAdditiveThreatCoefficient(value, base) {
-  return getThreatCoefficient((base + value) / base);
-}
-
 const preferredSpellSchools = {
   Mage: School.Frost,
   Priest: School.Holy,
