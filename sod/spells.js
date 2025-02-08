@@ -159,16 +159,9 @@ const talents = {
 
 // These make dots green-bordered
 const invulnerabilityBuffs = {
-  498: "Divine Protection",
-  5573: "Divine Protection",
-  642: "Divine Shield",
-  1020: "Divine Shield",
-  1022: "Blessing of Protection",
-  5599: "Blessing of Protection",
-  10278: "Blessing of Protection",
+  ...paladin.invulnerabilityBuffs,
   11958: "Ice Block",
   3169: "LIP", // Limited Invulnerability Potion
-  19752: "Divine Intervention",
   6724: "Light of Elune",
 };
 // These make dots yellow-bordered
