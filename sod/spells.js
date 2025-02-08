@@ -29,7 +29,7 @@ const initialBuffs = {
   All: {
     [paladin.config.Buff.Salv]: 0,
     [paladin.config.Buff.GreaterSalv]: 0,
-    25909: 0,
+    [shaman.config.Buff.TranquilAirTotem]: 0,
   },
   Paladin: paladin.initialBuffs,
   Warrior: warrior.initialBuffs,
@@ -49,7 +49,6 @@ const buffNames = {
   ...warlock.buffNames,
   ...shaman.buffNames,
   ...mage.buffNames,
-  25909: "Tranquil Air Totem",
 
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
   [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
@@ -64,7 +63,6 @@ const buffMultipliers = {
   ...warlock.buffMultipliers,
   ...shaman.buffMultipliers,
   ...mage.buffMultipliers,
-  25909: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
 
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
   [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),

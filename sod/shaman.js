@@ -1,11 +1,19 @@
 const shaman = (function () {
-  const config = {};
+  const config = {
+    Buff: {
+      TranquilAirTotem: 25909,
+    },
+  };
 
   const initialBuffs = {};
 
-  const buffNames = {};
+  const buffNames = {
+    [config.Buff.TranquilAirTotem]: "Tranquil Air Totem",
+  };
 
-  const buffMultipliers = {};
+  const buffMultipliers = {
+    [config.Buff.TranquilAirTotem]: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
+  };
 
   const HEALING_SPELLS = {
     8004: true,
