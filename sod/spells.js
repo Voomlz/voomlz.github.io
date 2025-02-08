@@ -8,27 +8,6 @@ const preferredSpellSchools = {
   // Others will be defaulted to 1 = physical
 };
 
-const Hunter = {
-  Buff: {
-    T1_Ranged_2pc: 456339, // Ferocity
-  },
-  Mods: {
-    T1_Ranged_2pc: 2.0,
-  },
-  Spell: {
-    FeignDeath: 5384,
-    DistractingShotR1: 20736,
-    DistractingShotR2: 14274,
-    DistractingShotR3: 15629,
-    DistractingShotR4: 15630,
-    DistractingShotR5: 15631,
-    DistractingShotR6: 15632,
-    DisengageR1: 781,
-    DisengageR2: 14272,
-    DisengageR3: 14273,
-  },
-};
-
 const Items = {
   Enchant: {
     GlovesThreat: 25072,
@@ -63,9 +42,8 @@ const buffNames = {
   ...paladin.buffNames,
   ...druid.buffNames,
   ...rogue.buffNames,
+  ...hunter.buffNames,
   25909: "Tranquil Air Totem",
-
-  [Hunter.Buff.T1_Ranged_2pc]: "Ferocity",
 
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
   [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
@@ -76,10 +54,8 @@ const buffMultipliers = {
   ...paladin.buffMultipliers,
   ...druid.buffMultipliers,
   ...rogue.buffMultipliers,
-
+  ...hunter.buffMultipliers,
   25909: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
-
-  [Hunter.Buff.T1_Ranged_2pc]: getThreatCoefficient(Hunter.Mods.T1_Ranged_2pc),
 
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
   [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),
@@ -197,6 +173,7 @@ const notableBuffs = {
   ...paladin.notableBuffs,
   ...druid.notableBuffs,
   ...rogue.notableBuffs,
+  ...hunter.notableBuffs,
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -204,12 +181,12 @@ for (let k in buffMultipliers) notableBuffs[k] = true;
 for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
 for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
-for (let id of Object.values(Hunter.Buff)) notableBuffs[id] = true;
 
 const auraImplications = {
   Warrior: warrior.auraImplications,
   Druid: druid.auraImplications,
   Rogue: rogue.auraImplications,
+  Hunter: hunter.auraImplications,
 };
 /**
  * Allows one to check the combatantInfo and infer buffs and talents.
@@ -237,6 +214,7 @@ const combatantImplications = {
   Paladin: paladin.combatantImplications,
   Druid: druid.combatantImplications,
   Rogue: rogue.combatantImplications,
+  Hunter: hunter.combatantImplications,
 };
 
 const spellFunctions = {
@@ -244,6 +222,7 @@ const spellFunctions = {
   ...paladin.spellFunctions,
   ...druid.spellFunctions,
   ...rogue.spellFunctions,
+  ...hunter.spellFunctions,
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
   18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
@@ -311,18 +290,6 @@ const spellFunctions = {
   27803: handler_zero, // Holy Nova r4
   27804: handler_zero, // Holy Nova r5
   27805: handler_zero, // Holy Nova r6
-
-  // Hunter
-  [Hunter.Spell.FeignDeath]: handler_vanish, // Feign Death
-  [Hunter.Spell.DistractingShotR1]: handler_threatOnHit(110), // Distracting Shot r1
-  [Hunter.Spell.DistractingShotR2]: handler_threatOnHit(160), // Distracting Shot r2
-  [Hunter.Spell.DistractingShotR3]: handler_threatOnHit(250), // Distracting Shot r3
-  [Hunter.Spell.DistractingShotR4]: handler_threatOnHit(350), // Distracting Shot r4
-  [Hunter.Spell.DistractingShotR5]: handler_threatOnHit(465), // Distracting Shot r5
-  [Hunter.Spell.DistractingShotR6]: handler_threatOnHit(600), // Distracting Shot r6
-  [Hunter.Spell.DisengageR1]: handler_castCanMiss(-140), // Disengage Rank 1
-  [Hunter.Spell.DisengageR2]: handler_castCanMiss(-280), // Disengage Rank 2
-  [Hunter.Spell.DisengageR3]: handler_castCanMiss(-405), // Disengage Rank 3
 
   // Warlock
   18288: handler_zero, // Amplify Curse
