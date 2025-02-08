@@ -399,5 +399,6 @@ const warrior = (function () {
     notableBuffs,
     spellFunctions,
     talents,
+    fixateBuffs,
   };
 })();

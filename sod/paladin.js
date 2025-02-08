@@ -67,6 +67,10 @@ const paladin = (function () {
     },
   };
 
+  const fixateBuffs = {
+    407631: true, // Hand of Reckoning
+  };
+
   const spellFunctions = {
     25898: handler_threatOnBuff(60), // GBoK
     25890: handler_threatOnBuff(60), // GBoL
@@ -167,5 +171,6 @@ const paladin = (function () {
     talents,
     notableBuffs,
     buffNames,
+    fixateBuffs,
   };
 })();

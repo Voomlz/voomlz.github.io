@@ -269,15 +269,9 @@ const aggroLossBuffs = {
 };
 // These make dots orange
 const fixateBuffs = {
+  ...warrior.fixateBuffs,
+  ...paladin.fixateBuffs,
   ...druid.fixateBuffs,
-  355: true, // Taunt
-  407631: true, // Hand of Reckoning
-  1161: true, // Challenging Shout
-  694: true,
-  7400: true,
-  7402: true,
-  20559: true,
-  20560: true, // Mocking Blow
   29060: true, // Deathknight Understudy Taunt
   [Rogue.Spell.Tease]: true,
 };
