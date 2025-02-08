@@ -8,33 +8,6 @@ const preferredSpellSchools = {
   // Others will be defaulted to 1 = physical
 };
 
-const Rogue = {
-  Mods: {
-    Base: 0.71,
-    JustAFleshWound: 1.855, // taken from compendium
-    MainGauche: 1.51,
-    T1_Tank_2pc: 2.0,
-    UnfairAdvantage: 1.5,
-  },
-  Spell: {
-    Blunderbuss: 436564,
-    CrimsonTempest: 412096,
-    FanOfKnives: 409240,
-    PoisonedKnife: 425012,
-    SinisterStrikeR7: 11293,
-    SinisterStrikeR8: 11294,
-    Tease: 410412,
-    UnfairAdvantage: 432274,
-    MainGauche: 424919,
-  },
-  Buff: {
-    JustAFleshWound: 400014,
-    MainGauche: 462752,
-    BladeDance: 400012,
-    T1_Tank_2pc: 457349,
-  },
-};
-
 const Hunter = {
   Buff: {
     T1_Ranged_2pc: 456339, // Ferocity
@@ -68,7 +41,7 @@ const Items = {
 };
 
 const baseThreatCoefficients = {
-  Rogue: getThreatCoefficient(Rogue.Mods.Base),
+  Rogue: rogue.baseThreatCoefficient,
   // Others will be defaulted to 1
 };
 
@@ -82,23 +55,17 @@ const initialBuffs = {
   Paladin: paladin.initialBuffs,
   Warrior: warrior.initialBuffs,
   Druid: druid.initialBuffs,
-  Rogue: {
-    [Rogue.Buff.JustAFleshWound]: 0,
-    [Rogue.Buff.T1_Tank_2pc]: 3,
-  },
+  Rogue: rogue.initialBuffs,
 };
 
 const buffNames = {
   ...warrior.buffNames,
   ...paladin.buffNames,
   ...druid.buffNames,
+  ...rogue.buffNames,
   25909: "Tranquil Air Totem",
 
   [Hunter.Buff.T1_Ranged_2pc]: "Ferocity",
-
-  [Rogue.Buff.JustAFleshWound]: "Just a Flesh Wound",
-  [Rogue.Buff.MainGauche]: "Main Gauche",
-  [Rogue.Buff.T1_Tank_2pc]: "S03 - Item - T1 - Rogue - Tank 2P Bonus",
 
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
   [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
@@ -108,46 +75,11 @@ const buffMultipliers = {
   ...warrior.buffMultipliers,
   ...paladin.buffMultipliers,
   ...druid.buffMultipliers,
+  ...rogue.buffMultipliers,
 
   25909: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
 
   [Hunter.Buff.T1_Ranged_2pc]: getThreatCoefficient(Hunter.Mods.T1_Ranged_2pc),
-
-  [Rogue.Buff.JustAFleshWound]: getThreatCoefficient(
-    Rogue.Mods.JustAFleshWound
-  ),
-  [Rogue.Buff.MainGauche]: {
-    coeff: (buffs, spellId) => {
-      const moddedSpells = {
-        // TODO: lower ranks
-        [Rogue.Spell.SinisterStrikeR7]: true,
-        [Rogue.Spell.SinisterStrikeR8]: true,
-        [Rogue.Spell.PoisonedKnife]: true,
-      };
-      if (spellId in moddedSpells) {
-        return getThreatCoefficient(Rogue.Mods.MainGauche);
-      }
-
-      return getThreatCoefficient(1);
-    },
-  },
-  [Rogue.Buff.T1_Tank_2pc]: {
-    coeff: (buffs, spellId) => {
-      const moddedSpells = {
-        [Rogue.Spell.CrimsonTempest]: true,
-        [Rogue.Spell.Blunderbuss]: true,
-        [Rogue.Spell.FanOfKnives]: true,
-      };
-      if (
-        Rogue.Buff.BladeDance in buffs &&
-        Rogue.Buff.JustAFleshWound in buffs &&
-        spellId in moddedSpells
-      ) {
-        return getThreatCoefficient(Rogue.Mods.T1_Tank_2pc);
-      }
-      return getThreatCoefficient(1);
-    },
-  },
 
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
   [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),
@@ -158,6 +90,7 @@ const talents = {
   Warrior: warrior.talents,
   Paladin: paladin.talents,
   Druid: druid.talents,
+  Rogue: rogue.talents,
   Mage: {
     "Arcane Subtlety": {
       maxRank: 2,
@@ -175,17 +108,6 @@ const talents = {
         getThreatCoefficient({ [School.Frost]: 1 - 0.1 * rank }),
     },
   },
-
-  /*
-	Tank Rune + Imp RF = 2.85 HOLY CO-EFFICIENT
-	Tank Rune = Damage 1.5x NON HOLY
-	Tank Rune = 2.23 without Imp RF Talent.
-
-	OLD VALUES:
-	1.0x non-holy
-	1.6x holy RF non-Imp
-	1.9x holy Imp RF
-	*/
 
   Priest: {
     "Silent Resolve": {
@@ -272,8 +194,8 @@ const fixateBuffs = {
   ...warrior.fixateBuffs,
   ...paladin.fixateBuffs,
   ...druid.fixateBuffs,
+  ...rogue.fixateBuffs,
   29060: true, // Deathknight Understudy Taunt
-  [Rogue.Spell.Tease]: true,
 };
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
@@ -281,6 +203,7 @@ const notableBuffs = {
   ...warrior.notableBuffs,
   ...paladin.notableBuffs,
   ...druid.notableBuffs,
+  ...rogue.notableBuffs,
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -288,15 +211,12 @@ for (let k in buffMultipliers) notableBuffs[k] = true;
 for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
 for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
-for (let id of Object.values(Rogue.Buff)) notableBuffs[id] = true;
 for (let id of Object.values(Hunter.Buff)) notableBuffs[id] = true;
 
 const auraImplications = {
   Warrior: warrior.auraImplications,
   Druid: druid.auraImplications,
-  Rogue: {
-    [Rogue.Spell.MainGauche]: Rogue.Buff.JustAFleshWound,
-  },
+  Rogue: rogue.auraImplications,
 };
 /**
  * Allows one to check the combatantInfo and infer buffs and talents.
@@ -323,12 +243,14 @@ const combatantImplications = {
   Warrior: warrior.combatantImplications,
   Paladin: paladin.combatantImplications,
   Druid: druid.combatantImplications,
+  Rogue: rogue.combatantImplications,
 };
 
 const spellFunctions = {
   ...warrior.spellFunctions,
   ...paladin.spellFunctions,
   ...druid.spellFunctions,
+  ...rogue.spellFunctions,
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
   18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
@@ -372,22 +294,6 @@ const spellFunctions = {
 
   // Mage
   10181: handler_damage, // Frostbolt
-
-  // Rogue
-  1856: handler_vanish,
-  1857: handler_vanish, // Vanish
-  1966: handler_castCanMissNoCoefficient(-150), // Feint r1
-  6768: handler_castCanMissNoCoefficient(-240), // Feint r2
-  8637: handler_castCanMissNoCoefficient(-390), // Feint r3
-  11303: handler_castCanMissNoCoefficient(-600), // Feint r4
-  25302: handler_castCanMissNoCoefficient(-800), // Feint r5
-
-  // Rogue: SoD. Info from the compendium: https://docs.google.com/document/d/1BCCkILiz9U-VcX7489WGam2cK_Dm8InahnpQ3bS-UxA/edit?usp=sharing
-  [Rogue.Spell.Tease]: threatFunctions.concat(
-    handler_taunt,
-    handler_markSourceOnMiss(borders.taunt)
-  ),
-  [Rogue.Spell.UnfairAdvantage]: handler_modDamage(Rogue.Mods.UnfairAdvantage),
 
   // Priest
   6788: handler_zero, // Weakened Soul
