@@ -37,6 +37,7 @@ const initialBuffs = {
   Rogue: rogue.initialBuffs,
   Warlock: warlock.initialBuffs,
   Shaman: shaman.initialBuffs,
+  Mage: mage.initialBuffs,
 };
 
 const buffNames = {
@@ -47,6 +48,7 @@ const buffNames = {
   ...hunter.buffNames,
   ...warlock.buffNames,
   ...shaman.buffNames,
+  ...mage.buffNames,
   25909: "Tranquil Air Totem",
 
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
@@ -61,6 +63,7 @@ const buffMultipliers = {
   ...hunter.buffMultipliers,
   ...warlock.buffMultipliers,
   ...shaman.buffMultipliers,
+  ...mage.buffMultipliers,
   25909: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
 
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
@@ -75,23 +78,7 @@ const talents = {
   Rogue: rogue.talents,
   Warlock: warlock.talents,
   Shaman: shaman.talents,
-  Mage: {
-    "Arcane Subtlety": {
-      maxRank: 2,
-      coeff: (_, rank = 2) =>
-        getThreatCoefficient({ [School.Arcane]: 1 - 0.2 * rank }),
-    },
-    "Burning Soul": {
-      maxRank: 2,
-      coeff: (_, rank = 2) =>
-        getThreatCoefficient({ [School.Fire]: 1 - 0.15 * rank }),
-    },
-    "Frost Channeling": {
-      maxRank: 3,
-      coeff: (_, rank = 3) =>
-        getThreatCoefficient({ [School.Frost]: 1 - 0.1 * rank }),
-    },
-  },
+  Mage: mage.talents,
 
   Priest: {
     "Silent Resolve": {
@@ -106,25 +93,19 @@ const talents = {
         }),
     },
   },
-  Shaman: shaman.talents,
 };
 
 // These make dots green-bordered
 const invulnerabilityBuffs = {
   ...paladin.invulnerabilityBuffs,
   ...shaman.invulnerabilityBuffs,
-  11958: "Ice Block",
+  ...mage.invulnerabilityBuffs,
   3169: "LIP", // Limited Invulnerability Potion
   6724: "Light of Elune",
 };
 // These make dots yellow-bordered
 const aggroLossBuffs = {
-  118: true,
-  12824: true,
-  12825: true,
-  28272: true,
-  28271: true,
-  12826: true, // Mages' Polymorph
+  ...mage.aggroLossBuffs,
   23023: true, // Razorgore Conflagrate
   23310: true,
   23311: true,
@@ -155,6 +136,7 @@ const notableBuffs = {
   ...hunter.notableBuffs,
   ...warlock.notableBuffs,
   ...shaman.notableBuffs,
+  ...mage.notableBuffs,
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -170,6 +152,7 @@ const auraImplications = {
   Hunter: hunter.auraImplications,
   Warlock: warlock.auraImplications,
   Shaman: shaman.auraImplications,
+  Mage: mage.auraImplications,
 };
 /**
  * Allows one to check the combatantInfo and infer buffs and talents.
@@ -200,6 +183,7 @@ const combatantImplications = {
   Hunter: hunter.combatantImplications,
   Warlock: warlock.combatantImplications,
   Shaman: shaman.combatantImplications,
+  Mage: mage.combatantImplications,
 };
 
 const spellFunctions = {
@@ -210,6 +194,7 @@ const spellFunctions = {
   ...hunter.spellFunctions,
   ...warlock.spellFunctions,
   ...shaman.spellFunctions,
+  ...mage.spellFunctions,
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
   18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
@@ -250,9 +235,6 @@ const spellFunctions = {
   28338: handler_magneticPull(), // Stalagg, exchange tanks
 
   17624: handler_vanish, // Flask of Petrification
-
-  // Mage
-  10181: handler_damage, // Frostbolt
 
   // Priest
   6788: handler_zero, // Weakened Soul
