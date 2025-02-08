@@ -36,6 +36,7 @@ const initialBuffs = {
   Druid: druid.initialBuffs,
   Rogue: rogue.initialBuffs,
   Warlock: warlock.initialBuffs,
+  Shaman: shaman.initialBuffs,
 };
 
 const buffNames = {
@@ -45,6 +46,7 @@ const buffNames = {
   ...rogue.buffNames,
   ...hunter.buffNames,
   ...warlock.buffNames,
+  ...shaman.buffNames,
   25909: "Tranquil Air Totem",
 
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
@@ -58,6 +60,7 @@ const buffMultipliers = {
   ...rogue.buffMultipliers,
   ...hunter.buffMultipliers,
   ...warlock.buffMultipliers,
+  ...shaman.buffMultipliers,
   25909: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
 
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
@@ -71,6 +74,7 @@ const talents = {
   Druid: druid.talents,
   Rogue: rogue.talents,
   Warlock: warlock.talents,
+  Shaman: shaman.talents,
   Mage: {
     "Arcane Subtlety": {
       maxRank: 2,
@@ -102,44 +106,13 @@ const talents = {
         }),
     },
   },
-  Shaman: {
-    "Healing Grace": {
-      maxRank: 3,
-      coeff: (_, rank = 3, spellId) =>
-        getThreatCoefficient(
-          1 -
-            0.05 *
-              rank *
-              (spellId in
-                {
-                  8004: true,
-                  8008: true,
-                  8010: true,
-                  10466: true,
-                  10467: true,
-                  10468: true, // Lesser Healing Wave
-                  331: true,
-                  332: true,
-                  547: true,
-                  913: true,
-                  939: true,
-                  959: true,
-                  8005: true,
-                  10395: true,
-                  10396: true,
-                  25357: true, // Healing Wave
-                  1064: true,
-                  10622: true,
-                  10623: true, // Chain Heal
-                })
-        ),
-    },
-  },
+  Shaman: shaman.talents,
 };
 
 // These make dots green-bordered
 const invulnerabilityBuffs = {
   ...paladin.invulnerabilityBuffs,
+  ...shaman.invulnerabilityBuffs,
   11958: "Ice Block",
   3169: "LIP", // Limited Invulnerability Potion
   6724: "Light of Elune",
@@ -169,6 +142,7 @@ const fixateBuffs = {
   ...druid.fixateBuffs,
   ...rogue.fixateBuffs,
   ...warlock.fixateBuffs,
+  ...shaman.fixateBuffs,
   29060: true, // Deathknight Understudy Taunt
 };
 // These make a dot in the graph on application and removal
@@ -180,6 +154,7 @@ const notableBuffs = {
   ...rogue.notableBuffs,
   ...hunter.notableBuffs,
   ...warlock.notableBuffs,
+  ...shaman.notableBuffs,
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -194,6 +169,7 @@ const auraImplications = {
   Rogue: rogue.auraImplications,
   Hunter: hunter.auraImplications,
   Warlock: warlock.auraImplications,
+  Shaman: shaman.auraImplications,
 };
 /**
  * Allows one to check the combatantInfo and infer buffs and talents.
@@ -222,6 +198,8 @@ const combatantImplications = {
   Druid: druid.combatantImplications,
   Rogue: rogue.combatantImplications,
   Hunter: hunter.combatantImplications,
+  Warlock: warlock.combatantImplications,
+  Shaman: shaman.combatantImplications,
 };
 
 const spellFunctions = {
@@ -231,6 +209,7 @@ const spellFunctions = {
   ...rogue.spellFunctions,
   ...hunter.spellFunctions,
   ...warlock.spellFunctions,
+  ...shaman.spellFunctions,
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
   18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
@@ -298,15 +277,6 @@ const spellFunctions = {
   27803: handler_zero, // Holy Nova r4
   27804: handler_zero, // Holy Nova r5
   27805: handler_zero, // Holy Nova r6
-
-  // Shaman
-  8042: handler_modDamage(2), // Earth Shock r1
-  8044: handler_modDamage(2), // Earth Shock r2
-  8045: handler_modDamage(2), // Earth Shock r3
-  8046: handler_modDamage(2), // Earth Shock r4
-  10412: handler_modDamage(2), // Earth Shock r5
-  10413: handler_modDamage(2), // Earth Shock r6
-  10414: handler_modDamage(2), // Earth Shock r7
 
   // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
   1: handler_damage,
