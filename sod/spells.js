@@ -38,6 +38,7 @@ const initialBuffs = {
   Warlock: warlock.initialBuffs,
   Shaman: shaman.initialBuffs,
   Mage: mage.initialBuffs,
+  Priest: priest.initialBuffs,
 };
 
 const buffNames = {
@@ -49,7 +50,7 @@ const buffNames = {
   ...warlock.buffNames,
   ...shaman.buffNames,
   ...mage.buffNames,
-
+  ...priest.buffNames,
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
   [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
 };
@@ -63,7 +64,7 @@ const buffMultipliers = {
   ...warlock.buffMultipliers,
   ...shaman.buffMultipliers,
   ...mage.buffMultipliers,
-
+  ...priest.buffMultipliers,
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
   [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),
 };
@@ -77,26 +78,14 @@ const talents = {
   Warlock: warlock.talents,
   Shaman: shaman.talents,
   Mage: mage.talents,
-
-  Priest: {
-    "Silent Resolve": {
-      maxRank: 5,
-      coeff: (_, rank = 5) => getThreatCoefficient(1 - 0.04 * rank),
-    },
-    "Shadow Affinity": {
-      maxRank: 3,
-      coeff: (_, rank = 3) =>
-        getThreatCoefficient({
-          [School.Shadow]: 1 - Math.floor((rank * 25) / 3) / 100,
-        }),
-    },
-  },
+  Priest: priest.talents,
 };
 
 // These make dots green-bordered
 const invulnerabilityBuffs = {
   ...paladin.invulnerabilityBuffs,
   ...shaman.invulnerabilityBuffs,
+  ...priest.invulnerabilityBuffs,
   ...mage.invulnerabilityBuffs,
   3169: "LIP", // Limited Invulnerability Potion
   6724: "Light of Elune",
@@ -135,6 +124,7 @@ const notableBuffs = {
   ...warlock.notableBuffs,
   ...shaman.notableBuffs,
   ...mage.notableBuffs,
+  ...priest.notableBuffs,
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -151,6 +141,7 @@ const auraImplications = {
   Warlock: warlock.auraImplications,
   Shaman: shaman.auraImplications,
   Mage: mage.auraImplications,
+  Priest: priest.auraImplications,
 };
 /**
  * Allows one to check the combatantInfo and infer buffs and talents.
@@ -182,6 +173,7 @@ const combatantImplications = {
   Warlock: warlock.combatantImplications,
   Shaman: shaman.combatantImplications,
   Mage: mage.combatantImplications,
+  Priest: priest.combatantImplications,
 };
 
 const spellFunctions = {
@@ -193,6 +185,7 @@ const spellFunctions = {
   ...warlock.spellFunctions,
   ...shaman.spellFunctions,
   ...mage.spellFunctions,
+  ...priest.spellFunctions,
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
   18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
@@ -233,30 +226,6 @@ const spellFunctions = {
   28338: handler_magneticPull(), // Stalagg, exchange tanks
 
   17624: handler_vanish, // Flask of Petrification
-
-  // Priest
-  6788: handler_zero, // Weakened Soul
-  8092: handler_threatOnHit(40), // Mind Blast r1
-  8102: handler_threatOnHit(77), // Mind Blast r2
-  8103: handler_threatOnHit(121), // Mind Blast r3
-  8104: handler_threatOnHit(180), // Mind Blast r4
-  8105: handler_threatOnHit(236), // Mind Blast r5
-  8106: handler_threatOnHit(303), // Mind Blast r6
-  10945: handler_threatOnHit(380), // Mind Blast r7
-  10946: handler_threatOnHit(460), // Mind Blast r8
-  10947: handler_threatOnHit(540), // Mind Blast r9
-  15237: handler_zero, // Holy Nova r1
-  15430: handler_zero, // Holy Nova r2
-  15431: handler_zero, // Holy Nova r3
-  27799: handler_zero, // Holy Nova r4
-  27800: handler_zero, // Holy Nova r5
-  27801: handler_zero, // Holy Nova r6
-  23455: handler_zero, // Holy Nova r1
-  23458: handler_zero, // Holy Nova r2
-  23459: handler_zero, // Holy Nova r3
-  27803: handler_zero, // Holy Nova r4
-  27804: handler_zero, // Holy Nova r5
-  27805: handler_zero, // Holy Nova r6
 
   // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
   1: handler_damage,
