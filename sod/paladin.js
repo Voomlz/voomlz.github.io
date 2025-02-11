@@ -13,6 +13,9 @@ const paladin = (function () {
       ImpRf: (1.9 - 1.6) / 3,
       /** A 1.5 modifier to all attacks (2.85 = 1.9 (ImpRf) * 1.5) */
       HandOfReckoning: 1.5,
+
+      /** 6% per rank to physical and holy damage, only when RF is not up */
+      Vengeance: 0.06,
     },
     Buff: {
       Salv: 1038,
@@ -63,6 +66,19 @@ const paladin = (function () {
           });
         }
         return getThreatCoefficient(1);
+      },
+    },
+    Vengeance: {
+      maxRank: 5,
+      coeff: function (buffs, rank = 5) {
+        if (config.Buff.RighteousFury in buffs) {
+          return getThreatCoefficient(1);
+        }
+        const mod = 1 - rank * config.Mods.Vengeance;
+        return getThreatCoefficient({
+          [School.Pysical]: mod,
+          [School.Holy]: mod,
+        });
       },
     },
   };
