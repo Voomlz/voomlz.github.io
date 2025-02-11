@@ -859,30 +859,6 @@ class Fight {
           if (!(i in notableBuffs)) break;
           u = this.eventToUnit(ev, "target");
           if (!u) break;
-          if (i === 23397 && ev.type === "applydebuff") {
-            // Special handler for Nefarian's warrior class call
-            delete u.buffs[71];
-            delete u.buffs[2457];
-            u.buffs[2458] = true;
-          }
-          if (i === 23398 && ev.type === "applydebuff") {
-            // Druid class call
-            delete u.buffs[5487];
-            delete u.buffs[9634];
-            u.buffs[768] = true;
-          }
-          if (i === 29232 && ev.type === "applydebuff") {
-            // Fungal Bloom
-            if (u.type !== "Mage") {
-              u.buffs[29232] = true;
-            } else {
-              u.buffs[29232] = false;
-            }
-          }
-          if (i === 29232 && ev.type === "removedebuff") {
-            // Fungal Bloom
-            u.buffs[29232] = false;
-          }
           u.buffs[i] = true;
           [_, enemies] = this.eventToFriendliesAndEnemies(ev, "target");
           for (let k in enemies) {
@@ -917,10 +893,6 @@ class Fight {
               ev.ability.name + " fades",
               u.threatCoeff()
             );
-          }
-          if (i === 23398) {
-            // Druid class call
-            delete u.buffs[768];
           }
           delete u.buffs[i];
           if (i in fixateBuffs) {

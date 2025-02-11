@@ -300,6 +300,33 @@ const combatantImplications = {
 const spellFunctions = {
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
+  // Nefarian's warrior class call, force Berserker Stance
+  23397: (ev, fight) => {
+    const target = fight.eventToUnit(ev, "target");
+    if (ev.type === "applydebuff") {
+      delete target.buffs[71];
+      delete target.buffs[2457];
+      target.buffs[2458] = true; // Berserker stance
+    }
+
+    if (ev.type === "removedebuff") {
+      delete target.buffs[2458];
+    }
+  },
+  // Nefarian's Druid class call, force Cat form
+  23398: (ev, fight) => {
+    const target = fight.eventToUnit(ev, "target");
+    if (ev.type === "applydebuff") {
+      delete target.buffs[5487]; // Bear form
+      delete target.buffs[9634]; // Dire Bear form
+      target.buffs[768] = true; // Cat form
+    }
+
+    if (ev.type === "removedebuff") {
+      delete target.buffs[768];
+    }
+  },
+
   18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
   19633: handler_bossDropThreatOnHit(0.75), // Onyxia Knock Away
   20534: handler_bossDropThreatOnCast(0), // Majordomo Teleport
