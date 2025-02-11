@@ -47,27 +47,8 @@ const warrior = (function () {
       ThunderClapR6: 11581,
     },
     Tier: {
-      T1_Tank: {
-        Helm: 226488,
-        Shoulders: 226491,
-        Chest: 226489,
-        Legs: 226490,
-        Feet: 226487,
-        Bracers: 226484,
-        Belt: 226485,
-        Hands: 226486,
-      },
-      T2_Tank_CoreForged: {
-        Helm: 232259,
-        // TODO
-      },
-      TAQ_Tank: {
-        Helm: 233375,
-        Shoulders: 233376,
-        Chest: 233373,
-        Legs: 233374,
-        Feet: 233372,
-      },
+      T1_Tank: 1719,
+      TAQ_Tank: 1857,
     },
     Buff: {
       T1_Tank_6pc: 457651,
@@ -241,22 +222,17 @@ const warrior = (function () {
    * the buff. Then, in buffMultipliers, you can apply global coefficients or to specific spells.
    */
   const combatantImplications = (unit, buffs, talents) => {
-    const taq = Object.values(config.Tier.TAQ_Tank);
-
-    if (unit.gear.filter((item) => taq.includes(item.id)).length >= 4) {
-      buffs[config.Buff.TAQ_Tank_4pc] = true;
-    }
-
-    const t1 = Object.values(config.Tier.T1_Tank);
-    if (unit.gear.filter((item) => t1.includes(item.id)).length >= 6) {
-      buffs[config.Buff.T1_Tank_6pc] = true;
-    }
-
-    const t2CoreForged = Object.values(config.Tier.T2_Tank_CoreForged);
+    // Tier 1 6pc
     if (
-      unit.gear.filter((item) => t2CoreForged.includes(item.id)).length >= 6
+      unit.gear.filter((g) => g.spellID === config.Tier.T1_Tank).length >= 6
     ) {
       buffs[config.Buff.T1_Tank_6pc] = true;
+    }
+    // Tier 2.5 4pc
+    if (
+      unit.gear.filter((g) => g.spellID === config.Tier.TAQ_Tank).length >= 4
+    ) {
+      buffs[config.Buff.TAQ_Tank_4pc] = true;
     }
   };
 
