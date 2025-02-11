@@ -31,6 +31,16 @@ const mage = (function () {
       coeff: (_, rank = 3) =>
         getThreatCoefficient({ [School.Frost]: 1 - 0.1 * rank }),
     },
+    "Burning Soul ForstFire": {
+      maxRank: 2,
+      coeff: (_, rank = 2, spellId) =>
+          getThreatCoefficient(1 - 0.15 * rank * (spellId in { 401502:true }))
+    },
+    "Frost Channeling ForstFire": {
+      maxRank: 3,
+      coeff: (_, rank = 3, spellId) =>
+        getThreatCoefficient(1 - 0.1 * rank * (spellId in { 401502:true }))
+    },
   };
 
   const fixateBuffs = {};

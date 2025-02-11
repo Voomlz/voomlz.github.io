@@ -1,15 +1,25 @@
 const warlock = (function () {
   const config = {
-    Buff: {},
-    Mods: {},
+    Buff: {
+      Metamorphosis: 403789
+    },
+    Mods: {
+      Metamorphosis: 1.77
+    },
     Spell: {},
   };
 
-  const initialBuffs = {};
+  const initialBuffs = {
+    [config.Buff.Metamorphosis]: 0,
+  };
 
-  const buffNames = {};
+  const buffNames = {
+    [config.Buff.Metamorphosis]: "Metamorphosis",
+  };
 
-  const buffMultipliers = {};
+  const buffMultipliers = {
+    [config.Buff.Metamorphosis]: getThreatCoefficient(config.Mods.Metamorphosis)
+  };
 
   const auraImplications = {};
 
