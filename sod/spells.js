@@ -67,6 +67,7 @@ const buffMultipliers = {
   ...priest.buffMultipliers,
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
   [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),
+  29232: getThreatCoefficient(0), // Fungal Bloom
 };
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
