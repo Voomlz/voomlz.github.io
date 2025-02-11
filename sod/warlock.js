@@ -1,12 +1,23 @@
 const warlock = (function () {
   const config = {
     Buff: {
-      Metamorphosis: 403789
+      Metamorphosis: 403789,
+      BloodPact: 11767,
     },
     Mods: {
-      Metamorphosis: 1.77
+      Metamorphosis: 1.77,
+      SearingPain: 2.0,
+
+      /**
+       * Up to 20% more threat if imp and metamorphosis are active.
+       * Without Metamorphosis, acts as a threat reduction.
+       */
+      MasterDemonologist: 0.04,
     },
-    Spell: {},
+    Spell: {
+      Menace: 403828,
+      DemonicHowl: 412789,
+    },
   };
 
   const initialBuffs = {
@@ -18,14 +29,41 @@ const warlock = (function () {
   };
 
   const buffMultipliers = {
-    [config.Buff.Metamorphosis]: getThreatCoefficient(config.Mods.Metamorphosis)
+    [config.Buff.Metamorphosis]: getThreatCoefficient(
+      config.Mods.Metamorphosis
+    ),
   };
 
-  const auraImplications = {};
+  const auraImplications = {
+    Menace: config.Buff.Metamorphosis,
+    DemonicHowl: config.Buff.Metamorphosis,
+  };
 
-  const talents = {};
+  const talents = {
+    "Master Demonologist": {
+      maxRank: 5,
+      coeff: function (buffs, rank = 5) {
+        // requires Imp
+        if (config.Buff.BloodPact in buffs) {
+          // increased with Metamorphosis
+          if (config.Buff.Metamorphosis in buffs) {
+            const increase = 1 + rank * config.Mods.MasterDemonologist;
+            return getThreatCoefficient(increase);
+          }
+          // reduction otherwise
+          const reduction = 1 - rank * config.Mods.MasterDemonologist;
+          return getThreatCoefficient(reduction);
+        }
 
-  const fixateBuffs = {};
+        return getThreatCoefficient(1);
+      },
+    },
+  };
+
+  const fixateBuffs = {
+    [config.Spell.Menace]: true,
+    [config.Spell.DemonicHowl]: true,
+  };
 
   const spellFunctions = {
     // Warlock
@@ -97,12 +135,12 @@ const warlock = (function () {
     11675: handler_damage, // Drain Soul r4
     5484: handler_threatOnDebuff(2 * 40), // Howl of Terror r1
     17928: handler_threatOnDebuff(2 * 54), // Howl of Terror r2
-    5676: handler_modDamage(2), // Searing Pain r1
-    17919: handler_modDamage(2), // Searing Pain r2
-    17920: handler_modDamage(2), // Searing Pain r3
-    17921: handler_modDamage(2), // Searing Pain r4
-    17922: handler_modDamage(2), // Searing Pain r5
-    17923: handler_modDamage(2), // Searing Pain r6
+    5676: handler_modDamage(config.Mods.SearingPain), // Searing Pain r1
+    17919: handler_modDamage(config.Mods.SearingPain), // Searing Pain r2
+    17920: handler_modDamage(config.Mods.SearingPain), // Searing Pain r3
+    17921: handler_modDamage(config.Mods.SearingPain), // Searing Pain r4
+    17922: handler_modDamage(config.Mods.SearingPain), // Searing Pain r5
+    17923: handler_modDamage(config.Mods.SearingPain), // Searing Pain r6
   };
 
   const combatantImplications = (unit, buffs, talents) => {};
