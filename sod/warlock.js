@@ -26,6 +26,7 @@ const warlock = (function () {
 
   const buffNames = {
     [config.Buff.Metamorphosis]: "Metamorphosis",
+    [config.Buff.MasterDemonologist]: "Master Demonologist",
   };
 
   const buffMultipliers = {
