@@ -2,7 +2,7 @@ const warlock = (function () {
   const config = {
     Buff: {
       Metamorphosis: 403789,
-      BloodPact: 11767,
+      MasterDemonologist: 23836,
     },
     Mods: {
       Metamorphosis: 1.77,
@@ -43,8 +43,7 @@ const warlock = (function () {
     "Master Demonologist": {
       maxRank: 5,
       coeff: function (buffs, rank = 5) {
-        // requires Imp
-        if (config.Buff.BloodPact in buffs) {
+        if (config.Buff.MasterDemonologist in buffs) {
           // increased with Metamorphosis
           if (config.Buff.Metamorphosis in buffs) {
             const increase = 1 + rank * config.Mods.MasterDemonologist;
