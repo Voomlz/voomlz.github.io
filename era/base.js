@@ -4,7 +4,61 @@
  * Override for specific game versions in a separate file.
  */
 
-const School = {
+import { Fight } from "./threat/fight.js";
+
+/**
+ * @typedef {(c: number, buffs: SpellMap<boolean>, talents: SpellMap<number>) => void} CombatantImplicationsFn
+ */
+
+/**
+ * @typedef {(ev: any, fight: Fight) => void} ThreatHandlerFn
+ */
+
+/**
+ * @typedef {(spellSchool: number) => number} ThreatCoefficientFn
+ */
+
+/**
+ * @typedef {{ [key: string]: T }} ClassMap<T>
+ * @template T
+ */
+
+/**
+ * @typedef {{ [key: SpellId]: T } | {}} SpellMap<T>
+ * @template T
+ */
+
+/**
+ * @typedef {{
+ *   aggroLossBuffs: SpellMap<boolean>;
+ *   auraImplications: ClassMap<SpellMap<SpellId>>;
+ *   baseThreatCoefficients: ClassMap<ThreatCoefficientFn>;
+ *   buffMultipliers: SpellMap<ThreatCoefficientFn>;
+ *   buffNames: SpellMap<string>;
+ *   combatantImplications: ClassMap<CombatantImplicationsFn>;
+ *   invulnerabilityBuffs: SpellMap<string>;
+ *   initialBuffs: ClassMap<SpellMap<number>>;
+ *   notableBuffs: SpellMap<boolean>;
+ *   fixateBuffs: SpellMap<boolean>;
+ *   preferredSpellSchools: ClassMap<number>;
+ *   spellFunctions: SpellMap<ThreatHandlerFn>;
+ *   zeroThreatSpells: SpellId[];
+ * }} GameVersionConfig
+ */
+
+/**
+ * @typedef {'Warrior' | 'Paladin' | 'Hunter' | 'Rogue' | 'Priest' | 'Shaman' | 'Mage' | 'Warlock' | 'Druid'} Class
+ */
+
+/**
+ * @typedef {Class | 'All'} ClassWithAll
+ */
+
+/**
+ * @typedef {number} SpellId
+ */
+
+export const School = {
   Physical: 1,
   Holy: 2,
   Fire: 4,
@@ -14,12 +68,16 @@ const School = {
   Arcane: 64,
 };
 
-const borders = {
+export const borders = {
   taunt: [3, "#ffa500"],
 };
 
 // Core threat calculation functions
-function getThreatCoefficient(values) {
+/**
+ * @param {number | { [key: number]: number }} values
+ * @returns {ThreatCoefficientFn}
+ */
+export function getThreatCoefficient(values) {
   if (typeof values === "number") {
     values = { 0: values };
   }
@@ -30,12 +88,17 @@ function getThreatCoefficient(values) {
   };
 }
 
-function getAdditiveThreatCoefficient(value, base) {
+/**
+ * @param {number} value
+ * @param {number} base
+ * @returns {ThreatCoefficientFn}
+ */
+export function getAdditiveThreatCoefficient(value, base) {
   return getThreatCoefficient((base + value) / base);
 }
 
 // Core threat handling functions
-const threatFunctions = {
+export const threatFunctions = {
   sourceThreatenTarget(
     ev,
     fight,
@@ -86,21 +149,21 @@ const threatFunctions = {
       }
     }
   },
-  concat() {
+  concat(...handlers) {
     return (ev, fight) => {
-      for (let i = 0; i < arguments.length; ++i) {
-        // Arguments is from outer func
-        arguments[i](ev, fight);
+      for (let i = 0; i < handlers.length; ++i) {
+        // handlers is from outer func
+        handlers[i](ev, fight);
       }
     };
   },
 };
 
-function handler_vanish(ev, fight) {
+export function handler_vanish(ev, fight) {
   if (ev.type !== "cast") return;
   threatFunctions.unitLeaveCombat(ev, "source", fight, ev.ability.name);
 }
-function handler_mindcontrol(ev, fight) {
+export function handler_mindcontrol(ev, fight) {
   // Event target resets threat on everything on debuff apply and deapply.
   // Not sure if this is the real behaviour...
   if (ev.type === "applydebuff") {
@@ -115,7 +178,7 @@ function handler_mindcontrol(ev, fight) {
   }
 }
 
-function handler_resourcechange(ev, fight) {
+export function handler_resourcechange(ev, fight) {
   if (ev.type !== "resourcechange") return;
   let diff = ev.resourceChange - ev.waste;
   // Not sure if threat should be given to "target" instead...
@@ -127,7 +190,7 @@ function handler_resourcechange(ev, fight) {
     false
   );
 }
-function handler_resourcechangeCoeff(ev, fight) {
+export function handler_resourcechangeCoeff(ev, fight) {
   if (ev.type !== "resourcechange") return;
   let diff = ev.resourceChange - ev.waste;
   // Not sure if threat should be given to "target" instead...
@@ -140,7 +203,7 @@ function handler_resourcechangeCoeff(ev, fight) {
   );
 }
 
-function handler_basic(ev, fight) {
+export function handler_basic(ev, fight) {
   switch (ev.type) {
     case "damage":
       threatFunctions.sourceThreatenTarget(
@@ -159,20 +222,20 @@ function handler_basic(ev, fight) {
       );
       break;
     case "resourcechange":
-      if (DEBUGMODE) console.log("Unhandled resourcechange.", ev);
+      if (globalThis.DEBUGMODE) console.log("Unhandled resourcechange.", ev);
       handler_resourcechange(ev, fight);
       break;
     case "applybuff":
     case "refreshbuff":
     case "applybuffstack":
-      if (DEBUGMODE) console.log("Unhandled buff.", ev);
+      if (globalThis.DEBUGMODE) console.log("Unhandled buff.", ev);
       if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
       threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, 60);
       break;
     case "applydebuff":
     case "applydebuffstack":
     case "refreshdebuff":
-      if (DEBUGMODE) console.log("Unhandled buff.", ev);
+      if (globalThis.DEBUGMODE) console.log("Unhandled buff.", ev);
       if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
       threatFunctions.sourceThreatenTarget(ev, fight, 120);
       break;
@@ -186,11 +249,11 @@ function handler_basic(ev, fight) {
     case "extraattacks":
       break;
     default:
-      if (DEBUGMODE) console.log("Unhandled event.", ev);
+      if (globalThis.DEBUGMODE) console.log("Unhandled event.", ev);
   }
 }
 
-function handler_mark(ev, fight) {
+export function handler_mark(ev, fight) {
   if (ev.type !== "cast") return;
   if ("target" in ev && ev.target.id === -1) return; // Target is environment
   let a = fight.eventToUnit(ev, "source");
@@ -202,7 +265,7 @@ function handler_mark(ev, fight) {
   }
 }
 
-function handler_markSourceOnMiss(border) {
+export function handler_markSourceOnMiss(border) {
   return (ev, fight) => {
     if (ev.type !== "damage") return;
     if (ev.hitType !== 0 && ev.hitType <= 6) return;
@@ -213,7 +276,7 @@ function handler_markSourceOnMiss(border) {
   };
 }
 
-function handler_markSourceOnDebuff(border) {
+export function handler_markSourceOnDebuff(border) {
   return (ev, fight) => {
     if (!["applydebuff", "applydebuffstack", "refreshdebuff"].includes(ev.type))
       return;
@@ -226,9 +289,9 @@ function handler_markSourceOnDebuff(border) {
   };
 }
 
-function handler_zero() {}
+export function handler_zero() {}
 
-function handler_castCanMiss(threatValue) {
+export function handler_castCanMiss(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t === "cast") {
@@ -239,7 +302,7 @@ function handler_castCanMiss(threatValue) {
   };
 }
 
-function handler_castCanMissNoCoefficient(threatValue) {
+export function handler_castCanMissNoCoefficient(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t === "cast") {
@@ -250,7 +313,7 @@ function handler_castCanMissNoCoefficient(threatValue) {
   };
 }
 
-function handler_modDamage(multiplier) {
+export function handler_modDamage(multiplier) {
   return (ev, fight) => {
     if (ev.type !== "damage") return;
     threatFunctions.sourceThreatenTarget(
@@ -262,7 +325,7 @@ function handler_modDamage(multiplier) {
     );
   };
 }
-function handler_modHeal(multiplier) {
+export function handler_modHeal(multiplier) {
   return (ev, fight) => {
     if (ev.type !== "heal") return;
     threatFunctions.unitThreatenEnemiesSplit(
@@ -274,7 +337,7 @@ function handler_modHeal(multiplier) {
   };
 }
 
-function handler_modDamagePlusThreat(multiplier, bonus) {
+export function handler_modDamagePlusThreat(multiplier, bonus) {
   return (ev, fight) => {
     if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
     threatFunctions.sourceThreatenTarget(
@@ -285,7 +348,7 @@ function handler_modDamagePlusThreat(multiplier, bonus) {
   };
 }
 
-function handler_damage(ev, fight) {
+export function handler_damage(ev, fight) {
   if (ev.type !== "damage") return;
   threatFunctions.sourceThreatenTarget(
     ev,
@@ -294,12 +357,12 @@ function handler_damage(ev, fight) {
   );
 }
 
-function handler_heal(ev, fight) {
+export function handler_heal(ev, fight) {
   if (ev.type !== "heal") return;
   threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
 }
 
-function handler_threatOnHit(threatValue) {
+export function handler_threatOnHit(threatValue) {
   return (ev, fight) => {
     if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
     threatFunctions.sourceThreatenTarget(
@@ -310,7 +373,7 @@ function handler_threatOnHit(threatValue) {
   };
 }
 
-function handler_bossDropThreatOnHit(pct) {
+export function handler_bossDropThreatOnHit(pct) {
   return (ev, fight) => {
     // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
     // https://discordapp.com/channels/383596811517952002/673932163736928256/714590608819486740
@@ -333,7 +396,7 @@ function handler_bossDropThreatOnHit(pct) {
     );
   };
 }
-function handler_bossDropThreatOnDebuff(pct) {
+export function handler_bossDropThreatOnDebuff(pct) {
   return (ev, fight) => {
     if (ev.type !== "applydebuff") return;
     let a = fight.eventToUnit(ev, "source");
@@ -348,7 +411,7 @@ function handler_bossDropThreatOnDebuff(pct) {
     );
   };
 }
-function handler_bossDropThreatOnCast(pct) {
+export function handler_bossDropThreatOnCast(pct) {
   return (ev, fight) => {
     if (ev.type !== "cast") return;
     let a = fight.eventToUnit(ev, "source");
@@ -363,7 +426,7 @@ function handler_bossDropThreatOnCast(pct) {
     );
   };
 }
-function handler_bossThreatWipeOnCast(ev, fight) {
+export function handler_bossThreatWipeOnCast(ev, fight) {
   if (ev.type !== "cast") return;
   let u = fight.eventToUnit(ev, "source");
   if (!u) return;
@@ -371,7 +434,7 @@ function handler_bossThreatWipeOnCast(ev, fight) {
     u.setThreat(k, 0, ev.timestamp, ev.ability.name);
   }
 }
-function handler_bossPartialThreatWipeOnCast(pct) {
+export function handler_bossPartialThreatWipeOnCast(pct) {
   return (ev, fight) => {
     if (ev.type !== "cast") return;
     let u = fight.eventToUnit(ev, "source");
@@ -387,7 +450,7 @@ function handler_bossPartialThreatWipeOnCast(pct) {
   };
 }
 
-function handler_threatOnDebuff(threatValue) {
+export function handler_threatOnDebuff(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t !== "applydebuff" && t !== "refreshdebuff") return;
@@ -395,7 +458,7 @@ function handler_threatOnDebuff(threatValue) {
   };
 }
 
-function handler_threatOnDebuffOrDamage(threatValue) {
+export function handler_threatOnDebuffOrDamage(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t === "applydebuff") {
@@ -410,7 +473,7 @@ function handler_threatOnDebuffOrDamage(threatValue) {
   };
 }
 
-function handler_threatOnBuff(threatValue) {
+export function handler_threatOnBuff(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t !== "applybuff" && t !== "refreshbuff") return;
@@ -418,7 +481,7 @@ function handler_threatOnBuff(threatValue) {
   };
 }
 
-function handler_magneticPull() {
+export function handler_magneticPull() {
   return (ev, fight) => {
     let source = fight.eventToUnit(ev, "source");
     let [friendlies, enemies] = fight.eventToFriendliesAndEnemies(ev, "source");
@@ -460,7 +523,7 @@ function handler_magneticPull() {
   };
 }
 
-function handler_hatefulstrike(mainTankThreat) {
+export function handler_hatefulstrike(mainTankThreat) {
   return (ev, fight) => {
     // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
     if (
@@ -530,7 +593,7 @@ function sortByKey(array, key) {
   });
 }
 
-function handler_taunt(ev, fight) {
+export function handler_taunt(ev, fight) {
   if (ev.type !== "applydebuff") return;
   let u = fight.eventToUnit(ev, "target");
   let v = fight.eventToUnit(ev, "source");
@@ -544,7 +607,7 @@ function handler_taunt(ev, fight) {
   u.target = v;
 }
 
-function handler_timelapse(ev, fight) {
+export function handler_timelapse(ev, fight) {
   if (ev.type !== "applydebuff") return;
   let u = fight.eventToUnit(ev, "source");
   let v = fight.eventToUnit(ev, "target");
