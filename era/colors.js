@@ -1,5 +1,3 @@
-"use strict";
-
 // From https://css-tricks.com/converting-color-spaces-in-javascript/
 /**
  * @param {number} h
