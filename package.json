@@ -1,0 +1,17 @@
+{
+  "name": "wcl-threat-link",
+  "private": true,
+  "version": "1.0.0",
+  "main": "threat/front.js",
+  "scripts": {
+    "start": "npx http-server ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.1"
+  }
+}
