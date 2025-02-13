@@ -2,7 +2,7 @@
 - text: "Tragortf - Started fight with threat coeff 1.495"
 - table:
     - rowgroup:
-        - row "Ability Threat (*) Per 34.58 seconds"
+        - row "Ability        Threat (*)  Per 34.58 seconds"
     - row "Heroic Strike      44101.00    1275.41"
     - row "Bloodthirst        19526.04    564.70"
     - row "Melee              16111.62    465.95"
