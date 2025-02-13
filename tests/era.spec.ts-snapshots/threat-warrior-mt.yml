@@ -1,0 +1,19 @@
+- textbox
+- text: "Tragortf - Started fight with threat coeff 1.495"
+- table:
+    - rowgroup:
+        - row "Ability Threat (*) Per 34.58 seconds"
+    - row "Heroic Strike      44101.00    1275.41"
+    - row "Bloodthirst        19526.04    564.70"
+    - row "Melee              16111.62    465.95"
+    - row "Revenge            2953.37     85.41"
+    - row "Gift of Arthas     941.85      27.24"
+    - row "Sunder Armor       390.19      11.28"
+    - row "Demoralizing Shout 192.86      5.58"
+    - row "Judgement of Light 144.79      4.19"
+    - row "Kiss of the Spider 89.70       2.59"
+    - row "Unbridled Wrath    9.00        0.26"
+    - row "Battle Shout       7.85        0.23"
+    - row "Total              84468.27    2442.83"
+- table
+- table

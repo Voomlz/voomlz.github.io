@@ -65,49 +65,19 @@ test.describe("/sod/", () => {
       await expect(page.locator("#targetSelect")).toContainText("Absÿ - 10");
     });
 
-    // Disabling for now since updating them via CI is painful
-    test.skip("graph rendering", async ({ page }) => {
-      await expect(page.locator("#fightSelect")).toContainText(
-        "The Prophet Skeram - 3"
-      );
+    test.describe("threat values", () => {
+      test("Warrior MT", async ({ page }) => {
+        await page.getByRole("button", { name: "Fetch/Refresh" }).click();
+        await page
+          .locator("#targetSelect")
+          .selectOption("JvA4KLpyZ1fxrPgN;3;36;9"); // Sheenftw
 
-      await page.getByRole("button", { name: "Fetch/Refresh" }).click();
-
-      await expect(page.locator(".g-gtitle")).toContainText(
-        "Threat - The Prophet Skeram"
-      );
-
-      await expect(page.locator("#targetSelect")).toContainText("Absÿ - 10");
-
-      // MT
-      await page
-        .locator(".groups > .traces")
-        .filter({ hasText: /Sheenftw/ })
-        .locator(".legendtoggle")
-        .dblclick();
-
-      // Paladin
-      await page
-        .locator(".groups > .traces")
-        .filter({ hasText: /Ascherìt/ })
-        .locator(".legendtoggle")
-        .click();
-
-      // Rogue
-      await page
-        .locator(".groups > .traces")
-        .filter({ hasText: /Wøj/ })
-        .locator(".legendtoggle")
-        .click();
-
-      // Warlock
-      await page
-        .locator(".groups > .traces")
-        .filter({ hasText: /Ratakor/ })
-        .locator(".legendtoggle")
-        .click();
-
-      await expect(page.locator("#output")).toHaveScreenshot();
+        await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(
+          {
+            name: "threat-warrior-mt.yml",
+          }
+        );
+      });
     });
   });
 });
