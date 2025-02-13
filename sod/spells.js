@@ -13,9 +13,13 @@ const Items = {
     GlovesThreat: 25072,
     CloakSubtlety: 25084,
   },
+  Buff: {
+    EyeOfDiminution: 1219503,
+  },
   Mods: {
     GlovesThreat: 1.02,
     CloakSubtlety: 1 - 0.02,
+    EyeOfDiminution: 0.3,
   },
 };
 
@@ -53,6 +57,7 @@ const buffNames = {
   ...priest.buffNames,
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
   [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
+  [Items.Buff.EyeOfDiminution]: "The Eye of Diminution",
 };
 
 const buffMultipliers = {
@@ -67,6 +72,9 @@ const buffMultipliers = {
   ...priest.buffMultipliers,
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
   [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),
+  [Items.Buff.EyeOfDiminution]: getThreatCoefficient(
+    Items.Mods.EyeOfDiminution
+  ),
 };
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
