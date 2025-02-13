@@ -19,6 +19,12 @@ const Items = {
   Mods: {
     GlovesThreat: 1.02,
     CloakSubtlety: 1 - 0.02,
+
+    /**
+     * Reduces threat by 70% for 20 secs
+     *
+     * https://www.wowhead.com/classic/item=236302/eye-of-diminution
+     */
     EyeOfDiminution: 0.3,
   },
 };
