@@ -13,9 +13,19 @@ const Items = {
     GlovesThreat: 25072,
     CloakSubtlety: 25084,
   },
+  Buff: {
+    EyeOfDiminution: 1219503,
+  },
   Mods: {
     GlovesThreat: 1.02,
     CloakSubtlety: 1 - 0.02,
+
+    /**
+     * Reduces threat by 70% for 20 secs
+     *
+     * https://www.wowhead.com/classic/item=236302/eye-of-diminution
+     */
+    EyeOfDiminution: 0.3,
   },
 };
 
@@ -53,6 +63,7 @@ const buffNames = {
   ...priest.buffNames,
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
   [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
+  [Items.Buff.EyeOfDiminution]: "The Eye of Diminution",
 };
 
 const buffMultipliers = {
@@ -67,6 +78,9 @@ const buffMultipliers = {
   ...priest.buffMultipliers,
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
   [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),
+  [Items.Buff.EyeOfDiminution]: getThreatCoefficient(
+    Items.Mods.EyeOfDiminution
+  ),
 };
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
@@ -89,6 +103,7 @@ const invulnerabilityBuffs = {
   ...mage.invulnerabilityBuffs,
   3169: "LIP", // Limited Invulnerability Potion
   6724: "Light of Elune",
+  1213335: "Earthen Shroud", // Fetish of the Sand Reaver
 };
 // These make dots yellow-bordered
 const aggroLossBuffs = {
