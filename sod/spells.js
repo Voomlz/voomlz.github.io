@@ -1,6 +1,33 @@
-let DEBUGMODE = false;
+import {
+  getThreatCoefficient,
+  handler_bossDropThreatOnCast,
+  handler_bossDropThreatOnDebuff,
+  handler_bossDropThreatOnHit,
+  handler_bossPartialThreatWipeOnCast,
+  handler_bossThreatWipeOnCast,
+  handler_damage,
+  handler_hatefulstrike,
+  handler_magneticPull,
+  handler_modDamage,
+  handler_taunt,
+  handler_threatOnDebuff,
+  handler_timelapse,
+  handler_vanish,
+  handler_zero,
+  School,
+  threatFunctions,
+} from "../era/base.js";
+import * as druid from "./druid.js";
+import * as hunter from "./hunter.js";
+import * as mage from "./mage.js";
+import * as paladin from "./paladin.js";
+import * as priest from "./priest.js";
+import * as rogue from "./rogue.js";
+import * as shaman from "./shaman.js";
+import * as warlock from "./warlock.js";
+import * as warrior from "./warrior.js";
 
-const preferredSpellSchools = {
+export const preferredSpellSchools = {
   Mage: School.Frost,
   Priest: School.Holy,
   Paladin: School.Holy,
@@ -8,7 +35,7 @@ const preferredSpellSchools = {
   // Others will be defaulted to 1 = physical
 };
 
-const Items = {
+export const Items = {
   Enchant: {
     GlovesThreat: 25072,
     CloakSubtlety: 25084,
@@ -29,13 +56,13 @@ const Items = {
   },
 };
 
-const baseThreatCoefficients = {
+export const baseThreatCoefficients = {
   Rogue: rogue.baseThreatCoefficient,
   // Others will be defaulted to 1
 };
 
 /** Sets certain buffs to always show as toggles per class */
-const initialBuffs = {
+export const initialBuffs = {
   All: {
     [paladin.config.Buff.Salv]: 0,
     [paladin.config.Buff.GreaterSalv]: 0,
@@ -51,7 +78,7 @@ const initialBuffs = {
   Priest: priest.initialBuffs,
 };
 
-const buffNames = {
+export const buffNames = {
   ...warrior.buffNames,
   ...paladin.buffNames,
   ...druid.buffNames,
@@ -66,7 +93,7 @@ const buffNames = {
   [Items.Buff.EyeOfDiminution]: "The Eye of Diminution",
 };
 
-const buffMultipliers = {
+export const buffMultipliers = {
   ...warrior.buffMultipliers,
   ...paladin.buffMultipliers,
   ...druid.buffMultipliers,
@@ -86,7 +113,7 @@ const buffMultipliers = {
 };
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
-const talents = {
+export const talents = {
   Warrior: warrior.talents,
   Paladin: paladin.talents,
   Druid: druid.talents,
@@ -98,7 +125,7 @@ const talents = {
 };
 
 // These make dots green-bordered
-const invulnerabilityBuffs = {
+export const invulnerabilityBuffs = {
   ...paladin.invulnerabilityBuffs,
   ...shaman.invulnerabilityBuffs,
   ...priest.invulnerabilityBuffs,
@@ -108,7 +135,7 @@ const invulnerabilityBuffs = {
   1213335: "Earthen Shroud", // Fetish of the Sand Reaver
 };
 // These make dots yellow-bordered
-const aggroLossBuffs = {
+export const aggroLossBuffs = {
   ...mage.aggroLossBuffs,
   23023: true, // Razorgore Conflagrate
   23310: true,
@@ -121,7 +148,7 @@ const aggroLossBuffs = {
   26580: true, // Princess Yauj: Fear
 };
 // These make dots orange
-const fixateBuffs = {
+export const fixateBuffs = {
   ...warrior.fixateBuffs,
   ...paladin.fixateBuffs,
   ...druid.fixateBuffs,
@@ -132,7 +159,7 @@ const fixateBuffs = {
 };
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
-const notableBuffs = {
+export const notableBuffs = {
   ...warrior.notableBuffs,
   ...paladin.notableBuffs,
   ...druid.notableBuffs,
@@ -150,7 +177,7 @@ for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
 for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
 
-const auraImplications = {
+export const auraImplications = {
   Warrior: warrior.auraImplications,
   Druid: druid.auraImplications,
   Rogue: rogue.auraImplications,
@@ -160,13 +187,14 @@ const auraImplications = {
   Mage: mage.auraImplications,
   Priest: priest.auraImplications,
 };
+
 /**
  * Allows one to check the combatantInfo and infer buffs and talents.
  *
  * Here is a good place to check gear and apply Tier set bonus buffs. e.g. Check for 2pc gear, apply
  * the buff. Then, in buffMultipliers, you can apply global coefficients or to specific spells.
  */
-const combatantImplications = {
+export const combatantImplications = {
   All: (unit, buffs) => {
     if (
       unit.gear.some((g) => g.permanentEnchant === Items.Enchant.GlovesThreat)
@@ -193,7 +221,7 @@ const combatantImplications = {
   Priest: priest.combatantImplications,
 };
 
-const spellFunctions = {
+export const spellFunctions = {
   ...warrior.spellFunctions,
   ...paladin.spellFunctions,
   ...druid.spellFunctions,
@@ -328,7 +356,7 @@ const spellFunctions = {
   13494: handler_zero, //("Manual Crowd Pummeler"),
 };
 
-let zeroThreatSpells = [];
+export const zeroThreatSpells = [];
 for (let i in spellFunctions) {
   if (i >= 0 && spellFunctions[i] === handler_zero) {
     zeroThreatSpells.push(i);

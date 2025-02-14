@@ -1,6 +1,35 @@
-let DEBUGMODE = false;
+import {
+  borders,
+  getThreatCoefficient,
+  handler_bossDropThreatOnCast,
+  handler_bossDropThreatOnDebuff,
+  handler_bossDropThreatOnHit,
+  handler_bossPartialThreatWipeOnCast,
+  handler_bossThreatWipeOnCast,
+  handler_castCanMiss,
+  handler_castCanMissNoCoefficient,
+  handler_damage,
+  handler_hatefulstrike,
+  handler_heal,
+  handler_magneticPull,
+  handler_markSourceOnMiss,
+  handler_modDamage,
+  handler_modDamagePlusThreat,
+  handler_modHeal,
+  handler_resourcechange,
+  handler_resourcechangeCoeff,
+  handler_taunt,
+  handler_threatOnBuff,
+  handler_threatOnDebuff,
+  handler_threatOnDebuffOrDamage,
+  handler_threatOnHit,
+  handler_timelapse,
+  handler_vanish,
+  handler_zero,
+  threatFunctions,
+} from "./base.js";
 
-const preferredSpellSchools = {
+export const preferredSpellSchools = {
   Mage: 16, // Frost
   Priest: 2, // Holy
   Paladin: 2, // Holy
@@ -8,13 +37,13 @@ const preferredSpellSchools = {
   // Others will be defaulted to 1 = physical
 };
 
-const baseThreatCoefficients = {
+export const baseThreatCoefficients = {
   Rogue: getThreatCoefficient(0.71),
   // Others will be defaulted to 1
 };
 
 /** Sets certain buffs to always show as toggles per class */
-const initialBuffs = {
+export const initialBuffs = {
   All: { 1038: 0, 25895: 0, 25909: 0 },
   Paladin: {
     25780: 0,
@@ -31,7 +60,7 @@ const initialBuffs = {
   },
 };
 
-const buffNames = {
+export const buffNames = {
   1038: "Blessing of Salvation",
   25895: "Greater Blessing of Salvation",
   25909: "Tranquil Air Totem",
@@ -44,7 +73,7 @@ const buffNames = {
   25780: "Righteous Fury",
 };
 
-const buffMultipliers = {
+export const buffMultipliers = {
   1038: getThreatCoefficient(0.7), // BoS
   25895: getThreatCoefficient(0.7), // GBoS
   25909: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
@@ -60,7 +89,7 @@ const buffMultipliers = {
 };
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
-const talents = {
+export const talents = {
   Warrior: {
     Defiance: {
       maxRank: 5,
@@ -151,7 +180,7 @@ const talents = {
 };
 
 // These make dots green-bordered
-const invulnerabilityBuffs = {
+export const invulnerabilityBuffs = {
   498: "Divine Protection",
   5573: "Divine Protection",
   642: "Divine Shield",
@@ -165,7 +194,7 @@ const invulnerabilityBuffs = {
   6724: "Light of Elune",
 };
 // These make dots yellow-bordered
-const aggroLossBuffs = {
+export const aggroLossBuffs = {
   118: true,
   12824: true,
   12825: true,
@@ -183,7 +212,7 @@ const aggroLossBuffs = {
   26580: true, // Princess Yauj: Fear
 };
 // These make dots orange
-const fixateBuffs = {
+export const fixateBuffs = {
   355: true, // Taunt
   1161: true, // Challenging Shout
   5209: true, // Challenging Roar
@@ -197,7 +226,7 @@ const fixateBuffs = {
 };
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
-const notableBuffs = {
+export const notableBuffs = {
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
   29232: true, // Druid class call
@@ -207,7 +236,7 @@ for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
 for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
 
-const auraImplications = {
+export const auraImplications = {
   Warrior: {
     7384: 2457,
     7887: 2457,
@@ -290,14 +319,14 @@ const auraImplications = {
  * Here is a good place to check gear and apply Tier set bonus buffs. e.g. Check for 2pc gear, apply
  * the buff. Then, in buffMultipliers, you can apply global coefficients or to specific spells.
  */
-const combatantImplications = {
+export const combatantImplications = {
   All: (info, buffs, talents) => {
     // set via buffs[id] = true;
   },
   Warrior: (combatantInfo, buffs, talents) => {},
 };
 
-const spellFunctions = {
+export const spellFunctions = {
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
   // Nefarian's warrior class call, force Berserker Stance
@@ -822,7 +851,7 @@ const spellFunctions = {
   13494: handler_zero, //("Manual Crowd Pummeler"),
 };
 
-let zeroThreatSpells = [];
+export const zeroThreatSpells = [];
 for (let i in spellFunctions) {
   if (i >= 0 && spellFunctions[i] === handler_zero) {
     zeroThreatSpells.push(i);

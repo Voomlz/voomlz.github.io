@@ -1,4 +1,9 @@
 // From https://css-tricks.com/converting-color-spaces-in-javascript/
+/**
+ * @param {number} h
+ * @param {number} s
+ * @param {number} l
+ */
 function HSLtoHex(h, s, l) {
   s /= 100;
   l /= 100;
@@ -36,27 +41,30 @@ function HSLtoHex(h, s, l) {
     b = x;
   }
   // Having obtained RGB, convert channels to hex
-  r = Math.round((r + m) * 255).toString(16);
-  g = Math.round((g + m) * 255).toString(16);
-  b = Math.round((b + m) * 255).toString(16);
+  let rHex = Math.round((r + m) * 255).toString(16);
+  let gHex = Math.round((g + m) * 255).toString(16);
+  let bHex = Math.round((b + m) * 255).toString(16);
 
   // Prepend 0s, if necessary
-  if (r.length == 1) r = "0" + r;
-  if (g.length == 1) g = "0" + g;
-  if (b.length == 1) b = "0" + b;
+  if (rHex.length == 1) rHex = "0" + rHex;
+  if (gHex.length == 1) gHex = "0" + gHex;
+  if (bHex.length == 1) bHex = "0" + bHex;
 
   return "#" + r + g + b;
 }
 
 // Inspired by https://stackoverflow.com/a/20129594
-function getColor(n) {
+/**
+ * @param {number} n
+ */
+export function getColor(n) {
   let hue = (n * 137.508) % 360; // Golden angle approximation
   let sat = 100 - ((n * 9) % 51);
   let lig = 55 + ((n * 3) % 26);
   return HSLtoHex(hue, sat, lig);
 }
 
-const classColors = {
+export const classColors = {
   Druid: "#ff7d0a",
   Hunter: "#a9d271",
   Mage: "#40c7eb",
