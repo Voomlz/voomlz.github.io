@@ -103,6 +103,7 @@ const invulnerabilityBuffs = {
   ...mage.invulnerabilityBuffs,
   3169: "LIP", // Limited Invulnerability Potion
   6724: "Light of Elune",
+  1213335: "Earthen Shroud", // Fetish of the Sand Reaver
 };
 // These make dots yellow-bordered
 const aggroLossBuffs = {
