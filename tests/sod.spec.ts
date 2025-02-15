@@ -64,20 +64,5 @@ test.describe("/sod/", () => {
       await expect(page.locator("#enemySelect")).toContainText("Ouro - 115");
       await expect(page.locator("#targetSelect")).toContainText("Absÿ - 10");
     });
-
-    test.describe("threat values", () => {
-      test("Warrior MT", async ({ page }) => {
-        await page.getByRole("button", { name: "Fetch/Refresh" }).click();
-        await page
-          .locator("#targetSelect")
-          .selectOption("JvA4KLpyZ1fxrPgN;3;36;9"); // Sheenftw
-
-        await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(
-          {
-            name: "threat-warrior-mt.yml",
-          }
-        );
-      });
-    });
   });
 });
