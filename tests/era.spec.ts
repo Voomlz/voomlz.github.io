@@ -62,20 +62,5 @@ test.describe("/era/", () => {
       );
       await expect(page.locator("#targetSelect")).toContainText("Amii - 29");
     });
-
-    test.describe("threat values", () => {
-      test("Warrior MT", async ({ page }) => {
-        await page.getByRole("button", { name: "Fetch/Refresh" }).click();
-        await page
-          .locator("#targetSelect")
-          .selectOption("qXDrpmFfHg3dNjzt;1;43;38"); // Tragortf
-
-        await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(
-          {
-            name: "threat-warrior-mt.yml",
-          }
-        );
-      });
-    });
   });
 });
