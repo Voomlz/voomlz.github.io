@@ -40,8 +40,8 @@ export const config = {
     /** 1.20 in defensive stance */
     T1_Tank_6pc: 1.2,
 
-    /** 2.0x to Shield Slam */
-    TAQ_Tank_4pc: 2.0,
+    /** Shield Slam from 2.0 mod to 3.0 mod */
+    TAQ_Tank_4pc: 1.5,
 
     /** 1.5x to Thunder Clap with the rune */
     FuriousThunder: 1.5,
@@ -264,10 +264,22 @@ export const spellFunctions = {
   25286: handler_threatOnHit(175, "Heroic Strike"), // (AQ)
 
   //Shield Slam
-  [config.Spell.ShieldSlamR1]: handler_modDamage(config.Mods.ShieldSlam),
-  [config.Spell.ShieldSlamR2]: handler_modDamage(config.Mods.ShieldSlam),
-  [config.Spell.ShieldSlamR3]: handler_modDamage(config.Mods.ShieldSlam),
-  [config.Spell.ShieldSlamR4]: handler_modDamage(config.Mods.ShieldSlam),
+  [config.Spell.ShieldSlamR1]: handler_modDamagePlusThreat(
+    config.Mods.ShieldSlam,
+    178
+  ),
+  [config.Spell.ShieldSlamR2]: handler_modDamagePlusThreat(
+    config.Mods.ShieldSlam,
+    203
+  ),
+  [config.Spell.ShieldSlamR3]: handler_modDamagePlusThreat(
+    config.Mods.ShieldSlam,
+    229
+  ),
+  [config.Spell.ShieldSlamR4]: handler_modDamagePlusThreat(
+    config.Mods.ShieldSlam,
+    254
+  ),
 
   // Shield Bash
   72: handler_modDamagePlusThreat(1.5, 36),
@@ -312,8 +324,11 @@ export const spellFunctions = {
   20647: handler_modDamage(1.25, "Execute"),
 
   //Sunder Armor
-  7386: handler_castCanMiss(45), // Rank 1
-  11597: handler_castCanMiss(261, "Sunder Armor"), //Rank 5
+  7386: handler_sunderArmor(45), // Sunder Armor (Rank 1)
+  11597: handler_sunderArmor(261), // RSunder Armor (Rank 5)e
+
+  [config.Spell.Devastate]: handler_devastate(100, 261),
+  [config.Spell.DevastateSoD]: handler_devastate(100, 261),
 
   //Battleshout
   11551: handler_threatOnBuff(52, "Battle Shout"), //Rank 6
@@ -376,3 +391,48 @@ export const spellFunctions = {
   23885: handler_zero, //("Bloodthirst"),   //Buff
   23891: handler_heal, // Bloodthirst heal buff
 };
+
+let lastSunderEvent = undefined;
+
+function handler_sunderArmor(threatValue) {
+  return (ev, fight) => {
+    if (ev.type === "cast") {
+      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+      return;
+    }
+
+    if (ev.type === "applydebuffstack") {
+      lastSunderEvent = ev;
+    }
+  };
+}
+
+function handler_devastate(devastateValue, sunderValue) {
+  return (ev, fight) => {
+    if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
+    threatFunctions.sourceThreatenTarget(
+      ev,
+      fight,
+      ev.amount + (ev.absorbed || 0) + devastateValue
+    );
+
+    // Little hack to manage the case where we have multiple warrior sundering.
+    // In WCL, only one will be considered as source of all sunder debuff on one target.
+
+    if (lastSunderEvent) {
+      if (lastSunderEvent.timestamp === ev.timestamp) {
+        let source = fight.eventToUnit(ev, "source");
+        let target = fight.eventToUnit(ev, "target");
+        if (!source) return;
+        if (!target) return;
+        target.addThreat(
+          source.key,
+          sunderValue,
+          ev.timestamp,
+          lastSunderEvent.ability.name + " (Devastate)",
+          source.threatCoeff(lastSunderEvent.ability)
+        );
+      }
+    }
+  };
+}
