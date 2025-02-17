@@ -175,6 +175,9 @@ export const notableBuffs = {
   ...shaman.notableBuffs,
   ...warlock.notableBuffs,
   ...warrior.notableBuffs,
+
+  ...naxx.notableBuffs,
+
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -203,6 +206,7 @@ export const auraImplications = {
  */
 export const combatantImplications = {
   All: (unit, buffs) => {
+    naxx.combatantImplications(unit, buffs);
     if (
       unit.gear.some((g) => g.permanentEnchant === Items.Enchant.GlovesThreat)
     ) {
