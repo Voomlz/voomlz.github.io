@@ -80,6 +80,9 @@ export const config = {
     TAQ_Tank_4pc: 1214162,
     RuneOfDevastate: 403195,
   },
+  Rune: {
+    Devastate: 6800,
+  },
 };
 
 export const initialBuffs = {
@@ -187,6 +190,7 @@ export const fixateBuffs = {
 };
 
 export const notableBuffs = {
+  ...Object.values(config.Stance),
   ...Object.values(config.Buff),
 };
 
@@ -257,13 +261,17 @@ export const combatantImplications = (unit, buffs, talents) => {
   ) {
     buffs[config.Buff.TAQ_Tank_4pc] = true;
   }
+
+  if (gearHasTempEnchant(unit.gear, config.Enchant.RuneOfDevastate)) {
+    buffs[config.Buff.RuneOfDevastate] = true;
+  }
 };
 
 export const spellFunctions = {
   [config.Stance.Defensive]: handler_zero, // Defensive Stance
   [config.Stance.Battle]: handler_zero, // Battle Stance
   [config.Stance.Berserker]: handler_zero, // Berserker Stance
-
+  [config.Stance.Gladiator]: handler_zero, // Gladiator Stance
   //Heroic Strike
   78: handler_threatOnHit(16),
   284: handler_threatOnHit(39),
