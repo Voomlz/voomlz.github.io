@@ -4,6 +4,7 @@ import {
   gearSetCount,
   getAdditiveThreatCoefficient,
   getThreatCoefficient,
+  handler_castCanMiss,
   handler_damage,
   handler_heal,
   handler_markSourceOnMiss,
@@ -264,15 +265,15 @@ export const spellFunctions = {
   [config.Stance.Berserker]: handler_zero, // Berserker Stance
 
   //Heroic Strike
-  78: handler_threatOnHit(16, "Heroic Strike"),
-  284: handler_threatOnHit(39, "Heroic Strike"),
-  285: handler_threatOnHit(59, "Heroic Strike"),
-  1608: handler_threatOnHit(78, "Heroic Strike"),
-  11564: handler_threatOnHit(98, "Heroic Strike"),
-  11565: handler_threatOnHit(118, "Heroic Strike"),
-  11566: handler_threatOnHit(137, "Heroic Strike"),
-  11567: handler_threatOnHit(145, "Heroic Strike"),
-  25286: handler_threatOnHit(175, "Heroic Strike"), // (AQ)
+  78: handler_threatOnHit(16),
+  284: handler_threatOnHit(39),
+  285: handler_threatOnHit(59),
+  1608: handler_threatOnHit(78),
+  11564: handler_threatOnHit(98),
+  11565: handler_threatOnHit(118),
+  11566: handler_threatOnHit(137),
+  11567: handler_threatOnHit(145),
+  25286: handler_threatOnHit(175), // (AQ)
 
   //Shield Slam
   [config.Spell.ShieldSlamR1]: handler_modDamagePlusThreat(
@@ -303,11 +304,11 @@ export const spellFunctions = {
   12798: handler_zero, //("Revenge Stun"),           //Revenge Stun
 
   //Cleave
-  845: handler_threatOnHit(10, "Cleave"), //Rank 1
-  7369: handler_threatOnHit(40, "Cleave"), //Rank 2
-  11608: handler_threatOnHit(60, "Cleave"), //Rank 3
-  11609: handler_threatOnHit(70, "Cleave"), //Rank 4
-  20569: handler_threatOnHit(100, "Cleave"), //Rank 5
+  845: handler_threatOnHit(10), //Rank 1
+  7369: handler_threatOnHit(40), //Rank 2
+  11608: handler_threatOnHit(60), //Rank 3
+  11609: handler_threatOnHit(70), //Rank 4
+  20569: handler_threatOnHit(100), //Rank 5
 
   //Whirlwind
   1680: handler_modDamage(1.25), //("Whirlwind"), //Whirlwind
@@ -321,7 +322,7 @@ export const spellFunctions = {
   //Hamstring
   1715: handler_modDamagePlusThreat(1.25, 20), // R1
   7372: handler_threatOnHit(101), // R2, from outdated sheet
-  7373: handler_threatOnHit(145, "Hamstring"),
+  7373: handler_threatOnHit(145),
 
   //Intercept
   20252: handler_modDamage(2), //Intercept
@@ -332,21 +333,22 @@ export const spellFunctions = {
   20615: handler_zero, //("Intercept Stun"),         //Intercept Stun (Rank 3)
 
   //Execute
-  20647: handler_modDamage(1.25, "Execute"),
+  20647: handler_modDamage(1.25),
 
   //Sunder Armor
-  7386: handler_sunderArmor(45), // Sunder Armor (Rank 1)
-  11597: handler_sunderArmor(261), // Sunder Armor (Rank 5)
+  7386: handler_castCanMiss(45), // Sunder Armor (Rank 1)
+  11597: handler_castCanMiss(261), // Sunder Armor (Rank 5)
 
-  [config.Spell.Devastate]: handler_devastate(100, 261),
-  [config.Spell.DevastateSoD]: handler_devastate(100, 261),
+  // TODO: Confirm Devastate
+  // [config.Spell.Devastate]: handler_devastate(100, 261),
+  // [config.Spell.DevastateSoD]: handler_devastate(100, 261),
 
   //Battleshout
-  11551: handler_threatOnBuff(52, "Battle Shout"), //Rank 6
-  25289: handler_threatOnBuff(60, "Battle Shout"), //Rank 7 (AQ)
+  11551: handler_threatOnBuff(52), //Rank 6
+  25289: handler_threatOnBuff(60), //Rank 7 (AQ)
 
   //Demo Shout
-  11556: handler_threatOnDebuff(43, "Demoralizing Shout"),
+  11556: handler_threatOnDebuff(43),
 
   //Mocking Blow
   20560: threatFunctions.concat(
@@ -391,8 +393,8 @@ export const spellFunctions = {
 
   /* Physical */
   12721: handler_damage, //("Deep Wounds"),
-  6552: handler_threatOnHit(76, "Pummel (Rank 1)"), //TODO: Verify these values ingame
-  6554: handler_threatOnHit(116, "Pummel (Rank 2)"),
+  6552: handler_threatOnHit(76), //TODO: Verify these values ingame
+  6554: handler_threatOnHit(116),
 
   23881: handler_damage, //("Bloodthirst"), //Rank 1
   23892: handler_damage, //("Bloodthirst"), //Rank 2
@@ -402,48 +404,3 @@ export const spellFunctions = {
   23885: handler_zero, //("Bloodthirst"),   //Buff
   23891: handler_heal, // Bloodthirst heal buff
 };
-
-let lastSunderEvent = undefined;
-
-function handler_sunderArmor(threatValue) {
-  return (ev, fight) => {
-    if (ev.type === "cast") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-      return;
-    }
-
-    if (ev.type === "applydebuffstack") {
-      lastSunderEvent = ev;
-    }
-  };
-}
-
-function handler_devastate(devastateValue, sunderValue) {
-  return (ev, fight) => {
-    if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-    threatFunctions.sourceThreatenTarget(
-      ev,
-      fight,
-      ev.amount + (ev.absorbed || 0) + devastateValue
-    );
-
-    // Little hack to manage the case where we have multiple warrior sundering.
-    // In WCL, only one will be considered as source of all sunder debuff on one target.
-
-    if (lastSunderEvent) {
-      if (lastSunderEvent.timestamp === ev.timestamp) {
-        let source = fight.eventToUnit(ev, "source");
-        let target = fight.eventToUnit(ev, "target");
-        if (!source) return;
-        if (!target) return;
-        target.addThreat(
-          source.key,
-          sunderValue,
-          ev.timestamp,
-          lastSunderEvent.ability.name + " (Devastate)",
-          source.threatCoeff(lastSunderEvent.ability)
-        );
-      }
-    }
-  };
-}
