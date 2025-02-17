@@ -402,11 +402,10 @@ test.describe("/sod/ threat values", () => {
           - row "Defensive Forecast	278.40	3.89"
           - row "Gri'lek's Guard	219.60	3.07"
           - row "Bloodrage	167.00	2.33"
-          - row "Gladiator Stance	134.40	1.88"
           - row "Battle Forecast	134.40	1.88"
           - row "Greater Stoneshield	69.60	0.97"
           - row "Rampage	69.60	0.97"
-          - row "Total	527396.12	7364.53"
+          - row "Total	527261.72	7362.65"
       `);
     });
 
