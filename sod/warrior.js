@@ -336,7 +336,7 @@ export const spellFunctions = {
 
   //Sunder Armor
   7386: handler_sunderArmor(45), // Sunder Armor (Rank 1)
-  11597: handler_sunderArmor(261), // RSunder Armor (Rank 5)e
+  11597: handler_sunderArmor(261), // Sunder Armor (Rank 5)
 
   [config.Spell.Devastate]: handler_devastate(100, 261),
   [config.Spell.DevastateSoD]: handler_devastate(100, 261),
