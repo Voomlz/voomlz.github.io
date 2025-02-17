@@ -1,8 +1,9 @@
 import {
   borders,
+  gearHasTempEnchant,
+  gearSetCount,
   getAdditiveThreatCoefficient,
   getThreatCoefficient,
-  handler_castCanMiss,
   handler_damage,
   handler_heal,
   handler_markSourceOnMiss,
@@ -37,8 +38,8 @@ export const config = {
     /** Base Revenge mod */
     Revenge: 2.25,
 
-    /** 1.20 in defensive stance */
-    T1_Tank_6pc: 1.2,
+    /** Additional 10% to defensive stance */
+    T1_Tank_6pc: 1.1,
 
     /** Shield Slam from 2.0 mod to 3.0 mod */
     TAQ_Tank_4pc: 1.5,
@@ -68,6 +69,10 @@ export const config = {
   Tier: {
     T1_Tank: 1719,
     TAQ_Tank: 1857,
+  },
+  Enchant: {
+    SouOfEnmity: 7678, // T1_Tank_6pc
+    SouOfTheSentinel: 7683, // TAQ_Tank_4pc
   },
   Buff: {
     T1_Tank_6pc: 457651,
@@ -238,11 +243,17 @@ export const auraImplications = {
  */
 export const combatantImplications = (unit, buffs, talents) => {
   // Tier 1 6pc
-  if (unit.gear.filter((g) => g.spellID === config.Tier.T1_Tank).length >= 6) {
+  if (
+    gearSetCount(unit.gear, config.Tier.T1_Tank) >= 6 ||
+    gearHasTempEnchant(unit.gear, config.Enchant.SouOfEnmity)
+  ) {
     buffs[config.Buff.T1_Tank_6pc] = true;
   }
   // Tier 2.5 4pc
-  if (unit.gear.filter((g) => g.spellID === config.Tier.TAQ_Tank).length >= 4) {
+  if (
+    gearSetCount(unit.gear, config.Tier.TAQ_Tank) >= 4 ||
+    gearHasTempEnchant(unit.gear, config.Enchant.SouOfTheSentinel)
+  ) {
     buffs[config.Buff.TAQ_Tank_4pc] = true;
   }
 };

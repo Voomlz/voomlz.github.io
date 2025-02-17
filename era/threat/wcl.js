@@ -87,6 +87,12 @@ async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
   return auras;
 }
 
+/**
+ * @param {string} path
+ * @param {number} start
+ * @param {number} end
+ * @returns {Promise<WCLCombatantInfo[]>}
+ */
 export async function fetchWCLCombatantInfo(path, start, end) {
   let t = start;
   let events = [];
@@ -113,3 +119,60 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
   }
   return auras;
 }
+
+/**
+ * @typedef {{
+ *   type: "combatantinfo";
+ *   faction: number;
+ *   fight: number;
+ *   expansion: string;
+ *   sourceID: number;
+ *   specID: number;
+ *   talents: [WCLTalent, WCLTalent, WCLTalent];
+ *   auras: WCLAura[];
+ *   gear: WCLCombatantGear[];
+ *   timestamp: number;
+ * }} WCLCombatantInfo
+ */
+
+/**
+ * @typedef {{
+ *   id: number;
+ * }} WCLTalent
+ */
+
+/**
+ * @typedef {{
+ *   ability: number;
+ *   icon: string;
+ *   name: string;
+ *   source: number;
+ *   stacks: number;
+ * }} WCLAura
+ */
+
+/**
+ * @typedef {{
+ *   icon: string;
+ *   id: number;
+ *   itemLevel: number;
+ *   quality: WCLQuality;
+ *   setID: number;
+ *   temporaryEnchant: number;
+ * }} WCLCombatantGear
+ */
+
+/**
+ * @typedef {number} WCLQuality
+ */
+
+/**
+ * @enum {WCLQuality}
+ */
+const WCLQuality = {
+  Poor: 0,
+  Common: 1,
+  Uncommon: 2,
+  Rare: 3,
+  Epic: 4,
+};

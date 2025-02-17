@@ -619,3 +619,21 @@ export function handler_timelapse(ev, fight) {
     ev.ability.name
   );
 }
+
+/**
+ * Counts the number of gear items with a given set ID
+ *
+ * @param {import("../era/threat/wcl").WCLCombatantGear[]} gear
+ * @param {number} setId
+ */
+export function gearSetCount(gear, setId) {
+  return gear.filter((g) => g.setID === setId).length;
+}
+
+/**
+ * @param {import("../era/threat/wcl").WCLCombatantGear[]} gear
+ * @param {number} id
+ */
+export function gearHasTempEnchant(gear, id) {
+  return gear.some((g) => g.temporaryEnchant === id);
+}
