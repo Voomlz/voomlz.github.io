@@ -39,8 +39,8 @@ export const config = {
     /** Base Revenge mod */
     Revenge: 2.25,
 
-    /** Additional 10% to defensive stance */
-    T1_Tank_6pc: 1.1,
+    /** 10% to defensive stance */
+    T1_Tank_6pc: 1.1, // TODO: confirm if this is additive or multiplicative
 
     /** Shield Slam from 2.0 mod to 3.0 mod */
     TAQ_Tank_4pc: 1.5,
