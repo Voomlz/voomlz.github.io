@@ -1,7 +1,8 @@
 import {
-  getAdditiveThreatCoefficient,
+  gearHasTempEnchant,
+  gearSetCount,
   getThreatCoefficient,
-  handler_modDamage,
+  handler_modDamagePlusThreat,
   handler_zero,
 } from "../../era/base.js";
 
@@ -20,11 +21,11 @@ export const config = {
     /** Base shield slam mod */
     ShieldSlam: 2.0,
 
-    /** 1.20 in defensive stance */
-    T1_Tank_6pc: 1.2,
+    /** 10% to defensive stance */
+    T1_Tank_6pc: 1.1, // TODO: confirm if this is additive or multiplicative
 
-    /** 2.0x to Shield Slam */
-    TAQ_Tank_4pc: 2.0,
+    /** Shield Slam from 2.0 mod to 3.0 mod */
+    TAQ_Tank_4pc: 1.5,
 
     /** 1.5x to Thunder Clap with the rune */
     FuriousThunder: 1.5,
@@ -40,11 +41,20 @@ export const config = {
     T1_Tank: 1719,
     TAQ_Tank: 1857,
   },
+  Enchant: {
+    SouOfEnmity: 7678, // T1_Tank_6pc
+    SoulOfTheSentinel: 7683, // TAQ_Tank_4pc
+  },
   Buff: {
     ...era.config.Buff,
     T1_Tank_6pc: 457651,
     TAQ_Tank_4pc: 1214162,
     RuneOfDevastate: 403195,
+    RuneOfFuriousThunder: 403219,
+  },
+  Rune: {
+    Devastate: 6800,
+    FuriousThunder: 6801,
   },
 };
 
@@ -54,39 +64,11 @@ export const initialBuffs = {
   [config.Buff.T1_Tank_6pc]: 3, // inferred off
   [config.Buff.TAQ_Tank_4pc]: 3, // inferred off
   [config.Buff.RuneOfDevastate]: 0,
+  [config.Buff.RuneOfFuriousThunder]: 0,
 };
 
 export const talents = {
   ...era.talents,
-  Defiance: {
-    maxRank: 5,
-    // Updated from era
-    coeff: function (buffs, rank = 5) {
-      if (!(config.Stance.Defensive in buffs)) return getThreatCoefficient(1);
-      return getAdditiveThreatCoefficient(
-        config.Mods.Defiance * rank,
-        config.Mods.DefensiveStance
-      );
-    },
-  },
-  // TODO: move this to gear check
-  "Furious Thunder (Rune)": {
-    maxRank: 1,
-    coeff: function (buffs, rank = "0", spellId) {
-      const thunderClap = {
-        [config.Spell.ThunderClapR1]: true,
-        [config.Spell.ThunderClapR2]: true,
-        [config.Spell.ThunderClapR3]: true,
-        [config.Spell.ThunderClapR4]: true,
-        [config.Spell.ThunderClapR5]: true,
-        [config.Spell.ThunderClapR6]: true,
-      };
-      if (Number(rank) && spellId in thunderClap) {
-        return getThreatCoefficient(config.Mods.FuriousThunder);
-      }
-      return getThreatCoefficient(1);
-    },
-  },
 };
 
 export const buffNames = {
@@ -95,6 +77,7 @@ export const buffNames = {
   [config.Buff.T1_Tank_6pc]: "S03 - Item - T1 - Warrior - Tank 6P Bonus",
   [config.Buff.TAQ_Tank_4pc]: "S03 - Item - TAQ - Warrior - Tank 4P Bonus",
   [config.Buff.RuneOfDevastate]: "Rune of Devastate",
+  [config.Buff.RuneOfFuriousThunder]: "Rune of Furious Thunder",
 };
 
 export const buffMultipliers = {
@@ -136,6 +119,22 @@ export const buffMultipliers = {
       return getThreatCoefficient(1);
     },
   },
+  [config.Buff.RuneOfFuriousThunder]: {
+    coeff: (buffs, spellId) => {
+      const thunderClap = {
+        [config.Spell.ThunderClapR1]: true,
+        [config.Spell.ThunderClapR2]: true,
+        [config.Spell.ThunderClapR3]: true,
+        [config.Spell.ThunderClapR4]: true,
+        [config.Spell.ThunderClapR5]: true,
+        [config.Spell.ThunderClapR6]: true,
+      };
+      if (spellId in thunderClap) {
+        return getThreatCoefficient(config.Mods.FuriousThunder);
+      }
+      return getThreatCoefficient(1);
+    },
+  },
 };
 
 export const fixateBuffs = {
@@ -143,6 +142,7 @@ export const fixateBuffs = {
 };
 
 export const notableBuffs = {
+  ...Object.values(config.Stance),
   ...Object.values(config.Buff),
 };
 
@@ -162,24 +162,49 @@ export const auraImplications = {
  * the buff. Then, in buffMultipliers, you can apply global coefficients or to specific spells.
  */
 export const combatantImplications = (unit, buffs, talents) => {
-  era.combatantImplications(unit, buffs, talents);
-
   // Tier 1 6pc
-  if (unit.gear.filter((g) => g.spellID === config.Tier.T1_Tank).length >= 6) {
+  if (
+    gearSetCount(unit.gear, config.Tier.T1_Tank) >= 6 ||
+    gearHasTempEnchant(unit.gear, config.Enchant.SouOfEnmity)
+  ) {
     buffs[config.Buff.T1_Tank_6pc] = true;
   }
   // Tier 2.5 4pc
-  if (unit.gear.filter((g) => g.spellID === config.Tier.TAQ_Tank).length >= 4) {
+  if (
+    gearSetCount(unit.gear, config.Tier.TAQ_Tank) >= 4 ||
+    gearHasTempEnchant(unit.gear, config.Enchant.SoulOfTheSentinel)
+  ) {
     buffs[config.Buff.TAQ_Tank_4pc] = true;
+  }
+
+  if (gearHasTempEnchant(unit.gear, config.Rune.Devastate)) {
+    buffs[config.Buff.RuneOfDevastate] = true;
+  }
+
+  if (gearHasTempEnchant(unit.gear, config.Rune.FuriousThunder)) {
+    buffs[config.Buff.RuneOfFuriousThunder] = true;
   }
 };
 
 export const spellFunctions = {
   ...era.spellFunctions,
+  [config.Stance.Gladiator]: handler_zero, // Gladiator Stance
 
-  // Shield Slam
-  [config.Spell.ShieldSlamR1]: handler_modDamage(config.Mods.ShieldSlam),
-  [config.Spell.ShieldSlamR2]: handler_modDamage(config.Mods.ShieldSlam),
-  [config.Spell.ShieldSlamR3]: handler_modDamage(config.Mods.ShieldSlam),
-  [config.Spell.ShieldSlamR4]: handler_modDamage(config.Mods.ShieldSlam),
+  //Shield Slam
+  [config.Spell.ShieldSlamR1]: handler_modDamagePlusThreat(
+    config.Mods.ShieldSlam,
+    178
+  ),
+  [config.Spell.ShieldSlamR2]: handler_modDamagePlusThreat(
+    config.Mods.ShieldSlam,
+    203
+  ),
+  [config.Spell.ShieldSlamR3]: handler_modDamagePlusThreat(
+    config.Mods.ShieldSlam,
+    229
+  ),
+  [config.Spell.ShieldSlamR4]: handler_modDamagePlusThreat(
+    config.Mods.ShieldSlam,
+    254
+  ),
 };
