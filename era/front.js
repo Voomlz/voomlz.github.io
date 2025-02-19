@@ -471,13 +471,18 @@ function plot(config, reportId, fight, enemy) {
     colorByClass = x;
     recolorPlot();
   });
-  createCheckbox(el_div, debugCoefficients, "Debug coefficients", (v) => {
-    debugCoefficients = v;
-    localStorage.setItem(
-      "debugCoefficients",
-      JSON.stringify(debugCoefficients)
-    );
-  });
+  createCheckbox(
+    el_div,
+    debugCoefficients,
+    "Display detailed coefficients",
+    (v) => {
+      debugCoefficients = v;
+      localStorage.setItem(
+        "debugCoefficients",
+        JSON.stringify(debugCoefficients)
+      );
+    }
+  );
   if (fight.faction == "Horde")
     createCheckbox(
       el_div,
