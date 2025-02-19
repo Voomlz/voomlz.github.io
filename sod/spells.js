@@ -3,13 +3,9 @@ import {
   handler_bossDropThreatOnCast,
   handler_bossDropThreatOnDebuff,
   handler_bossDropThreatOnHit,
-  handler_bossPartialThreatWipeOnCast,
   handler_bossThreatWipeOnCast,
   handler_damage,
-  handler_hatefulstrike,
-  handler_magneticPull,
   handler_modDamage,
-  handler_taunt,
   handler_threatOnDebuff,
   handler_timelapse,
   handler_vanish,
@@ -27,6 +23,8 @@ import * as rogue from "./class/rogue.js";
 import * as shaman from "./class/shaman.js";
 import * as warlock from "./class/warlock.js";
 import * as warrior from "./class/warrior.js";
+
+import * as naxx from "./raid/naxx.js";
 
 export const preferredSpellSchools = {
   Mage: School.Frost,
@@ -89,6 +87,9 @@ export const buffNames = {
   ...shaman.buffNames,
   ...mage.buffNames,
   ...priest.buffNames,
+
+  ...naxx.buffNames,
+
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
   [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
   [Items.Buff.EyeOfDiminution]: "The Eye of Diminution",
@@ -105,7 +106,8 @@ export const buffMultipliers = {
   ...shaman.buffMultipliers,
   ...mage.buffMultipliers,
   ...priest.buffMultipliers,
-  29232: getThreatCoefficient(0), // Fungal Bloom
+
+  ...naxx.buffMultipliers,
 
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
   [Items.Enchant.CloakSubtlety]: getThreatCoefficient(Items.Mods.CloakSubtlety),
@@ -158,7 +160,8 @@ export const fixateBuffs = {
   ...shaman.fixateBuffs,
   ...warlock.fixateBuffs,
   ...warrior.fixateBuffs,
-  29060: true, // Deathknight Understudy Taunt
+
+  ...naxx.fixateBuffs,
 };
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
@@ -235,6 +238,9 @@ export const spellFunctions = {
   ...shaman.spellFunctions,
   ...mage.spellFunctions,
   ...priest.spellFunctions,
+
+  ...naxx.spellFunctions,
+
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
   // Nefarian's warrior class call, force Berserker Stance
@@ -289,17 +295,6 @@ export const spellFunctions = {
   26580: handler_bossDropThreatOnHit(0), // Yauj's Fear
   26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
   11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
-  28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
-  29060: handler_taunt, // Deathknight Understudy Taunt
-  28835: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Zeliek
-  28834: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Mograine
-  28833: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Blaumeux
-  28832: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Korth'azz
-  29210: handler_bossThreatWipeOnCast, // Noth's blink
-  29211: handler_bossThreatWipeOnCast, // Noth's blink new id?
-  28308: handler_hatefulstrike(800), // Patchwerk's hateful strike
-  28339: handler_magneticPull(), // Feungen, exchange tanks
-  28338: handler_magneticPull(), // Stalagg, exchange tanks
 
   17624: handler_vanish, // Flask of Petrification
 
