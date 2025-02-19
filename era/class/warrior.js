@@ -92,9 +92,9 @@ export const notableBuffs = {
   ...Object.values(config.Buff),
 };
 
-export const Battle = config.Stance.Battle;
-export const Berserker = config.Stance.Berserker;
-export const Defensive = config.Stance.Defensive;
+const Battle = config.Stance.Battle;
+const Berserker = config.Stance.Berserker;
+const Defensive = config.Stance.Defensive;
 
 export const auraImplications = {
   7384: Battle,

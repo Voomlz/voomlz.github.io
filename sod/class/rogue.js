@@ -7,28 +7,31 @@ import {
   handler_taunt,
   handler_vanish,
   threatFunctions,
-} from "../era/base.js";
+} from "../../era/base.js";
+
+import * as era from "../../era/class/rogue.js";
 
 export const config = {
   Mods: {
-    Base: 0.71,
+    ...era.config.Mods,
     JustAFleshWound: 1.855, // taken from compendium
     MainGauche: 1.51,
     T1_Tank_2pc: 2.0,
     UnfairAdvantage: 1.5,
   },
   Spell: {
+    ...era.config.Spell,
     Blunderbuss: 436564,
     CrimsonTempest: 412096,
     FanOfKnives: 409240,
     PoisonedKnife: 425012,
-    SinisterStrikeR7: 11293,
-    SinisterStrikeR8: 11294,
+
     Tease: 410412,
     UnfairAdvantage: 432274,
     MainGauche: 424919,
   },
   Buff: {
+    ...era.config.Buff,
     JustAFleshWound: 400014,
     MainGauche: 462752,
     BladeDance: 400012,
@@ -85,25 +88,22 @@ export const buffMultipliers = {
   },
 };
 
-export const talents = {};
+export const talents = {
+  ...era.talents,
+};
 
 export const fixateBuffs = {
+  ...era.fixateBuffs,
   [config.Spell.Tease]: true,
 };
 
 export const auraImplications = {
+  ...era.auraImplications,
   [config.Spell.MainGauche]: config.Buff.JustAFleshWound,
 };
 
 export const spellFunctions = {
-  // Rogue
-  1856: handler_vanish,
-  1857: handler_vanish, // Vanish
-  1966: handler_castCanMissNoCoefficient(-150), // Feint r1
-  6768: handler_castCanMissNoCoefficient(-240), // Feint r2
-  8637: handler_castCanMissNoCoefficient(-390), // Feint r3
-  11303: handler_castCanMissNoCoefficient(-600), // Feint r4
-  25302: handler_castCanMissNoCoefficient(-800), // Feint r5
+  ...era.spellFunctions,
 
   // Rogue: SoD. Info from the compendium: https://docs.google.com/document/d/1BCCkILiz9U-VcX7489WGam2cK_Dm8InahnpQ3bS-UxA/edit?usp=sharing
   [config.Spell.Tease]: threatFunctions.concat(
@@ -119,6 +119,8 @@ export const notableBuffs = {
   ...Object.values(config.Buff),
 };
 
-export const combatantImplications = (unit, buffs, talents) => {};
+export const combatantImplications = (unit, buffs, talents) => {
+  era.combatantImplications(unit, buffs, talents);
+};
 
 export const baseThreatCoefficient = getThreatCoefficient(config.Mods.Base);

@@ -1,9 +1,11 @@
-import { getThreatCoefficient, handler_modDamage } from "../era/base.js";
+import { getThreatCoefficient, handler_modDamage } from "../../era/base.js";
+
+import * as era from "../../era/class/shaman.js";
 
 export const config = {
   Mods: {
+    ...era.config.Mods,
     MoltenBlast: 2.0,
-    EarthShock: 2.0,
     SpiritOfTheAlpha: 1.45,
 
     /**
@@ -18,12 +20,15 @@ export const config = {
     TAQ_Tank_4pc: 1.2,
   },
   Buff: {
+    ...era.config.Buff,
+    WayOfEarth: 408531,
     TranquilAirTotem: 25909,
     SpiritOfTheAlpha: 408696,
     LoyalBeta: 443320,
     TAQ_Tank_4pc: 1213937,
   },
   Spell: {
+    ...era.config.Spell,
     EarthShockR1: 8042,
     EarthShockR2: 8044,
     EarthShockR3: 8045,
@@ -36,17 +41,20 @@ export const config = {
     MoltenBlast: 425339,
   },
   Tier: {
+    ...era.config.Tier,
     TAQ_Tank: 1852,
   },
 };
 
 export const initialBuffs = {
+  ...era.initialBuffs,
   [config.Buff.SpiritOfTheAlpha]: 0,
   [config.Buff.WayOfEarth]: 0,
   [config.Buff.TAQ_Tank_4pc]: 0,
 };
 
 export const buffNames = {
+  ...era.buffNames,
   [config.Buff.TranquilAirTotem]: "Tranquil Air Totem",
   [config.Buff.SpiritOfTheAlpha]: "Spirit of the Alpha",
   [config.Buff.LoyalBeta]: "Loyal Beta",
@@ -55,7 +63,7 @@ export const buffNames = {
 };
 
 export const buffMultipliers = {
-  [config.Buff.TranquilAirTotem]: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
+  ...era.buffMultipliers,
   [config.Buff.SpiritOfTheAlpha]: getThreatCoefficient(
     config.Mods.SpiritOfTheAlpha
   ),
@@ -70,54 +78,26 @@ export const buffMultipliers = {
   },
 };
 
-export const HEALING_SPELLS = {
-  8004: true,
-  8008: true,
-  8010: true,
-  10466: true,
-  10467: true,
-  10468: true, // Lesser Healing Wave
-  331: true,
-  332: true,
-  547: true,
-  913: true,
-  939: true,
-  959: true,
-  8005: true,
-  10395: true,
-  10396: true,
-  25357: true, // Healing Wave
-  1064: true,
-  10622: true,
-  10623: true, // Chain Heal
-};
-
 export const talents = {
-  "Healing Grace": {
-    maxRank: 3,
-    coeff: (_, rank = 3, spellId) =>
-      getThreatCoefficient(1 - 0.05 * rank * (spellId in HEALING_SPELLS)),
-  },
+  ...era.talents,
 };
 
 export const fixateBuffs = {
+  ...era.fixateBuffs,
   [config.Spell.EarthShockTaunt]: true,
 };
 
 export const spellFunctions = {
-  [config.Spell.EarthShockR1]: handler_modDamage(config.Mods.EarthShock),
-  [config.Spell.EarthShockR2]: handler_modDamage(config.Mods.EarthShock),
-  [config.Spell.EarthShockR3]: handler_modDamage(config.Mods.EarthShock),
-  [config.Spell.EarthShockR4]: handler_modDamage(config.Mods.EarthShock),
-  [config.Spell.EarthShockR5]: handler_modDamage(config.Mods.EarthShock),
-  [config.Spell.EarthShockR6]: handler_modDamage(config.Mods.EarthShock),
-  [config.Spell.EarthShockR7]: handler_modDamage(config.Mods.EarthShock),
+  ...era.spellFunctions,
+  // TODO: add taunt handler too
   [config.Spell.EarthShockTaunt]: handler_modDamage(config.Mods.EarthShock),
 
   [config.Spell.MoltenBlast]: handler_modDamage(config.Mods.MoltenBlast),
 };
 
 export const combatantImplications = (unit, buffs, talents) => {
+  era.combatantImplications(unit, buffs, talents);
+
   if (unit.gear.filter((g) => g.setID === config.Tier.TAQ_Tank).length >= 4) {
     buffs[config.Buff.TAQ_Tank_4pc] = true;
   }
@@ -130,5 +110,6 @@ export const notableBuffs = {
 export const invulnerabilityBuffs = {};
 
 export const auraImplications = {
+  ...era.auraImplications,
   [config.Spell.MoltenBlast]: config.Buff.SpiritOfTheAlpha,
 };

@@ -3,44 +3,48 @@ import {
   handler_castCanMiss,
   handler_threatOnHit,
   handler_vanish,
-} from "../era/base.js";
+} from "../../era/base.js";
+
+import * as era from "../../era/class/hunter.js";
 
 export const config = {
   Buff: {
+    ...era.config.Buff,
     T1_Ranged_2pc: 456339, // Ferocity
   },
   Mods: {
+    ...era.config.Mods,
     T1_Ranged_2pc: 2.0,
   },
   Spell: {
-    FeignDeath: 5384,
-    DistractingShotR1: 20736,
-    DistractingShotR2: 14274,
-    DistractingShotR3: 15629,
-    DistractingShotR4: 15630,
-    DistractingShotR5: 15631,
-    DistractingShotR6: 15632,
-    DisengageR1: 781,
-    DisengageR2: 14272,
-    DisengageR3: 14273,
+    ...era.config.Spell,
   },
 };
 
-export const initialBuffs = {};
+export const initialBuffs = {
+  ...era.initialBuffs,
+};
 
 export const buffNames = {
+  ...era.buffNames,
   [config.Buff.T1_Ranged_2pc]: "Ferocity",
 };
 
-export const auraImplications = {};
+export const auraImplications = {
+  ...era.auraImplications,
+};
 
 export const buffMultipliers = {
+  ...era.buffMultipliers,
   [config.Buff.T1_Ranged_2pc]: getThreatCoefficient(config.Mods.T1_Ranged_2pc),
 };
 
-export const talents = {};
+export const talents = {
+  ...era.talents,
+};
 
 export const fixateBuffs = {
+  ...era.fixateBuffs,
   // TODO: pet growl if BM rune is active
 };
 

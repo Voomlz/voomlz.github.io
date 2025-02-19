@@ -39,11 +39,11 @@ export const buffMultipliers = {
   }),
 };
 
-export const talents = {};
-
-export const fixateBuffs = {
-  407631: true, // Hand of Reckoning
+export const talents = {
+  // TODO: era ImpRF
 };
+
+export const fixateBuffs = {};
 
 export const spellFunctions = {
   25898: handler_threatOnBuff(60), // GBoK

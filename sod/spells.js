@@ -17,15 +17,16 @@ import {
   School,
   threatFunctions,
 } from "../era/base.js";
-import * as druid from "./druid.js";
-import * as hunter from "./hunter.js";
-import * as mage from "./mage.js";
-import * as paladin from "./paladin.js";
-import * as priest from "./priest.js";
-import * as rogue from "./rogue.js";
-import * as shaman from "./shaman.js";
-import * as warlock from "./warlock.js";
-import * as warrior from "./warrior.js";
+
+import * as druid from "./class/druid.js";
+import * as hunter from "./class/hunter.js";
+import * as mage from "./class/mage.js";
+import * as paladin from "./class/paladin.js";
+import * as priest from "./class/priest.js";
+import * as rogue from "./class/rogue.js";
+import * as shaman from "./class/shaman.js";
+import * as warlock from "./class/warlock.js";
+import * as warrior from "./class/warrior.js";
 
 export const preferredSpellSchools = {
   Mage: School.Frost,
@@ -149,26 +150,27 @@ export const aggroLossBuffs = {
 };
 // These make dots orange
 export const fixateBuffs = {
-  ...warrior.fixateBuffs,
-  ...paladin.fixateBuffs,
   ...druid.fixateBuffs,
+  ...hunter.fixateBuffs,
+  ...paladin.fixateBuffs,
   ...rogue.fixateBuffs,
-  ...warlock.fixateBuffs,
   ...shaman.fixateBuffs,
+  ...warlock.fixateBuffs,
+  ...warrior.fixateBuffs,
   29060: true, // Deathknight Understudy Taunt
 };
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
 export const notableBuffs = {
-  ...warrior.notableBuffs,
-  ...paladin.notableBuffs,
   ...druid.notableBuffs,
-  ...rogue.notableBuffs,
   ...hunter.notableBuffs,
-  ...warlock.notableBuffs,
-  ...shaman.notableBuffs,
   ...mage.notableBuffs,
+  ...paladin.notableBuffs,
   ...priest.notableBuffs,
+  ...rogue.notableBuffs,
+  ...shaman.notableBuffs,
+  ...warlock.notableBuffs,
+  ...warrior.notableBuffs,
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -178,14 +180,15 @@ for (let k in aggroLossBuffs) notableBuffs[k] = true;
 for (let k in fixateBuffs) notableBuffs[k] = true;
 
 export const auraImplications = {
-  Warrior: warrior.auraImplications,
   Druid: druid.auraImplications,
-  Rogue: rogue.auraImplications,
   Hunter: hunter.auraImplications,
-  Warlock: warlock.auraImplications,
-  Shaman: shaman.auraImplications,
   Mage: mage.auraImplications,
+  Paladin: paladin.auraImplications,
   Priest: priest.auraImplications,
+  Rogue: rogue.auraImplications,
+  Shaman: shaman.auraImplications,
+  Warlock: warlock.auraImplications,
+  Warrior: warrior.auraImplications,
 };
 
 /**
