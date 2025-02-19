@@ -1,4 +1,9 @@
-import { borders, getThreatCoefficient } from "../base.js";
+import {
+  applyThreatCoefficient,
+  BASE_COEFFICIENT,
+  borders,
+  getThreatCoefficient,
+} from "../base.js";
 
 export class Unit {
   /**
@@ -33,7 +38,7 @@ export class Unit {
       removedebuff: 2,
     };
     for (let i = 0; i < events.length; ++i) {
-      if (this.threatCoeff() > 1) this.tank = true;
+      if (this.threatCoeff().value > 1) this.tank = true;
       let t = events[i].type;
       if (this.type in config.auraImplications && t === "cast") {
         if (Unit.eventToKey(events[i], "source") !== key) continue;
@@ -77,36 +82,47 @@ export class Unit {
       }
     }
     this.buffs = initialBuffs;
-    this.initialCoeff = this.threatCoeff();
+    this.initialCoeff = this.threatCoeff().value;
     if (this.initialCoeff > 1) this.tank = true;
   }
 
+  /**
+   * @param {import("../threat/wcl.js").WCLAbility} [ability]
+   * @returns {import("../base.js").ThreatCoefficient}
+   */
   threatCoeff(ability) {
-    // Ability is of type {type: (int)spellSchool, guid: (int)spellId, [name: string]}
     let spellSchool = ability ? ability.type : this.spellSchool;
     let spellId = ability ? ability.guid : null;
-    let c = this.baseThreatCoeff(spellSchool);
-    for (let i in this.buffs) {
-      if (i in this.config.buffMultipliers) {
-        if (typeof this.config.buffMultipliers[i] === "function") {
-          c *= this.config.buffMultipliers[i](spellSchool);
+    /** @type {import("../base.js").ThreatCoefficient} */
+    let c = applyThreatCoefficient(
+      BASE_COEFFICIENT,
+      this.baseThreatCoeff(spellSchool),
+      `${this.type} (base)`
+    );
+
+    for (let buffId in this.buffs) {
+      if (buffId in this.config.buffMultipliers) {
+        if (typeof this.config.buffMultipliers[buffId] === "function") {
+          const nextC = this.config.buffMultipliers[buffId](spellSchool);
+          c = applyThreatCoefficient(c, nextC, this.config.buffNames[buffId]);
         }
         // Allow applying a coefficient per spellId or via a combination of other buffs
         if (
-          typeof this.config.buffMultipliers[i] === "object" &&
+          typeof this.config.buffMultipliers[buffId] === "object" &&
           spellId &&
-          "coeff" in this.config.buffMultipliers[i]
+          "coeff" in this.config.buffMultipliers[buffId]
         ) {
-          const { coeff } = this.config.buffMultipliers[i];
-          c *= coeff(this.buffs, spellId)(spellSchool);
+          const { coeff } = this.config.buffMultipliers[buffId];
+          const nextC = coeff(this.buffs, spellId)(spellSchool);
+          c = applyThreatCoefficient(c, nextC, this.config.buffNames[buffId]);
         }
       }
     }
-    for (let i in this.talents) {
-      let t = this.talents[i];
-      if (!("coeff" in t)) continue;
-      let coeff = t.coeff(this.buffs, t.rank, spellId);
-      c *= coeff(spellSchool);
+    for (let [name, talent] of Object.entries(this.talents ?? {})) {
+      if (!("coeff" in talent)) continue;
+      let coeff = talent.coeff(this.buffs, talent.rank, spellId);
+      const nextC = coeff(spellSchool);
+      c = applyThreatCoefficient(c, nextC, `${name} (talent)`);
     }
     return c;
   }
@@ -131,6 +147,11 @@ export class Unit {
     return [0, null];
   }
 
+  /**
+   * @param {import("../threat/wcl.js").WCLEvent} ev
+   * @param {import("../threat/fight.js").UnitSpecifier} unit
+   * @returns {string}
+   */
   static eventToKey(ev, unit) {
     // Unit should be "source" or "target"
     let key = ev[unit + "ID"];
@@ -141,16 +162,44 @@ export class Unit {
   }
 
   // Empty functions to enable blind calls
+  /**
+   * @param {string} unitId
+   * @param {number} threat
+   * @param {number} time
+   * @param {string} text
+   * @param {import("../base.js").ThreatCoefficient | null} [coeff]
+   * @param {import("../base.js").Border | null} [border]
+   */
   setThreat(unitId, threat, time, text, coeff, border) {}
 
-  addThreat() {}
+  /**
+   * @param {string} unitId
+   * @param {number} threat
+   * @param {number} time
+   * @param {string} text
+   * @param {import("../base.js").ThreatCoefficient | null} coeff
+   */
+  addThreat(unitId, threat, time, text, coeff) {}
 
+  /**
+   * @param {string} unitId
+   * @param {number} time
+   * @param {string} text
+   * @param {import("../base.js").Border | null} border
+   */
   addMark(unitId, time, text, border) {}
 
-  targetAttack() {}
+  /**
+   * @param {string} unitId
+   * @param {number} time
+   * @param {string} text
+   */
+  targetAttack(unitId, time, text) {}
 
-  plot() {}
-
+  /**
+   * @param {string} unitId
+   * @param {number} timestamp
+   */
   checkTargetExists(unitId, timestamp) {}
 }
 // Class for players and pets
@@ -183,7 +232,7 @@ export class Player extends Unit {
         a[k] = 4 - (k in this.buffs);
       }
     }
-    this.initialCoeff = this.threatCoeff();
+    this.initialCoeff = this.threatCoeff().value;
   }
 
   isBuffInferred(buffId) {
@@ -258,10 +307,16 @@ export class NPC extends Unit {
     super(config, key, unit.name, unit.type, events);
     this.fightUnits = fight.units;
     this.fight = fight;
+    /** @type {Record<string, ThreatTrace>} */
     this.threat = {};
     this.target = null;
   }
 
+  /**
+   * @param {string | number} unitId
+   * @param {number} time
+   * @returns {ThreatTrace | undefined}
+   */
   checkTargetExists(unitId, time) {
     if (unitId === -1) return;
     if (!(unitId in this.threat)) {
@@ -275,6 +330,14 @@ export class NPC extends Unit {
     return this.threat[unitId];
   }
 
+  /**
+   * @param {string} unitId
+   * @param {number} threat
+   * @param {number} time
+   * @param {string} text
+   * @param {import("../base.js").ThreatCoefficient | null} coeff
+   * @param {import("../base.js").Border | null} border
+   */
   setThreat(unitId, threat, time, text, coeff = null, border = null) {
     if (!this.alive) return;
     let a = this.checkTargetExists(unitId, time);
@@ -282,6 +345,13 @@ export class NPC extends Unit {
     a.setThreat(threat, time, text, coeff, border);
   }
 
+  /**
+   * @param {string} unitId
+   * @param {number} threat
+   * @param {number} time
+   * @param {string} text
+   * @param {import("../base.js").ThreatCoefficient | null} coeff
+   */
   addThreat(unitId, threat, time, text, coeff) {
     if (!this.alive) return;
     let a = this.checkTargetExists(unitId, time);
@@ -301,11 +371,18 @@ export class NPC extends Unit {
     a.addMark(time, "Received " + text, [6, "#ff0000"]);
   }
 }
+
 export class ThreatTrace {
+  /**
+   * @param {Unit} targetUnit
+   * @param {number} startTime
+   * @param {import("../threat/fight.js").Fight} fight
+   */
   constructor(targetUnit, startTime, fight) {
     this.threat = [0];
     this.time = [startTime];
     this.text = ["Joined fight"];
+    /** @type {(import("../base.js").ThreatCoefficient | null)[]} */
     this.coeff = [targetUnit.threatCoeff()];
     let [w, c] = targetUnit.border;
     this.borderWidth = [w];
@@ -314,11 +391,21 @@ export class ThreatTrace {
     this.currentThreat = 0;
     this.fight = fight;
     this.fixates = {};
+
+    /** @type {(string | null)[]} */
     this.fixateHistory = [null];
+
+    /** @type {string[][]} */
     this.invulnerabilityHistory = [[]];
   }
 
-  // coeff is only used for text labels
+  /**
+   * @param {number} threat
+   * @param {number} time
+   * @param {string} text
+   * @param {import("../base.js").ThreatCoefficient | null} [coeff]
+   * @param {import("../base.js").Border | null} [border]
+   */
   setThreat(threat, time, text, coeff = null, border = null) {
     if (threat < 0) threat = 0;
     this.threat.push(threat);
@@ -346,18 +433,29 @@ export class ThreatTrace {
     return false;
   }
 
-  // coeff multiplies threat
+  /**
+   * @param {number} threat
+   * @param {number} time
+   * @param {string} text
+   * @param {import("../base.js").ThreatCoefficient | null} coeff
+   */
   addThreat(threat, time, text, coeff) {
     if (threat === 0) return;
-    this.setThreat(this.currentThreat + threat * coeff, time, text, coeff);
+    this.setThreat(
+      this.currentThreat + threat * (coeff?.value ?? 1),
+      time,
+      text,
+      coeff
+    );
   }
 
+  /**
+   * @param {number} time
+   * @param {string} text
+   * @param {import("../base.js").Border | null} border
+   */
   addMark(time, text, border = null) {
     this.setThreat(this.currentThreat, time, text, null, border);
-  }
-
-  receiveAttack(time, text) {
-    this.setThreat(this.currentThreat, time, "Received " + text, null, true);
   }
 
   threatBySkill(range = [-Infinity, Infinity]) {

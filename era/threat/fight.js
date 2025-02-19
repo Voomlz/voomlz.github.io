@@ -2,6 +2,10 @@ import { fetchWCLreport, fetchWCLCombatantInfo } from "./wcl.js";
 import { Unit, Player, NPC } from "./unit.js";
 import { handler_basic, handler_mark, threatFunctions } from "../base.js";
 
+/**
+ * @typedef {'source' | 'target'} UnitSpecifier
+ */
+
 export class Fight {
   /**
    * @param {import("../base.js").GameVersionConfig} config
@@ -87,8 +91,12 @@ export class Fight {
     }
   }
 
+  /**
+   * @param {import("./wcl.js").WCLEvent} ev
+   * @param {UnitSpecifier} unit
+   * @returns {Unit | undefined}
+   */
   eventToUnit(ev, unit) {
-    // Unit should be "source" or "target"
     // TODO: Fix units that are both enemies and friends in a single fight
     let k = Unit.eventToKey(ev, unit);
     if (!k || k == -1) return;
@@ -120,6 +128,11 @@ export class Fight {
     return this.units[k];
   }
 
+  /**
+   * @param {import("./wcl.js").WCLEvent} ev
+   * @param {UnitSpecifier} unit
+   * @returns {[Record<string, Unit>, Record<string, Unit>]}
+   */
   eventToFriendliesAndEnemies(ev, unit) {
     let friendly = ev[unit + "IsFriendly"];
     let friendlies = friendly ? this.friendlies : this.enemies;
