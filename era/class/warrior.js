@@ -1,8 +1,5 @@
 import {
   borders,
-  gearHasTempEnchant,
-  gearSetCount,
-  getAdditiveThreatCoefficient,
   getThreatCoefficient,
   handler_castCanMiss,
   handler_damage,
@@ -33,18 +30,6 @@ export const config = {
 
     /** Base Revenge mod */
     Revenge: 2.25,
-
-    /** 10% to defensive stance */
-    T1_Tank_6pc: 1.1, // TODO: confirm if this is additive or multiplicative
-
-    /** Shield Slam from 2.0 mod to 3.0 mod */
-    TAQ_Tank_4pc: 1.5,
-
-    /** 1.5x to Thunder Clap with the rune */
-    FuriousThunder: 1.5,
-
-    /** 1.5x to Devastate only when in Def stance */
-    RuneOfDevastate: 1.5,
   },
   Spell: {
     Taunt: 355,
@@ -61,22 +46,8 @@ export const config = {
     ThunderClapR5: 11580,
     ThunderClapR6: 11581,
   },
-  Tier: {
-    T1_Tank: 1719,
-    TAQ_Tank: 1857,
-  },
-  Enchant: {
-    SouOfEnmity: 7678, // T1_Tank_6pc
-    SouOfTheSentinel: 7683, // TAQ_Tank_4pc
-  },
-  Buff: {
-    T1_Tank_6pc: 457651,
-    TAQ_Tank_4pc: 1214162,
-    RuneOfDevastate: 403195,
-  },
-  Rune: {
-    Devastate: 6800,
-  },
+  Tier: {},
+  Buff: {},
 };
 
 export const initialBuffs = {
@@ -118,7 +89,6 @@ export const fixateBuffs = {
 };
 
 export const notableBuffs = {
-  ...Object.values(config.Stance),
   ...Object.values(config.Buff),
 };
 
@@ -173,60 +143,29 @@ export const auraImplications = {
  * Here is a good place to check gear and apply Tier set bonus buffs. e.g. Check for 2pc gear, apply
  * the buff. Then, in buffMultipliers, you can apply global coefficients or to specific spells.
  */
-export const combatantImplications = (unit, buffs, talents) => {
-  // Tier 1 6pc
-  if (
-    gearSetCount(unit.gear, config.Tier.T1_Tank) >= 6 ||
-    gearHasTempEnchant(unit.gear, config.Enchant.SouOfEnmity)
-  ) {
-    buffs[config.Buff.T1_Tank_6pc] = true;
-  }
-  // Tier 2.5 4pc
-  if (
-    gearSetCount(unit.gear, config.Tier.TAQ_Tank) >= 4 ||
-    gearHasTempEnchant(unit.gear, config.Enchant.SouOfTheSentinel)
-  ) {
-    buffs[config.Buff.TAQ_Tank_4pc] = true;
-  }
-
-  if (gearHasTempEnchant(unit.gear, config.Enchant.RuneOfDevastate)) {
-    buffs[config.Buff.RuneOfDevastate] = true;
-  }
-};
+export const combatantImplications = (unit, buffs, talents) => {};
 
 export const spellFunctions = {
   [config.Stance.Defensive]: handler_zero, // Defensive Stance
   [config.Stance.Battle]: handler_zero, // Battle Stance
   [config.Stance.Berserker]: handler_zero, // Berserker Stance
-  [config.Stance.Gladiator]: handler_zero, // Gladiator Stance
+
   //Heroic Strike
-  78: handler_threatOnHit(16),
-  284: handler_threatOnHit(39),
-  285: handler_threatOnHit(59),
-  1608: handler_threatOnHit(78),
-  11564: handler_threatOnHit(98),
-  11565: handler_threatOnHit(118),
-  11566: handler_threatOnHit(137),
-  11567: handler_threatOnHit(145),
-  25286: handler_threatOnHit(175), // (AQ)
+  78: handler_threatOnHit(16), // Heroic Strike
+  284: handler_threatOnHit(39), // Heroic Strike
+  285: handler_threatOnHit(59), // Heroic Strike
+  1608: handler_threatOnHit(78), // Heroic Strike
+  11564: handler_threatOnHit(98), // Heroic Strike
+  11565: handler_threatOnHit(118), // Heroic Strike
+  11566: handler_threatOnHit(137), // Heroic Strike
+  11567: handler_threatOnHit(145), // Heroic Strike
+  25286: handler_threatOnHit(175), // Heroic Strike (AQ)
 
   //Shield Slam
-  [config.Spell.ShieldSlamR1]: handler_modDamagePlusThreat(
-    config.Mods.ShieldSlam,
-    178
-  ),
-  [config.Spell.ShieldSlamR2]: handler_modDamagePlusThreat(
-    config.Mods.ShieldSlam,
-    203
-  ),
-  [config.Spell.ShieldSlamR3]: handler_modDamagePlusThreat(
-    config.Mods.ShieldSlam,
-    229
-  ),
-  [config.Spell.ShieldSlamR4]: handler_modDamagePlusThreat(
-    config.Mods.ShieldSlam,
-    254
-  ),
+  [config.Spell.ShieldSlamR1]: handler_threatOnHit(178), // Shield Slam (Rank 1)
+  [config.Spell.ShieldSlamR2]: handler_threatOnHit(203), // Shield Slam (Rank 2)
+  [config.Spell.ShieldSlamR3]: handler_threatOnHit(229), // Shield Slam (Rank 3)
+  [config.Spell.ShieldSlamR4]: handler_threatOnHit(254), // Shield Slam (Rank 4)
 
   // Shield Bash
   72: handler_modDamagePlusThreat(1.5, 36),
@@ -239,11 +178,11 @@ export const spellFunctions = {
   12798: handler_zero, // Revenge Stun
 
   //Cleave
-  845: handler_threatOnHit(10), //Rank 1
-  7369: handler_threatOnHit(40), //Rank 2
-  11608: handler_threatOnHit(60), //Rank 3
-  11609: handler_threatOnHit(70), //Rank 4
-  20569: handler_threatOnHit(100), //Rank 5
+  845: handler_threatOnHit(10), // Cleave (Rank 1)
+  7369: handler_threatOnHit(40), // Cleave (Rank 2)
+  11608: handler_threatOnHit(60), // Cleave (Rank 3)
+  11609: handler_threatOnHit(70), // Cleave (Rank 4)
+  20569: handler_threatOnHit(100), // Cleave (Rank 5)
 
   //Whirlwind
   1680: handler_modDamage(1.25), //("Whirlwind"), //Whirlwind
@@ -258,7 +197,7 @@ export const spellFunctions = {
   //Hamstring
   1715: handler_modDamagePlusThreat(1.25, 20), // R1
   7372: handler_threatOnHit(101), // R2, from outdated sheet
-  7373: handler_threatOnHit(145),
+  7373: handler_threatOnHit(145), // Hamstring
 
   //Intercept
   20252: handler_modDamage(2), //Intercept
@@ -269,22 +208,18 @@ export const spellFunctions = {
   20615: handler_zero, //("Intercept Stun"),         //Intercept Stun (Rank 3)
 
   //Execute
-  20647: handler_modDamage(1.25),
+  20647: handler_modDamage(1.25), // Execute"),
 
   //Sunder Armor
-  7386: handler_castCanMiss(45), // Sunder Armor (Rank 1)
-  11597: handler_castCanMiss(261), // Sunder Armor (Rank 5)
-
-  // TODO: Confirm Devastate
-  // [config.Spell.Devastate]: handler_devastate(100, 261),
-  // [config.Spell.DevastateSoD]: handler_devastate(100, 261),
+  7386: handler_castCanMiss(45), // Rank 1
+  11597: handler_castCanMiss(261), // Sunder Armor Rank 5
 
   //Battleshout
-  11551: handler_threatOnBuff(52), //Rank 6
-  25289: handler_threatOnBuff(60), //Rank 7 (AQ)
+  11551: handler_threatOnBuff(52), // Battle Shout Rank 6
+  25289: handler_threatOnBuff(60), // Battle Shout Rank 7 (AQ)
 
   //Demo Shout
-  11556: handler_threatOnDebuff(43),
+  11556: handler_threatOnDebuff(43), // Demoralizing Shout
 
   //Mocking Blow
   20560: threatFunctions.concat(
@@ -329,8 +264,8 @@ export const spellFunctions = {
 
   /* Physical */
   12721: handler_damage, //("Deep Wounds"),
-  6552: handler_threatOnHit(76), //TODO: Verify these values ingame
-  6554: handler_threatOnHit(116),
+  6552: handler_threatOnHit(76), // Pummel (Rank 1) //TODO: Verify these values ingame
+  6554: handler_threatOnHit(116), // Pummel (Rank 2)
 
   23881: handler_damage, //("Bloodthirst"), //Rank 1
   23892: handler_damage, //("Bloodthirst"), //Rank 2
