@@ -91,7 +91,7 @@ async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
  * @param {string} path
  * @param {number} start
  * @param {number} end
- * @returns {Promise<WCLCombatantInfo[]>}
+ * @returns {Promise<WCLCombatantInfoEvent[]>}
  */
 export async function fetchWCLCombatantInfo(path, start, end) {
   let t = start;
@@ -122,6 +122,112 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
 
 /**
  * @typedef {{
+ *   guid: number;
+ *   type: number;
+ *   name: string;
+ *   abilityIcon: string;
+ * }} WCLAbility
+ */
+
+/**
+ * @typedef {{
+ *   amount: number;
+ *   cost: number;
+ *   max: number;
+ *   type: number;
+ * }} Resource
+ */
+
+/**
+ * @typedef {WCLHealEvent | WCLApplyBuffEvent | WCLRemoveBuffEvent | WCLApplyDebuffEvent | WCLRemoveDebuffEvent | WCLCombatantInfoEvent} WCLEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: "heal";
+ *   ability: WCLAbility;
+ *   absorb: number;
+ *   amount: number;
+ *   armor: number;
+ *   attackPower: number;
+ *   avoidance: number;
+ *   classResources: Resource[];
+ *   facing: number;
+ *   fight: number;
+ *   hitPoints: number;
+ *   hitType: number;
+ *   itemLevel: number;
+ *   mapID: number;
+ *   maxHitPoints: number;
+ *   overheal: number;
+ *   resourceActor: number;
+ *   sourceID: number;
+ *   sourceIsFriendly: boolean;
+ *   spellPower: number;
+ *   targetID: number;
+ *   targetIsFriendly: boolean;
+ *   tick: boolean;
+ *   timestamp: number;
+ *   versatility: number;
+ *   x: number;
+ *   y: number;
+ * }} WCLHealEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: "applybuff";
+ *   ability: WCLAbility;
+ *   fight: number;
+ *   sourceID: number;
+ *   sourceIsFriendly: boolean;
+ *   targetID: number;
+ *   targetIsFriendly: boolean;
+ *   timestamp: number;
+ * }} WCLApplyBuffEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: "removedebuff";
+ *   ability: WCLAbility;
+ *   fight: number;
+ *   sourceID: number;
+ *   sourceIsFriendly: boolean;
+ *   targetID: number;
+ *   targetIsFriendly: boolean;
+ *   timestamp: number;
+ * }} WCLRemoveDebuffEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: "applydebuff";
+ *   ability: WCLAbility;
+ *   fight: number;
+ *   sourceID: number;
+ *   sourceIsFriendly: boolean;
+ *   targetID: number;
+ *   targetIsFriendly: boolean;
+ *   timestamp: number;
+ * }} WCLApplyDebuffEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: "removebuff";
+ *   ability: WCLAbility;
+ *   fight: number;
+ *   sourceID: number;
+ *   sourceIsFriendly: boolean;
+ *   targetID: number;
+ *   targetIsFriendly: boolean;
+ *   timestamp: number;
+ * }} WCLRemoveBuffEvent
+ */
+
+/**
+ * @typedef {{
  *   type: "combatantinfo";
  *   faction: number;
  *   fight: number;
@@ -132,7 +238,7 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
  *   auras: WCLAura[];
  *   gear: WCLCombatantGear[];
  *   timestamp: number;
- * }} WCLCombatantInfo
+ * }} WCLCombatantInfoEvent
  */
 
 /**

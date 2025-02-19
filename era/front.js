@@ -9,6 +9,9 @@ let plotXRange = [-Infinity, Infinity];
 let recolorPlot = () => {};
 let colorByClass = true;
 
+/** Shows extra coefficient info in the plot tooltip */
+let debugCoefficients = localStorage.getItem("debugCoefficients") === "true";
+
 const SCROLLBAR_WIDTH = 16;
 
 /**
@@ -347,7 +350,7 @@ function enableInput(enable = true) {
  * @param {Element | null} el_out
  * @param {boolean} checked
  * @param {string | null} text
- * @param {{ (x: any): void; (x: any): void; (arg0: boolean): any; }} callback
+ * @param {(val: boolean) => void} callback
  */
 export function createCheckbox(el_out, checked, text, callback) {
   let el_checkbox = document.createElement("input");
@@ -397,18 +400,27 @@ function plot(config, reportId, fight, enemy) {
       }<br>Threat: ${threatDiff.toFixed(1)}<br>Total: ${unitInfo.threat[
         i
       ].toFixed(1)}`;
-      if (unitInfo.coeff[i] !== null)
-        text += "<br>Coeff: " + unitInfo.coeff[i].toFixed(2);
+      if (unitInfo.coeff[i]?.value !== undefined) {
+        text += "<br>Coeff: " + unitInfo.coeff[i].value.toFixed(2);
+        if (
+          unitInfo.coeff[i].value !== 1 &&
+          unitInfo.coeff[i].debug &&
+          debugCoefficients
+        ) {
+          text +=
+            "<br><br>" +
+            unitInfo.coeff[i].debug
+              .map(({ value, label }) => `- ${label}: ${value.toFixed(2)}`)
+              .join("<br>");
+        }
+      }
       if (unitInfo.fixateHistory[i])
         text += "<br>Fixate: " + unitInfo.fixateHistory[i];
       if (unitInfo.invulnerabilityHistory[i].length)
         text +=
           "<br>Invulnerability: " +
           unitInfo.invulnerabilityHistory[i]
-            .map(
-              (/** @type {string | number} */ x) =>
-                config.invulnerabilityBuffs[x]
-            )
+            .map((/** @type {number} */ x) => config.invulnerabilityBuffs[x])
             .join("+");
       texts.push(text);
     }
@@ -455,13 +467,20 @@ function plot(config, reportId, fight, enemy) {
     }
     globalThis.Plotly.restyle(el_plot, { "marker.color": colors });
   };
+  createCheckbox(el_div, colorByClass, "Color by class", (x) => {
+    colorByClass = x;
+    recolorPlot();
+  });
   createCheckbox(
     el_div,
-    colorByClass,
-    "Color by class",
-    (/** @type {any} */ x) => {
-      colorByClass = x;
-      recolorPlot();
+    debugCoefficients,
+    "Display detailed coefficients",
+    (v) => {
+      debugCoefficients = v;
+      localStorage.setItem(
+        "debugCoefficients",
+        JSON.stringify(debugCoefficients)
+      );
     }
   );
   if (fight.faction == "Horde")

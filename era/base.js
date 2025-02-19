@@ -5,6 +5,19 @@
  */
 
 import { Fight } from "./threat/fight.js";
+import { Unit } from "./threat/unit.js";
+
+/**
+ * @typedef {{
+ *   coeff: TalentCoefficientFn;
+ *   maxRank: number;
+ *   rank?: number;
+ * }} Talent;
+ */
+
+/**
+ * @typedef {(buffs: SpellMap<boolean>, rank: any, spellId: SpellId) => ThreatCoefficientFn} TalentCoefficientFn
+ */
 
 /**
  * @typedef {(c: number, buffs: SpellMap<boolean>, talents: SpellMap<number>) => void} CombatantImplicationsFn
@@ -19,7 +32,7 @@ import { Fight } from "./threat/fight.js";
  */
 
 /**
- * @typedef {{ [key: string]: T }} ClassMap<T>
+ * @typedef {{ [key: string]: T } | {}} ClassMap<T>
  * @template T
  */
 
@@ -43,6 +56,7 @@ import { Fight } from "./threat/fight.js";
  *   preferredSpellSchools: ClassMap<number>;
  *   spellFunctions: SpellMap<ThreatHandlerFn>;
  *   zeroThreatSpells: SpellId[];
+ *   talents: ClassMap<Record<string, Talent>>;
  * }} GameVersionConfig
  */
 
@@ -68,6 +82,14 @@ export const School = {
   Arcane: 64,
 };
 
+/**
+ * @typedef {[number, string | null]} Border
+ * @constant
+ */
+
+/**
+ * @type {{[key: string]: Border}} Borders
+ */
 export const borders = {
   taunt: [3, "#ffa500"],
 };
@@ -97,8 +119,39 @@ export function getAdditiveThreatCoefficient(value, base) {
   return getThreatCoefficient((base + value) / base);
 }
 
+/**
+ * @typedef {{value: number, label: string}} CoefficientDebug
+ */
+
+/**
+ * @typedef {{value: number; debug: CoefficientDebug[];}} ThreatCoefficient
+ */
+
+/**
+ * @param {ThreatCoefficient} coeff
+ * @param {number} value
+ * @param {string} label
+ * @returns {ThreatCoefficient}
+ */
+export function applyThreatCoefficient(coeff, value, label) {
+  return {
+    value: coeff.value * value,
+    debug: [...coeff.debug, { value, label }],
+  };
+}
+
+/** @type {ThreatCoefficient} */
+export const BASE_COEFFICIENT = { value: 1, debug: [] };
+
 // Core threat handling functions
 export const threatFunctions = {
+  /**
+   * @param {import("./threat/wcl.js").WCLEvent} ev
+   * @param {Fight} fight
+   * @param {number} amount
+   * @param {boolean} [useThreatCoeffs]
+   * @param {number} [extraCoeff]
+   */
   sourceThreatenTarget(
     ev,
     fight,
@@ -107,16 +160,32 @@ export const threatFunctions = {
     extraCoeff = 1
   ) {
     // extraCoeff is only used for tooltip text
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    let coeff = (useThreatCoeffs ? a.threatCoeff(ev.ability) : 1) * extraCoeff;
-    b.addThreat(a.key, amount, ev.timestamp, ev.ability.name, coeff);
+    let source = fight.eventToUnit(ev, "source");
+    let target = fight.eventToUnit(ev, "target");
+    if (!source || !target) return;
+    let coeff = applyThreatCoefficient(
+      useThreatCoeffs ? source.threatCoeff(ev.ability) : BASE_COEFFICIENT,
+      extraCoeff,
+      ev.ability.name
+    );
+    target.addThreat(source.key, amount, ev.timestamp, ev.ability.name, coeff);
   },
+
+  /**
+   * @param {import("./threat/wcl.js").WCLEvent} ev
+   * @param {import("./threat/fight.js").UnitSpecifier} unit
+   * @param {Fight} fight
+   * @param {number} amount
+   * @param {boolean} [useThreatCoeffs]
+   */
   unitThreatenEnemiesSplit(ev, unit, fight, amount, useThreatCoeffs = true) {
     let u = fight.eventToUnit(ev, unit);
     if (!u) return;
-    let coeff = useThreatCoeffs ? u.threatCoeff(ev.ability) : 1;
+    let coeff = applyThreatCoefficient(
+      useThreatCoeffs ? u.threatCoeff(ev.ability) : BASE_COEFFICIENT,
+      1,
+      `${ev.ability.name} (split between enemies)`
+    );
     let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
     let numEnemies = 0;
     for (let k in enemies) {
@@ -132,6 +201,13 @@ export const threatFunctions = {
       );
     }
   },
+
+  /**
+   * @param {import("./threat/wcl.js").WCLEvent} ev
+   * @param {import("./threat/fight.js").UnitSpecifier} unit
+   * @param {Fight} fight
+   * @param {string} text
+   */
   unitLeaveCombat(ev, unit, fight, text) {
     let u = fight.eventToUnit(ev, unit);
     if (!u) return;
@@ -141,6 +217,13 @@ export const threatFunctions = {
       fight.units[k].setThreat(u.key, 0, ev.timestamp, text);
     }
   },
+
+  /**
+   * @param {Record<string, Unit>} sources
+   * @param {Record<string, Unit>} targets
+   * @param {number} time
+   * @param {string} text
+   */
   threatWipe(sources, targets, time, text) {
     for (let a in sources) {
       let source = sources[a];
@@ -149,6 +232,11 @@ export const threatFunctions = {
       }
     }
   },
+
+  /**
+   * @param {...ThreatHandlerFn} handlers
+   * @returns {ThreatHandlerFn}
+   */
   concat(...handlers) {
     return (ev, fight) => {
       for (let i = 0; i < handlers.length; ++i) {
@@ -614,7 +702,7 @@ export function handler_timelapse(ev, fight) {
   if (!u || !v) return;
   u.setThreat(
     v.key,
-    u.threat[v.key].currentThreat * v.threatCoeff(),
+    u.threat[v.key].currentThreat * v.threatCoeff().value,
     ev.timestamp,
     ev.ability.name
   );
