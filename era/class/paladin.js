@@ -7,34 +7,17 @@ import {
   handler_zero,
   School,
   threatFunctions,
-} from "../era/base.js";
+} from "../base.js";
 
 export const config = {
-  /**
-   * From the Light Club disc:
-   * - Hand of Reckoning rune applies a 1.5 baseline tank threat multiplier to all threat
-   * - Holy threat without imp. RF with HoR is 2.23 (1.6 * 1.5 is 2.4 so it's not applied consitently)
-   * - Holy threat with imp. RF and HoR is 2.85 (= 1.9 * 1.5)
-   */
   Mods: {
     Salvation: 0.7,
     RighteousFury: 1.6,
-    /** Total Imp RF buff is 1.9 - 1.6 / 3 */
-    ImpRf: (1.9 - 1.6) / 3,
-    /** A 1.5 modifier to all attacks (2.85 = 1.9 (ImpRf) * 1.5) */
-    HandOfReckoning: 1.5,
-
-    /** 6% per rank to physical and holy damage, only when RF is not up */
-    Vengeance: 0.06,
   },
   Buff: {
     Salv: 1038,
     GreaterSalv: 25895,
     RighteousFury: 25780,
-    EngraveHandOfReckoning: 410001,
-  },
-  Rune: {
-    HandOfReckoning: 6844,
   },
 };
 
@@ -46,7 +29,6 @@ export const buffNames = {
   [config.Buff.Salv]: "Blessing of Salvation",
   [config.Buff.GreaterSalv]: "Greater Blessing of Salvation",
   [config.Buff.RighteousFury]: "Righteous Fury",
-  [config.Buff.EngraveHandOfReckoning]: "Engrave Gloves - Hand of Reckoning",
 };
 
 export const buffMultipliers = {
@@ -55,47 +37,13 @@ export const buffMultipliers = {
   [config.Buff.RighteousFury]: getThreatCoefficient({
     [School.Holy]: config.Mods.RighteousFury,
   }),
-  [config.Buff.EngraveHandOfReckoning]: {
-    coeff(buffs, spellId) {
-      if (config.Buff.RighteousFury in buffs) {
-        return getThreatCoefficient(config.Mods.HandOfReckoning);
-      }
-      return getThreatCoefficient(1.0);
-    },
-  },
 };
 
 export const talents = {
-  "Improved Righteous Fury": {
-    maxRank: 3,
-    coeff: function (buffs, rank = 3) {
-      if (config.Buff.RighteousFury in buffs) {
-        return getThreatCoefficient({
-          [School.Holy]:
-            (1 + rank * config.Mods.ImpRf) / config.Mods.RighteousFury,
-        });
-      }
-      return getThreatCoefficient(1);
-    },
-  },
-  Vengeance: {
-    maxRank: 5,
-    coeff: function (buffs, rank = 5) {
-      if (config.Buff.RighteousFury in buffs) {
-        return getThreatCoefficient(1);
-      }
-      const mod = 1 - rank * config.Mods.Vengeance;
-      return getThreatCoefficient({
-        [School.Pysical]: mod,
-        [School.Holy]: mod,
-      });
-    },
-  },
+  // TODO: era ImpRF
 };
 
-export const fixateBuffs = {
-  407631: true, // Hand of Reckoning
-};
+export const fixateBuffs = {};
 
 export const spellFunctions = {
   25898: handler_threatOnBuff(60), // GBoK
@@ -176,13 +124,7 @@ export const spellFunctions = {
   19993: handler_modHeal(0.5), // Flash of Light that appears in logs
 };
 
-export const combatantImplications = (unit, buffs, talents) => {
-  if (
-    unit.gear.some((g) => g.temporaryEnchant === config.Rune.HandOfReckoning)
-  ) {
-    buffs[config.Buff.EngraveHandOfReckoning] = true;
-  }
-};
+export const combatantImplications = (unit, buffs, talents) => {};
 
 export const notableBuffs = {
   ...Object.values(config.Buff),
@@ -198,3 +140,5 @@ export const invulnerabilityBuffs = {
   10278: "Blessing of Protection",
   19752: "Divine Intervention",
 };
+
+export const auraImplications = {};

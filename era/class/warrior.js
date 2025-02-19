@@ -18,23 +18,18 @@ import {
   handler_threatOnHit,
   handler_zero,
   threatFunctions,
-} from "../era/base.js";
+} from "../base.js";
 
 export const config = {
   Stance: {
     Defensive: 71,
     Battle: 2457,
     Berserker: 2458,
-    Gladiator: 412513,
   },
   Mods: {
     DefensiveStance: 1.3,
     Defiance: 0.03, // 3% per point up to 15%
     OtherStances: 0.8,
-    GladiatorStance: 0.7,
-
-    /** Base shield slam mod */
-    ShieldSlam: 2.0,
 
     /** Base Revenge mod */
     Revenge: 2.25,
@@ -54,8 +49,7 @@ export const config = {
   Spell: {
     Taunt: 355,
     ChallengingShout: 1161,
-    Devastate: 20243, // Original
-    DevastateSoD: 403196, // SoD version
+    Devastate: 20243,
     ShieldSlamR1: 23922,
     ShieldSlamR2: 23923,
     ShieldSlamR3: 23924,
@@ -89,10 +83,6 @@ export const initialBuffs = {
   [config.Stance.Defensive]: 0, // Stances
   [config.Stance.Battle]: 0,
   [config.Stance.Berserker]: 0,
-  [config.Stance.Gladiator]: 0,
-  [config.Buff.T1_Tank_6pc]: 3, // inferred off
-  [config.Buff.TAQ_Tank_4pc]: 3, // inferred off
-  [config.Buff.RuneOfDevastate]: 0,
 };
 
 export const talents = {
@@ -100,28 +90,7 @@ export const talents = {
     maxRank: 5,
     coeff: function (buffs, rank = 5) {
       if (!(config.Stance.Defensive in buffs)) return getThreatCoefficient(1);
-      return getAdditiveThreatCoefficient(
-        config.Mods.Defiance * rank,
-        config.Mods.DefensiveStance
-      );
-    },
-  },
-  // TODO: move this to gear check
-  "Furious Thunder (Rune)": {
-    maxRank: 1,
-    coeff: function (buffs, rank = "0", spellId) {
-      const thunderClap = {
-        [config.Spell.ThunderClapR1]: true,
-        [config.Spell.ThunderClapR2]: true,
-        [config.Spell.ThunderClapR3]: true,
-        [config.Spell.ThunderClapR4]: true,
-        [config.Spell.ThunderClapR5]: true,
-        [config.Spell.ThunderClapR6]: true,
-      };
-      if (Number(rank) && spellId in thunderClap) {
-        return getThreatCoefficient(config.Mods.FuriousThunder);
-      }
-      return getThreatCoefficient(1);
+      return getThreatCoefficient(1 + config.Mods.Defiance * rank);
     },
   },
 };
@@ -130,53 +99,12 @@ export const buffNames = {
   [config.Stance.Defensive]: "Defensive Stance",
   [config.Stance.Battle]: "Battle Stance",
   [config.Stance.Berserker]: "Berserker Stance",
-  [config.Stance.Gladiator]: "Gladiator Stance",
-  [config.Buff.T1_Tank_6pc]: "S03 - Item - T1 - Warrior - Tank 6P Bonus",
-  [config.Buff.TAQ_Tank_4pc]: "S03 - Item - TAQ - Warrior - Tank 4P Bonus",
-  [config.Buff.RuneOfDevastate]: "Rune of Devastate",
 };
 
 export const buffMultipliers = {
   [config.Stance.Defensive]: getThreatCoefficient(config.Mods.DefensiveStance),
   [config.Stance.Battle]: getThreatCoefficient(config.Mods.OtherStances),
   [config.Stance.Berserker]: getThreatCoefficient(config.Mods.OtherStances),
-  [config.Stance.Gladiator]: getThreatCoefficient(config.Mods.GladiatorStance),
-  [config.Buff.T1_Tank_6pc]: {
-    coeff: (buffs, spellId) => {
-      if (config.Stance.Defensive in buffs) {
-        return getThreatCoefficient(config.Mods.T1_Tank_6pc);
-      }
-      return getThreatCoefficient(1);
-    },
-  },
-  [config.Buff.TAQ_Tank_4pc]: {
-    coeff: (buffs, spellId) => {
-      const moddedSpells = {
-        [config.Spell.ShieldSlamR1]: true,
-        [config.Spell.ShieldSlamR2]: true,
-        [config.Spell.ShieldSlamR3]: true,
-        [config.Spell.ShieldSlamR4]: true,
-      };
-      if (spellId in moddedSpells) {
-        return getThreatCoefficient(config.Mods.TAQ_Tank_4pc);
-      }
-
-      return getThreatCoefficient(1);
-    },
-  },
-  [config.Buff.RuneOfDevastate]: {
-    coeff: (buffs, spellId) => {
-      const moddedSpells = {
-        [config.Spell.Devastate]: true,
-        [config.Spell.DevastateSoD]: true,
-      };
-      if (config.Stance.Defensive in buffs && spellId in moddedSpells) {
-        return getThreatCoefficient(config.Mods.RuneOfDevastate);
-      }
-
-      return getThreatCoefficient(1);
-    },
-  },
 };
 
 export const fixateBuffs = {
@@ -194,9 +122,9 @@ export const notableBuffs = {
   ...Object.values(config.Buff),
 };
 
-export const Battle = config.Stance.Battle;
-export const Berserker = config.Stance.Berserker;
-export const Defensive = config.Stance.Defensive;
+const Battle = config.Stance.Battle;
+const Berserker = config.Stance.Berserker;
+const Defensive = config.Stance.Defensive;
 
 export const auraImplications = {
   7384: Battle,
@@ -237,7 +165,6 @@ export const auraImplications = {
   25288: Defensive, // Revenge
   2565: Defensive, // Shield Block
   871: Defensive, // Shield Wall
-  [config.Spell.DevastateSoD]: Defensive,
 };
 
 /**
@@ -309,7 +236,7 @@ export const spellFunctions = {
   //Revenge
   11601: handler_modDamagePlusThreat(config.Mods.Revenge, 243), //Rank 5
   25288: handler_modDamagePlusThreat(config.Mods.Revenge, 270), //Rank 6 (AQ)
-  12798: handler_zero, //("Revenge Stun"),           //Revenge Stun
+  12798: handler_zero, // Revenge Stun
 
   //Cleave
   845: handler_threatOnHit(10), //Rank 1
@@ -320,6 +247,7 @@ export const spellFunctions = {
 
   //Whirlwind
   1680: handler_modDamage(1.25), //("Whirlwind"), //Whirlwind
+
   6343: handler_modDamage(2.5), // Thunder Clap r1
   8198: handler_modDamage(2.5), // Thunder Clap r2
   8204: handler_modDamage(2.5), // Thunder Clap r3

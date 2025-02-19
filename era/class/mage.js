@@ -1,10 +1,14 @@
-import { getThreatCoefficient, School, handler_damage } from "../era/base.js";
+import { getThreatCoefficient, School, handler_damage } from "../base.js";
 
-const config = {
+export const config = {
   Buff: {
     IceBlock: 11958,
   },
-  Mods: {},
+  Mods: {
+    BurningSoul: 0.15,
+    FrostChanneling: 0.1,
+    ArcaneSubtlety: 0.2,
+  },
   Spell: {},
 };
 
@@ -18,27 +22,23 @@ export const talents = {
   "Arcane Subtlety": {
     maxRank: 2,
     coeff: (_, rank = 2) =>
-      getThreatCoefficient({ [School.Arcane]: 1 - 0.2 * rank }),
+      getThreatCoefficient({
+        [School.Arcane]: 1 - config.Mods.ArcaneSubtlety * rank,
+      }),
   },
   "Burning Soul": {
     maxRank: 2,
     coeff: (_, rank = 2) =>
-      getThreatCoefficient({ [School.Fire]: 1 - 0.15 * rank }),
+      getThreatCoefficient({
+        [School.Fire]: 1 - config.Mods.BurningSoul * rank,
+      }),
   },
   "Frost Channeling": {
     maxRank: 3,
     coeff: (_, rank = 3) =>
-      getThreatCoefficient({ [School.Frost]: 1 - 0.1 * rank }),
-  },
-  "Burning Soul ForstFire": {
-    maxRank: 2,
-    coeff: (_, rank = 2, spellId) =>
-      getThreatCoefficient(1 - 0.15 * rank * (spellId in { 401502: true })),
-  },
-  "Frost Channeling ForstFire": {
-    maxRank: 3,
-    coeff: (_, rank = 3, spellId) =>
-      getThreatCoefficient(1 - 0.1 * rank * (spellId in { 401502: true })),
+      getThreatCoefficient({
+        [School.Frost]: 1 - config.Mods.FrostChanneling * rank,
+      }),
   },
 };
 

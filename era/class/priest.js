@@ -3,11 +3,14 @@ import {
   School,
   handler_zero,
   handler_threatOnHit,
-} from "../era/base.js";
+} from "../base.js";
 
 export const config = {
   Buff: {},
-  Mods: {},
+  Mods: {
+    SilentResolve: 0.04,
+    ShadowAffinity: 0.25 / 3,
+  },
   Spell: {},
 };
 
@@ -20,13 +23,14 @@ export const buffMultipliers = {};
 export const talents = {
   "Silent Resolve": {
     maxRank: 5,
-    coeff: (_, rank = 5) => getThreatCoefficient(1 - 0.04 * rank),
+    coeff: (_, rank = 5) =>
+      getThreatCoefficient(1 - config.Mods.SilentResolve * rank),
   },
   "Shadow Affinity": {
     maxRank: 3,
     coeff: (_, rank = 3) =>
       getThreatCoefficient({
-        [School.Shadow]: 1 - Math.floor((rank * 25) / 3) / 100,
+        [School.Shadow]: 1 - config.Mods.ShadowAffinity * rank,
       }),
   },
 };
@@ -63,7 +67,5 @@ export const combatantImplications = (unit, buffs, talents) => {};
 export const notableBuffs = {
   ...Object.values(config.Buff),
 };
-
-export const invulnerabilityBuffs = {};
 
 export const auraImplications = {};

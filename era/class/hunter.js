@@ -3,15 +3,11 @@ import {
   handler_castCanMiss,
   handler_threatOnHit,
   handler_vanish,
-} from "../era/base.js";
+} from "../base.js";
 
 export const config = {
-  Buff: {
-    T1_Ranged_2pc: 456339, // Ferocity
-  },
-  Mods: {
-    T1_Ranged_2pc: 2.0,
-  },
+  Buff: {},
+  Mods: {},
   Spell: {
     FeignDeath: 5384,
     DistractingShotR1: 20736,
@@ -28,21 +24,15 @@ export const config = {
 
 export const initialBuffs = {};
 
-export const buffNames = {
-  [config.Buff.T1_Ranged_2pc]: "Ferocity",
-};
+export const buffNames = {};
 
 export const auraImplications = {};
 
-export const buffMultipliers = {
-  [config.Buff.T1_Ranged_2pc]: getThreatCoefficient(config.Mods.T1_Ranged_2pc),
-};
+export const buffMultipliers = {};
 
 export const talents = {};
 
-export const fixateBuffs = {
-  // TODO: pet growl if BM rune is active
-};
+export const fixateBuffs = {};
 
 export const spellFunctions = {
   [config.Spell.FeignDeath]: handler_vanish, // Feign Death
@@ -62,5 +52,3 @@ export const combatantImplications = (unit, buffs, talents) => {};
 export const notableBuffs = {
   ...Object.values(config.Buff),
 };
-
-export const invulnerabilityBuffs = {};

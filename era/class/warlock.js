@@ -5,71 +5,27 @@ import {
   handler_threatOnDebuff,
   handler_threatOnDebuffOrDamage,
   handler_zero,
-} from "../era/base.js";
+} from "../base.js";
 
 export const config = {
-  Buff: {
-    Metamorphosis: 403789,
-    MasterDemonologist: 23836,
-  },
+  Buff: {},
   Mods: {
-    Metamorphosis: 1.77,
     SearingPain: 2.0,
-
-    /**
-     * Up to 20% more threat if imp and metamorphosis are active.
-     * Without Metamorphosis, acts as a threat reduction.
-     */
-    MasterDemonologist: 0.04,
   },
-  Spell: {
-    Menace: 403828,
-    DemonicHowl: 412789,
-  },
+  Spell: {},
 };
 
-export const initialBuffs = {
-  [config.Buff.Metamorphosis]: 0,
-};
+export const initialBuffs = {};
 
-export const buffNames = {
-  [config.Buff.Metamorphosis]: "Metamorphosis",
-  [config.Buff.MasterDemonologist]: "Master Demonologist",
-};
+export const buffNames = {};
 
-export const buffMultipliers = {
-  [config.Buff.Metamorphosis]: getThreatCoefficient(config.Mods.Metamorphosis),
-};
+export const buffMultipliers = {};
 
-export const auraImplications = {
-  Menace: config.Buff.Metamorphosis,
-  DemonicHowl: config.Buff.Metamorphosis,
-};
+export const auraImplications = {};
 
-export const talents = {
-  "Master Demonologist": {
-    maxRank: 5,
-    coeff: function (buffs, rank = 5) {
-      if (config.Buff.MasterDemonologist in buffs) {
-        // increased with Metamorphosis
-        if (config.Buff.Metamorphosis in buffs) {
-          const increase = 1 + rank * config.Mods.MasterDemonologist;
-          return getThreatCoefficient(increase);
-        }
-        // reduction otherwise
-        const reduction = 1 - rank * config.Mods.MasterDemonologist;
-        return getThreatCoefficient(reduction);
-      }
+export const talents = {};
 
-      return getThreatCoefficient(1);
-    },
-  },
-};
-
-export const fixateBuffs = {
-  [config.Spell.Menace]: true,
-  [config.Spell.DemonicHowl]: true,
-};
+export const fixateBuffs = {};
 
 export const spellFunctions = {
   18288: handler_zero, // Amplify Curse
@@ -153,5 +109,3 @@ export const combatantImplications = (unit, buffs, talents) => {};
 export const notableBuffs = {
   ...Object.values(config.Buff),
 };
-
-export const invulnerabilityBuffs = {};
