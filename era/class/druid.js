@@ -51,10 +51,6 @@ export const buffMultipliers = {
   [config.Form.Bear]: getThreatCoefficient(config.Mods.DireBear),
   [config.Form.DireBear]: getThreatCoefficient(config.Mods.DireBear),
   [config.Form.Cat]: getThreatCoefficient(config.Mods.Cat),
-  [config.Form.Moonkin]: getThreatCoefficient({
-    [School.Arcane]: 0.7,
-    [School.Nature]: 0.7,
-  }),
 };
 
 export const talents = {

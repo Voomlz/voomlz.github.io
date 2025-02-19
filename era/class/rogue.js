@@ -8,7 +8,10 @@ export const config = {
   Mods: {
     Base: 0.71,
   },
-  Spell: {},
+  Spell: {
+    SinisterStrikeR7: 11293,
+    SinisterStrikeR8: 11294,
+  },
   Buff: {},
 };
 
