@@ -400,7 +400,7 @@ function plot(config, reportId, fight, enemy) {
       }<br>Threat: ${threatDiff.toFixed(1)}<br>Total: ${unitInfo.threat[
         i
       ].toFixed(1)}`;
-      if (unitInfo.coeff[i] && unitInfo.coeff[i].value) {
+      if (unitInfo.coeff[i]?.value !== undefined) {
         text += "<br>Coeff: " + unitInfo.coeff[i].value.toFixed(2);
         if (
           unitInfo.coeff[i].value !== 1 &&

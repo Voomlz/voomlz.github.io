@@ -91,6 +91,7 @@ export const buffNames = {
   [Items.Enchant.GlovesThreat]: "Enchant Gloves - Threat",
   [Items.Enchant.CloakSubtlety]: "Enchant Cloak - Subtlety",
   [Items.Buff.EyeOfDiminution]: "The Eye of Diminution",
+  29232: "Fungal Bloom",
 };
 
 export const buffMultipliers = {
