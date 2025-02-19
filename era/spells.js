@@ -3,12 +3,8 @@ import {
   handler_bossDropThreatOnCast,
   handler_bossDropThreatOnDebuff,
   handler_bossDropThreatOnHit,
-  handler_bossPartialThreatWipeOnCast,
   handler_bossThreatWipeOnCast,
   handler_damage,
-  handler_hatefulstrike,
-  handler_magneticPull,
-  handler_taunt,
   handler_threatOnDebuff,
   handler_timelapse,
   handler_vanish,
@@ -25,6 +21,8 @@ import * as rogue from "./class/rogue.js";
 import * as shaman from "./class/shaman.js";
 import * as warlock from "./class/warlock.js";
 import * as warrior from "./class/warrior.js";
+
+import * as naxx from "./raid/naxx.js";
 
 export const preferredSpellSchools = {
   Mage: 16, // Frost
@@ -67,6 +65,8 @@ export const buffNames = {
   ...shaman.buffNames,
   ...warlock.buffNames,
   ...warrior.buffNames,
+
+  ...naxx.buffNames,
 };
 
 export const buffMultipliers = {
@@ -80,8 +80,9 @@ export const buffMultipliers = {
   ...warlock.buffMultipliers,
   ...warrior.buffMultipliers,
 
+  ...naxx.buffMultipliers,
+
   26400: getThreatCoefficient(0.3), // Fetish of the Sand Reaver
-  //29232: getThreatCoefficient(0), 		// Fungal Bloom
 };
 
 // The leaf elements are functions (buffs,rank) => threatCoefficient
@@ -138,7 +139,7 @@ export const fixateBuffs = {
   // ...warlock.fixateBuffs,
   ...warrior.fixateBuffs,
 
-  29060: true, // Deathknight Understudy Taunt
+  ...naxx.fixateBuffs,
 };
 // These make a dot in the graph on application and removal
 // Also used for event filtering in fetchWCLreport
@@ -153,9 +154,10 @@ export const notableBuffs = {
   ...warlock.notableBuffs,
   ...warrior.notableBuffs,
 
+  ...naxx.notableBuffs,
+
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
-  29232: true, // Fungal Bloom
 };
 for (let k in buffMultipliers) notableBuffs[k] = true;
 for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
@@ -205,6 +207,8 @@ export const spellFunctions = {
   ...shaman.spellFunctions,
   ...warlock.spellFunctions,
   ...warrior.spellFunctions,
+
+  ...naxx.spellFunctions,
 
   18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
   23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
@@ -260,17 +264,6 @@ export const spellFunctions = {
   26580: handler_bossDropThreatOnHit(0), // Yauj's Fear
   26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
   11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
-  28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
-  29060: handler_taunt, // Deathknight Understudy Taunt
-  28835: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Zeliek
-  28834: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Mograine
-  28833: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Blaumeux
-  28832: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Korth'azz
-  29210: handler_bossThreatWipeOnCast, // Noth's blink
-  29211: handler_bossThreatWipeOnCast, // Noth's blink new id?
-  28308: handler_hatefulstrike(800), // Patchwerk's hateful strike
-  28339: handler_magneticPull(), // Feungen, exchange tanks
-  28338: handler_magneticPull(), // Stalagg, exchange tanks
 
   17624: handler_vanish, // Flask of Petrification
 
@@ -299,9 +292,6 @@ export const spellFunctions = {
   13241: handler_damage, //("Goblin Sapper Charge"), //Goblin Sapper Charge
 
   /* Zero Threat Abilities */
-  71: handler_zero, // Defensive Stance
-  2457: handler_zero, // Battle Stance
-  2458: handler_zero, // Berserker Stance
   10610: handler_zero, //("Windfury Totem"), //Windfury Totem
   20572: handler_zero, //("Blood Fury"), //Blood Fury
   26296: handler_zero, //("Berserking (Troll racial)"), //Berserking (Troll racial)
