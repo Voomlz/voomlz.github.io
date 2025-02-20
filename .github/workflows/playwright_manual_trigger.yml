@@ -16,7 +16,9 @@ jobs:
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body-includes: "@actions test"
+          body-includes: "/test"
+          direction: last
+          nth: 0
       - name: React to comment
         if: ${{ fc.outputs.comment-id != 0 }}
         uses: dkershner6/reaction-action@v2
