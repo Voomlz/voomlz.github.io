@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       comment-id: ${{ steps.fc.outputs.comment-id }}
+    if: github.event.issue.pull_request
     steps:
       - name: Find Comment
         uses: peter-evans/find-comment@v2
