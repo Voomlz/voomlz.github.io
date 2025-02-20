@@ -51,7 +51,7 @@ export const config = {
     TAQ_Tank: 1852,
   },
   Enchant: {
-    SouOfTheAlpha: 7683, // TAQ_Tank_4pc
+    SoulOfTheAlpha: 7683, // TAQ_Tank_4pc
     RockbiterWeapon: 7568,
   },
 };
@@ -124,7 +124,7 @@ export const combatantImplications = (unit, buffs, talents) => {
 
   if (
     gearSetCount(unit.gear, config.Tier.TAQ_Tank) >= 4 ||
-    gearHasTempEnchant(unit.gear, config.Enchant.SouOfTheAlpha)
+    gearHasTempEnchant(unit.gear, config.Enchant.SoulOfTheAlpha)
   ) {
     buffs[config.Buff.TAQ_Tank_4pc] = true;
   }
