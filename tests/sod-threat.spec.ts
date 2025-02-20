@@ -10,31 +10,31 @@ test.describe("/sod/ threat values", () => {
 
     await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
-      - text: "Sheenftw - Started fight with threat coeff 0.9568"
+      - text: "Sheenftw - Started fight with threat coeff 1.495"
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 107.19 seconds"
-          - row "Taunt	128092.72	1195.06"
-          - row "Shield Slam	43259.03	403.59"
-          - row "Heroic Strike	29252.63	272.92"
-          - row "Devastate	27763.37	259.02"
-          - row "Melee	22734.62	212.11"
-          - row "Deep Wound	19622.44	183.07"
-          - row "Revenge	11295.74	105.39"
-          - row "Thunderfury	9314.45	86.90"
-          - row "Sunder Armor	6318.04	58.95"
-          - row "Cleave	2308.09	21.53"
-          - row "Rallying Cry	1389.27	12.96"
-          - row "Wild Strike	1220.88	11.39"
-          - row "Defender's Resolve	673.59	6.28"
-          - row "Sword and Board	589.39	5.50"
-          - row "Shield Bash	449.94	4.20"
-          - row "Battle Shout	252.60	2.36"
-          - row "Thorium Shield Spike	189.45	1.77"
-          - row "Thorns	174.71	1.63"
-          - row "Wrath of Wray	63.15	0.59"
+          - row "Shield Slam	67592.24	630.61"
+          - row "Heroic Strike	45707.23	426.43"
+          - row "Devastate	43380.27	404.72"
+          - row "Melee	35522.84	331.42"
+          - row "Deep Wound	30660.06	286.05"
+          - row "Revenge	17649.60	164.66"
+          - row "Thunderfury	14553.83	135.78"
+          - row "Taunt	12941.48	120.74"
+          - row "Sunder Armor	9871.93	92.10"
+          - row "Cleave	3606.39	33.65"
+          - row "Rallying Cry	2170.74	20.25"
+          - row "Wild Strike	1907.62	17.80"
+          - row "Defender's Resolve	1052.48	9.82"
+          - row "Sword and Board	920.92	8.59"
+          - row "Shield Bash	703.02	6.56"
+          - row "Battle Shout	394.68	3.68"
+          - row "Thorium Shield Spike	296.01	2.76"
+          - row "Thorns	272.99	2.55"
+          - row "Wrath of Wray	98.67	0.92"
           - row "Bloodrage	40.00	0.37"
-          - row "Total	305004.09	2845.59"
+          - row "Total	289342.99	2699.47"
       `);
   });
 
@@ -381,7 +381,7 @@ test.describe("/sod/ threat values", () => {
 
       await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
-      - text: "Enzad - Started fight with threat coeff 0.8372"
+      - text: "Enzad - Started fight with threat coeff 0.56"
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 71.61 seconds"
