@@ -47,6 +47,7 @@ export async function fetchWCLv1(path) {
  * @param {number} start
  * @param {number} end
  * @param {import("../base").GameVersionConfig} config
+ * @returns {Promise<WCLEvent[]>}
  */
 export async function fetchWCLreport(path, start, end, config) {
   let t = start;
@@ -107,6 +108,13 @@ export async function fetchWCLCombatantInfo(path, start, end) {
   return events;
 }
 
+/**
+ * @param {string} path
+ * @param {number} start
+ * @param {number} end
+ * @param {number} source
+ * @returns {Promise<WCLAura[]>}
+ */
 async function fetchWCLPlayerBuffs(path, start, end, source) {
   let t = start;
   let auras = [];
@@ -139,7 +147,15 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
  */
 
 /**
- * @typedef {WCLHealEvent | WCLApplyBuffEvent | WCLRemoveBuffEvent | WCLApplyDebuffEvent | WCLRemoveDebuffEvent | WCLCombatantInfoEvent} WCLEvent
+ * @typedef {{ ability: WCLAbility; sourceID: number; }
+ *   & (
+ *     WCLHealEvent |
+ *     WCLApplyBuffEvent |
+ *     WCLRemoveBuffEvent |
+ *     WCLApplyDebuffEvent |
+ *     WCLRemoveDebuffEvent |
+ *     WCLCombatantInfoEvent
+ *   )} WCLEvent
  */
 
 /**
@@ -269,11 +285,11 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
  */
 
 /**
- * @typedef {number} WCLQuality
+ * @typedef {0 | 1 | 2 | 3 | 4 | 5} WCLQuality
  */
 
 /**
- * @enum {WCLQuality}
+ * @enum {typeof WCLQuality}
  */
 const WCLQuality = {
   Poor: 0,
@@ -281,4 +297,5 @@ const WCLQuality = {
   Uncommon: 2,
   Rare: 3,
   Epic: 4,
+  Legendary: 5,
 };

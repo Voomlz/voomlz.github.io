@@ -20,7 +20,7 @@ import { Unit } from "./threat/unit.js";
  */
 
 /**
- * @typedef {(c: number, buffs: SpellMap<boolean>, talents: SpellMap<number>) => void} CombatantImplicationsFn
+ * @typedef {(c: import("./threat/wcl.js").WCLCombatantInfoEvent, buffs: SpellMap<boolean>, talents: SpellMap<number>) => void} CombatantImplicationsFn
  */
 
 /**
