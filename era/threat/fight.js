@@ -11,7 +11,7 @@ export class Fight {
    * @param {import("../base.js").GameVersionConfig} config
    * @param {string} reportId
    * @param {import("./wcl.js").WCLFight} fight
-   * @param {Record<string, Unit>} globalUnits
+   * @param {Record<string, import("./wcl.js").WCLUnit>} globalUnits
    * @param {string} faction
    */
   constructor(config, reportId, fight, globalUnits, faction) {
@@ -24,6 +24,9 @@ export class Fight {
     this.end = fight.end_time;
     this.id = fight.id;
     this.encounter = fight.boss;
+    /**
+     * @type {Record<string, import("./wcl.js").WCLUnit>}
+     */
     this.globalUnits = globalUnits;
     this.faction = faction;
     this.reportId = reportId;
@@ -39,6 +42,10 @@ export class Fight {
     /** @type {Record<string, Unit>} */
     this.units = {};
 
+    /** @type {import("./wcl.js").WCLCombatantInfoEvent[]} */
+    this.combatantInfos = [];
+
+    /** @type {import("./wcl.js").WCLEvent[] | undefined} */
     this.events = undefined;
   }
 

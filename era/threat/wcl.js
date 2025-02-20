@@ -5,9 +5,30 @@
  *   end_time: number;
  *   id: number;
  *   boss: number;
+ *   originalBoss: number;
+ *   zoneID: number;
+ *   zoneName: string;
+ *   zoneDifficulty: number;
+ *   size?: number;
+ *   difficulty?: number;
+ *   kill?: boolean;
+ *   partial?: number;
+ *   inProgress?: boolean;
+ *   bossPercentage?: number;
+ *   fightPercentage?: number;
+ *   lastPhaseAsAbsoluteIndex?: number;
+ *   lastPhaseForPercentageDisplay?: number;
+ *   maps?: number[];
+ *   phases?: WCLFightPhase[];
  * }} WCLFight
  */
 
+/**
+ * @typedef {{
+ *   id: number;
+ *   startTime: number;
+ * }} WCLFightPhase
+ */
 const throttleTime = 150;
 
 const apikey = "b91955fd65954650000220e85bd79c3d";
@@ -47,6 +68,7 @@ export async function fetchWCLv1(path) {
  * @param {number} start
  * @param {number} end
  * @param {import("../base").GameVersionConfig} config
+ * @returns {Promise<WCLEvent[]>}
  */
 export async function fetchWCLreport(path, start, end, config) {
   let t = start;
@@ -107,6 +129,13 @@ export async function fetchWCLCombatantInfo(path, start, end) {
   return events;
 }
 
+/**
+ * @param {string} path
+ * @param {number} start
+ * @param {number} end
+ * @param {number} source
+ * @returns {Promise<WCLAura[]>}
+ */
 async function fetchWCLPlayerBuffs(path, start, end, source) {
   let t = start;
   let auras = [];
@@ -139,7 +168,15 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
  */
 
 /**
- * @typedef {WCLHealEvent | WCLApplyBuffEvent | WCLRemoveBuffEvent | WCLApplyDebuffEvent | WCLRemoveDebuffEvent | WCLCombatantInfoEvent} WCLEvent
+ * @typedef {{ ability: WCLAbility; sourceID: number; }
+ *   & (
+ *     WCLHealEvent |
+ *     WCLApplyBuffEvent |
+ *     WCLRemoveBuffEvent |
+ *     WCLApplyDebuffEvent |
+ *     WCLRemoveDebuffEvent |
+ *     WCLCombatantInfoEvent
+ *   )} WCLEvent
  */
 
 /**
@@ -269,11 +306,11 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
  */
 
 /**
- * @typedef {number} WCLQuality
+ * @typedef {0 | 1 | 2 | 3 | 4 | 5} WCLQuality
  */
 
 /**
- * @enum {WCLQuality}
+ * @enum {typeof WCLQuality}
  */
 const WCLQuality = {
   Poor: 0,
@@ -281,4 +318,102 @@ const WCLQuality = {
   Uncommon: 2,
   Rare: 3,
   Epic: 4,
+  Legendary: 5,
 };
+
+/**
+ * @typedef {{
+ *   lang: string;
+ *   fights: WCLFight[];
+ *   friendlies: WCLFriendlyUnit[];
+ *   friendlyPets: WCLFriendlyPet[];
+ *   enemies: WCLEnemyUnit[];
+ *   enemyPets: WCLEnemyUnit[];
+ *   completeRaids: WCLCompleteRaid[];
+ *   logVersion: number;
+ *   phases: WCLPhase[];
+ *   gameVersion: number;
+ *   title: string;
+ *   owner: string;
+ *   start: number;
+ *   end: number;
+ *   zone: number;
+ *   exportedCharacters: WCLExportedCharacter[];
+ * }} WCLReport
+ */
+
+/**
+ * @typedef {{
+ *   boss: number;
+ *   phases: WCLPhase[];
+ *   separatesWipes: boolean;
+ * }} WCLPhase
+ */
+
+/**
+ * @typedef {{
+ *   id: number;
+ *   name: string;
+ *   server: string;
+ *   region: string;
+ * }} WCLExportedCharacter
+ */
+
+/**
+ * @typedef {{
+ *   id: number;
+ *   name: string;
+ *   start_time: number;
+ *   end_time: number;
+ *   boss: number;
+ *   size: number;
+ *   difficulty: number;
+ *   kill: boolean;
+ *   partial: number;
+ *   completeRaidSize: number;
+ *   hasWorldBuffs: boolean;
+ * }} WCLCompleteRaid
+ */
+
+/**
+ * @typedef {{
+ *   id: number;
+ *   name: string;
+ *   guid: number;
+ *   icon: string;
+ * }} WCLUnitBase
+ */
+
+/**
+ * @typedef {'Warlock' | 'Mage' | 'Priest' | 'Druid' | 'Hunter' | 'Paladin' | 'Warrior' | 'Shaman' | 'Rogue'} WCLClassType
+ */
+
+/**
+ * @typedef {WCLClassType | 'NPC'} WCLUnitType
+ */
+
+/**
+ * @typedef {WCLUnitBase & {
+ *   type: 'NPC' | 'Boss';
+ *   fights: {id: number, instances: number, groups?: number}[];
+ * }} WCLEnemyUnit
+ */
+
+/**
+ * @typedef {WCLUnitBase & {
+ *   type: WCLClassType;
+ *   server: string;
+ *   fights: {id: number, instances: number}[];
+ * }} WCLFriendlyUnit
+ */
+
+/**
+ * @typedef {WCLUnitBase & {
+ *   type: 'Pet';
+ *   petOwner: number;
+ * }} WCLFriendlyPet
+ */
+
+/**
+ * @typedef {WCLFriendlyUnit | WCLEnemyUnit | WCLFriendlyPet} WCLUnit
+ */

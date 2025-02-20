@@ -205,6 +205,14 @@ export class Unit {
 // Class for players and pets
 
 export class Player extends Unit {
+  /**
+   * @param {import("../base.js").GameVersionConfig} config
+   * @param {string} key
+   * @param {import("./wcl.js").WCLFriendlyUnit} info
+   * @param {import("./wcl.js").WCLEvent[]} events
+   * @param {import("./wcl.js").WCLCombatantInfoEvent[]} combatantInfos
+   * @param {boolean} [tranquilAir]
+   */
   constructor(config, key, info, events, combatantInfos, tranquilAir = false) {
     super(config, key, info.name, info.type, events);
     this.global = info;
@@ -303,9 +311,17 @@ export class Player extends Unit {
 }
 
 export class NPC extends Unit {
+  /**
+   * @param {import("../base.js").GameVersionConfig} config
+   * @param {string} key
+   * @param {import("./wcl.js").WCLFriendlyPet | import("./wcl.js").WCLEnemyUnit} unit
+   * @param {import("./wcl.js").WCLEvent[]} events
+   * @param {import("./fight.js").Fight} fight
+   */
   constructor(config, key, unit, events, fight) {
     super(config, key, unit.name, unit.type, events);
     this.fightUnits = fight.units;
+    /** @type {import("../threat/fight.js").Fight} */
     this.fight = fight;
     /** @type {Record<string, ThreatTrace>} */
     this.threat = {};

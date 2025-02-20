@@ -20,7 +20,15 @@ export class Report {
      */
     this.fights = {};
 
+    /**
+     * @type {import("./wcl.js").WCLReport | undefined}
+     */
     this.data = undefined;
+
+    /**
+     * @type {Record<string, import("./wcl.js").WCLUnit> | undefined}
+     */
+    this.units = undefined;
   }
 
   async fetch() {
