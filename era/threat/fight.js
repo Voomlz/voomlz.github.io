@@ -39,6 +39,10 @@ export class Fight {
     /** @type {Record<string, Unit>} */
     this.units = {};
 
+    /** @type {import("./wcl.js").WCLCombatantInfoEvent[]} */
+    this.combatantInfos = [];
+
+    /** @type {import("./wcl.js").WCLEvent[] | undefined} */
     this.events = undefined;
   }
 
