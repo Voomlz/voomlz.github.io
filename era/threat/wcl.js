@@ -47,6 +47,7 @@ export async function fetchWCLv1(path) {
  * @param {number} start
  * @param {number} end
  * @param {import("../base").GameVersionConfig} config
+ * @returns {Promise<WCLEvent[]>}
  */
 export async function fetchWCLreport(path, start, end, config) {
   let t = start;
@@ -87,6 +88,12 @@ async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
   return auras;
 }
 
+/**
+ * @param {string} path
+ * @param {number} start
+ * @param {number} end
+ * @returns {Promise<WCLEvent[]>}
+ */
 export async function fetchWCLCombatantInfo(path, start, end) {
   let t = start;
   let events = [];
@@ -101,6 +108,13 @@ export async function fetchWCLCombatantInfo(path, start, end) {
   return events;
 }
 
+/**
+ * @param {string} path
+ * @param {number} start
+ * @param {number} end
+ * @param {number} source
+ * @returns {Promise<WCLAura[]>}
+ */
 async function fetchWCLPlayerBuffs(path, start, end, source) {
   let t = start;
   let auras = [];
@@ -133,7 +147,15 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
  */
 
 /**
- * @typedef {WCLHealEvent | WCLApplyBuffEvent | WCLRemoveBuffEvent | WCLApplyDebuffEvent | WCLRemoveDebuffEvent} WCLEvent
+ * @typedef {{ ability: WCLAbility; sourceID: number; }
+ *   & (
+ *     WCLHealEvent |
+ *     WCLApplyBuffEvent |
+ *     WCLRemoveBuffEvent |
+ *     WCLApplyDebuffEvent |
+ *     WCLRemoveDebuffEvent |
+ *     WCLCombatantInfoEvent
+ *   )} WCLEvent
  */
 
 /**
@@ -219,3 +241,61 @@ async function fetchWCLPlayerBuffs(path, start, end, source) {
  *   timestamp: number;
  * }} WCLRemoveBuffEvent
  */
+
+/**
+ * @typedef {{
+ *   type: "combatantinfo";
+ *   faction: number;
+ *   fight: number;
+ *   expansion: string;
+ *   sourceID: number;
+ *   specID: number;
+ *   talents: [WCLTalent, WCLTalent, WCLTalent];
+ *   auras: WCLAura[];
+ *   gear: WCLCombatantGear[];
+ *   timestamp: number;
+ * }} WCLCombatantInfoEvent
+ */
+
+/**
+ * @typedef {{
+ *   id: number;
+ * }} WCLTalent
+ */
+
+/**
+ * @typedef {{
+ *   ability: number;
+ *   icon: string;
+ *   name: string;
+ *   source: number;
+ *   stacks: number;
+ * }} WCLAura
+ */
+
+/**
+ * @typedef {{
+ *   icon: string;
+ *   id: number;
+ *   itemLevel: number;
+ *   quality: WCLQuality;
+ *   setID: number;
+ *   temporaryEnchant: number;
+ * }} WCLCombatantGear
+ */
+
+/**
+ * @typedef {0 | 1 | 2 | 3 | 4 | 5} WCLQuality
+ */
+
+/**
+ * @enum {typeof WCLQuality}
+ */
+const WCLQuality = {
+  Poor: 0,
+  Common: 1,
+  Uncommon: 2,
+  Rare: 3,
+  Epic: 4,
+  Legendary: 5,
+};
