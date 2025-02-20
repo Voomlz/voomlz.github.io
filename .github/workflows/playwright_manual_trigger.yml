@@ -20,11 +20,11 @@ jobs:
           direction: last
           nth: 0
       - name: React to comment
-        if: ${{ fc.outputs.comment-id != 0 }}
+        if: steps.fc.outputs.comment-id != 0
         uses: dkershner6/reaction-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commentId: ${{ fc.outputs.comment-id }}
+          commentId: ${{ steps.fc.outputs.comment-id }}
           reaction: "rocket"
 
   run-other-workflow:
