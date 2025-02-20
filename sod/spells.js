@@ -28,6 +28,8 @@ import * as shaman from "./class/shaman.js";
 import * as warlock from "./class/warlock.js";
 import * as warrior from "./class/warrior.js";
 
+import * as naxx from "./raid/naxx.js";
+
 export const preferredSpellSchools = {
   Mage: School.Frost,
   Priest: School.Holy,
@@ -105,6 +107,9 @@ export const buffMultipliers = {
   ...shaman.buffMultipliers,
   ...mage.buffMultipliers,
   ...priest.buffMultipliers,
+
+  ...naxx.buffMultipliers,
+
   29232: getThreatCoefficient(0), // Fungal Bloom
 
   [Items.Enchant.GlovesThreat]: getThreatCoefficient(Items.Mods.GlovesThreat),
@@ -172,6 +177,9 @@ export const notableBuffs = {
   ...shaman.notableBuffs,
   ...warlock.notableBuffs,
   ...warrior.notableBuffs,
+
+  ...naxx.notableBuffs,
+
   23397: true, // Nefarian's warrior class call
   23398: true, // Druid class call
 };
@@ -200,6 +208,7 @@ export const auraImplications = {
  */
 export const combatantImplications = {
   All: (unit, buffs) => {
+    naxx.combatantImplications(unit, buffs);
     if (
       unit.gear.some((g) => g.permanentEnchant === Items.Enchant.GlovesThreat)
     ) {
