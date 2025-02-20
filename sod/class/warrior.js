@@ -3,7 +3,8 @@ import {
   gearSetCount,
   getThreatCoefficient,
   handler_modDamagePlusThreat,
-  handler_zero,
+  handler_zero_important,
+  threatFunctions,
 } from "../../era/base.js";
 
 import * as era from "../../era/class/warrior.js";
@@ -151,8 +152,9 @@ const Berserker = config.Stance.Berserker;
 const Defensive = config.Stance.Defensive;
 
 export const auraImplications = {
-  ...era.auraImplications,
-  [config.Spell.DevastateSoD]: Defensive,
+  // Stance Dancing causes confusion with SoD, and there are more spells allowed across stances.
+  // so for now, prefer to rely on specific buff info and casts
+  // ...era.auraImplications,
 };
 
 /**
@@ -188,7 +190,7 @@ export const combatantImplications = (unit, buffs, talents) => {
 
 export const spellFunctions = {
   ...era.spellFunctions,
-  [config.Stance.Gladiator]: handler_zero, // Gladiator Stance
+  [config.Stance.Gladiator]: handler_zero_important,
 
   //Shield Slam
   [config.Spell.ShieldSlamR1]: handler_modDamagePlusThreat(

@@ -14,6 +14,7 @@ import {
   handler_threatOnDebuff,
   handler_threatOnHit,
   handler_zero,
+  handler_zero_important,
   threatFunctions,
 } from "../base.js";
 
@@ -146,9 +147,9 @@ export const auraImplications = {
 export const combatantImplications = (unit, buffs, talents) => {};
 
 export const spellFunctions = {
-  [config.Stance.Defensive]: handler_zero, // Defensive Stance
-  [config.Stance.Battle]: handler_zero, // Battle Stance
-  [config.Stance.Berserker]: handler_zero, // Berserker Stance
+  [config.Stance.Defensive]: handler_zero_important,
+  [config.Stance.Battle]: handler_zero_important,
+  [config.Stance.Berserker]: handler_zero_important,
 
   //Heroic Strike
   78: handler_threatOnHit(16), // Heroic Strike

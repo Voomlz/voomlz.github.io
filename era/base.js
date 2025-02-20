@@ -377,7 +377,11 @@ export function handler_markSourceOnDebuff(border) {
   };
 }
 
+/** A zero threat spell that should be ignored in the graph */
 export function handler_zero() {}
+
+/** A zero threat spell that should be shown in the graph (e.g. stances/forms) */
+export function handler_zero_important() {}
 
 export function handler_castCanMiss(threatValue) {
   return (ev, fight) => {

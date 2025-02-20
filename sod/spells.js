@@ -360,9 +360,7 @@ export const spellFunctions = {
   13494: handler_zero, //("Manual Crowd Pummeler"),
 };
 
-export const zeroThreatSpells = [];
-for (let i in spellFunctions) {
-  if (i >= 0 && spellFunctions[i] === handler_zero) {
-    zeroThreatSpells.push(i);
-  }
-}
+// These spells will be ignored in the WCL query
+export const zeroThreatSpells = Object.entries(spellFunctions)
+  .filter(([, handler]) => handler === handler_zero)
+  .map(([id]) => id);
