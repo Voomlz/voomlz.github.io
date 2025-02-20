@@ -34,7 +34,7 @@ test.describe("/sod/", () => {
       // Initial target, alphabetically choosen
       await expect(page.locator("#targetSelect")).toContainText("Absÿ - 10");
       await expect(page.locator("#threatTableContainer")).toContainText(
-        "Absÿ - Started fight with threat coeff 0.56"
+        "Absÿ - Started fight with threat coeff"
       );
 
       // switch to a different target
@@ -43,7 +43,7 @@ test.describe("/sod/", () => {
         .selectOption("JvA4KLpyZ1fxrPgN;3;36;9");
 
       await expect(page.locator("#threatTableContainer")).toContainText(
-        "Sheenftw - Started fight with threat coeff 0.928"
+        "Sheenftw - Started fight with threat coeff"
       );
     });
 

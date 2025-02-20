@@ -377,7 +377,11 @@ export function handler_markSourceOnDebuff(border) {
   };
 }
 
+/** A zero threat spell that should be ignored in the graph */
 export function handler_zero() {}
+
+/** A zero threat spell that should be shown in the graph (e.g. stances/forms) */
+export function handler_zero_important() {}
 
 export function handler_castCanMiss(threatValue) {
   return (ev, fight) => {
@@ -706,4 +710,22 @@ export function handler_timelapse(ev, fight) {
     ev.timestamp,
     ev.ability.name
   );
+}
+
+/**
+ * Counts the number of gear items with a given set ID
+ *
+ * @param {import("../era/threat/wcl").WCLCombatantGear[]} gear
+ * @param {number} setId
+ */
+export function gearSetCount(gear, setId) {
+  return gear.filter((g) => g.setID === setId).length;
+}
+
+/**
+ * @param {import("../era/threat/wcl").WCLCombatantGear[]} gear
+ * @param {number} id
+ */
+export function gearHasTempEnchant(gear, id) {
+  return gear.some((g) => g.temporaryEnchant === id);
 }
