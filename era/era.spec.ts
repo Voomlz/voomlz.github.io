@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 
+// Run the local server with `npm run start`
+
 const TEST_LOG_URL =
   "https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt";
 
