@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { loadTargetFromReport } from "../../_test/helpers";
 
+// Run the local server with `npm run start`
 test.describe("/era/ threat values - BWL mechanics", () => {
   test("BWL - Nefarian - Warrior class call", async ({ page }) => {
     await loadTargetFromReport(
