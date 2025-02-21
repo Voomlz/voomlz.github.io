@@ -163,30 +163,30 @@ test.describe("/sod/ threat values", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 58.74 seconds"
-          - row "Lava Burst	98732.82	1680.70"
-          - row "Flame Shock	94283.64	1604.96"
-          - row "Lightning Shield	89669.16	1526.41"
-          - row "Earth Shock	81094.44	1380.45"
-          - row "Chain Lightning	48131.88	819.34"
-          - row "Melee	33609.84	572.13"
-          - row "Damage Shield Dmg +80	18593.64	316.51"
-          - row "Damage Shield Dmg +20	6975.66	118.74"
-          - row "Thorns	2089.74	35.57"
-          - row "Maelstrom Weapon	948.30	16.14"
-          - row "Gift of Arthas	939.60	15.99"
-          - row "Shield Mastery	582.23	9.91"
-          - row "Defender's Resolve	548.10	9.33"
-          - row "Flurry	461.10	7.85"
-          - row "Boon of Fire	372.36	6.34"
-          - row "Elemental Devastation	339.30	5.78"
-          - row "Clearcasting	147.90	2.52"
-          - row "Stormbraced	121.80	2.07"
-          - row "Maelstrom Ready!	52.20	0.89"
-          - row "Greater Stoneshield	34.80	0.59"
-          - row "Boon of Earth	26.10	0.44"
-          - row "Energized Shield	26.10	0.44"
-          - row "Boon of Water	18.85	0.32"
-          - row "Total	477799.55	8133.45"
+          - row "Lava Burst	162909.15	2773.16"
+          - row "Flame Shock	155568.01	2648.19"
+          - row "Lightning Shield	147954.11	2518.58"
+          - row "Earth Shock	133805.83	2277.74"
+          - row "Chain Lightning	79417.60	1351.90"
+          - row "Melee	55456.24	944.02"
+          - row "Damage Shield Dmg +80	30679.51	522.25"
+          - row "Damage Shield Dmg +20	11509.84	195.93"
+          - row "Thorns	3448.07	58.70"
+          - row "Maelstrom Weapon	1564.69	26.64"
+          - row "Gift of Arthas	1550.34	26.39"
+          - row "Defender's Resolve	904.36	15.39"
+          - row "Shield Mastery	768.84	13.09"
+          - row "Flurry	760.81	12.95"
+          - row "Boon of Fire	614.39	10.46"
+          - row "Elemental Devastation	559.84	9.53"
+          - row "Clearcasting	244.03	4.15"
+          - row "Stormbraced	200.97	3.42"
+          - row "Maelstrom Ready!	86.13	1.47"
+          - row "Greater Stoneshield	57.42	0.98"
+          - row "Energized Shield	43.07	0.73"
+          - row "Boon of Earth	43.07	0.73"
+          - row "Boon of Water	31.10	0.53"
+          - row "Total	788177.43	13416.93"
       `);
   });
 
@@ -482,7 +482,7 @@ test.describe("/sod/ threat values", () => {
       await loadTargetFromReport(
         page,
         "https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
-        "44;160;15" // Patchwerk - Dedgame
+        "44;160;15" // Patchwerk - Tombah
       );
 
       await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
@@ -491,25 +491,25 @@ test.describe("/sod/ threat values", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 74.48 seconds"
-          - row "Earth Shock	221192.28	2969.70"
-          - row "Lava Burst	157718.82	2117.51"
-          - row "Flame Shock	137968.08	1852.34"
-          - row "Lightning Shield	59093.88	793.39"
-          - row "Melee	38137.32	512.03"
-          - row "Damage Shield Dmg +80	22999.32	308.79"
-          - row "Splintered Shield	16138.50	216.67"
-          - row "Dragonbreath Chili	13709.46	184.06"
-          - row "Shamanistic Rage	11141.40	149.58"
-          - row "Hateful Strike	5600.00	75.18"
-          - row "Maelstrom Weapon	4698.00	63.07"
-          - row "Defender's Resolve	2610.00	35.04"
-          - row "Shield Mastery	1825.80	24.51"
-          - row "Elemental Devastation	939.60	12.61"
-          - row "Stormbraced	626.40	8.41"
-          - row "Flurry	522.00	7.01"
-          - row "Clearcasting	208.80	2.80"
-          - row "Maelstrom Ready!	208.80	2.80"
-          - row "Total	695338.46	9335.53"
+          - row "Earth Shock	364967.26	4900.01"
+          - row "Lava Burst	260236.05	3493.90"
+          - row "Flame Shock	227647.33	3056.37"
+          - row "Lightning Shield	97504.90	1309.09"
+          - row "Melee	62926.58	844.84"
+          - row "Damage Shield Dmg +80	37948.88	509.50"
+          - row "Splintered Shield	26628.52	357.51"
+          - row "Dragonbreath Chili	22620.61	303.70"
+          - row "Hateful Strike	18400.00	247.04"
+          - row "Shamanistic Rage	13584.36	182.38"
+          - row "Maelstrom Weapon	7751.70	104.07"
+          - row "Defender's Resolve	4306.50	57.82"
+          - row "Shield Mastery	2640.12	35.45"
+          - row "Elemental Devastation	1550.34	20.81"
+          - row "Stormbraced	1033.56	13.88"
+          - row "Flurry	861.30	11.56"
+          - row "Maelstrom Ready!	344.52	4.63"
+          - row "Clearcasting	344.52	4.63"
+          - row "Total	1151297.06	15457.18"
       `);
     });
   });
