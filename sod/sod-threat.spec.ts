@@ -1,10 +1,11 @@
-import { test, expect, Page } from "@playwright/test";
+import { test, expect } from "@playwright/test";
+import { loadTargetFromReport } from "../_test/helpers";
 
 test.describe("/sod/ threat values", () => {
   test("Warrior Tank", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
       "3;36;9" // The Prophet Skeram - Sheenftw
     );
 
@@ -41,7 +42,7 @@ test.describe("/sod/ threat values", () => {
   test("Druid Tank", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/kTf82pHyXPwKtR41",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/kTf82pHyXPwKtR41",
       "43;102;23" // Heigan the Unclean - Lucyol
     );
 
@@ -76,7 +77,7 @@ test.describe("/sod/ threat values", () => {
   test("Paladin Tank", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
       "20;92;5" // Princess Huhuran - Neitsa
     );
 
@@ -113,7 +114,7 @@ test.describe("/sod/ threat values", () => {
   test("Rogue Tank", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/3kQ6nRY7W4fdtMJ8",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/3kQ6nRY7W4fdtMJ8",
       "4;36;23" // The Prophet Skeram - Jaistyr
     );
 
@@ -153,7 +154,7 @@ test.describe("/sod/ threat values", () => {
   test("Shaman Tank", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/GKfj9q83Yw1vBVkc",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/GKfj9q83Yw1vBVkc",
       "3;87;6" // Anub'Rekhan - Predasmoke
     );
 
@@ -193,7 +194,7 @@ test.describe("/sod/ threat values", () => {
   test("Warlock Tank", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/vjbpBYnLQDxqcw1P",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/vjbpBYnLQDxqcw1P",
       "11;80;7" // Anub'Rekhan - Dagreât
     );
 
@@ -227,7 +228,7 @@ test.describe("/sod/ threat values", () => {
   test("Ret Pally", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
       "3;36;1" // The Prophet Skeram - Ascherìt
     );
 
@@ -263,7 +264,7 @@ test.describe("/sod/ threat values", () => {
   test("Hunter", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
       "3;36;15" // The Prophet Skeram - Madbulltwo
     );
 
@@ -295,7 +296,7 @@ test.describe("/sod/ threat values", () => {
   test("Rogue", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
       "3;36;24" // The Prophet Skeram - Danstonass
     );
 
@@ -333,7 +334,7 @@ test.describe("/sod/ threat values", () => {
   test("Warrior - DPS", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/JvA4KLpyZ1fxrPgN",
       "3;36;10" // The Prophet Skeram - Absÿ
     );
 
@@ -375,7 +376,7 @@ test.describe("/sod/ threat values", () => {
     test("Patchwerk - Warrior - MT", async ({ page }) => {
       await loadTargetFromReport(
         page,
-        "https://sod.warcraftlogs.com/reports/ZGqcXNWmHKRPb842",
+        "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/ZGqcXNWmHKRPb842",
         "53;129;7" // Patchwerk - Enzad
       );
 
@@ -412,7 +413,7 @@ test.describe("/sod/ threat values", () => {
     test("Patchwerk - Warlock - Hateful target", async ({ page }) => {
       await loadTargetFromReport(
         page,
-        "https://sod.warcraftlogs.com/reports/ZGqcXNWmHKRPb842",
+        "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/ZGqcXNWmHKRPb842",
         "53;129;21" // Patchwerk - Baldbulla
       );
 
@@ -441,7 +442,7 @@ test.describe("/sod/ threat values", () => {
     test("Patchwerk - Rogue MT", async ({ page }) => {
       await loadTargetFromReport(
         page,
-        "https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
+        "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
         "44;160;8" // Patchwerk - Dedgame
       );
 
@@ -481,7 +482,7 @@ test.describe("/sod/ threat values", () => {
     test("Patchwerk - Shaman - Hateful target", async ({ page }) => {
       await loadTargetFromReport(
         page,
-        "https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
+        "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
         "44;160;15" // Patchwerk - Dedgame
       );
 
@@ -514,27 +515,3 @@ test.describe("/sod/ threat values", () => {
     });
   });
 });
-
-async function loadTargetFromReport(
-  page: Page,
-  reportUrl: string,
-  unitKey: string
-) {
-  const [, reportId] = /reports\/(\w+)/.exec(reportUrl)!;
-
-  await page.goto(`/sod/?id=${reportId}`);
-
-  if (reportId) {
-    const [fightId, enemyId, targetId] = unitKey.split(";");
-    await page.locator("#fightSelect").selectOption(`${reportId};${fightId}`);
-
-    await page.getByRole("button", { name: "Fetch/Refresh" }).click();
-
-    await page
-      .locator("#enemySelect")
-      .selectOption(`${reportId};${fightId};${enemyId}`);
-    await page
-      .locator("#targetSelect")
-      .selectOption(`${reportId};${fightId};${enemyId};${targetId}`);
-  }
-}

@@ -1,10 +1,11 @@
-import { test, expect, Page } from "@playwright/test";
+import { test, expect } from "@playwright/test";
+import { loadTargetFromReport } from "../_test/helpers";
 
 test.describe("/era/ threat values", () => {
   test("Warrior Tank", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
       "1;43;38" // Anub'Rekhan - Tragortf
     );
 
@@ -32,7 +33,7 @@ test.describe("/era/ threat values", () => {
   test("Mage - Fire", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
       "1;43;9" // Anub'Rekhan - Chosme
     );
 
@@ -57,7 +58,7 @@ test.describe("/era/ threat values", () => {
   test("Warrior DPS", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
       "1;43;30" // Anub'Rekhan - Rouguishh
     );
 
@@ -85,7 +86,7 @@ test.describe("/era/ threat values", () => {
   test("Warlock", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
       "1;43;10" // Anub'Rekhan - Lysten
     );
 
@@ -106,7 +107,7 @@ test.describe("/era/ threat values", () => {
   test("Rogue", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/qXDrpmFfHg3dNjzt",
       "1;43;20" // Anub'Rekhan - Gwumpyx
     );
 
@@ -132,7 +133,7 @@ test.describe("/era/ threat values", () => {
   test("Hunter", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/kTAJXcx7P6ZnrjbG",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/kTAJXcx7P6ZnrjbG",
       "28;101;4" // Nefarian - Marìa
     );
 
@@ -156,7 +157,7 @@ test.describe("/era/ threat values", () => {
   test("Druid - Cat", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/kTAJXcx7P6ZnrjbG",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/kTAJXcx7P6ZnrjbG",
       "28;101;14" // Nefarian - Thallack
     );
 
@@ -181,7 +182,7 @@ test.describe("/era/ threat values", () => {
   test("Druid - Tank", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/WXKGAVjrx3D2vqw6",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/WXKGAVjrx3D2vqw6",
       "24;90;14" // Ebonroc - Miskovsky
     );
 
@@ -207,7 +208,7 @@ test.describe("/era/ threat values", () => {
   test("Mage - Frost", async ({ page }) => {
     await loadTargetFromReport(
       page,
-      "https://vanilla.warcraftlogs.com/reports/kTAJXcx7P6ZnrjbG",
+      "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/kTAJXcx7P6ZnrjbG",
       "28;101;25" // Nefarian - Bleshat
     );
 
@@ -231,7 +232,7 @@ test.describe("/era/ threat values", () => {
     test("BWL - Nefarian - Warrior class call", async ({ page }) => {
       await loadTargetFromReport(
         page,
-        "https://vanilla.warcraftlogs.com/reports/kTAJXcx7P6ZnrjbG",
+        "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/kTAJXcx7P6ZnrjbG",
         "28;101;32" // Nefarian - Amí
       );
 
@@ -260,7 +261,7 @@ test.describe("/era/ threat values", () => {
     test("BWL - Nefarian - Druid class call", async ({ page }) => {
       await loadTargetFromReport(
         page,
-        "https://vanilla.warcraftlogs.com/reports/WXKGAVjrx3D2vqw6",
+        "http://127.0.0.1:8080/era/?id=https://vanilla.warcraftlogs.com/reports/WXKGAVjrx3D2vqw6",
         "31;110;14" // Nefarian - Miskovsky
       );
 
@@ -285,27 +286,3 @@ test.describe("/era/ threat values", () => {
     });
   });
 });
-
-async function loadTargetFromReport(
-  page: Page,
-  reportUrl: string,
-  unitKey: string
-) {
-  const [, reportId] = /reports\/(\w+)/.exec(reportUrl)!;
-
-  await page.goto(`/era/?id=${reportId}`);
-
-  if (reportId) {
-    const [fightId, enemyId, targetId] = unitKey.split(";");
-    await page.locator("#fightSelect").selectOption(`${reportId};${fightId}`);
-
-    await page.getByRole("button", { name: "Fetch/Refresh" }).click();
-
-    await page
-      .locator("#enemySelect")
-      .selectOption(`${reportId};${fightId};${enemyId}`);
-    await page
-      .locator("#targetSelect")
-      .selectOption(`${reportId};${fightId};${enemyId};${targetId}`);
-  }
-}
