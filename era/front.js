@@ -410,7 +410,8 @@ function plot(config, reportId, fight, enemy) {
           text +=
             "<br><br>" +
             unitInfo.coeff[i].debug
-              .map(({ value, label }) => `- ${label}: ${value.toFixed(2)}`)
+              .filter(({ value, hasBonus }) => value !== 1 || hasBonus)
+              .map(coefficientDebugLabel)
               .join("<br>");
         }
       }
@@ -544,6 +545,14 @@ function plot(config, reportId, fight, enemy) {
     plotXRange = range;
     selectTarget(config);
   });
+}
+
+/**
+ * @param {import("./base.js").CoefficientDebug} c
+ */
+function coefficientDebugLabel(c) {
+  if (c.value === 1 || c.hasBonus) return `- ${c.label}`;
+  return `- ${c.label}: ${c.value.toFixed(2)}`;
 }
 
 /**
