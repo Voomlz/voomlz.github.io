@@ -2,6 +2,7 @@ import {
   handler_bossThreatWipeOnCast,
   handler_bossPartialThreatWipeOnCast,
   handler_taunt,
+  getThreatCoefficient,
 } from "../base.js";
 
 export const config = {
@@ -15,7 +16,7 @@ export const buffNames = {
 };
 
 export const buffMultipliers = {
-  // [config.Buff.FungalBloom]: getThreatCoefficient(0), 		// Fungal Bloom
+  [config.Buff.FungalBloom]: getThreatCoefficient(0), // Fungal Bloom
 };
 
 export const fixateBuffs = {

@@ -12,5 +12,5 @@ export {
 // TODO: here is where all the seal stuff will go and updated multipliers/handlers
 
 export const buffMultipliers = {
-  [era.config.Buff.FungalBloom]: getThreatCoefficient(0),
+  ...era.buffMultipliers,
 };
