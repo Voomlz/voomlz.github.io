@@ -82,6 +82,15 @@ export const School = {
   Arcane: 64,
 };
 
+const PowerType = {
+  Health: -2,
+  Mana: 0,
+  Rage: 1,
+  Focus: 2,
+  Energy: 3,
+  ComboPoints: 4,
+};
+
 /**
  * @typedef {[number, string | null]} Border
  * @constant
@@ -120,7 +129,7 @@ export function getAdditiveThreatCoefficient(value, base) {
 }
 
 /**
- * @typedef {{value: number, label: string}} CoefficientDebug
+ * @typedef {{value: number, label: string, bonus?: number}} CoefficientDebug
  */
 
 /**
@@ -131,12 +140,13 @@ export function getAdditiveThreatCoefficient(value, base) {
  * @param {ThreatCoefficient} coeff
  * @param {number} value
  * @param {string} label
+ * @param {number} [bonusThreat] Force display even if the coefficient is 1, because it may have a bonus
  * @returns {ThreatCoefficient}
  */
-export function applyThreatCoefficient(coeff, value, label) {
+export function applyThreatCoefficient(coeff, value, label, bonusThreat) {
   return {
     value: coeff.value * value,
-    debug: [...coeff.debug, { value, label }],
+    debug: [...coeff.debug, { value, label, bonus: bonusThreat }],
   };
 }
 
@@ -146,59 +156,93 @@ export const BASE_COEFFICIENT = { value: 1, debug: [] };
 // Core threat handling functions
 export const threatFunctions = {
   /**
-   * @param {import("./threat/wcl.js").WCLEvent} ev
-   * @param {Fight} fight
-   * @param {number} amount
-   * @param {boolean} [useThreatCoeffs]
-   * @param {number} [extraCoeff]
+   * @param {{
+   *   ev: import("./threat/wcl.js").WCLEvent;
+   *   fight: Fight;
+   *   amount: number;
+   *   useThreatCoeffs?: boolean;
+   *   multiplier?: number;
+   *   debugLabel?: string;
+   *   bonusThreat?: number;
+   * }} params
    */
-  sourceThreatenTarget(
+  sourceThreatenTarget({
     ev,
     fight,
     amount,
     useThreatCoeffs = true,
-    extraCoeff = 1
-  ) {
-    // extraCoeff is only used for tooltip text
+    multiplier = 1,
+    debugLabel,
+    bonusThreat = 0,
+  }) {
     let source = fight.eventToUnit(ev, "source");
     let target = fight.eventToUnit(ev, "target");
     if (!source || !target) return;
-    let coeff = applyThreatCoefficient(
-      useThreatCoeffs ? source.threatCoeff(ev.ability) : BASE_COEFFICIENT,
-      extraCoeff,
-      ev.ability.name
+    // dmg * mod + bonus threat needs special care:
+    // (dmg * mod) + bonus
+    // (dmg * initialCoeff * mod) + (bonus * initialCoeff)
+    const initialCoeff = useThreatCoeffs
+      ? source.threatCoeff(ev.ability)
+      : BASE_COEFFICIENT;
+    const abilityCoeff = applyThreatCoefficient(
+      initialCoeff,
+      multiplier,
+      debugLabel ?? ev.ability.name,
+      bonusThreat
     );
-    target.addThreat(source.key, amount, ev.timestamp, ev.ability.name, coeff);
+    target.addThreat(
+      source.key,
+      amount,
+      ev.timestamp,
+      ev.ability.name,
+      abilityCoeff,
+      bonusThreat * initialCoeff.value
+    );
   },
 
   /**
-   * @param {import("./threat/wcl.js").WCLEvent} ev
-   * @param {import("./threat/fight.js").UnitSpecifier} unit
-   * @param {Fight} fight
-   * @param {number} amount
-   * @param {boolean} [useThreatCoeffs]
+   * @param {{
+   *   ev: import("./threat/wcl.js").WCLEvent;
+   *   unit: import("./threat/fight.js").UnitSpecifier;
+   *   fight: Fight;
+   *   amount: number;
+   *   useThreatCoeffs?: boolean;
+   *   multiplier?: number;
+   *   debugLabel?: string;
+   * }} params
    */
-  unitThreatenEnemiesSplit(ev, unit, fight, amount, useThreatCoeffs = true) {
+  unitThreatenEnemiesSplit({
+    ev,
+    unit,
+    fight,
+    amount,
+    useThreatCoeffs = true,
+    multiplier = 1,
+    debugLabel,
+  }) {
     let u = fight.eventToUnit(ev, unit);
     if (!u) return;
-    let coeff = applyThreatCoefficient(
-      useThreatCoeffs ? u.threatCoeff(ev.ability) : BASE_COEFFICIENT,
-      1,
-      `${ev.ability.name} (split between enemies)`
-    );
     let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
     let numEnemies = 0;
     for (let k in enemies) {
       if (enemies[k].alive) numEnemies += 1;
     }
-    for (let k in enemies) {
-      enemies[k].addThreat(
-        u.key,
-        amount / numEnemies,
-        ev.timestamp,
-        ev.ability.name,
-        coeff
+    let coeff = applyThreatCoefficient(
+      useThreatCoeffs ? u.threatCoeff(ev.ability) : BASE_COEFFICIENT,
+      multiplier,
+      debugLabel ?? ev.ability.name
+    );
+
+    if (numEnemies !== 1) {
+      coeff = applyThreatCoefficient(
+        coeff,
+        1 / numEnemies,
+        `split between ${numEnemies} enemies`
       );
+    }
+
+    for (let k in enemies) {
+      enemies[k].addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
     }
   },
 
@@ -270,44 +314,46 @@ export function handler_resourcechange(ev, fight) {
   if (ev.type !== "resourcechange") return;
   let diff = ev.resourceChange - ev.waste;
   // Not sure if threat should be given to "target" instead...
-  threatFunctions.unitThreatenEnemiesSplit(
+  threatFunctions.unitThreatenEnemiesSplit({
     ev,
-    "source",
+    unit: "source",
     fight,
-    ev.resourceChangeType === 0 ? diff / 2 : diff * 5,
-    false
-  );
+    amount: diff,
+    useThreatCoeffs: false,
+    multiplier: ev.resourceChangeType === PowerType.Mana ? 0.5 : 5,
+  });
 }
 export function handler_resourcechangeCoeff(ev, fight) {
   if (ev.type !== "resourcechange") return;
   let diff = ev.resourceChange - ev.waste;
   // Not sure if threat should be given to "target" instead...
-  threatFunctions.unitThreatenEnemiesSplit(
+  threatFunctions.unitThreatenEnemiesSplit({
     ev,
-    "source",
+    unit: "source",
     fight,
-    ev.resourceChangeType === 0 ? diff / 2 : diff * 5,
-    true
-  );
+    amount: diff,
+    multiplier: ev.resourceChangeType === PowerType.Mana ? 0.5 : 5,
+  });
 }
 
 export function handler_basic(ev, fight) {
   switch (ev.type) {
     case "damage":
-      threatFunctions.sourceThreatenTarget(
+      threatFunctions.sourceThreatenTarget({
         ev,
         fight,
-        ev.amount + (ev.absorbed || 0)
-      );
+        amount: ev.amount + (ev.absorbed || 0),
+      });
       break;
     case "heal":
       if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.unitThreatenEnemiesSplit(
+      threatFunctions.unitThreatenEnemiesSplit({
         ev,
-        "source",
+        unit: "source",
         fight,
-        ev.amount / 2
-      );
+        amount: ev.amount,
+        multiplier: 0.5,
+      });
       break;
     case "resourcechange":
       if (globalThis.DEBUGMODE) console.log("Unhandled resourcechange.", ev);
@@ -318,14 +364,23 @@ export function handler_basic(ev, fight) {
     case "applybuffstack":
       if (globalThis.DEBUGMODE) console.log("Unhandled buff.", ev);
       if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, 60);
+      threatFunctions.unitThreatenEnemiesSplit({
+        ev,
+        unit: "source",
+        fight,
+        amount: 60,
+      });
       break;
     case "applydebuff":
     case "applydebuffstack":
     case "refreshdebuff":
       if (globalThis.DEBUGMODE) console.log("Unhandled buff.", ev);
       if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.sourceThreatenTarget(ev, fight, 120);
+      threatFunctions.sourceThreatenTarget({
+        ev,
+        fight,
+        amount: 120,
+      });
       break;
     case "death":
     case "combatantinfo":
@@ -387,9 +442,9 @@ export function handler_castCanMiss(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t === "cast") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+      threatFunctions.sourceThreatenTarget({ ev, fight, amount: threatValue });
     } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(ev, fight, -threatValue);
+      threatFunctions.sourceThreatenTarget({ ev, fight, amount: -threatValue });
     }
   };
 }
@@ -398,9 +453,19 @@ export function handler_castCanMissNoCoefficient(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t === "cast") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue, false);
+      threatFunctions.sourceThreatenTarget({
+        ev,
+        fight,
+        amount: threatValue,
+        useThreatCoeffs: false,
+      });
     } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(ev, fight, -threatValue, false);
+      threatFunctions.sourceThreatenTarget({
+        ev,
+        fight,
+        amount: -threatValue,
+        useThreatCoeffs: false,
+      });
     }
   };
 }
@@ -408,60 +473,70 @@ export function handler_castCanMissNoCoefficient(threatValue) {
 export function handler_modDamage(multiplier) {
   return (ev, fight) => {
     if (ev.type !== "damage") return;
-    threatFunctions.sourceThreatenTarget(
+    threatFunctions.sourceThreatenTarget({
       ev,
       fight,
-      ev.amount + (ev.absorbed || 0),
-      true,
-      multiplier
-    );
+      amount: ev.amount + (ev.absorbed || 0),
+      multiplier,
+    });
   };
 }
 export function handler_modHeal(multiplier) {
   return (ev, fight) => {
     if (ev.type !== "heal") return;
-    threatFunctions.unitThreatenEnemiesSplit(
+    threatFunctions.unitThreatenEnemiesSplit({
       ev,
-      "source",
+      unit: "source",
       fight,
-      (multiplier * ev.amount) / 2
-    );
+      amount: ev.amount,
+      multiplier: multiplier * 0.5,
+      debugLabel: `modHeal (${multiplier} * 0.5)`,
+    });
   };
 }
 
 export function handler_modDamagePlusThreat(multiplier, bonus) {
   return (ev, fight) => {
     if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-    threatFunctions.sourceThreatenTarget(
+    threatFunctions.sourceThreatenTarget({
       ev,
       fight,
-      multiplier * (ev.amount + (ev.absorbed || 0)) + bonus
-    );
+      amount: ev.amount + (ev.absorbed || 0),
+      multiplier,
+      bonusThreat: bonus,
+    });
   };
 }
 
 export function handler_damage(ev, fight) {
   if (ev.type !== "damage") return;
-  threatFunctions.sourceThreatenTarget(
+  threatFunctions.sourceThreatenTarget({
     ev,
     fight,
-    ev.amount + (ev.absorbed || 0)
-  );
+    amount: ev.amount + (ev.absorbed || 0),
+  });
 }
 
 export function handler_heal(ev, fight) {
   if (ev.type !== "heal") return;
-  threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
+  threatFunctions.unitThreatenEnemiesSplit({
+    ev,
+    unit: "source",
+    fight,
+    amount: ev.amount,
+    multiplier: 0.5,
+  });
 }
 
 export function handler_threatOnHit(threatValue) {
   return (ev, fight) => {
     if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-    threatFunctions.sourceThreatenTarget(
+    threatFunctions.sourceThreatenTarget({
       ev,
       fight,
-      ev.amount + (ev.absorbed || 0) + threatValue
-    );
+      amount: ev.amount + (ev.absorbed || 0),
+      bonusThreat: threatValue,
+    });
   };
 }
 
@@ -546,7 +621,11 @@ export function handler_threatOnDebuff(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t !== "applydebuff" && t !== "refreshdebuff") return;
-    threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+    threatFunctions.sourceThreatenTarget({
+      ev,
+      fight,
+      amount: threatValue,
+    });
   };
 }
 
@@ -554,13 +633,17 @@ export function handler_threatOnDebuffOrDamage(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t === "applydebuff") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-    } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(
+      threatFunctions.sourceThreatenTarget({
         ev,
         fight,
-        ev.amount + (ev.absorbed || 0)
-      );
+        amount: threatValue,
+      });
+    } else if (t === "damage") {
+      threatFunctions.sourceThreatenTarget({
+        ev,
+        fight,
+        amount: ev.amount + (ev.absorbed || 0),
+      });
     }
   };
 }
@@ -569,7 +652,12 @@ export function handler_threatOnBuff(threatValue) {
   return (ev, fight) => {
     let t = ev.type;
     if (t !== "applybuff" && t !== "refreshbuff") return;
-    threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, threatValue);
+    threatFunctions.unitThreatenEnemiesSplit({
+      ev,
+      unit: "source",
+      fight,
+      amount: threatValue,
+    });
   };
 }
 
