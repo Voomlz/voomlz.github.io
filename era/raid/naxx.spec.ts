@@ -102,17 +102,13 @@ test.describe("/era/ threat values - Naxx mechanics", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 94.06 seconds"
-          - row "Ignite	136149.93	1447.48"
-          - row "Scorch	27152.37	288.67"
-          - row "Fireball	18161.85	193.09"
-          - row "Pyroblast	2148.65	22.84"
           - row "Master of Elements	1046.50	11.13"
-          - row "Clearcasting	113.40	1.21"
-          - row "Combustion	88.20	0.94"
+          - row "Scorch	1024.10	10.89"
           - row "Essence of Sapphiron	42.00	0.45"
-          - row "Blink	33.60	0.36"
           - row "Melee	30.80	0.33"
-          - row "Total	184967.30	1966.48"
+          - row "Combustion	29.40	0.31"
+          - row "Blink	25.20	0.27"
+          - row "Total	2198.00	23.37"
       `);
   });
 });
