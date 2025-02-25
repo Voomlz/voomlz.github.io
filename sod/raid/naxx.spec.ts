@@ -16,27 +16,27 @@ test.describe("/sod/ threat values - Naxx mechanics", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 71.61 seconds"
-          - row "Heroic Strike	146113.73	2040.32"
-          - row "Shield Slam	132125.59	1844.99"
-          - row "Devastate	70653.86	986.61"
-          - row "Deep Wound	48671.08	679.64"
-          - row "Revenge	37232.68	519.92"
-          - row "Damage Shield Dmg +80	25357.90	354.10"
-          - row "Execute	24587.50	343.34"
-          - row "Melee	23597.00	329.51"
-          - row "Splintered Shield	17134.62	239.27"
+          - row "Heroic Strike	211923.35	2959.29"
+          - row "Shield Slam	191634.96	2675.98"
+          - row "Devastate	102476.36	1430.97"
+          - row "Deep Wound	70592.53	985.75"
+          - row "Revenge	54002.27	754.08"
+          - row "Damage Shield Dmg +80	36779.09	513.58"
+          - row "Execute	35661.71	497.98"
+          - row "Melee	34225.08	477.92"
+          - row "Splintered Shield	24852.05	347.03"
+          - row "Sunder Armor	8120.75	113.40"
           - row "Hateful Strike	6400.00	89.37"
-          - row "Sunder Armor	5598.97	78.18"
-          - row "Gift of Arthas	1335.24	18.65"
-          - row "Wild Strike	856.56	11.96"
-          - row "Defender's Resolve	751.20	10.49"
-          - row "Defensive Forecast	287.04	4.01"
-          - row "Gri'lek's Guard	221.76	3.10"
-          - row "Bloodrage	169.70	2.37"
-          - row "Battle Forecast	134.40	1.88"
-          - row "Greater Stoneshield	71.76	1.00"
-          - row "Rampage	71.76	1.00"
-          - row "Total	541372.33	7559.69"
+          - row "Gift of Arthas	1936.63	27.04"
+          - row "Wild Strike	1242.35	17.35"
+          - row "Defender's Resolve	1089.54	15.21"
+          - row "Defensive Forecast	416.32	5.81"
+          - row "Gri'lek's Guard	254.08	3.55"
+          - row "Bloodrage	210.10	2.93"
+          - row "Battle Forecast	194.93	2.72"
+          - row "Greater Stoneshield	104.08	1.45"
+          - row "Rampage	104.08	1.45"
+          - row "Total	782220.28	10922.88"
       `);
   });
 
@@ -53,19 +53,19 @@ test.describe("/sod/ threat values - Naxx mechanics", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 71.61 seconds"
-          - row "Searing Pain	243904.58	3405.87"
-          - row "Shadow Cleave	30054.42	419.68"
-          - row "Hateful Strike	4800.00	67.03"
-          - row "Melee	3931.35	54.90"
-          - row "Drain Life	3434.51	47.96"
-          - row "Dance of the Wicked	2150.28	30.03"
-          - row "Shadow and Flame	1263.78	17.65"
-          - row "Defender's Resolve	669.06	9.34"
-          - row "Spreading Pain	669.06	9.34"
-          - row "Demonic Grace	446.04	6.23"
-          - row "Fel Armor	301.70	4.21"
-          - row "The Burrower's Shell	74.34	1.04"
-          - row "Total	291699.12	4073.27"
+          - row "Searing Pain	353759.21	4939.87"
+          - row "Shadow Cleave	43590.94	608.70"
+          - row "Hateful Strike	6400.00	89.37"
+          - row "Melee	5702.03	79.62"
+          - row "Drain Life	4981.41	69.56"
+          - row "Dance of the Wicked	2719.49	37.97"
+          - row "Shadow and Flame	1832.99	25.60"
+          - row "Defender's Resolve	970.40	13.55"
+          - row "Spreading Pain	970.40	13.55"
+          - row "Demonic Grace	646.94	9.03"
+          - row "Fel Armor	437.58	6.11"
+          - row "The Burrower's Shell	107.82	1.51"
+          - row "Total	422119.20	5894.45"
       `);
   });
 
@@ -113,7 +113,7 @@ test.describe("/sod/ threat values - Naxx mechanics", () => {
     await loadTargetFromReport(
       page,
       "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
-      "44;160;15" // Patchwerk - Dedgame
+      "44;160;15" // Patchwerk - Tombah
     );
 
     await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
@@ -122,25 +122,60 @@ test.describe("/sod/ threat values - Naxx mechanics", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 74.48 seconds"
-          - row "Earth Shock	221192.28	2969.70"
-          - row "Lava Burst	157718.82	2117.51"
-          - row "Flame Shock	137968.08	1852.34"
-          - row "Lightning Shield	59093.88	793.39"
-          - row "Melee	38137.32	512.03"
-          - row "Damage Shield Dmg +80	22999.32	308.79"
-          - row "Splintered Shield	16138.50	216.67"
-          - row "Dragonbreath Chili	13709.46	184.06"
-          - row "Shamanistic Rage	11141.40	149.58"
-          - row "Hateful Strike	5600.00	75.18"
-          - row "Maelstrom Weapon	4698.00	63.07"
-          - row "Defender's Resolve	2610.00	35.04"
-          - row "Shield Mastery	1825.80	24.51"
-          - row "Elemental Devastation	939.60	12.61"
-          - row "Stormbraced	626.40	8.41"
-          - row "Flurry	522.00	7.01"
-          - row "Clearcasting	208.80	2.80"
-          - row "Maelstrom Ready!	208.80	2.80"
-          - row "Total	695338.46	9335.53"
+          - row "Earth Shock	320817.28	4307.26"
+          - row "Lava Burst	228755.38	3071.24"
+          - row "Flame Shock	200108.90	2686.64"
+          - row "Lightning Shield	85709.76	1150.73"
+          - row "Melee	55314.37	742.64"
+          - row "Damage Shield Dmg +80	33358.21	447.86"
+          - row "Splintered Shield	23407.28	314.26"
+          - row "Dragonbreath Chili	19884.20	266.96"
+          - row "Hateful Strike	18400.00	247.04"
+          - row "Shamanistic Rage	12834.18	172.31"
+          - row "Maelstrom Weapon	6813.98	91.48"
+          - row "Defender's Resolve	3785.54	50.82"
+          - row "Shield Mastery	2390.06	32.09"
+          - row "Elemental Devastation	1362.80	18.30"
+          - row "Stormbraced	908.53	12.20"
+          - row "Flurry	757.11	10.16"
+          - row "Clearcasting	302.84	4.07"
+          - row "Maelstrom Ready!	302.84	4.07"
+          - row "Total	1015213.28	13630.13"
+      `);
+  });
+
+  test("Patchwerk - Druid Tank - Seal Rank 5", async ({ page }) => {
+    await loadTargetFromReport(
+      page,
+      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/Gx1TbcvwNYDm2kjV",
+      "37;102;3" // Patchwerk - Miruqui
+    );
+
+    await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
+      - textbox
+      - text: "Miruqui - Started fight with threat coeff 1.45"
+      - table:
+          - rowgroup:
+              - row "Ability        Threat (*)  Per 84.26 seconds"
+          - row "Maul	621473.08	7376.01"
+          - row "Lacerate	533917.91	6336.85"
+          - row "Mangle	263544.75	3127.90"
+          - row "Frenzied Regeneration	149111.48	1769.74"
+          - row "Melee	80292.30	952.96"
+          - row "Damage Shield Dmg +80	55662.60	660.64"
+          - row "Tooth and Claw	52302.23	620.75"
+          - row "Hateful Strike	32800.00	389.29"
+          - row "Damage Shield Dmg +20	6844.73	81.24"
+          - row "Thorns	6046.50	71.76"
+          - row "Defender's Resolve	3132.00	37.17"
+          - row "Gore	2246.50	26.66"
+          - row "Animal Fury	2218.50	26.33"
+          - row "Wild Strike	2088.00	24.78"
+          - row "Primal Fury	1250.00	14.84"
+          - row "Natural Reaction	325.00	3.86"
+          - row "Berserk	261.00	3.10"
+          - row "Survival Instincts	261.00	3.10"
+          - row "Total	1813777.57	21526.98"
       `);
   });
 });
