@@ -1,0 +1,95 @@
+.app {
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+
+    :global(.p-card) {
+      border-radius: 0;
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+  }
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.selectors {
+  margin-bottom: 2rem;
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  :global(.p-card-title) {
+    text-align: center;
+  }
+}
+
+.selectorRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  label {
+    min-width: 60px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 0.5rem;
+
+    :global(.p-inputgroup) {
+      flex-direction: column;
+      align-items: stretch;
+
+      :global(.p-component) {
+        width: auto;
+      }
+
+      :global(.p-component:first-child) {
+        border-radius: 6px 6px 0 0;
+      }
+
+      :global(.p-component:last-child) {
+        border-radius: 0 0 6px 6px;
+      }
+    }
+  }
+}
+
+/* Color picker */
+.colorPicker {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  margin-left: 10px;
+}
+
+/* Info links section */
+.infoBar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 0.5rem;
+
+    button {
+      width: 100%;
+    }
+  }
+}
