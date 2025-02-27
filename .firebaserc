@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "misc-hosting-2b440"
+  },
+  "targets": {
+    "misc-hosting-2b440": {
+      "hosting": {
+        "wow-threat-test": [
+          "wow-threat-test"
+        ]
+      }
+    }
+  }
+}

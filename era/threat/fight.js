@@ -16,11 +16,11 @@ export class Fight {
    * @param {import("../base.js").GameVersionConfig} config
    * @param {string} reportId
    * @param {import("./wcl.js").WCLFight} fight
-   * @param {Record<string, import("./wcl.js").WCLUnit>} globalUnits
+   * @param {Record<string, import("./wcl.js").WCLUnit>} wclUnits
    * @param {'Alliance' | 'Horde' | undefined} faction
    * @param {number} gameVersion
    */
-  constructor(config, reportId, fight, globalUnits, faction, gameVersion) {
+  constructor(config, reportId, fight, wclUnits, faction, gameVersion) {
     /**
      * @type {import("../base.js").GameVersionConfig}
      */
@@ -39,23 +39,23 @@ export class Fight {
     /**
      * @type {Record<string, import("./wcl.js").WCLUnit>}
      */
-    this.globalUnits = globalUnits;
+    this.wclUnits = wclUnits;
     /** @type {'Alliance' | 'Horde' | undefined} */
     this.faction = faction;
     this.reportId = reportId;
     this.tranquilAir = false;
 
     /** @type {Record<string, NPC>} */
-    this.enemies = {};
+    this.enemies;
 
     /** @type {Record<string, Player>} */
-    this.friendlies = {};
+    this.friendlies;
 
     /** @type {Record<string, Unit>} */
-    this.units = {};
+    this.units;
 
-    /** @type {import("./wcl.js").WCLEvent[] | undefined} */
-    this.events = undefined;
+    /** @type {import("./wcl.js").WCLEvent[]} */
+    this.events;
 
     /** @type {Record<string, import("./wcl.js").WCLAuraUptime[]>} */
     this.mdAuras = {};
@@ -73,9 +73,9 @@ export class Fight {
     if (this.encounter === 791) {
       // High Priestess Arlokk
       let u;
-      for (let k in this.globalUnits) {
-        if (this.globalUnits[k].name === this.name) {
-          u = this.globalUnits[k];
+      for (let k in this.wclUnits) {
+        if (this.wclUnits[k].name === this.name) {
+          u = this.wclUnits[k];
           break;
         }
       }
@@ -133,10 +133,10 @@ export class Fight {
       let friendly = ev[unit + "IsFriendly"];
       let [a, b] = this.eventToFriendliesAndEnemies(ev, unit);
       let [id, ins] = k.split(".");
-      let u = this.globalUnits[id];
+      let u = this.wclUnits[id];
       if (!u) {
         if (globalThis.DEBUGMODE)
-          console.log("Invalid unit", ev, unit, this.globalUnits);
+          console.log("Invalid unit", ev, unit, this.wclUnits);
         return;
       }
       if (!createIfMissing) {
@@ -149,7 +149,7 @@ export class Fight {
         a[k] = new Player(
           this.config,
           k,
-          this.globalUnits[id],
+          this.wclUnits[id],
           this.events,
           this,
           this.tranquilAir
@@ -162,18 +162,19 @@ export class Fight {
 
   /**
    * @param {import("./wcl.js").WCLEvent} ev
+   * @param {import("../base.js").ThreatSettings} settings
    */
-  initFriendly(ev) {
+  initFriendly(ev, settings) {
     let key = Unit.eventToKey(ev, "source");
 
     if (!key || key == -1) return;
     if (!(key in this.units)) {
       let [friendlies] = this.eventToFriendliesAndEnemies(ev, "source");
       let [id] = key.split(".");
-      let wclUnit = this.globalUnits[id];
+      let wclUnit = this.wclUnits[id];
       if (!wclUnit) {
         if (globalThis.DEBUGMODE)
-          console.log("Invalid unit", ev, "source", this.globalUnits);
+          console.log("Invalid unit", ev, "source", this.wclUnits);
         return;
       }
       let type = wclUnit.type;
@@ -183,9 +184,10 @@ export class Fight {
         friendlies[key] = new Player(
           this.config,
           key,
-          this.globalUnits[id],
+          /** @type {import("./wcl.js").WCLFriendlyUnit} */ (this.wclUnits[id]),
           this.events,
           this,
+          settings.units[key] ?? {},
           this.tranquilAir
         );
       }
@@ -205,6 +207,9 @@ export class Fight {
     return [friendlies, enemies];
   }
 
+  /**
+   * @param {import("./wcl.js").WCLEvent} ev
+   */
   processEvent(ev) {
     {
       let _, i, u, friendlies, enemies;
@@ -311,18 +316,24 @@ export class Fight {
     f(ev, this);
   }
 
-  process() {
+  /**
+   * @param {import("../base.js").ThreatSettings} settings User configured settings
+   * @returns {{ enemies: Record<string, NPC> }}
+   */
+  process(settings) {
     this.friendlies = {};
     this.enemies = {};
     this.units = {};
+    this.tranquilAir = settings.tranquilAir ?? false;
 
     // Force instantiate all friendly units so we don't have a bug with MD pull
     const initialEvents = (this.events ?? []).slice(0, 450);
     for (let ev of initialEvents) {
-      this.initFriendly(ev);
+      this.initFriendly(ev, settings);
     }
     for (let ev of this.events ?? []) {
       this.processEvent(ev);
     }
+    return { enemies: { ...this.enemies } };
   }
 }
