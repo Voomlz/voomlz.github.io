@@ -362,4 +362,4 @@ export const spellFunctions = {
 // These spells will be ignored in the WCL query
 export const zeroThreatSpells = Object.entries(spellFunctions)
   .filter(([, handler]) => handler === handler_zero)
-  .map(([id]) => id);
+  .map(([id]) => Number(id));
