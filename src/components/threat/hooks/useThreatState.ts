@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { Report } from "../../../../era/threat/report.js";
 import { Fight } from "../../../../era/threat/fight.js";
 import { NPC, ThreatTrace } from "../../../../era/threat/unit.js";
@@ -62,40 +62,73 @@ function createInitialState(
 export function useThreatState(
   config: GameVersionConfig
 ): [ThreatState, ThreatStateHandlers] {
+  // Memoize URL parameters to prevent unnecessary recalculations
+  const urlParams = useMemo(() => getUrlParameters(), []);
+
   // Initialize state from URL parameters
-  const [state, setState] = useState<ThreatState>(() => {
-    const urlParams = getUrlParameters();
-    return createInitialState(config, urlParams);
-  });
+  const [state, setState] = useState<ThreatState>(() =>
+    createInitialState(config, urlParams)
+  );
 
-  // Effect to handle data fetching based on URL parameters
+  // Memoize error handler to prevent recreation on each render
+  const handleStateError = useCallback((error: unknown) => {
+    handleError(error, setState);
+  }, []);
+
+  // Effect to fetch report data
   useEffect(() => {
-    const loadInitialState = async () => {
-      if (!state.id || !state.report) return;
+    if (!state.id || !state.report) return;
 
+    const fetchReport = async () => {
       try {
         setState((prev) => ({ ...prev, isLoading: true, error: null }));
-        await loadReportData(state.report, setState);
+        await state.report!.fetch();
         setState((prev) => ({ ...prev, isLoading: false }));
       } catch (error) {
-        handleError(error, setState);
+        handleStateError(error);
       }
     };
 
-    loadInitialState();
-  }, [state.id, state.report, config]);
+    fetchReport();
+  }, [state.id, state.report, handleStateError]);
 
-  const handlers: ThreatStateHandlers = {
-    setReport: (report: Report) =>
-      setState((prev) => ({ ...prev, report, error: null })),
-    setFight: (fight: Fight) =>
-      setState((prev) => ({ ...prev, fight, error: null })),
-    setEnemy: (enemy: NPC) =>
-      setState((prev) => ({ ...prev, enemy, error: null })),
-    setThreatTrace: (trace: ThreatTrace) =>
-      setState((prev) => ({ ...prev, threatTrace: trace, error: null })),
-    clearError: () => setState((prev) => ({ ...prev, error: null })),
-  };
+  // Effect to handle fight data loading
+  useEffect(() => {
+    if (!state.report || !urlParams.fightId) return;
+
+    const fetchFight = async () => {
+      try {
+        const fightIndex = parseInt(urlParams.fightId!) - 1;
+        const fightIds = Object.keys(state.report!.fights);
+
+        if (fightIndex >= 0 && fightIndex < fightIds.length) {
+          const fightId = fightIds[fightIndex];
+          const fight = state.report!.fights[fightId];
+          await loadFightData(fight, urlParams, setState);
+        }
+      } catch (error) {
+        handleStateError(error);
+      }
+    };
+
+    fetchFight();
+  }, [state.report, urlParams.fightId, handleStateError]);
+
+  // Memoize handlers to prevent recreation on each render
+  const handlers = useMemo(
+    () => ({
+      setReport: (report: Report) =>
+        setState((prev) => ({ ...prev, report, error: null })),
+      setFight: (fight: Fight) =>
+        setState((prev) => ({ ...prev, fight, error: null })),
+      setEnemy: (enemy: NPC) =>
+        setState((prev) => ({ ...prev, enemy, error: null })),
+      setThreatTrace: (trace: ThreatTrace) =>
+        setState((prev) => ({ ...prev, threatTrace: trace, error: null })),
+      clearError: () => setState((prev) => ({ ...prev, error: null })),
+    }),
+    []
+  );
 
   return [state, handlers];
 }
