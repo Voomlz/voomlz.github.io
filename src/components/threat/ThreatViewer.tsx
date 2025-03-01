@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Report } from "../../../era/threat/report.js";
-import { Fight } from "../../../era/threat/fight.js";
-import { NPC, ThreatTrace } from "../../../era/threat/unit.js";
-import { getParameterByName } from "./utils";
 import { GameVersionConfig } from "../../../era/base";
 
 import ReportSelector from "./ReportSelector";
@@ -14,6 +10,7 @@ import ThreatTable from "./ThreatTable";
 import Disclaimer from "./Disclaimer";
 import Changelog from "./Changelog";
 import Tutorial from "./Tutorial";
+import { useThreatState } from "./hooks/useThreatState";
 
 /**
  * Props for ThreatViewer component
@@ -26,11 +23,9 @@ export interface ThreatViewerProps {
  * Main container component for threat visualization
  */
 const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
-  const [report, setReport] = useState<Report | null>(null);
-  const [fight, setFight] = useState<Fight | null>(null);
-  const [enemy, setEnemy] = useState<NPC | null>(null);
-  const [threatTrace, setThreatTrace] = useState<ThreatTrace | null>(null);
-  const [plotXRange, setPlotXRange] = useState<[number, number]>([0, 0]);
+  const [state, handlers] = useThreatState(config);
+  const { report, fight, enemy, threatTrace } = state;
+  const { setReport, setFight, setEnemy, setThreatTrace } = handlers;
 
   // Modal states
   const [disclaimerOpen, setDisclaimerOpen] = useState(false);
@@ -39,6 +34,7 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
 
   // Cache for plot data to be shared between components
   const [plotData, setPlotData] = useState<any[]>([]);
+  const [plotXRange, setPlotXRange] = useState<[number, number]>([0, 0]);
 
   // Setup global props for backward compatibility
   useEffect(() => {
@@ -47,95 +43,15 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
     window.recolorPlot = () => {
       // This would trigger a re-render of the plot component
       if (enemy) {
-        setEnemy((prevEnemy) => {
-          if (!prevEnemy) return null;
-          return Object.create(
-            Object.getPrototypeOf(prevEnemy),
-            Object.getOwnPropertyDescriptors(prevEnemy)
-          );
-        });
+        setEnemy(
+          Object.create(
+            Object.getPrototypeOf(enemy),
+            Object.getOwnPropertyDescriptors(enemy)
+          )
+        );
       }
     };
-  }, [plotXRange, plotData, enemy]);
-
-  // Load parameters from URL on initial render
-  useEffect(() => {
-    const idParam = getParameterByName("id");
-    const fightParam = getParameterByName("fightId");
-    const enemyParam = getParameterByName("enemy");
-    const targetParam = getParameterByName("target");
-
-    // Load the report if an ID is specified
-    if (idParam) {
-      const newReport = new Report(config, idParam);
-      setReport(newReport);
-
-      newReport.fetch().then(() => {
-        if (fightParam) {
-          const fightIndex = parseInt(fightParam) - 1;
-          const fightIds = Object.keys(newReport.fights);
-          if (fightIndex >= 0 && fightIndex < fightIds.length) {
-            const fightId = fightIds[fightIndex];
-            const newFight = newReport.fights[fightId];
-            setFight(newFight);
-
-            newFight.fetch().then(() => {
-              newFight.process();
-
-              if (enemyParam) {
-                const enemyIndex = parseInt(enemyParam);
-                const enemyIds = Object.keys(newFight.enemies);
-                if (enemyIndex >= 0 && enemyIndex < enemyIds.length) {
-                  const enemyId = enemyIds[enemyIndex];
-                  const newEnemy = newFight.enemies[enemyId];
-                  setEnemy(newEnemy);
-
-                  if (targetParam) {
-                    const [reportId, fightId, enemyId, targetId] =
-                      targetParam.split(";");
-                    if (targetId && newEnemy.threat[targetId]) {
-                      setThreatTrace(newEnemy.threat[targetId]);
-                    }
-                  }
-                }
-              }
-            });
-          }
-        }
-      });
-    }
-  }, [config]);
-
-  const handleReportSelected = (selectedReport: Report) => {
-    setReport(selectedReport);
-    setFight(null);
-    setEnemy(null);
-    setThreatTrace(null);
-  };
-
-  const handleFightSelected = (selectedFight: Fight) => {
-    setFight(selectedFight);
-    setEnemy(null);
-    setThreatTrace(null);
-  };
-
-  const handleEnemySelected = (selectedEnemy: NPC) => {
-    setEnemy(selectedEnemy);
-    setThreatTrace(null);
-  };
-
-  const handleTargetSelected = (selectedTrace: ThreatTrace) => {
-    setThreatTrace(selectedTrace);
-  };
-
-  const handleTargetClicked = (targetKey: string) => {
-    if (!targetKey || !enemy) return;
-
-    const [reportId, fightId, enemyId, targetId] = targetKey.split(";");
-    if (targetId && enemy.threat[targetId]) {
-      setThreatTrace(enemy.threat[targetId]);
-    }
-  };
+  }, [plotXRange, plotData, enemy, setEnemy]);
 
   return (
     <div className="threat-viewer">
@@ -156,10 +72,7 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
       <div className="selectors">
         <div className="selector-row">
           <label>Report:</label>
-          <ReportSelector
-            config={config}
-            onReportSelected={handleReportSelected}
-          />
+          <ReportSelector config={config} onReportSelected={setReport} />
         </div>
 
         <div className="selector-row">
@@ -167,7 +80,7 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
           <FightSelector
             config={config}
             report={report}
-            onFightSelected={handleFightSelected}
+            onFightSelected={setFight}
           />
         </div>
 
@@ -176,7 +89,7 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
           <EnemySelector
             config={config}
             fight={fight}
-            onEnemySelected={handleEnemySelected}
+            onEnemySelected={setEnemy}
           />
         </div>
 
@@ -185,7 +98,7 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
           <TargetSelector
             config={config}
             enemy={enemy}
-            onTargetSelected={handleTargetSelected}
+            onTargetSelected={setThreatTrace}
           />
         </div>
       </div>
@@ -196,7 +109,13 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
           reportId={report?.reportId || ""}
           fight={fight}
           enemy={enemy}
-          onTargetClicked={handleTargetClicked}
+          onTargetClicked={(targetKey) => {
+            if (!targetKey || !enemy) return;
+            const [reportId, fightId, enemyId, targetId] = targetKey.split(";");
+            if (targetId && enemy.threat[targetId]) {
+              setThreatTrace(enemy.threat[targetId]);
+            }
+          }}
         />
       )}
 
