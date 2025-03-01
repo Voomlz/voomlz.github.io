@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { GameVersionConfig } from "../../../era/base";
 import { Button } from "primereact/button";
+import { ProgressSpinner } from "primereact/progressspinner";
+import { Message } from "primereact/message";
 
 import { ReportSelector } from "./ReportSelector";
 import { FightSelector } from "./FightSelector";
@@ -26,8 +28,9 @@ export interface ThreatViewerProps {
  */
 export const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
   const [state, handlers] = useThreatState(config);
-  const { report, fight, enemy, threatTrace } = state;
-  const { setReport, setFight, setEnemy, setThreatTrace } = handlers;
+  const { report, fight, enemy, threatTrace, isLoading, error } = state;
+  const { setReport, setFight, setEnemy, setThreatTrace, clearError } =
+    handlers;
 
   // Modal states
   const [disclaimerOpen, setDisclaimerOpen] = useState(false);
@@ -79,6 +82,22 @@ export const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
         />
       </div>
 
+      {error && (
+        <div className="error-message mb-3">
+          <i
+            className="pi pi-exclamation-triangle"
+            style={{ marginRight: "0.5rem" }}
+          />
+          {error}
+          <Button
+            icon="pi pi-times"
+            onClick={clearError}
+            className="p-button-text p-button-rounded"
+            style={{ marginLeft: "auto" }}
+          />
+        </div>
+      )}
+
       <div className="selectors">
         <div className="selector-row">
           <label>Report:</label>
@@ -108,6 +127,13 @@ export const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
           />
         </div>
       </div>
+
+      {isLoading && (
+        <div className="loading-overlay">
+          <ProgressSpinner />
+          <div>Loading data...</div>
+        </div>
+      )}
 
       {enemy && fight && (
         <ThreatPlot
