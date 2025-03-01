@@ -5,7 +5,7 @@ import { NPC, ThreatTrace } from "../../../../era/threat/unit.js";
 import { GameVersionConfig } from "../../../../era/base";
 import { getParameterByName, printError } from "../utils";
 
-// URL parameter types
+// Types
 interface UrlParams {
   reportId: string | null;
   fightId: string | null;
@@ -13,7 +13,6 @@ interface UrlParams {
   targetId: string | null;
 }
 
-// Core state types
 export interface ThreatState {
   id: string | null;
   report: Report | null;
@@ -32,7 +31,10 @@ export interface ThreatStateHandlers {
   clearError: () => void;
 }
 
-// URL parameter handling
+/**
+ * Gets URL parameters for threat data
+ * @returns {UrlParams} Parsed URL parameters
+ */
 function getUrlParameters(): UrlParams {
   const reportId = extractReportIdFromUrl(getParameterByName("id"));
   const fightId = getParameterByName("fightId");
@@ -43,37 +45,51 @@ function getUrlParameters(): UrlParams {
   return { reportId, fightId, enemyId, targetId };
 }
 
-// Initial state factory
-function createInitialState(
-  config: GameVersionConfig,
-  urlParams: UrlParams
-): ThreatState {
-  return {
-    id: urlParams.reportId,
-    report: urlParams.reportId ? new Report(config, urlParams.reportId) : null,
-    fight: null,
-    enemy: null,
-    threatTrace: null,
-    isLoading: false,
-    error: null,
-  };
+/**
+ * Custom hook for managing URL parameters related to threat data
+ * @returns {UrlParams} Memoized URL parameters
+ */
+function useUrlParameters(): UrlParams {
+  return useMemo(() => getUrlParameters(), []);
 }
 
-export function useThreatState(
-  config: GameVersionConfig
-): [ThreatState, ThreatStateHandlers] {
-  // Memoize URL parameters to prevent unnecessary recalculations
-  const urlParams = useMemo(() => getUrlParameters(), []);
-
-  // Initialize state from URL parameters
-  const [state, setState] = useState<ThreatState>(() =>
-    createInitialState(config, urlParams)
+/**
+ * Custom hook for managing error state and handling
+ * @param setState - State setter function for ThreatState
+ * @returns {(error: unknown) => void} Error handler function
+ */
+function useErrorHandler(
+  setState: React.Dispatch<React.SetStateAction<ThreatState>>
+): (error: unknown) => void {
+  return useCallback(
+    (error: unknown) => {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "An error occurred while loading data";
+      setState((prev) => ({
+        ...prev,
+        isLoading: false,
+        error: errorMessage,
+      }));
+      printError(error);
+    },
+    [setState]
   );
+}
 
-  // Memoize error handler to prevent recreation on each render
-  const handleStateError = useCallback((error: unknown) => {
-    handleError(error, setState);
-  }, []);
+/**
+ * Custom hook for managing threat data loading
+ * @param state - Current threat state
+ * @param setState - State setter function
+ * @param handleError - Error handler function
+ */
+function useDataLoading(
+  state: ThreatState,
+  setState: React.Dispatch<React.SetStateAction<ThreatState>>,
+  handleError: (error: unknown) => void
+) {
+  const urlParams = useUrlParameters();
 
   // Effect to fetch report data
   useEffect(() => {
@@ -85,12 +101,12 @@ export function useThreatState(
         await state.report!.fetch();
         setState((prev) => ({ ...prev, isLoading: false }));
       } catch (error) {
-        handleStateError(error);
+        handleError(error);
       }
     };
 
     fetchReport();
-  }, [state.id, state.report, handleStateError]);
+  }, [state.id, state.report, handleError, setState]);
 
   // Effect to handle fight data loading
   useEffect(() => {
@@ -107,15 +123,23 @@ export function useThreatState(
           await loadFightData(fight, urlParams, setState);
         }
       } catch (error) {
-        handleStateError(error);
+        handleError(error);
       }
     };
 
     fetchFight();
-  }, [state.report, urlParams.fightId, handleStateError]);
+  }, [state.report, urlParams.fightId, handleError, setState, urlParams]);
+}
 
-  // Memoize handlers to prevent recreation on each render
-  const handlers = useMemo(
+/**
+ * Custom hook for creating state handlers
+ * @param setState - State setter function
+ * @returns {ThreatStateHandlers} Object containing state handler functions
+ */
+function useStateHandlers(
+  setState: React.Dispatch<React.SetStateAction<ThreatState>>
+): ThreatStateHandlers {
+  return useMemo(
     () => ({
       setReport: (report: Report) =>
         setState((prev) => ({ ...prev, report, error: null })),
@@ -127,10 +151,65 @@ export function useThreatState(
         setState((prev) => ({ ...prev, threatTrace: trace, error: null })),
       clearError: () => setState((prev) => ({ ...prev, error: null })),
     }),
-    []
+    [setState]
+  );
+}
+
+/**
+ * Main hook for managing threat state in the application
+ *
+ * This hook handles:
+ * - URL parameter parsing
+ * - Report, fight, enemy, and threat trace state management
+ * - Data loading and error handling
+ * - State update handlers
+ *
+ * @param config - Game version configuration
+ * @returns {[ThreatState, ThreatStateHandlers]} Tuple containing current state and state handlers
+ *
+ * @example
+ * ```tsx
+ * const [state, handlers] = useThreatState(config);
+ * const { report, fight, enemy, threatTrace, isLoading, error } = state;
+ * const { setReport, setFight, setEnemy, setThreatTrace, clearError } = handlers;
+ * ```
+ */
+export function useThreatState(
+  config: GameVersionConfig
+): [ThreatState, ThreatStateHandlers] {
+  const urlParams = useUrlParameters();
+
+  const [state, setState] = useState<ThreatState>(() =>
+    createInitialState(config, urlParams)
   );
 
+  const handleError = useErrorHandler(setState);
+  const handlers = useStateHandlers(setState);
+
+  useDataLoading(state, setState, handleError);
+
   return [state, handlers];
+}
+
+/**
+ * Creates the initial threat state from URL parameters
+ * @param config - Game version configuration
+ * @param urlParams - URL parameters
+ * @returns {ThreatState} Initial threat state
+ */
+function createInitialState(
+  config: GameVersionConfig,
+  urlParams: UrlParams
+): ThreatState {
+  return {
+    id: urlParams.reportId,
+    report: urlParams.reportId ? new Report(config, urlParams.reportId) : null,
+    fight: null,
+    enemy: null,
+    threatTrace: null,
+    isLoading: false,
+    error: null,
+  };
 }
 
 // Helper functions for data loading and error handling
@@ -140,16 +219,16 @@ async function loadReportData(
 ) {
   await report.fetch();
 
-  const urlParams = getUrlParameters();
-  if (!urlParams.fightId) return;
+  const params = getUrlParameters();
+  if (!params.fightId) return;
 
-  const fightIndex = parseInt(urlParams.fightId) - 1;
+  const fightIndex = parseInt(params.fightId) - 1;
   const fightIds = Object.keys(report.fights);
 
   if (fightIndex >= 0 && fightIndex < fightIds.length) {
     const fightId = fightIds[fightIndex];
     const fight = report.fights[fightId];
-    await loadFightData(fight, urlParams, setState);
+    await loadFightData(fight, params, setState);
   }
 }
 
