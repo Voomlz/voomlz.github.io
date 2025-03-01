@@ -74,6 +74,15 @@
   flex-wrap: wrap;
 }
 
+.plot-controls .flex {
+  display: flex;
+  align-items: center;
+}
+
+.plot-controls .ml-2 {
+  margin-left: 0.5rem;
+}
+
 /* Checkbox styles */
 .checkbox {
   margin-right: 5px;
