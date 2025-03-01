@@ -24,7 +24,7 @@ interface UnitWithGlobal extends Unit {
 }
 
 // Extend GameVersionConfig type to include required properties
-interface ExtendedGameVersionConfig extends GameVersionConfig {
+export interface ExtendedGameVersionConfig extends GameVersionConfig {
   buffMultipliers: Record<string, (spellSchool?: string) => number>;
   buffNames: Record<string, string>;
 }
@@ -37,15 +37,19 @@ export interface ThreatTableProps {
   trace: ThreatTrace & {
     target: UnitWithGlobal;
   };
+  plotRange: [number, number];
 }
 
 /**
  * Component for displaying the threat table, buff table, and talent table
  */
-const ThreatTable: React.FC<ThreatTableProps> = ({ config, trace }) => {
-  // Get the current plot range from the global state or use a default
-  const currentRange = window.plotXRange || [0, 100];
-  const width = currentRange[1] - currentRange[0];
+const ThreatTable: React.FC<ThreatTableProps> = ({
+  config,
+  trace,
+  plotRange,
+}) => {
+  // Get the current plot range from props
+  const width = plotRange[1] - plotRange[0];
 
   // Process threat data using useMemo instead of useEffect
   const { threatBySkill, rangeWidth } = useMemo<ThreatData>(() => {
@@ -54,12 +58,12 @@ const ThreatTable: React.FC<ThreatTableProps> = ({ config, trace }) => {
     }
 
     // Get threat by skill for the current range
-    const threatData = trace.threatBySkill(currentRange);
+    const threatData = trace.threatBySkill(plotRange);
     return {
       threatBySkill: threatData,
       rangeWidth: width,
     };
-  }, [trace, currentRange, width]);
+  }, [trace, plotRange, width]);
 
   if (!trace) {
     return <div>No target selected</div>;
@@ -236,7 +240,6 @@ const ThreatTable: React.FC<ThreatTableProps> = ({ config, trace }) => {
 // Add window global types
 declare global {
   interface Window {
-    plotXRange: [number, number];
     recolorPlot: () => void;
     plotData: any[];
   }

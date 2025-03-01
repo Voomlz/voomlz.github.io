@@ -5,30 +5,9 @@ import { NPC } from "../../../era/threat/unit.js";
 import { GameVersionConfig } from "../../../era/base";
 import { classColors, getColor } from "../../../era/colors.js";
 import { Checkbox } from "primereact/checkbox";
+import { Data } from "plotly.js";
 
 const SCROLLBAR_WIDTH = 16;
-
-/**
- * Plot data structure for Plotly
- */
-export interface PlotData {
-  unitKey: string;
-  x: number[];
-  y: number[];
-  text: string[];
-  type: string;
-  mode: string;
-  name: string;
-  hoverinfo: string;
-  line: { shape: string };
-  marker: {
-    line: {
-      width: (string | number | null)[];
-      color: (string | number | null)[];
-    };
-    color?: string;
-  };
-}
 
 /**
  * Props for the ThreatPlot component
@@ -38,6 +17,8 @@ export interface ThreatPlotProps {
   reportId: string;
   fight: Fight;
   enemy: NPC;
+  plotRange: [number, number];
+  setPlotRange: (plotWindow: [number, number]) => void;
   onTargetClicked: (target: string) => void;
 }
 
@@ -49,14 +30,15 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
   reportId,
   fight,
   enemy,
+  plotRange,
+  setPlotRange,
   onTargetClicked,
 }) => {
-  const [plotData, setPlotData] = useState<PlotData[]>([]);
+  const [plotData, setPlotData] = useState<Data[]>([]);
   const [colorByClass, setColorByClass] = useState<boolean>(true);
   const [debugCoefficients, setDebugCoefficients] = useState<boolean>(
     localStorage.getItem("debugCoefficients") === "true"
   );
-  const [plotXRange, setPlotXRange] = useState<[number, number]>([0, 0]);
   const [title, setTitle] = useState<string>("");
 
   // Generate plot data when the enemy changes
@@ -64,11 +46,13 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
     if (!enemy) return;
 
     // Generate the threat plot data
-    const data: PlotData[] = [];
+    const data: Data[] = [];
 
     for (const unitId in enemy.threat) {
       const unitInfo = enemy.threat[unitId];
       const unit = enemy.fightUnits[unitId];
+      if (!unit || !unitInfo) continue;
+
       const time: number[] = [];
       const texts: string[] = [];
 
@@ -110,14 +94,14 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
           text +=
             "<br>Invulnerability: " +
             unitInfo.invulnerabilityHistory[i]
-              .map((x: number) => config.invulnerabilityBuffs[x])
+              .map((x: string) => config.invulnerabilityBuffs[x])
               .join("+");
         }
 
         texts.push(text);
       }
 
-      const trace: PlotData = {
+      const trace: Data = {
         unitKey: unit.key,
         x: time,
         y: unitInfo.threat,
@@ -136,7 +120,7 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
       };
 
       // Set color based on class if enabled
-      if (colorByClass) {
+      if (colorByClass && unit.type && classColors[unit.type]) {
         trace.marker.color = classColors[unit.type];
       }
 
@@ -158,7 +142,7 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
 
     setPlotData(data);
     setTitle(`Threat - ${enemy.name}`);
-    setPlotXRange([0, (fight.end - fight.start) / 1000]);
+    setPlotRange([0, (fight.end - fight.start) / 1000]);
   }, [enemy, fight, config, debugCoefficients, colorByClass]);
 
   const handleColorByClassChange = (checked: boolean) => {
@@ -185,9 +169,9 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
     const xRange = [event["xaxis.range[0]"], event["xaxis.range[1]"]];
 
     if (xRange[0] === undefined || xRange[1] === undefined) return;
-    if (xRange[0] === plotXRange[0] && xRange[1] === plotXRange[1]) return;
+    if (xRange[0] === plotRange[0] && xRange[1] === plotRange[1]) return;
 
-    setPlotXRange([xRange[0], xRange[1]]);
+    setPlotRange([xRange[0], xRange[1]]);
   };
 
   return (
@@ -207,7 +191,7 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
             rangemode: "tozero",
             gridcolor: "#666",
             linecolor: "#999",
-            range: plotXRange,
+            range: plotRange,
           },
           yaxis: {
             title: "Threat",

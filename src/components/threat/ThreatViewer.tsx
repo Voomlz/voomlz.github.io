@@ -7,7 +7,7 @@ import FightSelector from "./FightSelector";
 import EnemySelector from "./EnemySelector";
 import TargetSelector from "./TargetSelector";
 import ThreatPlot from "./ThreatPlot";
-import ThreatTable from "./ThreatTable";
+import ThreatTable, { ExtendedGameVersionConfig } from "./ThreatTable";
 import Disclaimer from "./Disclaimer";
 import Changelog from "./Changelog";
 import Tutorial from "./Tutorial";
@@ -36,11 +36,10 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
 
   // Cache for plot data to be shared between components
   const [plotData, setPlotData] = useState<any[]>([]);
-  const [plotXRange, setPlotXRange] = useState<[number, number]>([0, 0]);
+  const [plotRange, setPlotRange] = useState<[number, number]>([0, 0]);
 
   // Setup global props for backward compatibility
   useEffect(() => {
-    window.plotXRange = plotXRange;
     window.plotData = plotData;
     window.recolorPlot = () => {
       // This would trigger a re-render of the plot component
@@ -53,7 +52,7 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
         );
       }
     };
-  }, [plotXRange, plotData, enemy, setEnemy]);
+  }, [plotData, enemy, setEnemy]);
 
   return (
     <div className="threat-viewer">
@@ -116,6 +115,8 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
           reportId={report?.reportId || ""}
           fight={fight}
           enemy={enemy}
+          plotRange={plotRange}
+          setPlotRange={setPlotRange}
           onTargetClicked={(targetKey) => {
             if (!targetKey || !enemy) return;
             const [reportId, fightId, enemyId, targetId] = targetKey.split(";");
@@ -126,7 +127,13 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
         />
       )}
 
-      {threatTrace && <ThreatTable config={config} trace={threatTrace} />}
+      {threatTrace && (
+        <ThreatTable
+          config={config as ExtendedGameVersionConfig}
+          trace={threatTrace}
+          plotRange={plotRange}
+        />
+      )}
 
       {/* Modal components */}
       <Disclaimer
