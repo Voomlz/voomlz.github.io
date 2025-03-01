@@ -3,7 +3,7 @@ import { Report } from "../../../../era/threat/report.js";
 import { Fight } from "../../../../era/threat/fight.js";
 import { NPC, ThreatTrace } from "../../../../era/threat/unit.js";
 import { GameVersionConfig } from "../../../../era/base";
-import { getParameterByName } from "../utils";
+import { getParameterByName, printError } from "../utils";
 
 export interface ThreatState {
   id: string | null;
@@ -11,6 +11,8 @@ export interface ThreatState {
   fight: Fight | null;
   enemy: NPC | null;
   threatTrace: ThreatTrace | null;
+  isLoading: boolean;
+  error: string | null;
 }
 
 export interface ThreatStateHandlers {
@@ -18,6 +20,7 @@ export interface ThreatStateHandlers {
   setFight: (fight: Fight) => void;
   setEnemy: (enemy: NPC) => void;
   setThreatTrace: (trace: ThreatTrace) => void;
+  clearError: () => void;
 }
 
 export function useThreatState(
@@ -33,6 +36,8 @@ export function useThreatState(
       fight: null,
       enemy: null,
       threatTrace: null,
+      isLoading: false,
+      error: null,
     };
   });
 
@@ -42,6 +47,8 @@ export function useThreatState(
       if (!state.id || !state.report) return;
 
       try {
+        setState((prev) => ({ ...prev, isLoading: true, error: null }));
+
         // Fetch report data
         await state.report.fetch();
 
@@ -87,8 +94,19 @@ export function useThreatState(
             }
           }
         }
+
+        setState((prev) => ({ ...prev, isLoading: false }));
       } catch (error) {
-        console.error("Error loading initial state:", error);
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : "An error occurred while loading data";
+        setState((prev) => ({
+          ...prev,
+          isLoading: false,
+          error: errorMessage,
+        }));
+        printError(error);
       }
     };
 
@@ -96,47 +114,24 @@ export function useThreatState(
   }, [state.id, state.report, config]);
 
   const handlers: ThreatStateHandlers = {
-    setReport: (report: Report) => {
-      setState((prev) => ({
-        ...prev,
-        report,
-        fight: null,
-        enemy: null,
-        threatTrace: null,
-      }));
-    },
-
-    setFight: (fight: Fight) => {
-      setState((prev) => ({
-        ...prev,
-        fight,
-        enemy: null,
-        threatTrace: null,
-      }));
-    },
-
-    setEnemy: (enemy: NPC) => {
-      setState((prev) => ({
-        ...prev,
-        enemy,
-        threatTrace: null,
-      }));
-    },
-
-    setThreatTrace: (threatTrace: ThreatTrace) => {
-      setState((prev) => ({
-        ...prev,
-        threatTrace,
-      }));
-    },
+    setReport: (report: Report) =>
+      setState((prev) => ({ ...prev, report, error: null })),
+    setFight: (fight: Fight) =>
+      setState((prev) => ({ ...prev, fight, error: null })),
+    setEnemy: (enemy: NPC) =>
+      setState((prev) => ({ ...prev, enemy, error: null })),
+    setThreatTrace: (trace: ThreatTrace) =>
+      setState((prev) => ({ ...prev, threatTrace: trace, error: null })),
+    clearError: () => setState((prev) => ({ ...prev, error: null })),
   };
 
   return [state, handlers];
 }
-function extractReportIdFromUrl(idParam: any) {
-  const urlmatch = idParam?.match(
+
+function extractReportIdFromUrl(idParam: string | null): string | null {
+  if (!idParam) return null;
+  const urlmatch = idParam.match(
     /https:\/\/(?:[a-z]+\.)?(?:classic\.|www\.)?warcraftlogs\.com\/reports\/((?:a:)?\w+)/
   );
-  if (urlmatch) idParam = urlmatch[1];
-  return idParam;
+  return urlmatch ? urlmatch[1] : idParam;
 }
