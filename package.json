@@ -16,6 +16,8 @@
   "dependencies": {
     "@types/plotly.js": "^2.35.2",
     "plotly.js": "^3.0.1",
+    "primereact": "^10.5.1",
+    "primeicons": "^6.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-plotly.js": "^2.6.0"

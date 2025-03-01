@@ -4,7 +4,7 @@ import { Fight } from "../../../era/threat/fight.js";
 import { NPC } from "../../../era/threat/unit.js";
 import { GameVersionConfig } from "../../../era/base";
 import { classColors, getColor } from "../../../era/colors.js";
-import Checkbox from "./Checkbox";
+import { Checkbox } from "primereact/checkbox";
 
 const SCROLLBAR_WIDTH = 16;
 
@@ -230,30 +230,36 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
       />
 
       <div className="plot-controls">
-        <Checkbox
-          checked={colorByClass}
-          text="Color by class"
-          onChange={handleColorByClassChange}
-        />
+        <div className="flex align-items-center">
+          <Checkbox
+            checked={colorByClass}
+            onChange={(e) => handleColorByClassChange(e.checked === true)}
+          />
+          <label className="ml-2">Color by class</label>
+        </div>
 
-        <Checkbox
-          checked={debugCoefficients}
-          text="Display detailed coefficients"
-          onChange={handleDebugCoefficientsChange}
-        />
+        <div className="flex align-items-center">
+          <Checkbox
+            checked={debugCoefficients}
+            onChange={(e) => handleDebugCoefficientsChange(e.checked === true)}
+          />
+          <label className="ml-2">Display detailed coefficients</label>
+        </div>
 
         {fight.faction === "Horde" && (
-          <Checkbox
-            checked={fight.tranquilAir}
-            text="Tranquil Air"
-            onChange={(checked) => {
-              fight.tranquilAir = checked;
-              fight.process();
-              // Let the parent component handle re-rendering
-              // by triggering a re-selection of the enemy
-              onTargetClicked(`${reportId};${fight.id};${enemy.key};`);
-            }}
-          />
+          <div className="flex align-items-center">
+            <Checkbox
+              checked={fight.tranquilAir}
+              onChange={(e) => {
+                fight.tranquilAir = e.checked === true;
+                fight.process();
+                // Let the parent component handle re-rendering
+                // by triggering a re-selection of the enemy
+                onTargetClicked(`${reportId};${fight.id};${enemy.key};`);
+              }}
+            />
+            <label className="ml-2">Tranquil Air</label>
+          </div>
         )}
       </div>
     </div>

@@ -2,7 +2,10 @@ import React from "react";
 import "./App.css";
 import * as config from "../era/spells";
 import ThreatViewer from "./components/threat/ThreatViewer";
-import "./components/threat/ThreatViewer.css";
+
+import "primereact/resources/themes/lara-dark-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 
 function App() {
   return (

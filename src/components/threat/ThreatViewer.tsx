@@ -11,6 +11,7 @@ import Disclaimer from "./Disclaimer";
 import Changelog from "./Changelog";
 import Tutorial from "./Tutorial";
 import { useThreatState } from "./hooks/useThreatState";
+import "./ThreatViewer.css";
 
 /**
  * Props for ThreatViewer component
