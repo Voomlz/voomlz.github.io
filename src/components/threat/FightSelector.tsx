@@ -3,6 +3,7 @@ import { Report } from "../../../era/threat/report.js";
 import { Fight } from "../../../era/threat/fight.js";
 import { enableInput, printError, encounterSort, TRASH_ID } from "./utils";
 import { GameVersionConfig } from "../../../era/base";
+import { Dropdown } from "primereact/dropdown";
 
 /**
  * Props for the FightSelector component
@@ -11,6 +12,12 @@ export interface FightSelectorProps {
   config: GameVersionConfig;
   report: Report | null;
   onFightSelected: (fight: Fight) => void;
+}
+
+interface FightOption {
+  label: string;
+  value: string;
+  disabled?: boolean;
 }
 
 /**
@@ -22,7 +29,7 @@ const FightSelector: React.FC<FightSelectorProps> = ({
   onFightSelected,
 }) => {
   const [selectedFightId, setSelectedFightId] = useState<string>("");
-  const [fights, setFights] = useState<Fight[]>([]);
+  const [fights, setFights] = useState<FightOption[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   // Update fights list when report changes
@@ -35,17 +42,34 @@ const FightSelector: React.FC<FightSelectorProps> = ({
     // Process fights from the report
     const fightsArray = Object.values(report.fights);
     fightsArray.sort((a, b) => encounterSort(a) - encounterSort(b));
-    setFights(fightsArray);
+
+    const options: FightOption[] = [];
+    let lastEncounterId = 0;
+
+    fightsArray.forEach((fight) => {
+      if (encounterSort(fight) >= TRASH_ID && lastEncounterId < TRASH_ID) {
+        options.push({
+          label: "--- TRASH ---",
+          value: "",
+          disabled: true,
+        });
+      }
+
+      options.push({
+        label: `${fight.name} - ${fight.id}`,
+        value: `${report.reportId};${fight.id}`,
+      });
+
+      lastEncounterId = encounterSort(fight);
+    });
+
+    setFights(options);
   }, [report]);
 
-  const handleFightChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (!report) return;
+  const handleFightChange = async (value: string) => {
+    if (!report || !value) return;
 
-    const value = e.target.value;
     setSelectedFightId(value);
-
-    if (!value) return;
-
     const [reportId, fightId] = value.split(";");
     const selectedFight = report.fights[fightId];
 
@@ -65,30 +89,15 @@ const FightSelector: React.FC<FightSelectorProps> = ({
 
   return (
     <div className="fight-selector">
-      <select
+      <Dropdown
         id="fightSelect"
         value={selectedFightId}
-        onChange={handleFightChange}
+        options={fights}
+        onChange={(e) => handleFightChange(e.value)}
         disabled={!report || loading}
-      >
-        <option value="">Select a fight</option>
-        {fights.map((fight, index) => {
-          // Add a divider for trash fights
-          const isFirstTrash =
-            index > 0 &&
-            encounterSort(fights[index - 1]) < TRASH_ID &&
-            encounterSort(fight) >= TRASH_ID;
-
-          return (
-            <React.Fragment key={fight.id}>
-              {isFirstTrash && <option disabled>--- TRASH ---</option>}
-              <option value={`${report?.reportId};${fight.id}`}>
-                {fight.name} - {fight.id}
-              </option>
-            </React.Fragment>
-          );
-        })}
-      </select>
+        placeholder="Select a fight"
+        className="w-full"
+      />
     </div>
   );
 };

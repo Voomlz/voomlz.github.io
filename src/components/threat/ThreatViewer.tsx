@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GameVersionConfig } from "../../../era/base";
+import { Button } from "primereact/button";
 
 import ReportSelector from "./ReportSelector";
 import FightSelector from "./FightSelector";
@@ -59,15 +60,24 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
       <h1>WoW Classic Threat Viewer</h1>
 
       <div className="info-links">
-        <button onClick={() => setDisclaimerOpen(true)} className="info-link">
-          Disclaimer
-        </button>
-        <button onClick={() => setChangelogOpen(true)} className="info-link">
-          Changelog
-        </button>
-        <button onClick={() => setTutorialOpen(true)} className="info-link">
-          Tutorial
-        </button>
+        <Button
+          label="Disclaimer"
+          onClick={() => setDisclaimerOpen(true)}
+          className="p-button-text"
+          icon="pi pi-info-circle"
+        />
+        <Button
+          label="Changelog"
+          onClick={() => setChangelogOpen(true)}
+          className="p-button-text"
+          icon="pi pi-history"
+        />
+        <Button
+          label="Tutorial"
+          onClick={() => setTutorialOpen(true)}
+          className="p-button-text"
+          icon="pi pi-question-circle"
+        />
       </div>
 
       <div className="selectors">

@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "./Modal";
+import { Dialog } from "primereact/dialog";
 
 /**
  * Props for the Changelog component
@@ -14,7 +14,14 @@ export interface ChangelogProps {
  */
 const Changelog: React.FC<ChangelogProps> = ({ isOpen, onClose }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Changelog">
+    <Dialog
+      header="Changelog"
+      visible={isOpen}
+      onHide={onClose}
+      style={{ width: "80vw", maxWidth: "800px" }}
+      modal
+      className="threat-modal"
+    >
       <div className="changelog-content">
         <h3>Version 2.0.0</h3>
         <ul>
@@ -37,7 +44,7 @@ const Changelog: React.FC<ChangelogProps> = ({ isOpen, onClose }) => {
           <li>Support for WarcraftLogs integration</li>
         </ul>
       </div>
-    </Modal>
+    </Dialog>
   );
 };
 

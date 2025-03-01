@@ -49,3 +49,55 @@
 .modal-body {
   padding: 1rem;
 }
+
+/* PrimeReact Dialog customizations */
+.threat-modal .p-dialog-header {
+  background-color: #222;
+  color: white;
+  border-bottom: 1px solid #444;
+}
+
+.threat-modal .p-dialog-content {
+  background-color: #222;
+  color: white;
+}
+
+.threat-modal .p-dialog-footer {
+  background-color: #222;
+  border-top: 1px solid #444;
+}
+
+/* Content styling */
+.disclaimer-content,
+.changelog-content,
+.tutorial-content {
+  padding: 1rem;
+}
+
+.changelog-content h3,
+.tutorial-content h3 {
+  color: #0070de;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.changelog-content h3:first-child,
+.tutorial-content h3:first-child {
+  margin-top: 0;
+}
+
+.changelog-content ul,
+.tutorial-content ul,
+.tutorial-content ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.changelog-content li,
+.tutorial-content li {
+  margin-bottom: 0.5rem;
+}
+
+.tutorial-content strong {
+  color: #0070de;
+}

@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import { Report } from "../../../era/threat/report.js";
 import { enableInput, printError } from "./utils";
 import { GameVersionConfig } from "../../../era/base";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
 
 /**
  * Props for the ReportSelector component
@@ -60,17 +62,16 @@ const ReportSelector: React.FC<ReportSelectorProps> = ({
   };
 
   return (
-    <div className="report-selector">
-      <input
+    <div className="report-selector p-inputgroup">
+      <InputText
         ref={inputRef}
         id="reportSelect"
-        type="text"
         placeholder="Warcraft Logs report ID or URL"
         value={reportId}
         onChange={handleChange}
-        style={{ borderColor: error ? "red" : undefined }}
+        className={error ? "p-invalid" : ""}
       />
-      <button onClick={handleSubmit}>Load Report</button>
+      <Button label="Load Report" onClick={handleSubmit} icon="pi pi-search" />
     </div>
   );
 };

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 // Remove import from types
 // import { TargetSelectorProps } from "./types";
-import { NPC, ThreatTrace } from "../../../era/threat/unit.js";
+import { NPC } from "../../../era/threat/unit.js";
+import { ThreatTrace } from "../../../era/threat/unit.js";
 import { GameVersionConfig } from "../../../era/base";
+import { Dropdown } from "primereact/dropdown";
 
 /**
  * Props for the TargetSelector component
@@ -10,7 +12,12 @@ import { GameVersionConfig } from "../../../era/base";
 export interface TargetSelectorProps {
   config: GameVersionConfig;
   enemy: NPC | null;
-  onTargetSelected: (trace: ThreatTrace) => void;
+  onTargetSelected: (threatTrace: ThreatTrace) => void;
+}
+
+interface TargetOption {
+  label: string;
+  value: string;
 }
 
 /**
@@ -22,7 +29,7 @@ const TargetSelector: React.FC<TargetSelectorProps> = ({
   onTargetSelected,
 }) => {
   const [selectedTargetKey, setSelectedTargetKey] = useState<string>("");
-  const [targets, setTargets] = useState<{ key: string; name: string }[]>([]);
+  const [targets, setTargets] = useState<TargetOption[]>([]);
 
   // Update targets list when enemy changes
   useEffect(() => {
@@ -33,22 +40,21 @@ const TargetSelector: React.FC<TargetSelectorProps> = ({
 
     const sortedTargets = Object.keys(enemy.threat)
       .map((k) => ({
-        key: k,
-        name: enemy.threat[k].target.name,
+        label: `${enemy.threat[k].target.name} - ${k}`,
+        value:
+          enemy?.fight.reportId && enemy?.fight.id && enemy?.key
+            ? `${enemy.fight.reportId};${enemy.fight.id};${enemy.key};${k}`
+            : "",
       }))
-      .sort((a, b) => a.name.localeCompare(b.name));
+      .sort((a, b) => a.label.localeCompare(b.label));
 
     setTargets(sortedTargets);
   }, [enemy]);
 
-  const handleTargetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (!enemy) return;
+  const handleTargetChange = (value: string) => {
+    if (!enemy || !value) return;
 
-    const value = e.target.value;
     setSelectedTargetKey(value);
-
-    if (!value) return;
-
     const [reportId, fightId, enemyId, targetId] = value.split(";");
     const threatTrace = enemy.threat[targetId];
 
@@ -57,26 +63,15 @@ const TargetSelector: React.FC<TargetSelectorProps> = ({
 
   return (
     <div className="target-selector">
-      <select
+      <Dropdown
         id="targetSelect"
         value={selectedTargetKey}
-        onChange={handleTargetChange}
+        options={targets}
+        onChange={(e) => handleTargetChange(e.value)}
         disabled={!enemy}
-      >
-        <option value="">Select a target</option>
-        {targets.map((target) => (
-          <option
-            key={target.key}
-            value={
-              enemy?.fight.reportId && enemy?.fight.id && enemy?.key
-                ? `${enemy.fight.reportId};${enemy.fight.id};${enemy.key};${target.key}`
-                : ""
-            }
-          >
-            {target.name} - {target.key}
-          </option>
-        ))}
-      </select>
+        placeholder="Select a target"
+        className="w-full"
+      />
     </div>
   );
 };

@@ -25,7 +25,8 @@ export function useThreatState(
 ): [ThreatState, ThreatStateHandlers] {
   // Initialize state from URL parameters
   const [state, setState] = useState<ThreatState>(() => {
-    const idParam = getParameterByName("id");
+    let idParam = getParameterByName("id");
+    idParam = extractReportIdFromUrl(idParam);
     return {
       id: idParam,
       report: idParam ? new Report(config, idParam) : null,
@@ -131,4 +132,11 @@ export function useThreatState(
   };
 
   return [state, handlers];
+}
+function extractReportIdFromUrl(idParam: any) {
+  const urlmatch = idParam?.match(
+    /https:\/\/(?:[a-z]+\.)?(?:classic\.|www\.)?warcraftlogs\.com\/reports\/((?:a:)?\w+)/
+  );
+  if (urlmatch) idParam = urlmatch[1];
+  return idParam;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "./Modal";
+import { Dialog } from "primereact/dialog";
 
 /**
  * Props for the Disclaimer component
@@ -14,7 +14,14 @@ export interface DisclaimerProps {
  */
 const Disclaimer: React.FC<DisclaimerProps> = ({ isOpen, onClose }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Disclaimer">
+    <Dialog
+      header="Disclaimer"
+      visible={isOpen}
+      onHide={onClose}
+      style={{ width: "80vw", maxWidth: "800px" }}
+      modal
+      className="threat-modal"
+    >
       <div className="disclaimer-content">
         <p>
           This tool attempts to compute threat values based on combat logs. Due
@@ -35,7 +42,7 @@ const Disclaimer: React.FC<DisclaimerProps> = ({ isOpen, onClose }) => {
           this tool.
         </p>
       </div>
-    </Modal>
+    </Dialog>
   );
 };
 
