@@ -97,11 +97,7 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
 
         <div className="selector-row">
           <label>Enemy:</label>
-          <EnemySelector
-            config={config}
-            fight={fight}
-            onEnemySelected={setEnemy}
-          />
+          <EnemySelector fight={fight} onEnemySelected={setEnemy} />
         </div>
 
         <div className="selector-row">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Report } from "../../../era/threat/report.js";
 import { Fight } from "../../../era/threat/fight.js";
 import { enableInput, printError, encounterSort, TRASH_ID } from "./utils";
@@ -29,14 +29,12 @@ const FightSelector: React.FC<FightSelectorProps> = ({
   onFightSelected,
 }) => {
   const [selectedFightId, setSelectedFightId] = useState<string>("");
-  const [fights, setFights] = useState<FightOption[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Update fights list when report changes
-  useEffect(() => {
+  // Process fights list using useMemo instead of useEffect
+  const fights = useMemo(() => {
     if (!report) {
-      setFights([]);
-      return;
+      return [];
     }
 
     // Process fights from the report
@@ -63,7 +61,7 @@ const FightSelector: React.FC<FightSelectorProps> = ({
       lastEncounterId = encounterSort(fight);
     });
 
-    setFights(options);
+    return options;
   }, [report]);
 
   const handleFightChange = async (value: string) => {

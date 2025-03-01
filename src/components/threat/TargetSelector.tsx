@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 // Remove import from types
 // import { TargetSelectorProps } from "./types";
 import { NPC } from "../../../era/threat/unit.js";
@@ -29,16 +29,14 @@ const TargetSelector: React.FC<TargetSelectorProps> = ({
   onTargetSelected,
 }) => {
   const [selectedTargetKey, setSelectedTargetKey] = useState<string>("");
-  const [targets, setTargets] = useState<TargetOption[]>([]);
 
-  // Update targets list when enemy changes
-  useEffect(() => {
+  // Process targets list using useMemo instead of useEffect
+  const sortedTargets = useMemo(() => {
     if (!enemy) {
-      setTargets([]);
-      return;
+      return [];
     }
 
-    const sortedTargets = Object.keys(enemy.threat)
+    return Object.keys(enemy.threat)
       .map((k) => ({
         label: `${enemy.threat[k].target.name} - ${k}`,
         value:
@@ -47,8 +45,6 @@ const TargetSelector: React.FC<TargetSelectorProps> = ({
             : "",
       }))
       .sort((a, b) => a.label.localeCompare(b.label));
-
-    setTargets(sortedTargets);
   }, [enemy]);
 
   const handleTargetChange = (value: string) => {
@@ -66,7 +62,7 @@ const TargetSelector: React.FC<TargetSelectorProps> = ({
       <Dropdown
         id="targetSelect"
         value={selectedTargetKey}
-        options={targets}
+        options={sortedTargets}
         onChange={(e) => handleTargetChange(e.value)}
         disabled={!enemy}
         placeholder="Select a target"
