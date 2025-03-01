@@ -12,7 +12,7 @@ export interface DisclaimerProps {
 /**
  * Disclaimer modal component
  */
-const Disclaimer: React.FC<DisclaimerProps> = ({ isOpen, onClose }) => {
+export const Disclaimer: React.FC<DisclaimerProps> = ({ isOpen, onClose }) => {
   return (
     <Dialog
       header="Disclaimer"
@@ -45,5 +45,3 @@ const Disclaimer: React.FC<DisclaimerProps> = ({ isOpen, onClose }) => {
     </Dialog>
   );
 };
-
-export default Disclaimer;

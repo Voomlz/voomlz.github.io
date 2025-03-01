@@ -12,7 +12,7 @@ export interface TutorialProps {
 /**
  * Tutorial modal component
  */
-const Tutorial: React.FC<TutorialProps> = ({ isOpen, onClose }) => {
+export const Tutorial: React.FC<TutorialProps> = ({ isOpen, onClose }) => {
   return (
     <Dialog
       header="How to Use This Tool"
@@ -84,5 +84,3 @@ const Tutorial: React.FC<TutorialProps> = ({ isOpen, onClose }) => {
     </Dialog>
   );
 };
-
-export default Tutorial;

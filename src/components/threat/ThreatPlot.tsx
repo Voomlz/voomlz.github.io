@@ -25,7 +25,7 @@ export interface ThreatPlotProps {
 /**
  * Component for displaying the threat plot
  */
-const ThreatPlot: React.FC<ThreatPlotProps> = ({
+export const ThreatPlot: React.FC<ThreatPlotProps> = ({
   config,
   reportId,
   fight,
@@ -249,5 +249,3 @@ const ThreatPlot: React.FC<ThreatPlotProps> = ({
     </div>
   );
 };
-
-export default ThreatPlot;

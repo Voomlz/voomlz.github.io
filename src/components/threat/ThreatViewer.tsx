@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { GameVersionConfig } from "../../../era/base";
 import { Button } from "primereact/button";
 
-import ReportSelector from "./ReportSelector";
-import FightSelector from "./FightSelector";
-import EnemySelector from "./EnemySelector";
-import TargetSelector from "./TargetSelector";
-import ThreatPlot from "./ThreatPlot";
-import ThreatTable, { ExtendedGameVersionConfig } from "./ThreatTable";
-import Disclaimer from "./Disclaimer";
-import Changelog from "./Changelog";
-import Tutorial from "./Tutorial";
+import { ReportSelector } from "./ReportSelector";
+import { FightSelector } from "./FightSelector";
+import { EnemySelector } from "./EnemySelector";
+import { TargetSelector } from "./TargetSelector";
+import { ThreatPlot } from "./ThreatPlot";
+import { ThreatTable, ExtendedGameVersionConfig } from "./ThreatTable";
+import { Disclaimer } from "./Disclaimer";
+import { Changelog } from "./Changelog";
+import { Tutorial } from "./Tutorial";
 import { useThreatState } from "./hooks/useThreatState";
 import "./ThreatViewer.css";
 
@@ -24,7 +24,7 @@ export interface ThreatViewerProps {
 /**
  * Main container component for threat visualization
  */
-const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
+export const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
   const [state, handlers] = useThreatState(config);
   const { report, fight, enemy, threatTrace } = state;
   const { setReport, setFight, setEnemy, setThreatTrace } = handlers;
@@ -148,5 +148,3 @@ const ThreatViewer: React.FC<ThreatViewerProps> = ({ config }) => {
     </div>
   );
 };
-
-export default ThreatViewer;

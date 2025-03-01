@@ -12,7 +12,7 @@ export interface ChangelogProps {
 /**
  * Changelog modal component
  */
-const Changelog: React.FC<ChangelogProps> = ({ isOpen, onClose }) => {
+export const Changelog: React.FC<ChangelogProps> = ({ isOpen, onClose }) => {
   return (
     <Dialog
       header="Changelog"
@@ -47,5 +47,3 @@ const Changelog: React.FC<ChangelogProps> = ({ isOpen, onClose }) => {
     </Dialog>
   );
 };
-
-export default Changelog;
