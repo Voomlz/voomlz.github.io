@@ -1,56 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 // Remove import from types
 // import { EnemySelectorProps } from "./types";
 import { Fight } from "../../../era/threat/fight.js";
 import { NPC } from "../../../era/threat/unit.js";
-import { GameVersionConfig } from "../../../era/base";
 import { Dropdown } from "primereact/dropdown";
 
 /**
  * Props for the EnemySelector component
  */
 export interface EnemySelectorProps {
-  config: GameVersionConfig;
   fight: Fight | null;
   onEnemySelected: (enemy: NPC) => void;
-}
-
-interface EnemyOption {
-  label: string;
-  value: string;
 }
 
 /**
  * Component for selecting an enemy from a fight
  */
 const EnemySelector: React.FC<EnemySelectorProps> = ({
-  config,
   fight,
   onEnemySelected,
 }) => {
   const [selectedEnemyKey, setSelectedEnemyKey] = useState<string>("");
-  const [enemies, setEnemies] = useState<EnemyOption[]>([]);
 
-  // Update enemies list when fight changes
-  useEffect(() => {
+  // Memoize enemies list based on fight changes
+  const sortedEnemies = useMemo(() => {
     if (!fight) {
-      setEnemies([]);
-      return;
+      return [];
     }
 
-    const sortedEnemies = Object.values(fight.enemies)
-      .sort((a, b) => {
-        // Ensure proper type comparison by converting to string
-        const typeA = String(a.type);
-        const typeB = String(b.type);
-        return typeA.localeCompare(typeB) || a.name.localeCompare(b.name);
-      })
+    return Object.values(fight.enemies)
+      .sort(byTypeThenName)
       .map((enemy) => ({
         label: `${enemy.name} - ${enemy.key}`,
         value: `${fight.reportId};${fight.id};${enemy.key}`,
       }));
-
-    setEnemies(sortedEnemies);
   }, [fight]);
 
   const handleEnemyChange = (value: string) => {
@@ -68,7 +51,7 @@ const EnemySelector: React.FC<EnemySelectorProps> = ({
       <Dropdown
         id="enemySelect"
         value={selectedEnemyKey}
-        options={enemies}
+        options={sortedEnemies}
         onChange={(e) => handleEnemyChange(e.value)}
         disabled={!fight}
         placeholder="Select an enemy"
@@ -79,3 +62,10 @@ const EnemySelector: React.FC<EnemySelectorProps> = ({
 };
 
 export default EnemySelector;
+
+function byTypeThenName(a: NPC, b: NPC): number {
+  // Ensure proper type comparison by converting to string
+  const typeA = String(a.type);
+  const typeB = String(b.type);
+  return typeA.localeCompare(typeB) || a.name.localeCompare(b.name);
+}

@@ -1,42 +1,65 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import { ThreatTrace, Unit } from "../../../era/threat/unit.js";
-import { GameVersionConfig } from "../../../era/base";
+import { GameVersionConfig, SpellMap } from "../../../era/base";
 import ColorSelector from "./ColorSelector";
+
+interface ThreatData {
+  threatBySkill: Record<string, number>;
+  rangeWidth: number;
+}
+
+// Extend Unit type to include global property
+interface UnitWithGlobal extends Unit {
+  global?: {
+    color?: string;
+    initialBuffs: Record<string, number>;
+    talents: Record<
+      string,
+      {
+        rank: number;
+        maxRank: number;
+      }
+    >;
+  };
+}
+
+// Extend GameVersionConfig type to include required properties
+interface ExtendedGameVersionConfig extends GameVersionConfig {
+  buffMultipliers: Record<string, (spellSchool?: string) => number>;
+  buffNames: Record<string, string>;
+}
 
 /**
  * Props for the ThreatTable component
  */
 export interface ThreatTableProps {
-  config: GameVersionConfig;
-  trace: ThreatTrace;
+  config: ExtendedGameVersionConfig;
+  trace: ThreatTrace & {
+    target: UnitWithGlobal;
+  };
 }
 
 /**
  * Component for displaying the threat table, buff table, and talent table
  */
 const ThreatTable: React.FC<ThreatTableProps> = ({ config, trace }) => {
-  const [plotXRange, setPlotXRange] = useState<[number, number]>([0, 0]);
-  const [threatBySkill, setThreatBySkill] = useState<Record<string, number>>(
-    {}
-  );
-  const [rangeWidth, setRangeWidth] = useState<number>(0);
+  // Get the current plot range from the global state or use a default
+  const currentRange = window.plotXRange || [0, 100];
+  const width = currentRange[1] - currentRange[0];
 
-  // Update threat data when the trace or plot range changes
-  useEffect(() => {
-    if (!trace) return;
-
-    // Get the current plot range from the global state or use a default
-    // This would normally be passed from the parent component
-    const currentRange = window.plotXRange || [0, 100];
-    setPlotXRange(currentRange);
-
-    const width = currentRange[1] - currentRange[0];
-    setRangeWidth(width);
+  // Process threat data using useMemo instead of useEffect
+  const { threatBySkill, rangeWidth } = useMemo<ThreatData>(() => {
+    if (!trace) {
+      return { threatBySkill: {}, rangeWidth: 0 };
+    }
 
     // Get threat by skill for the current range
     const threatData = trace.threatBySkill(currentRange);
-    setThreatBySkill(threatData);
-  }, [trace]);
+    return {
+      threatBySkill: threatData,
+      rangeWidth: width,
+    };
+  }, [trace, currentRange, width]);
 
   if (!trace) {
     return <div>No target selected</div>;
@@ -47,7 +70,7 @@ const ThreatTable: React.FC<ThreatTableProps> = ({ config, trace }) => {
   );
 
   const totalThreat = Object.values(threatBySkill).reduce(
-    (sum, val) => sum + val,
+    (sum: number, val: number) => sum + val,
     0
   );
 
@@ -55,7 +78,7 @@ const ThreatTable: React.FC<ThreatTableProps> = ({ config, trace }) => {
   const handleColorChange = (color: string) => {
     if (trace?.target?.global) {
       trace.target.global.color = color;
-      // Trigger redraw in parent component (this would normally be via props)
+      // Trigger redraw in parent component
       if (typeof window.recolorPlot === "function") {
         window.recolorPlot();
       }
@@ -64,7 +87,6 @@ const ThreatTable: React.FC<ThreatTableProps> = ({ config, trace }) => {
 
   // Get the initial color for ColorSelector
   const getInitialColor = () => {
-    // This would normally come from state in the parent
     if (trace?.target?.global?.color) {
       return trace.target.global.color;
     }
@@ -137,23 +159,26 @@ const ThreatTable: React.FC<ThreatTableProps> = ({ config, trace }) => {
           <tbody>
             {Object.entries(trace.target.global.initialBuffs).map(
               ([buffId, status]) => {
-                const coefficient =
-                  typeof config.buffMultipliers[buffId] === "function"
-                    ? config.buffMultipliers[buffId](trace.target.spellSchool)
-                    : "";
+                const buffIdNum = parseInt(buffId);
+                const coefficient = config.buffMultipliers[buffIdNum]?.(
+                  trace.target.spellSchool
+                );
+                const buffName = config.buffNames[buffIdNum] || buffId;
 
                 return (
                   <tr key={buffId}>
                     <td>
-                      {config.buffNames[buffId]} {coefficient}
+                      {buffName} {coefficient}
                     </td>
                     <td>
                       <select
                         value={status}
                         onChange={(e) => {
-                          trace.target.global.initialBuffs[buffId] = parseInt(
-                            e.target.value
-                          );
+                          if (trace.target.global) {
+                            trace.target.global.initialBuffs[buffId] = parseInt(
+                              e.target.value
+                            );
+                          }
                         }}
                       >
                         <option value="0">Infer</option>
