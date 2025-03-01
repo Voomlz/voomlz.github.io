@@ -1,5 +1,5 @@
 import React from "react";
-import { Unit } from "../../../era/threat/unit.js";
+import { Unit } from "../../era/threat/unit.js";
 
 /**
  * Props for the ColorSelector component

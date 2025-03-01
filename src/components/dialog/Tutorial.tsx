@@ -15,7 +15,7 @@ export interface TutorialProps {
 export const Tutorial: React.FC<TutorialProps> = ({ isOpen, onClose }) => {
   return (
     <Dialog
-      header="How to Use This Tool"
+      header="How to use this tool"
       visible={isOpen}
       onHide={onClose}
       style={{ width: "80vw", maxWidth: "800px" }}

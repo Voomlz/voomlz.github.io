@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from "react";
-import { Report } from "../../../era/threat/report.js";
-import { Fight } from "../../../era/threat/fight.js";
-import { enableInput, printError, encounterSort, TRASH_ID } from "./utils";
-import { GameVersionConfig } from "../../../era/base";
+import { Report } from "../../era/threat/report.js";
+import { Fight } from "../../era/threat/fight.js";
+import { enableInput } from "./utils";
+import { GameVersionConfig } from "../../era/base";
 import { Dropdown } from "primereact/dropdown";
 
 /**
@@ -81,7 +81,7 @@ export const FightSelector: React.FC<FightSelectorProps> = ({
       selectedFight.process();
       onFightSelected(selectedFight);
     } catch (e) {
-      printError(e);
+      console.error(e);
     } finally {
       setLoading(false);
       enableInput(true);
@@ -102,3 +102,19 @@ export const FightSelector: React.FC<FightSelectorProps> = ({
     </div>
   );
 };
+
+/**
+ * Helper function to determine the encounter sort order
+ * @param param0 Object with encounter and id properties
+ * @returns Sort value
+ */
+const TRASH_ID = 9999999;
+function encounterSort({
+  encounter,
+  id,
+}: {
+  encounter: number;
+  id: string | number;
+}): number {
+  return encounter === 0 ? TRASH_ID + Number(id) : encounter + Number(id);
+}

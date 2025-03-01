@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
-import { Report } from "../../../era/threat/report.js";
-import { enableInput, printError } from "./utils";
-import { GameVersionConfig } from "../../../era/base";
+import { Report } from "../../era/threat/report.js";
+import { enableInput } from "./utils";
+import { GameVersionConfig } from "../../era/base";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
@@ -57,7 +57,7 @@ export const ReportSelector: React.FC<ReportSelectorProps> = ({
       onReportSelected(reports[id]);
       enableInput(true);
     } catch (e) {
-      printError(e);
+      console.error(e);
     }
   };
 
