@@ -1,7 +1,7 @@
 .threat-viewer {
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
   font-family: Arial, sans-serif;
   color: #fff;
   background-color: #222;
@@ -9,26 +9,24 @@
 
 .threat-viewer h1 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #fff;
+  color: #0070de;
+  margin-bottom: 2rem;
 }
 
 .selectors {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 .selector-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .selector-row label {
   min-width: 80px;
-  font-weight: bold;
+  color: #ccc;
 }
 
 .selector-row select,
@@ -154,29 +152,44 @@
   color: #0070de;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .selector-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .selector-row label {
-    margin-bottom: 5px;
-  }
-
-  .selector-row select,
-  .selector-row input,
-  .selector-row button {
-    width: 100%;
-  }
+/* PrimeReact component customizations */
+.p-inputtext {
+  background-color: #333 !important;
+  border-color: #444 !important;
+  color: white !important;
 }
 
+.p-inputtext:enabled:focus {
+  border-color: #0070de !important;
+  box-shadow: 0 0 0 1px #0070de !important;
+}
+
+.p-button {
+  background-color: #0070de !important;
+  border-color: #0070de !important;
+}
+
+.p-button:enabled:hover {
+  background-color: #0056a8 !important;
+  border-color: #0056a8 !important;
+}
+
+.p-button.p-button-text {
+  color: #ccc !important;
+  background-color: transparent !important;
+}
+
+.p-button.p-button-text:enabled:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+/* Info links section */
 .info-links {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: 1rem 0;
+  margin-bottom: 2rem;
 }
 
 .info-link {
@@ -194,4 +207,24 @@
   background-color: #444;
   color: white;
   border-color: #999;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .threat-viewer {
+    padding: 1rem;
+  }
+
+  .selector-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .selector-row label {
+    margin-bottom: 0.5rem;
+  }
+
+  .p-inputgroup {
+    width: 100%;
+  }
 }

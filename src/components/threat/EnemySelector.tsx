@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Fight } from "../../../era/threat/fight.js";
 import { NPC } from "../../../era/threat/unit.js";
 import { GameVersionConfig } from "../../../era/base";
+import { Dropdown } from "primereact/dropdown";
 
 /**
  * Props for the EnemySelector component
@@ -12,6 +13,11 @@ export interface EnemySelectorProps {
   config: GameVersionConfig;
   fight: Fight | null;
   onEnemySelected: (enemy: NPC) => void;
+}
+
+interface EnemyOption {
+  label: string;
+  value: string;
 }
 
 /**
@@ -23,7 +29,7 @@ const EnemySelector: React.FC<EnemySelectorProps> = ({
   onEnemySelected,
 }) => {
   const [selectedEnemyKey, setSelectedEnemyKey] = useState<string>("");
-  const [enemies, setEnemies] = useState<NPC[]>([]);
+  const [enemies, setEnemies] = useState<EnemyOption[]>([]);
 
   // Update enemies list when fight changes
   useEffect(() => {
@@ -32,24 +38,25 @@ const EnemySelector: React.FC<EnemySelectorProps> = ({
       return;
     }
 
-    const sortedEnemies = Object.values(fight.enemies).sort((a, b) => {
-      // Ensure proper type comparison by converting to string
-      const typeA = String(a.type);
-      const typeB = String(b.type);
-      return typeA.localeCompare(typeB) || a.name.localeCompare(b.name);
-    });
+    const sortedEnemies = Object.values(fight.enemies)
+      .sort((a, b) => {
+        // Ensure proper type comparison by converting to string
+        const typeA = String(a.type);
+        const typeB = String(b.type);
+        return typeA.localeCompare(typeB) || a.name.localeCompare(b.name);
+      })
+      .map((enemy) => ({
+        label: `${enemy.name} - ${enemy.key}`,
+        value: `${fight.reportId};${fight.id};${enemy.key}`,
+      }));
 
     setEnemies(sortedEnemies);
   }, [fight]);
 
-  const handleEnemyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (!fight) return;
+  const handleEnemyChange = (value: string) => {
+    if (!fight || !value) return;
 
-    const value = e.target.value;
     setSelectedEnemyKey(value);
-
-    if (!value) return;
-
     const [reportId, fightId, enemyId] = value.split(";");
     const selectedEnemy = fight.enemies[enemyId];
 
@@ -58,22 +65,15 @@ const EnemySelector: React.FC<EnemySelectorProps> = ({
 
   return (
     <div className="enemy-selector">
-      <select
+      <Dropdown
         id="enemySelect"
         value={selectedEnemyKey}
-        onChange={handleEnemyChange}
+        options={enemies}
+        onChange={(e) => handleEnemyChange(e.value)}
         disabled={!fight}
-      >
-        <option value="">Select an enemy</option>
-        {enemies.map((enemy) => (
-          <option
-            key={enemy.key}
-            value={`${fight?.reportId};${fight?.id};${enemy.key}`}
-          >
-            {enemy.name} - {enemy.key}
-          </option>
-        ))}
-      </select>
+        placeholder="Select an enemy"
+        className="w-full"
+      />
     </div>
   );
 };

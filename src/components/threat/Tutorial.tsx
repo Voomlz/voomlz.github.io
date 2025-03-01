@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "./Modal";
+import { Dialog } from "primereact/dialog";
 
 /**
  * Props for the Tutorial component
@@ -14,7 +14,14 @@ export interface TutorialProps {
  */
 const Tutorial: React.FC<TutorialProps> = ({ isOpen, onClose }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="How to Use This Tool">
+    <Dialog
+      header="How to Use This Tool"
+      visible={isOpen}
+      onHide={onClose}
+      style={{ width: "80vw", maxWidth: "800px" }}
+      modal
+      className="threat-modal"
+    >
       <div className="tutorial-content">
         <h3>Getting Started</h3>
         <ol>
@@ -74,7 +81,7 @@ const Tutorial: React.FC<TutorialProps> = ({ isOpen, onClose }) => {
           </li>
         </ul>
       </div>
-    </Modal>
+    </Dialog>
   );
 };
 
