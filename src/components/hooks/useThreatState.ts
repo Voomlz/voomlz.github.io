@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { Report } from "../../../../era/threat/report.js";
-import { Fight } from "../../../../era/threat/fight.js";
-import { NPC, ThreatTrace } from "../../../../era/threat/unit.js";
-import { GameVersionConfig } from "../../../../era/base";
-import { getParameterByName, printError } from "../utils";
+import { Report } from "../../../era/threat/report.js";
+import { Fight } from "../../../era/threat/fight.js";
+import { NPC, ThreatTrace } from "../../../era/threat/unit.js";
+import { GameVersionConfig } from "../../../era/base";
+import { getParameterByName } from "../utils.js";
 
 // Types
 interface UrlParams {
@@ -47,7 +47,6 @@ function getUrlParameters(): UrlParams {
 
 /**
  * Custom hook for managing URL parameters related to threat data
- * @returns {UrlParams} Memoized URL parameters
  */
 function useUrlParameters(): UrlParams {
   return useMemo(() => getUrlParameters(), []);
@@ -55,8 +54,6 @@ function useUrlParameters(): UrlParams {
 
 /**
  * Custom hook for managing error state and handling
- * @param setState - State setter function for ThreatState
- * @returns {(error: unknown) => void} Error handler function
  */
 function useErrorHandler(
   setState: React.Dispatch<React.SetStateAction<ThreatState>>
@@ -72,7 +69,7 @@ function useErrorHandler(
         isLoading: false,
         error: errorMessage,
       }));
-      printError(error);
+      console.error(error);
     },
     [setState]
   );
@@ -80,9 +77,6 @@ function useErrorHandler(
 
 /**
  * Custom hook for managing threat data loading
- * @param state - Current threat state
- * @param setState - State setter function
- * @param handleError - Error handler function
  */
 function useDataLoading(
   state: ThreatState,
@@ -133,8 +127,6 @@ function useDataLoading(
 
 /**
  * Custom hook for creating state handlers
- * @param setState - State setter function
- * @returns {ThreatStateHandlers} Object containing state handler functions
  */
 function useStateHandlers(
   setState: React.Dispatch<React.SetStateAction<ThreatState>>
@@ -164,10 +156,6 @@ function useStateHandlers(
  * - Data loading and error handling
  * - State update handlers
  *
- * @param config - Game version configuration
- * @returns {[ThreatState, ThreatStateHandlers]} Tuple containing current state and state handlers
- *
- * @example
  * ```tsx
  * const [state, handlers] = useThreatState(config);
  * const { report, fight, enemy, threatTrace, isLoading, error } = state;
@@ -193,9 +181,6 @@ export function useThreatState(
 
 /**
  * Creates the initial threat state from URL parameters
- * @param config - Game version configuration
- * @param urlParams - URL parameters
- * @returns {ThreatState} Initial threat state
  */
 function createInitialState(
   config: GameVersionConfig,
@@ -210,26 +195,6 @@ function createInitialState(
     isLoading: false,
     error: null,
   };
-}
-
-// Helper functions for data loading and error handling
-async function loadReportData(
-  report: Report,
-  setState: React.Dispatch<React.SetStateAction<ThreatState>>
-) {
-  await report.fetch();
-
-  const params = getUrlParameters();
-  if (!params.fightId) return;
-
-  const fightIndex = parseInt(params.fightId) - 1;
-  const fightIds = Object.keys(report.fights);
-
-  if (fightIndex >= 0 && fightIndex < fightIds.length) {
-    const fightId = fightIds[fightIndex];
-    const fight = report.fights[fightId];
-    await loadFightData(fight, params, setState);
-  }
 }
 
 async function loadFightData(
@@ -262,22 +227,6 @@ async function loadFightData(
       }));
     }
   }
-}
-
-function handleError(
-  error: unknown,
-  setState: React.Dispatch<React.SetStateAction<ThreatState>>
-) {
-  const errorMessage =
-    error instanceof Error
-      ? error.message
-      : "An error occurred while loading data";
-  setState((prev) => ({
-    ...prev,
-    isLoading: false,
-    error: errorMessage,
-  }));
-  printError(error);
 }
 
 function extractReportIdFromUrl(idParam: string | null): string | null {

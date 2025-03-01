@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Plot from "react-plotly.js";
-import { Fight } from "../../../era/threat/fight.js";
-import { NPC } from "../../../era/threat/unit.js";
-import { GameVersionConfig } from "../../../era/base";
-import { classColors, getColor } from "../../../era/colors.js";
+import { Fight } from "../../era/threat/fight.js";
+import { NPC } from "../../era/threat/unit.js";
+import { GameVersionConfig } from "../../era/base";
+import { classColors, getColor } from "../../era/colors.js";
 import { Checkbox } from "primereact/checkbox";
 import { Data } from "plotly.js";
 

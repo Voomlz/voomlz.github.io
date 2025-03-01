@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from "react";
-import { ThreatTrace, Unit } from "../../../era/threat/unit.js";
-import { GameVersionConfig, SpellMap } from "../../../era/base";
+import React, { useMemo } from "react";
+import { ThreatTrace } from "../../era/threat/unit.js";
+import { GameVersionConfig, SpellMap } from "../../era/base";
 import { ColorSelector } from "./ColorSelector";
 
 /**
@@ -9,21 +9,6 @@ import { ColorSelector } from "./ColorSelector";
 interface ThreatData {
   threatBySkill: Record<string, number>;
   rangeWidth: number;
-}
-
-// Extend Unit type to include global property
-interface UnitWithGlobal extends Unit {
-  global?: {
-    color?: string;
-    initialBuffs: Record<string, number>;
-    talents: Record<
-      string,
-      {
-        rank: number;
-        maxRank: number;
-      }
-    >;
-  };
 }
 
 /**
@@ -39,7 +24,7 @@ export interface ExtendedGameVersionConfig extends GameVersionConfig {
  * Props for the ThreatTable component
  */
 export interface ThreatTableProps {
-  config: ExtendedGameVersionConfig;
+  config: GameVersionConfig;
   trace: ThreatTrace | null;
   plotRange: [number, number];
 }

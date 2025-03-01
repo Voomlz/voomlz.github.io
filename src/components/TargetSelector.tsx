@@ -1,9 +1,7 @@
 import React, { useMemo, useState } from "react";
-// Remove import from types
-// import { TargetSelectorProps } from "./types";
-import { NPC } from "../../../era/threat/unit.js";
-import { ThreatTrace } from "../../../era/threat/unit.js";
-import { GameVersionConfig } from "../../../era/base";
+import { NPC } from "../../era/threat/unit.js";
+import { ThreatTrace } from "../../era/threat/unit.js";
+import { GameVersionConfig } from "../../era/base";
 import { Dropdown } from "primereact/dropdown";
 
 /**
