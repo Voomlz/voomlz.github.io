@@ -14,6 +14,9 @@ export interface FightSelectorProps {
   onFightSelected: (fight: Fight) => void;
 }
 
+/**
+ * Interface for fight dropdown options
+ */
 interface FightOption {
   label: string;
   value: string;
@@ -23,7 +26,7 @@ interface FightOption {
 /**
  * Component for selecting a fight from a report
  */
-const FightSelector: React.FC<FightSelectorProps> = ({
+export const FightSelector: React.FC<FightSelectorProps> = ({
   config,
   report,
   onFightSelected,
@@ -99,5 +102,3 @@ const FightSelector: React.FC<FightSelectorProps> = ({
     </div>
   );
 };
-
-export default FightSelector;

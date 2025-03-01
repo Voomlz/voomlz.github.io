@@ -12,7 +12,7 @@ import { Dropdown } from "primereact/dropdown";
 export interface TargetSelectorProps {
   config: GameVersionConfig;
   enemy: NPC | null;
-  onTargetSelected: (threatTrace: ThreatTrace) => void;
+  onTargetSelected: (trace: ThreatTrace) => void;
 }
 
 interface TargetOption {
@@ -23,7 +23,7 @@ interface TargetOption {
 /**
  * Component for selecting a target (player) from an enemy's threat table
  */
-const TargetSelector: React.FC<TargetSelectorProps> = ({
+export const TargetSelector: React.FC<TargetSelectorProps> = ({
   config,
   enemy,
   onTargetSelected,
@@ -71,5 +71,3 @@ const TargetSelector: React.FC<TargetSelectorProps> = ({
     </div>
   );
 };
-
-export default TargetSelector;

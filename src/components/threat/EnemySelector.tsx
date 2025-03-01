@@ -14,9 +14,21 @@ export interface EnemySelectorProps {
 }
 
 /**
+ * Helper function to sort enemies by type then name
+ */
+const byTypeThenName = (a: NPC, b: NPC) => {
+  const typeA = String(a.type);
+  const typeB = String(b.type);
+  if (typeA !== typeB) {
+    return typeA.localeCompare(typeB);
+  }
+  return a.name.localeCompare(b.name);
+};
+
+/**
  * Component for selecting an enemy from a fight
  */
-const EnemySelector: React.FC<EnemySelectorProps> = ({
+export const EnemySelector: React.FC<EnemySelectorProps> = ({
   fight,
   onEnemySelected,
 }) => {
@@ -60,12 +72,3 @@ const EnemySelector: React.FC<EnemySelectorProps> = ({
     </div>
   );
 };
-
-export default EnemySelector;
-
-function byTypeThenName(a: NPC, b: NPC): number {
-  // Ensure proper type comparison by converting to string
-  const typeA = String(a.type);
-  const typeB = String(b.type);
-  return typeA.localeCompare(typeB) || a.name.localeCompare(b.name);
-}

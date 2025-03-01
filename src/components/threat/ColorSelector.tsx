@@ -13,7 +13,7 @@ export interface ColorSelectorProps {
 /**
  * Component for selecting a color for a threat trace
  */
-const ColorSelector: React.FC<ColorSelectorProps> = ({
+export const ColorSelector: React.FC<ColorSelectorProps> = ({
   target,
   onColorChange,
   initialColor,
@@ -28,5 +28,3 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({
     />
   );
 };
-
-export default ColorSelector;

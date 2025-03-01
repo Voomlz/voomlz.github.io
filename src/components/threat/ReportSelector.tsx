@@ -16,7 +16,7 @@ export interface ReportSelectorProps {
 /**
  * Component for selecting a Warcraft Logs report
  */
-const ReportSelector: React.FC<ReportSelectorProps> = ({
+export const ReportSelector: React.FC<ReportSelectorProps> = ({
   config,
   onReportSelected,
 }) => {
@@ -75,5 +75,3 @@ const ReportSelector: React.FC<ReportSelectorProps> = ({
     </div>
   );
 };
-
-export default ReportSelector;

@@ -1,8 +1,11 @@
 import React, { useMemo, useState } from "react";
 import { ThreatTrace, Unit } from "../../../era/threat/unit.js";
 import { GameVersionConfig, SpellMap } from "../../../era/base";
-import ColorSelector from "./ColorSelector";
+import { ColorSelector } from "./ColorSelector";
 
+/**
+ * Interface for threat data calculations
+ */
 interface ThreatData {
   threatBySkill: Record<string, number>;
   rangeWidth: number;
@@ -23,10 +26,13 @@ interface UnitWithGlobal extends Unit {
   };
 }
 
-// Extend GameVersionConfig type to include required properties
+/**
+ * Extended version of GameVersionConfig with additional properties
+ */
 export interface ExtendedGameVersionConfig extends GameVersionConfig {
   buffMultipliers: Record<string, (spellSchool?: string) => number>;
   buffNames: Record<string, string>;
+  spells: SpellMap<string>;
 }
 
 /**
@@ -34,16 +40,14 @@ export interface ExtendedGameVersionConfig extends GameVersionConfig {
  */
 export interface ThreatTableProps {
   config: ExtendedGameVersionConfig;
-  trace: ThreatTrace & {
-    target: UnitWithGlobal;
-  };
+  trace: ThreatTrace | null;
   plotRange: [number, number];
 }
 
 /**
  * Component for displaying the threat table, buff table, and talent table
  */
-const ThreatTable: React.FC<ThreatTableProps> = ({
+export const ThreatTable: React.FC<ThreatTableProps> = ({
   config,
   trace,
   plotRange,
@@ -244,5 +248,3 @@ declare global {
     plotData: any[];
   }
 }
-
-export default ThreatTable;
