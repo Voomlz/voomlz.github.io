@@ -20,7 +20,6 @@ export const Tutorial: React.FC<TutorialProps> = ({ isOpen, onClose }) => {
       onHide={onClose}
       style={{ width: "80vw", maxWidth: "800px" }}
       modal
-      className="threat-modal"
     >
       <div className="tutorial-content">
         <h3>Getting Started</h3>

@@ -20,45 +20,8 @@
 .selector-row {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
   gap: 1rem;
 }
-
-.selector-row label {
-  min-width: 80px;
-  color: #ccc;
-}
-
-.selector-row select,
-.selector-row input {
-  flex: 1;
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 1px solid #444;
-  background-color: #333;
-  color: #fff;
-  min-width: 200px;
-}
-
-.selector-row button {
-  padding: 8px 16px;
-  background-color: #0070de;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.selector-row button:hover {
-  background-color: #0056b3;
-}
-
-.selector-row button:disabled {
-  background-color: #444;
-  cursor: not-allowed;
-}
-
 /* Plot styles */
 #output {
   margin-bottom: 30px;
@@ -81,11 +44,6 @@
   margin-left: 0.5rem;
 }
 
-/* Checkbox styles */
-.checkbox {
-  margin-right: 5px;
-}
-
 /* Color picker */
 .colorPicker {
   width: 30px;
@@ -96,85 +54,11 @@
   margin-left: 10px;
 }
 
-/* Table styles */
-#threatTableContainer {
-  margin-top: 30px;
-}
-
-#threatTableContainer table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  background-color: #333;
-}
-
-#threatTableContainer th {
-  background-color: #444;
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #555;
-}
-
-#threatTableContainer td {
-  padding: 8px 10px;
-  border: 1px solid #555;
-}
-
-#threatTableContainer tr:nth-child(even) {
-  background-color: #3a3a3a;
-}
-
-#threatTableContainer input.talent {
-  width: 60px;
-  padding: 5px;
-  background-color: #444;
-  border: 1px solid #555;
-  color: #fff;
-}
-
-#threatTableContainer select {
-  padding: 5px;
-  background-color: #444;
-  border: 1px solid #555;
-  color: #fff;
-}
-
-/* Disclaimer */
-.disclaimer {
-  margin-top: 30px;
-  padding: 15px;
-  background-color: #333;
-  border-radius: 5px;
-}
-
-.disclaimer h3 {
-  margin-top: 0;
-  color: #0070de;
-}
-
 /* Info links section */
 .info-links {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.info-link {
-  background: none;
-  border: 1px solid #666;
-  color: #ccc;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-}
-
-.info-link:hover {
-  background-color: #444;
-  color: white;
-  border-color: #999;
 }
 
 /* Responsive adjustments */

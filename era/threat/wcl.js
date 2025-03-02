@@ -52,12 +52,10 @@ export async function fetchWCLv1(path) {
   let response = await fetch(
     `https://classic.warcraftlogs.com:443/v1/${path}&api_key=${apikey}`
   );
-  if (!response) throw "Could not fetch " + path;
+  if (!response) throw new Error("Could not fetch " + path);
   if (response.status != 200) {
-    if (response.type == "cors") {
-      throw "Fetch error. The service may be throttled.";
-    }
-    throw "Fetch error.";
+    const error = await response.json();
+    throw new Error("Fetch error: " + error.error, { cause: response });
   }
   let json = await response.json();
   return json;

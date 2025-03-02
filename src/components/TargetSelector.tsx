@@ -1,71 +1,73 @@
-import React, { useMemo, useState } from "react";
-import { NPC } from "../../era/threat/unit.js";
-import { ThreatTrace } from "../../era/threat/unit.js";
-import { GameVersionConfig } from "../../era/base";
+import React, { useEffect, useMemo } from "react";
 import { Dropdown } from "primereact/dropdown";
+import { Fight } from "../../era/threat/fight.js";
 
 /**
  * Props for the TargetSelector component
  */
 export interface TargetSelectorProps {
-  config: GameVersionConfig;
-  enemy: NPC | null;
-  onTargetSelected: (trace: ThreatTrace) => void;
-}
-
-interface TargetOption {
-  label: string;
-  value: string;
+  fight: Fight | undefined;
+  enemyId: number | undefined;
+  value: number | undefined;
+  onChange: (targetId: number) => void;
+  disabled: boolean;
 }
 
 /**
  * Component for selecting a target (player) from an enemy's threat table
  */
 export const TargetSelector: React.FC<TargetSelectorProps> = ({
-  config,
-  enemy,
-  onTargetSelected,
+  fight,
+  enemyId,
+  value,
+  onChange,
+  disabled,
 }) => {
-  const [selectedTargetKey, setSelectedTargetKey] = useState<string>("");
-
-  // Process targets list using useMemo instead of useEffect
   const sortedTargets = useMemo(() => {
+    if (!fight || !enemyId) {
+      return [];
+    }
+
+    const enemy = fight.enemies[enemyId];
+
     if (!enemy) {
       return [];
     }
 
-    return Object.keys(enemy.threat)
-      .map((k) => ({
-        label: `${enemy.threat[k].target.name} - ${k}`,
-        value:
-          enemy?.fight.reportId && enemy?.fight.id && enemy?.key
-            ? `${enemy.fight.reportId};${enemy.fight.id};${enemy.key};${k}`
-            : "",
+    return Object.entries(enemy.threat)
+      .map(([k, v]) => ({
+        label: `${v.target.name} - ${k}`,
+        value: Number(k),
+        isPet: v.target.type === "Pet",
       }))
-      .sort((a, b) => a.label.localeCompare(b.label));
-  }, [enemy]);
+      .sort(byPlayersThenName);
+  }, [enemyId, fight]);
 
-  const handleTargetChange = (value: string) => {
-    if (!enemy || !value) return;
-
-    setSelectedTargetKey(value);
-    const [reportId, fightId, enemyId, targetId] = value.split(";");
-    const threatTrace = enemy.threat[targetId];
-
-    onTargetSelected(threatTrace);
-  };
+  useEffect(() => {
+    if (value === undefined && sortedTargets.length > 0) {
+      onChange(Number(sortedTargets[0].value));
+    }
+  }, [value, sortedTargets, onChange]);
 
   return (
-    <div className="target-selector">
+    <>
+      <label htmlFor="targetSelect">Target:</label>
       <Dropdown
         id="targetSelect"
-        value={selectedTargetKey}
         options={sortedTargets}
-        onChange={(e) => handleTargetChange(e.value)}
-        disabled={!enemy}
+        value={value}
+        onChange={(e) => onChange(Number(e.value))}
+        disabled={disabled}
         placeholder="Select a target"
         className="w-full"
       />
-    </div>
+    </>
   );
+};
+
+const byPlayersThenName = (
+  a: { label: string; isPet: boolean },
+  b: { label: string; isPet: boolean }
+): number => {
+  return Number(a.isPet) - Number(b.isPet) || a.label.localeCompare(b.label);
 };
