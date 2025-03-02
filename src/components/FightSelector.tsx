@@ -1,41 +1,32 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Report } from "../../era/threat/report.js";
-import { Fight } from "../../era/threat/fight.js";
-import { enableInput } from "./utils";
-import { GameVersionConfig } from "../../era/base";
 import { Dropdown } from "primereact/dropdown";
+import { Button } from "primereact/button";
+import { SelectItem } from "primereact/selectitem";
 
 /**
  * Props for the FightSelector component
  */
 export interface FightSelectorProps {
-  config: GameVersionConfig;
-  report: Report | null;
-  onFightSelected: (fight: Fight) => void;
-}
-
-/**
- * Interface for fight dropdown options
- */
-interface FightOption {
-  label: string;
-  value: string;
-  disabled?: boolean;
+  report: Report | undefined;
+  value: number | undefined;
+  disabled: boolean;
+  onChange: (fightId: number) => void;
+  onLoadFight: () => void;
 }
 
 /**
  * Component for selecting a fight from a report
  */
 export const FightSelector: React.FC<FightSelectorProps> = ({
-  config,
   report,
-  onFightSelected,
+  value,
+  disabled,
+  onChange,
+  onLoadFight,
 }) => {
-  const [selectedFightId, setSelectedFightId] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
-
   // Process fights list using useMemo instead of useEffect
-  const fights = useMemo(() => {
+  const sortedFights = useMemo(() => {
     if (!report) {
       return [];
     }
@@ -44,7 +35,7 @@ export const FightSelector: React.FC<FightSelectorProps> = ({
     const fightsArray = Object.values(report.fights);
     fightsArray.sort((a, b) => encounterSort(a) - encounterSort(b));
 
-    const options: FightOption[] = [];
+    const options: SelectItem[] = [];
     let lastEncounterId = 0;
 
     fightsArray.forEach((fight) => {
@@ -58,7 +49,7 @@ export const FightSelector: React.FC<FightSelectorProps> = ({
 
       options.push({
         label: `${fight.name} - ${fight.id}`,
-        value: `${report.reportId};${fight.id}`,
+        value: fight.id,
       });
 
       lastEncounterId = encounterSort(fight);
@@ -67,39 +58,33 @@ export const FightSelector: React.FC<FightSelectorProps> = ({
     return options;
   }, [report]);
 
-  const handleFightChange = async (value: string) => {
-    if (!report || !value) return;
-
-    setSelectedFightId(value);
-    const [reportId, fightId] = value.split(";");
-    const selectedFight = report.fights[fightId];
-
-    try {
-      setLoading(true);
-      enableInput(false);
-      await selectedFight.fetch();
-      selectedFight.process();
-      onFightSelected(selectedFight);
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setLoading(false);
-      enableInput(true);
+  // Auto select the first fight if nothing was selected
+  useEffect(() => {
+    if (value === undefined && sortedFights.length > 0) {
+      onChange(Number(sortedFights[0].value));
     }
-  };
+  }, [value, sortedFights, onChange]);
 
   return (
-    <div className="fight-selector">
-      <Dropdown
-        id="fightSelect"
-        value={selectedFightId}
-        options={fights}
-        onChange={(e) => handleFightChange(e.value)}
-        disabled={!report || loading}
-        placeholder="Select a fight"
-        className="w-full"
-      />
-    </div>
+    <>
+      <label htmlFor="fightSelect">Fight:</label>
+      <div className="p-inputgroup flex-1">
+        <Dropdown
+          id="fightSelect"
+          value={value}
+          options={sortedFights}
+          onChange={(e) => onChange(Number(e.value))}
+          disabled={!report || disabled}
+          placeholder="Select a fight"
+          className="w-full"
+        />
+        <Button
+          label="Fetch/Refresh"
+          onClick={onLoadFight}
+          disabled={disabled}
+        />
+      </div>
+    </>
   );
 };
 

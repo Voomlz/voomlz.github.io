@@ -20,7 +20,6 @@ export const Disclaimer: React.FC<DisclaimerProps> = ({ isOpen, onClose }) => {
       onHide={onClose}
       style={{ width: "80vw", maxWidth: "800px" }}
       modal
-      className="threat-modal"
     >
       <div className="disclaimer-content">
         <p>

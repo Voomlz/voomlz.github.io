@@ -20,7 +20,6 @@ export const Changelog: React.FC<ChangelogProps> = ({ isOpen, onClose }) => {
       onHide={onClose}
       style={{ width: "80vw", maxWidth: "800px" }}
       modal
-      className="threat-modal"
     >
       <div className="changelog-content">
         <h3>Version 2.0.0</h3>

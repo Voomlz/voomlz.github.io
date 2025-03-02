@@ -1,11 +1,11 @@
 import "./App.css";
 import * as config from "../era/spells";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "primereact/button";
-import { ProgressSpinner } from "primereact/progressspinner";
+import { Message } from "primereact/message";
 
-import { ReportSelector } from "./components/ReportSelector";
+import { ReportInput } from "./components/ReportInput";
 import { FightSelector } from "./components/FightSelector";
 import { EnemySelector } from "./components/EnemySelector";
 import { TargetSelector } from "./components/TargetSelector";
@@ -19,120 +19,108 @@ import { useThreatState } from "./components/hooks/useThreatState";
 import "./App.css";
 
 /**
- * Props for App component
- */
-export interface AppProps {}
-
-/**
  * Main container component for threat visualization
  */
-export const App: React.FC<AppProps> = () => {
-  const [state, handlers] = useThreatState(config);
-  const { report, fight, enemy, threatTrace, isLoading, error } = state;
-  const { setReport, setFight, setEnemy, setThreatTrace, clearError } =
-    handlers;
+export const App: React.FC = () => {
+  const [
+    state,
+    {
+      setUrl,
+      loadReport,
+      setFightId,
+      setEnemyId,
+      setTargetId,
+      setTargetKey,
+      loadFight,
+      clearError,
+    },
+  ] = useThreatState(config);
+  const { report, fight, enemyId, targetId, isLoading, error } = state;
 
-  // Modal states
-  const [disclaimerOpen, setDisclaimerOpen] = useState(false);
-  const [changelogOpen, setChangelogOpen] = useState(false);
-  const [tutorialOpen, setTutorialOpen] = useState(false);
-
-  // Cache for plot data to be shared between components
-  const [plotData, setPlotData] = useState<any[]>([]);
   const [plotRange, setPlotRange] = useState<[number, number]>([0, 0]);
 
-  // Setup global props for backward compatibility
-  useEffect(() => {
-    window.plotData = plotData;
-    window.recolorPlot = () => {
-      // This would trigger a re-render of the plot component
-      if (enemy) {
-        setEnemy(
-          Object.create(
-            Object.getPrototypeOf(enemy),
-            Object.getOwnPropertyDescriptors(enemy)
-          )
-        );
-      }
-    };
-  }, [plotData, enemy, setEnemy]);
+  // // Cache for plot data to be shared between components
+  // // const [plotData, setPlotData] = useState<any[]>([]);
+
+  // // Setup global props for backward compatibility
+  // useEffect(() => {
+  //   window.plotData = plotData;
+  //   window.recolorPlot = () => {
+  //     // This would trigger a re-render of the plot component
+  //     if (enemy) {
+  //       setEnemy(
+  //         Object.create(
+  //           Object.getPrototypeOf(enemy),
+  //           Object.getOwnPropertyDescriptors(enemy)
+  //         )
+  //       );
+  //     }
+  //   };
+  // }, [plotData, enemy, setEnemy]);
+
+  const enemy = fight && enemyId ? fight.enemies[enemyId] : undefined;
+  const activeTrace = enemy && targetId ? enemy.threat[targetId] : undefined;
 
   return (
     <div className="threat-viewer">
       <h1>WoW Classic Threat Viewer</h1>
 
-      <div className="info-links">
-        <Button
-          label="Disclaimer"
-          onClick={() => setDisclaimerOpen(true)}
-          className="p-button-text"
-          icon="pi pi-info-circle"
-        />
-        <Button
-          label="Changelog"
-          onClick={() => setChangelogOpen(true)}
-          className="p-button-text"
-          icon="pi pi-history"
-        />
-        <Button
-          label="Tutorial"
-          onClick={() => setTutorialOpen(true)}
-          className="p-button-text"
-          icon="pi pi-question-circle"
-        />
+      <div className="selectors">
+        <div className="selector-row">
+          <ReportInput
+            disabled={isLoading}
+            value={state.url || ""}
+            onLoadClicked={loadReport}
+            onChange={setUrl}
+          />
+        </div>
+
+        <div className="selector-row">
+          <FightSelector
+            report={report}
+            value={state.fightId}
+            onChange={setFightId}
+            disabled={isLoading}
+            onLoadFight={loadFight}
+          />
+        </div>
+
+        <div className="selector-row">
+          <EnemySelector
+            fight={fight}
+            value={state.enemyId}
+            onChange={setEnemyId}
+            disabled={isLoading}
+          />
+        </div>
+
+        <div className="selector-row">
+          <TargetSelector
+            fight={fight}
+            enemyId={enemyId}
+            value={state.targetId}
+            onChange={setTargetId}
+            disabled={isLoading}
+          />
+        </div>
       </div>
 
       {error && (
-        <div className="error-message mb-3">
-          <i
-            className="pi pi-exclamation-triangle"
-            style={{ marginRight: "0.5rem" }}
-          />
-          {error}
-          <Button
-            icon="pi pi-times"
-            onClick={clearError}
-            className="p-button-text p-button-rounded"
-            style={{ marginLeft: "auto" }}
-          />
-        </div>
-      )}
-
-      <div className="selectors">
-        <div className="selector-row">
-          <label>Report:</label>
-          <ReportSelector config={config} onReportSelected={setReport} />
-        </div>
-
-        <div className="selector-row">
-          <label>Fight:</label>
-          <FightSelector
-            config={config}
-            report={report}
-            onFightSelected={setFight}
-          />
-        </div>
-
-        <div className="selector-row">
-          <label>Enemy:</label>
-          <EnemySelector fight={fight} onEnemySelected={setEnemy} />
-        </div>
-
-        <div className="selector-row">
-          <label>Target:</label>
-          <TargetSelector
-            config={config}
-            enemy={enemy}
-            onTargetSelected={setThreatTrace}
-          />
-        </div>
-      </div>
-
-      {isLoading && (
-        <div className="loading-overlay">
-          <ProgressSpinner />
-          <div>Loading data...</div>
-        </div>
+        <Message
+          severity="error"
+          icon="pi pi-exclamation-triangle"
+          content={
+            <>
+              {error}
+              <Button
+                icon="pi pi-times"
+                onClick={clearError}
+                className="p-button-text p-button-rounded"
+                style={{ marginLeft: "auto" }}
+              />
+            </>
+          }
+        />
       )}
 
       {enemy && fight && (
@@ -145,32 +133,59 @@ export const App: React.FC<AppProps> = () => {
           setPlotRange={setPlotRange}
           onTargetClicked={(targetKey) => {
             if (!targetKey || !enemy) return;
-            const [reportId, fightId, enemyId, targetId] = targetKey.split(";");
-            if (targetId && enemy.threat[targetId]) {
-              setThreatTrace(enemy.threat[targetId]);
+            const [, , , targetId] = targetKey.split(";");
+            if (targetId) {
+              setTargetKey(targetKey);
             }
           }}
         />
       )}
 
-      {threatTrace && (
+      {activeTrace && (
         <ThreatTable
           config={config}
-          trace={threatTrace}
+          trace={activeTrace}
           plotRange={plotRange}
         />
       )}
 
-      {/* Modal components */}
+      <InfoButtonBar />
+    </div>
+  );
+};
+
+function InfoButtonBar() {
+  // Modal states
+  const [disclaimerOpen, setDisclaimerOpen] = useState(false);
+  const [changelogOpen, setChangelogOpen] = useState(false);
+  const [tutorialOpen, setTutorialOpen] = useState(false);
+
+  return (
+    <div className="info-links">
+      <Button
+        label="Disclaimer"
+        onClick={() => setDisclaimerOpen(true)}
+        icon="pi pi-info-circle"
+      />
       <Disclaimer
         isOpen={disclaimerOpen}
         onClose={() => setDisclaimerOpen(false)}
+      />
+      <Button
+        label="Changelog"
+        onClick={() => setChangelogOpen(true)}
+        icon="pi pi-history"
       />
       <Changelog
         isOpen={changelogOpen}
         onClose={() => setChangelogOpen(false)}
       />
+      <Button
+        label="Tutorial"
+        onClick={() => setTutorialOpen(true)}
+        icon="pi pi-question-circle"
+      />
       <Tutorial isOpen={tutorialOpen} onClose={() => setTutorialOpen(false)} />
     </div>
   );
-};
+}

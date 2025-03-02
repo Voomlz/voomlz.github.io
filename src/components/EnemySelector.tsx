@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Fight } from "../../era/threat/fight.js";
 import { NPC } from "../../era/threat/unit.js";
 import { Dropdown } from "primereact/dropdown";
@@ -7,8 +7,10 @@ import { Dropdown } from "primereact/dropdown";
  * Props for the EnemySelector component
  */
 export interface EnemySelectorProps {
-  fight: Fight | null;
-  onEnemySelected: (enemy: NPC) => void;
+  fight: Fight | undefined;
+  value: number | undefined;
+  onChange: (enemyId: number) => void;
+  disabled: boolean;
 }
 
 /**
@@ -16,11 +18,10 @@ export interface EnemySelectorProps {
  */
 export const EnemySelector: React.FC<EnemySelectorProps> = ({
   fight,
-  onEnemySelected,
+  value,
+  onChange,
+  disabled,
 }) => {
-  const [selectedEnemyKey, setSelectedEnemyKey] = useState<string>("");
-
-  // Memoize enemies list based on fight changes
   const sortedEnemies = useMemo(() => {
     if (!fight) {
       return [];
@@ -30,32 +31,29 @@ export const EnemySelector: React.FC<EnemySelectorProps> = ({
       .sort(byTypeThenName)
       .map((enemy) => ({
         label: `${enemy.name} - ${enemy.key}`,
-        value: `${fight.reportId};${fight.id};${enemy.key}`,
+        value: Number(enemy.key),
       }));
   }, [fight]);
 
-  const handleEnemyChange = (value: string) => {
-    if (!fight || !value) return;
-
-    setSelectedEnemyKey(value);
-    const [, , enemyId] = value.split(";");
-    const selectedEnemy = fight.enemies[enemyId];
-
-    onEnemySelected(selectedEnemy);
-  };
+  useEffect(() => {
+    if (value === undefined && sortedEnemies.length > 0) {
+      onChange(Number(sortedEnemies[0].value));
+    }
+  }, [value, sortedEnemies, onChange]);
 
   return (
-    <div className="enemy-selector">
+    <>
+      <label htmlFor="enemySelect">Enemy:</label>
       <Dropdown
         id="enemySelect"
-        value={selectedEnemyKey}
+        value={value}
         options={sortedEnemies}
-        onChange={(e) => handleEnemyChange(e.value)}
-        disabled={!fight}
+        onChange={(e) => onChange(Number(e.value))}
+        disabled={disabled}
         placeholder="Select an enemy"
         className="w-full"
       />
-    </div>
+    </>
   );
 };
 

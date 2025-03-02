@@ -1,33 +1,39 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { Report } from "../../../era/threat/report.js";
 import { Fight } from "../../../era/threat/fight.js";
-import { NPC, ThreatTrace } from "../../../era/threat/unit.js";
 import { GameVersionConfig } from "../../../era/base";
 import { getParameterByName } from "../utils.js";
 
 // Types
 interface UrlParams {
-  reportId: string | null;
-  fightId: string | null;
-  enemyId: string | null;
-  targetId: string | null;
+  id: string | undefined;
+  fightId: string | undefined;
+  enemyId: string | undefined;
+  targetId: string | undefined;
 }
 
 export interface ThreatState {
-  id: string | null;
-  report: Report | null;
-  fight: Fight | null;
-  enemy: NPC | null;
-  threatTrace: ThreatTrace | null;
+  url: string | undefined;
+  reportId: string | undefined;
+  fightId: number | undefined;
+  enemyId: number | undefined;
+  targetId: number | undefined;
+
   isLoading: boolean;
-  error: string | null;
+  error: string | undefined;
+
+  report: Report | undefined;
+  fight: Fight | undefined;
 }
 
 export interface ThreatStateHandlers {
-  setReport: (report: Report) => void;
-  setFight: (fight: Fight) => void;
-  setEnemy: (enemy: NPC) => void;
-  setThreatTrace: (trace: ThreatTrace) => void;
+  setUrl: (url: string) => void;
+  loadReport: () => void;
+  setFightId: (fightId: number) => void;
+  setEnemyId: (enemyId: number) => void;
+  setTargetId: (targetId: number) => void;
+  setTargetKey: (targetKey: string) => void;
+  loadFight: () => void;
   clearError: () => void;
 }
 
@@ -36,115 +42,13 @@ export interface ThreatStateHandlers {
  * @returns {UrlParams} Parsed URL parameters
  */
 function getUrlParameters(): UrlParams {
-  const reportId = extractReportIdFromUrl(getParameterByName("id"));
+  const id = getParameterByName("id");
   const fightId = getParameterByName("fightId");
   const enemyId = getParameterByName("enemy");
   const targetParam = getParameterByName("target");
-  const targetId = targetParam ? targetParam.split(";")[3] : null;
+  const targetId = targetParam ? targetParam.split(";")[3] : undefined;
 
-  return { reportId, fightId, enemyId, targetId };
-}
-
-/**
- * Custom hook for managing URL parameters related to threat data
- */
-function useUrlParameters(): UrlParams {
-  return useMemo(() => getUrlParameters(), []);
-}
-
-/**
- * Custom hook for managing error state and handling
- */
-function useErrorHandler(
-  setState: React.Dispatch<React.SetStateAction<ThreatState>>
-): (error: unknown) => void {
-  return useCallback(
-    (error: unknown) => {
-      const errorMessage =
-        error instanceof Error
-          ? error.message
-          : "An error occurred while loading data";
-      setState((prev) => ({
-        ...prev,
-        isLoading: false,
-        error: errorMessage,
-      }));
-      console.error(error);
-    },
-    [setState]
-  );
-}
-
-/**
- * Custom hook for managing threat data loading
- */
-function useDataLoading(
-  state: ThreatState,
-  setState: React.Dispatch<React.SetStateAction<ThreatState>>,
-  handleError: (error: unknown) => void
-) {
-  const urlParams = useUrlParameters();
-
-  // Effect to fetch report data
-  useEffect(() => {
-    if (!state.id || !state.report) return;
-
-    const fetchReport = async () => {
-      try {
-        setState((prev) => ({ ...prev, isLoading: true, error: null }));
-        await state.report!.fetch();
-        setState((prev) => ({ ...prev, isLoading: false }));
-      } catch (error) {
-        handleError(error);
-      }
-    };
-
-    fetchReport();
-  }, [state.id, state.report, handleError, setState]);
-
-  // Effect to handle fight data loading
-  useEffect(() => {
-    if (!state.report || !urlParams.fightId) return;
-
-    const fetchFight = async () => {
-      try {
-        const fightIndex = parseInt(urlParams.fightId!) - 1;
-        const fightIds = Object.keys(state.report!.fights);
-
-        if (fightIndex >= 0 && fightIndex < fightIds.length) {
-          const fightId = fightIds[fightIndex];
-          const fight = state.report!.fights[fightId];
-          await loadFightData(fight, urlParams, setState);
-        }
-      } catch (error) {
-        handleError(error);
-      }
-    };
-
-    fetchFight();
-  }, [state.report, urlParams.fightId, handleError, setState, urlParams]);
-}
-
-/**
- * Custom hook for creating state handlers
- */
-function useStateHandlers(
-  setState: React.Dispatch<React.SetStateAction<ThreatState>>
-): ThreatStateHandlers {
-  return useMemo(
-    () => ({
-      setReport: (report: Report) =>
-        setState((prev) => ({ ...prev, report, error: null })),
-      setFight: (fight: Fight) =>
-        setState((prev) => ({ ...prev, fight, error: null })),
-      setEnemy: (enemy: NPC) =>
-        setState((prev) => ({ ...prev, enemy, error: null })),
-      setThreatTrace: (trace: ThreatTrace) =>
-        setState((prev) => ({ ...prev, threatTrace: trace, error: null })),
-      clearError: () => setState((prev) => ({ ...prev, error: null })),
-    }),
-    [setState]
-  );
+  return { id, fightId, enemyId, targetId };
 }
 
 /**
@@ -165,16 +69,95 @@ function useStateHandlers(
 export function useThreatState(
   config: GameVersionConfig
 ): [ThreatState, ThreatStateHandlers] {
-  const urlParams = useUrlParameters();
+  const urlParams = getUrlParameters();
 
   const [state, setState] = useState<ThreatState>(() =>
-    createInitialState(config, urlParams)
+    createInitialState(urlParams)
   );
 
-  const handleError = useErrorHandler(setState);
-  const handlers = useStateHandlers(setState);
+  const handleError = useCallback(
+    (error: unknown) => {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "An error occurred while loading data";
+      setState((prev) => ({
+        ...prev,
+        isLoading: false,
+        error: errorMessage,
+      }));
+      console.error(error);
+    },
+    [setState]
+  );
 
-  useDataLoading(state, setState, handleError);
+  const loadReport = useCallback(async () => {
+    if (!state.reportId) return;
+    if (state.report?.reportId === state.reportId) return;
+
+    setState((prev) => ({ ...prev, isLoading: true, error: undefined }));
+    try {
+      const report = new Report(config, state.reportId);
+      await report.fetch();
+      setState((prev) => ({ ...prev, report, isLoading: false }));
+    } catch (error) {
+      handleError(error);
+    }
+  }, [state.reportId, state.report?.reportId, config, handleError]);
+
+  // Effect to fetch report data once on mount
+  useEffect(() => {
+    if (urlParams.id) {
+      loadReport();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlParams.id]);
+
+  const loadFight = useCallback(async () => {
+    if (!state.report || !state.fightId) return;
+
+    setState((prev) => ({ ...prev, isLoading: true, error: undefined }));
+    try {
+      const fight = await loadFightData(state.report, state.fightId);
+      setState((prev) => ({ ...prev, fight, isLoading: false }));
+    } catch (error) {
+      handleError(error);
+    }
+  }, [state.report, state.fightId, handleError]);
+
+  const handlers = useMemo(
+    () => ({
+      setUrl: (url: string) =>
+        setState((prev) => ({
+          ...prev,
+          url,
+          reportId: extractReportIdFromUrl(url),
+        })),
+      setFightId: (fightId: number | undefined) =>
+        setState((prev) => ({ ...prev, fightId, error: undefined })), // TODO: set state.fight if we already have it in memory
+      setEnemyId: (enemyId: number | undefined) =>
+        setState((prev) => ({ ...prev, enemyId, error: undefined })),
+      setTargetId: (targetId: number | undefined) =>
+        setState((prev) => ({ ...prev, targetId, error: undefined })),
+      setTargetKey: (targetKey: string | undefined) =>
+        setState((prev) => {
+          const [reportId, fightId, enemyId, targetId] =
+            targetKey?.split(";") ?? [];
+          return {
+            ...prev,
+            reportId,
+            fightId: fightId ? Number(fightId) : undefined,
+            enemyId: enemyId ? Number(enemyId) : undefined,
+            targetId: targetId ? Number(targetId) : undefined,
+            error: undefined,
+          };
+        }),
+      clearError: () => setState((prev) => ({ ...prev, error: undefined })),
+      loadFight,
+      loadReport,
+    }),
+    [loadFight, loadReport]
+  );
 
   return [state, handlers];
 }
@@ -182,55 +165,58 @@ export function useThreatState(
 /**
  * Creates the initial threat state from URL parameters
  */
-function createInitialState(
-  config: GameVersionConfig,
-  urlParams: UrlParams
-): ThreatState {
+function createInitialState(urlParams: UrlParams): ThreatState {
   return {
-    id: urlParams.reportId,
-    report: urlParams.reportId ? new Report(config, urlParams.reportId) : null,
-    fight: null,
-    enemy: null,
-    threatTrace: null,
+    url: urlParams.id,
+    reportId: urlParams.id ? extractReportIdFromUrl(urlParams.id) : undefined,
+    report: undefined,
+
+    fightId: undefined,
+    fight: undefined,
+
+    enemyId: undefined,
+    targetId: undefined,
     isLoading: false,
-    error: null,
+    error: undefined,
   };
 }
 
 async function loadFightData(
-  fight: Fight,
-  urlParams: UrlParams,
-  setState: React.Dispatch<React.SetStateAction<ThreatState>>
-) {
+  report: Report,
+  fightId: number
+): Promise<Fight | undefined> {
+  const fight = report.fights[fightId];
+  if (!fight)
+    throw new Error(`Fight ${fightId} not found in report ${report.reportId}`);
   await fight.fetch();
   fight.process();
-  setState((prev) => ({ ...prev, fight }));
+  return fight;
 
-  if (!urlParams.enemyId) return;
+  // const wclFight = report.data.fights[fightId];
+  // if (!wclFight)
+  //   throw new Error(
+  //     `Fight ${fightId} not found in report ${report.data.fights}`
+  //   );
 
-  const enemyIndex = parseInt(urlParams.enemyId);
-  const enemyIds = Object.keys(fight.enemies);
+  // // create a new Fight object so that object equality checks work
+  // const newFight = new Fight(
+  //   config,
+  //   report.reportId,
+  //   wclFight,
+  //   report.data.units,
+  //   report.data.faction
+  // );
 
-  if (enemyIndex >= 0 && enemyIndex < enemyIds.length) {
-    const enemyId = enemyIds[enemyIndex];
-    const enemy = fight.enemies[enemyId];
-    setState((prev) => ({ ...prev, enemy }));
-
-    if (
-      urlParams.targetId &&
-      typeof urlParams.targetId === "string" &&
-      enemy.threat[urlParams.targetId]
-    ) {
-      setState((prev) => ({
-        ...prev,
-        threatTrace: enemy.threat[urlParams.targetId as string],
-      }));
-    }
-  }
+  // await newFight.fetch();
+  // newFight.process();
+  // report.fights[fightId] = newFight;
+  // return newFight;
 }
 
-function extractReportIdFromUrl(idParam: string | null): string | null {
-  if (!idParam) return null;
+function extractReportIdFromUrl(
+  idParam: string | undefined
+): string | undefined {
+  if (!idParam) return undefined;
   const urlmatch = idParam.match(
     /https:\/\/(?:[a-z]+\.)?(?:classic\.|www\.)?warcraftlogs\.com\/reports\/((?:a:)?\w+)/
   );
