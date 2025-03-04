@@ -178,8 +178,9 @@ export class Unit {
    * @param {number} time
    * @param {string} text
    * @param {import("../base.js").ThreatCoefficient | null} coeff
+   * @param {number} [bonusThreat]
    */
-  addThreat(unitId, threat, time, text, coeff) {}
+  addThreat(unitId, threat, time, text, coeff, bonusThreat) {}
 
   /**
    * @param {string} unitId
@@ -367,12 +368,13 @@ export class NPC extends Unit {
    * @param {number} time
    * @param {string} text
    * @param {import("../base.js").ThreatCoefficient | null} coeff
+   * @param {number} [bonusThreat]
    */
-  addThreat(unitId, threat, time, text, coeff) {
+  addThreat(unitId, threat, time, text, coeff, bonusThreat) {
     if (!this.alive) return;
-    let a = this.checkTargetExists(unitId, time);
-    if (!a) return;
-    a.addThreat(threat, time, text, coeff);
+    let trace = this.checkTargetExists(unitId, time);
+    if (!trace) return;
+    trace.addThreat(threat, time, text, coeff, bonusThreat);
   }
 
   addMark(unitId, time, text, border) {
@@ -419,15 +421,15 @@ export class ThreatTrace {
    * @param {number} threat
    * @param {number} time
    * @param {string} text
-   * @param {import("../base.js").ThreatCoefficient | null} [coeff]
+   * @param {import("../base.js").ThreatCoefficient | null} [displayCoeff]
    * @param {import("../base.js").Border | null} [border]
    */
-  setThreat(threat, time, text, coeff = null, border = null) {
+  setThreat(threat, time, text, displayCoeff = null, border = null) {
     if (threat < 0) threat = 0;
     this.threat.push(threat);
     this.time.push(time);
     this.text.push(text);
-    this.coeff.push(coeff);
+    this.coeff.push(displayCoeff);
     let [w, c] =
       border !== null
         ? border
@@ -454,11 +456,12 @@ export class ThreatTrace {
    * @param {number} time
    * @param {string} text
    * @param {import("../base.js").ThreatCoefficient | null} coeff
+   * @param {number} [bonusThreat]
    */
-  addThreat(threat, time, text, coeff) {
+  addThreat(threat, time, text, coeff, bonusThreat = 0) {
     if (threat === 0) return;
     this.setThreat(
-      this.currentThreat + threat * (coeff?.value ?? 1),
+      this.currentThreat + threat * (coeff?.value ?? 1) + bonusThreat,
       time,
       text,
       coeff
