@@ -3,14 +3,15 @@ import { loadTargetFromReport } from "../../_test/helpers";
 
 // Run the local server with `npm run start`
 test.describe("/sod/ threat values - Naxx mechanics", () => {
-  test("Patchwerk - Warrior - MT", async ({ page }) => {
-    await loadTargetFromReport(
-      page,
-      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/ZGqcXNWmHKRPb842",
-      "53;129;7" // Patchwerk - Enzad
-    );
+  test.describe("special threat mechanics", () => {
+    test("Patchwerk - Warrior - MT", async ({ page }) => {
+      await loadTargetFromReport(
+        page,
+        "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/ZGqcXNWmHKRPb842",
+        "53;129;7" // Patchwerk - Enzad
+      );
 
-    await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
+      await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
       - text: "Enzad - Started fight with threat coeff 0.56"
       - table:
@@ -38,16 +39,16 @@ test.describe("/sod/ threat values - Naxx mechanics", () => {
           - row "Rampage	71.76	1.00"
           - row "Total	541372.33	7559.69"
       `);
-  });
+    });
 
-  test("Patchwerk - Warlock - Hateful target", async ({ page }) => {
-    await loadTargetFromReport(
-      page,
-      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/ZGqcXNWmHKRPb842",
-      "53;129;21" // Patchwerk - Baldbulla
-    );
+    test("Patchwerk - Warlock - Hateful target", async ({ page }) => {
+      await loadTargetFromReport(
+        page,
+        "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/ZGqcXNWmHKRPb842",
+        "53;129;21" // Patchwerk - Baldbulla
+      );
 
-    await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
+      await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
       - text: "Baldbulla - Started fight with threat coeff 1.239"
       - table:
@@ -67,16 +68,16 @@ test.describe("/sod/ threat values - Naxx mechanics", () => {
           - row "The Burrower's Shell	74.34	1.04"
           - row "Total	291699.12	4073.27"
       `);
-  });
+    });
 
-  test("Patchwerk - Rogue MT", async ({ page }) => {
-    await loadTargetFromReport(
-      page,
-      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
-      "44;160;8" // Patchwerk - Dedgame
-    );
+    test("Patchwerk - Rogue MT", async ({ page }) => {
+      await loadTargetFromReport(
+        page,
+        "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
+        "44;160;8" // Patchwerk - Dedgame
+      );
 
-    await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
+      await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
       - text: "Dedgame - Started fight with threat coeff 1.9097"
       - table:
@@ -107,40 +108,41 @@ test.describe("/sod/ threat values - Naxx mechanics", () => {
           - row "Blade Flurry	114.58	1.54"
           - row "Total	1155910.72	15519.12"
       `);
-  });
+    });
 
-  test("Patchwerk - Shaman - Hateful target", async ({ page }) => {
-    await loadTargetFromReport(
-      page,
-      "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
-      "44;160;15" // Patchwerk - Dedgame
-    );
+    test("Patchwerk - Shaman - Hateful target", async ({ page }) => {
+      await loadTargetFromReport(
+        page,
+        "http://127.0.0.1:8080/sod/?id=https://sod.warcraftlogs.com/reports/CNXHnFyDbqkahWpx",
+        "44;160;15" // Patchwerk - Tombah
+      );
 
-    await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
+      await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
       - text: "Tombah - Started fight with threat coeff 1.45"
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 74.48 seconds"
-          - row "Earth Shock	221192.28	2969.70"
-          - row "Lava Burst	157718.82	2117.51"
-          - row "Flame Shock	137968.08	1852.34"
-          - row "Lightning Shield	59093.88	793.39"
-          - row "Melee	38137.32	512.03"
-          - row "Damage Shield Dmg +80	22999.32	308.79"
-          - row "Splintered Shield	16138.50	216.67"
-          - row "Dragonbreath Chili	13709.46	184.06"
-          - row "Shamanistic Rage	11141.40	149.58"
-          - row "Hateful Strike	5600.00	75.18"
-          - row "Maelstrom Weapon	4698.00	63.07"
-          - row "Defender's Resolve	2610.00	35.04"
-          - row "Shield Mastery	1825.80	24.51"
-          - row "Elemental Devastation	939.60	12.61"
-          - row "Stormbraced	626.40	8.41"
-          - row "Flurry	522.00	7.01"
-          - row "Clearcasting	208.80	2.80"
-          - row "Maelstrom Ready!	208.80	2.80"
-          - row "Total	695338.46	9335.53"
+          - row "Earth Shock	364967.26	4900.01"
+          - row "Lava Burst	260236.05	3493.90"
+          - row "Flame Shock	227647.33	3056.37"
+          - row "Lightning Shield	97504.90	1309.09"
+          - row "Melee	62926.58	844.84"
+          - row "Damage Shield Dmg +80	37948.88	509.50"
+          - row "Splintered Shield	26628.52	357.51"
+          - row "Dragonbreath Chili	22620.61	303.70"
+          - row "Hateful Strike	18400.00	247.04"
+          - row "Shamanistic Rage	13584.36	182.38"
+          - row "Maelstrom Weapon	7751.70	104.07"
+          - row "Defender's Resolve	4306.50	57.82"
+          - row "Shield Mastery	2640.12	35.45"
+          - row "Elemental Devastation	1550.34	20.81"
+          - row "Stormbraced	1033.56	13.88"
+          - row "Flurry	861.30	11.56"
+          - row "Maelstrom Ready!	344.52	4.63"
+          - row "Clearcasting	344.52	4.63"
+          - row "Total	1151297.06	15457.18"
       `);
+    });
   });
 });
