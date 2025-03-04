@@ -119,7 +119,7 @@ test.describe("/sod/ threat values - Naxx mechanics", () => {
 
       await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
-      - text: "Tombah - Started fight with threat coeff 1.45"
+      - text: "Tombah - Started fight with threat coeff 2.871"
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 74.48 seconds"
