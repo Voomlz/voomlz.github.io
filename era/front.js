@@ -183,7 +183,6 @@ export function selectReport(config) {
     return;
   }
   el.style.borderColor = null;
-  if (!(reportId in reports)) console.log({ config });
   reports[reportId] = new Report(
     /** @type {import("./base.js").GameVersionConfig} */ (config),
     reportId
