@@ -12,7 +12,7 @@ test.describe("/sod/ threat values", () => {
 
     await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
-      - text: "Sheenftw - Started fight with threat coeff 1.495"
+      - text: "Sheenftw - Started fight with threat coeff 1.6445"
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 107.19 seconds"
@@ -84,7 +84,7 @@ test.describe("/sod/ threat values", () => {
 
     await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
-      - text: "Neitsa - Started fight with threat coeff 1.3"
+      - text: "Neitsa - Started fight with threat coeff 1.95"
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 86.47 seconds"
@@ -161,7 +161,7 @@ test.describe("/sod/ threat values", () => {
 
     await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
-      - text: "Predasmoke - Started fight with threat coeff 1.45"
+      - text: "Predasmoke - Started fight with threat coeff 2.871"
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 58.74 seconds"

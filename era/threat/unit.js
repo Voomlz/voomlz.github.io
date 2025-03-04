@@ -109,7 +109,6 @@ export class Unit {
         // Allow applying a coefficient per spellId or via a combination of other buffs
         if (
           typeof this.config.buffMultipliers[buffId] === "object" &&
-          spellId &&
           "coeff" in this.config.buffMultipliers[buffId]
         ) {
           const { coeff } = this.config.buffMultipliers[buffId];
