@@ -11,12 +11,15 @@ export class Unit {
    * @param {string} key
    * @param {string} name
    * @param {string | number} type
-   * @param {string | any[]} events
+   * @param {import("../threat/wcl.js").WCLEvent[]} events
+   * @param {import("../threat/fight.js").Fight} fight
    */
-  constructor(config, key, name, type, events) {
+  constructor(config, key, name, type, events, fight) {
     this.config = config;
     // Info is an object from WCL API
     this.key = key;
+    /** @type {import("../threat/fight.js").Fight} */
+    this.fight = fight;
     this.name = name;
     this.type = type;
     this.spellSchool = config.preferredSpellSchools[type] || 1;
@@ -102,17 +105,16 @@ export class Unit {
 
     for (let buffId in this.buffs) {
       if (buffId in this.config.buffMultipliers) {
-        if (typeof this.config.buffMultipliers[buffId] === "function") {
-          const nextC = this.config.buffMultipliers[buffId](spellSchool);
+        /** @type {import("../base.js").ThreatCoefficientObject | import("../base.js").ThreatCoefficientFn} */
+        const multiplier = this.config.buffMultipliers[buffId];
+        if (typeof multiplier === "function") {
+          const nextC = multiplier(spellSchool);
           c = applyThreatCoefficient(c, nextC, this.config.buffNames[buffId]);
         }
         // Allow applying a coefficient per spellId or via a combination of other buffs
-        if (
-          typeof this.config.buffMultipliers[buffId] === "object" &&
-          "coeff" in this.config.buffMultipliers[buffId]
-        ) {
-          const { coeff } = this.config.buffMultipliers[buffId];
-          const nextC = coeff(this.buffs, spellId)(spellSchool);
+        if (typeof multiplier === "object" && "coeff" in multiplier) {
+          const { coeff } = multiplier;
+          const nextC = coeff(this.buffs, spellId, this.fight)(spellSchool);
           c = applyThreatCoefficient(c, nextC, this.config.buffNames[buffId]);
         }
       }
@@ -210,10 +212,11 @@ export class Player extends Unit {
    * @param {string} key
    * @param {import("./wcl.js").WCLFriendlyUnit} info
    * @param {import("./wcl.js").WCLEvent[]} events
+   * @param {import("./fight.js").Fight} fight
    * @param {boolean} [tranquilAir]
    */
-  constructor(config, key, info, events, tranquilAir = false) {
-    super(config, key, info.name, info.type, events);
+  constructor(config, key, info, events, fight, tranquilAir = false) {
+    super(config, key, info.name, info.type, events, fight);
     this.global = info;
     this.talents = info.talents;
 
@@ -321,7 +324,7 @@ export class NPC extends Unit {
    * @param {import("./fight.js").Fight} fight
    */
   constructor(config, key, unit, events, fight) {
-    super(config, key, unit.name, unit.type, events);
+    super(config, key, unit.name, unit.type, events, fight);
     this.fightUnits = fight.units;
     /** @type {import("../threat/fight.js").Fight} */
     this.fight = fight;

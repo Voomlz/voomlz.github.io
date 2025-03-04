@@ -1,0 +1,6969 @@
+{
+  "lang": "en",
+  "fights": [
+    {
+      "id": 1,
+      "boss": 0,
+      "start_time": 206676,
+      "end_time": 315944,
+      "name": "Anubisath Sentinel",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 2,
+      "boss": 0,
+      "start_time": 343134,
+      "end_time": 362924,
+      "name": "Obsidian Eradicator",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 3,
+      "boss": 0,
+      "start_time": 377908,
+      "end_time": 394706,
+      "name": "Obsidian Eradicator",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 4,
+      "boss": 0,
+      "start_time": 447699,
+      "end_time": 540739,
+      "name": "Anubisath Sentinel",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 5,
+      "boss": 100709,
+      "start_time": 838406,
+      "end_time": 1039991,
+      "name": "The Prophet Skeram",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 6,
+      "boss": 0,
+      "start_time": 1044734,
+      "end_time": 1044734,
+      "name": "Eye Tentacle",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 7,
+      "boss": 0,
+      "start_time": 1182237,
+      "end_time": 1215576,
+      "name": "Vekniss Guardian",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 8,
+      "boss": 0,
+      "start_time": 1259356,
+      "end_time": 1259380,
+      "name": "Beetle",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 9,
+      "boss": 0,
+      "start_time": 1288959,
+      "end_time": 1324926,
+      "name": "Vekniss Warrior",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 10,
+      "boss": 0,
+      "start_time": 1348128,
+      "end_time": 1417752,
+      "name": "Vekniss Guardian",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 11,
+      "boss": 0,
+      "start_time": 1432728,
+      "end_time": 1469814,
+      "name": "Qiraji Brainwasher",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 12,
+      "boss": 0,
+      "start_time": 1483435,
+      "end_time": 1571726,
+      "name": "Vekniss Guardian",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 13,
+      "boss": 100710,
+      "start_time": 1610958,
+      "end_time": 1773004,
+      "name": "Silithid Royalty",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 14,
+      "boss": 0,
+      "start_time": 1773495,
+      "end_time": 1776596,
+      "name": "Yauj Brood",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 15,
+      "boss": 0,
+      "start_time": 1827319,
+      "end_time": 1875963,
+      "name": "Vekniss Guardian",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 16,
+      "boss": 0,
+      "start_time": 1898843,
+      "end_time": 1951386,
+      "name": "Vekniss Guardian",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 17,
+      "boss": 0,
+      "start_time": 1974969,
+      "end_time": 2017763,
+      "name": "Vekniss Guardian",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 18,
+      "boss": 0,
+      "start_time": 2049622,
+      "end_time": 2049656,
+      "name": "Roach",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 19,
+      "boss": 100711,
+      "start_time": 2108093,
+      "end_time": 2313347,
+      "name": "Battleguard Sartura",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 20,
+      "boss": 0,
+      "start_time": 2422567,
+      "end_time": 2591634,
+      "name": "Gilded Scarab",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 21,
+      "boss": 0,
+      "start_time": 2613715,
+      "end_time": 2626362,
+      "name": "Vekniss Drone",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 22,
+      "boss": 100712,
+      "start_time": 2633677,
+      "end_time": 2740866,
+      "name": "Fankriss the Unyielding",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 23,
+      "boss": 0,
+      "start_time": 2741050,
+      "end_time": 2765073,
+      "name": "Vekniss Hatchling",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 24,
+      "boss": 100713,
+      "start_time": 3012053,
+      "end_time": 3225413,
+      "name": "Viscidus",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 25,
+      "boss": 0,
+      "start_time": 3266290,
+      "end_time": 3268769,
+      "name": "Scorpion",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 26,
+      "boss": 0,
+      "start_time": 3349240,
+      "end_time": 3372039,
+      "name": "Vekniss Hive Crawler",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 27,
+      "boss": 0,
+      "start_time": 3392273,
+      "end_time": 3411274,
+      "name": "Vekniss Hive Crawler",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 28,
+      "boss": 0,
+      "start_time": 3441470,
+      "end_time": 3466628,
+      "name": "Vekniss Hive Crawler",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 29,
+      "boss": 0,
+      "start_time": 3500770,
+      "end_time": 3565575,
+      "name": "Qiraji Lasher",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 30,
+      "boss": 0,
+      "start_time": 3743478,
+      "end_time": 3768703,
+      "name": "Vekniss Stinger",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 31,
+      "boss": 0,
+      "start_time": 3804341,
+      "end_time": 3804349,
+      "name": "Beetle",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 32,
+      "boss": 0,
+      "start_time": 3818429,
+      "end_time": 3877024,
+      "name": "Qiraji Lasher",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 33,
+      "boss": 0,
+      "start_time": 3947632,
+      "end_time": 3979947,
+      "name": "Qiraji Lasher",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 34,
+      "boss": 100714,
+      "start_time": 4133601,
+      "end_time": 4264762,
+      "name": "Princess Huhuran",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 35,
+      "boss": 0,
+      "start_time": 4322474,
+      "end_time": 4325199,
+      "name": "Qiraji Scarab",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 36,
+      "boss": 0,
+      "start_time": 4361730,
+      "end_time": 4389386,
+      "name": "Anubisath Defender",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 37,
+      "boss": 0,
+      "start_time": 4461072,
+      "end_time": 4493757,
+      "name": "Anubisath Defender",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 38,
+      "boss": 0,
+      "start_time": 4532388,
+      "end_time": 4555769,
+      "name": "Anubisath Defender",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 39,
+      "boss": 0,
+      "start_time": 4578609,
+      "end_time": 4615212,
+      "name": "Anubisath Defender",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 40,
+      "boss": 0,
+      "start_time": 4672979,
+      "end_time": 4701107,
+      "name": "Anubisath Defender",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 41,
+      "boss": 0,
+      "start_time": 4750813,
+      "end_time": 4764697,
+      "name": "Qiraji Scarab",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 42,
+      "boss": 100715,
+      "start_time": 5718313,
+      "end_time": 5839304,
+      "name": "Twin Emperors",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": false,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 7420,
+      "fightPercentage": 7420,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 43,
+      "boss": 100715,
+      "start_time": 6198828,
+      "end_time": 6395538,
+      "name": "Twin Emperors",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 74,
+      "fightPercentage": 74,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 44,
+      "boss": 0,
+      "start_time": 6395548,
+      "end_time": 6447518,
+      "name": "Eye Tentacle",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 45,
+      "boss": 0,
+      "start_time": 6509368,
+      "end_time": 6564100,
+      "name": "Qiraji Champion",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 46,
+      "boss": 0,
+      "start_time": 6597804,
+      "end_time": 6641844,
+      "name": "Qiraji Champion",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 47,
+      "boss": 0,
+      "start_time": 6667094,
+      "end_time": 6688896,
+      "name": "Qiraji Champion",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 48,
+      "boss": 0,
+      "start_time": 6716763,
+      "end_time": 6731498,
+      "name": "Qiraji Slayer",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 49,
+      "boss": 0,
+      "start_time": 6765160,
+      "end_time": 6792304,
+      "name": "Qiraji Champion",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 50,
+      "boss": 0,
+      "start_time": 6829512,
+      "end_time": 6829569,
+      "name": "Ouro Spawner",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 51,
+      "boss": 0,
+      "start_time": 6850065,
+      "end_time": 6873574,
+      "name": "Qiraji Warlord",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 52,
+      "boss": 0,
+      "start_time": 6889331,
+      "end_time": 6942931,
+      "name": "Anubisath Warder",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 53,
+      "boss": 0,
+      "start_time": 6956094,
+      "end_time": 6986002,
+      "name": "Qiraji Champion",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 54,
+      "boss": 0,
+      "start_time": 7009018,
+      "end_time": 7076203,
+      "name": "Anubisath Warder",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 55,
+      "boss": 0,
+      "start_time": 7100916,
+      "end_time": 7124663,
+      "name": "Anubisath Warder",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 56,
+      "boss": 100716,
+      "start_time": 7307737,
+      "end_time": 7437378,
+      "name": "Ouro",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 57,
+      "boss": 0,
+      "start_time": 7440485,
+      "end_time": 7506503,
+      "name": "Ouro Scarab",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0
+    },
+    {
+      "id": 58,
+      "boss": 100717,
+      "start_time": 7887311,
+      "end_time": 8642591,
+      "name": "C'thun",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 0,
+      "size": 20,
+      "difficulty": 4,
+      "kill": false,
+      "partial": 2,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1052,
+      "fightPercentage": 1052,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 59,
+      "boss": 100717,
+      "start_time": 8997162,
+      "end_time": 9568629,
+      "name": "C'thun",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 3,
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 60,
+      "boss": 0,
+      "start_time": 9569163,
+      "end_time": 9571612,
+      "name": "Giant Claw Tentacle",
+      "zoneID": 531,
+      "zoneName": "Ahn'Qiraj",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 61,
+      "boss": 0,
+      "start_time": 10187034,
+      "end_time": 10230635,
+      "name": "Molten Giant",
+      "zoneID": 409,
+      "zoneName": "The Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 62,
+      "boss": 0,
+      "start_time": 10246228,
+      "end_time": 10275195,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "The Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 63,
+      "boss": 0,
+      "start_time": 10286011,
+      "end_time": 10418315,
+      "name": "Molten Destroyer",
+      "zoneID": 409,
+      "zoneName": "The Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 64,
+      "boss": 0,
+      "start_time": 10430620,
+      "end_time": 10453713,
+      "name": "Lava Annihilator",
+      "zoneID": 409,
+      "zoneName": "The Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 65,
+      "boss": 0,
+      "start_time": 10483756,
+      "end_time": 10550785,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "The Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 66,
+      "boss": 0,
+      "start_time": 10579114,
+      "end_time": 10632522,
+      "name": "Firewalker",
+      "zoneID": 409,
+      "zoneName": "The Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 67,
+      "boss": 100668,
+      "start_time": 10637802,
+      "end_time": 10717648,
+      "name": "Baron Geddon",
+      "zoneID": 409,
+      "zoneName": "The Molten Core",
+      "zoneDifficulty": 3,
+      "size": 20,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 3,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    }
+  ],
+  "completeRaids": [
+    {
+      "id": 10000,
+      "start_time": 206676,
+      "end_time": 9568629,
+      "boss": 2966,
+      "name": "Temple of Ahn'Qiraj",
+      "size": 20,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 2,
+      "completeRaidSize": 20,
+      "completionTime": 9461953,
+      "timePenalty": 100000,
+      "swapTimePenalty": 0,
+      "hardModeTimePenalty": 0,
+      "missedTrashTimePenalty": 100000,
+      "missedTrashDetails": [
+        {
+          "gameIDs": [
+            15262
+          ],
+          "label": "Obsidian Eradicator",
+          "requiredCount": 3,
+          "actualCount": 2,
+          "timePenalty": 100000
+        },
+        {
+          "gameIDs": [
+            15264
+          ],
+          "label": "Anubisath Sentinel",
+          "requiredCount": 8,
+          "actualCount": 8,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            15247
+          ],
+          "label": "Qiraji Brainwasher",
+          "requiredCount": 6,
+          "actualCount": 6,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            15233
+          ],
+          "label": "Vekniss Guardian",
+          "requiredCount": 29,
+          "actualCount": 35,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            15230
+          ],
+          "label": "Vekniss Warrior",
+          "requiredCount": 6,
+          "actualCount": 6,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            15240
+          ],
+          "label": "Vekniss Hive Crawler",
+          "requiredCount": 6,
+          "actualCount": 6,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            15235
+          ],
+          "label": "Vekniss Stinger",
+          "requiredCount": 6,
+          "actualCount": 6,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            234830
+          ],
+          "label": "Anubisath Defender",
+          "requiredCount": 5,
+          "actualCount": 5,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            234800
+          ],
+          "label": "Qiraji Slayer",
+          "requiredCount": 14,
+          "actualCount": 14,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            234762
+          ],
+          "label": "Qiraji Mindslayer",
+          "requiredCount": 6,
+          "actualCount": 6,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            234798
+          ],
+          "label": "Qiraji Champion",
+          "requiredCount": 6,
+          "actualCount": 6,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            234814
+          ],
+          "label": "Qiraji Warlord",
+          "requiredCount": 1,
+          "actualCount": 1,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            15311
+          ],
+          "label": "Anubisath Warder",
+          "requiredCount": 4,
+          "actualCount": 4,
+          "timePenalty": 0
+        }
+      ],
+      "classicSeasonID": 3
+    }
+  ],
+  "friendlies": [
+    {
+      "name": "Galaxias",
+      "id": 8,
+      "guid": 33702888,
+      "type": "Hunter",
+      "server": "WildGrowth",
+      "icon": "Hunter",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Chanfarm",
+      "id": 4,
+      "guid": 34908840,
+      "type": "Hunter",
+      "server": "WildGrowth",
+      "icon": "Hunter",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        }
+      ]
+    },
+    {
+      "name": "Chanvar",
+      "id": 119,
+      "guid": 33363523,
+      "type": "Warrior",
+      "server": "WildGrowth",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Jeeraya",
+      "id": 18,
+      "guid": 34459582,
+      "type": "Warrior",
+      "server": "WildGrowth",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Healingpants",
+      "id": 5,
+      "guid": 33207359,
+      "type": "Priest",
+      "server": "WildGrowth",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Cattyperry",
+      "id": 3,
+      "guid": 38550288,
+      "type": "Druid",
+      "server": "WildGrowth",
+      "icon": "Druid",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Eye Tentacle",
+      "id": 32,
+      "guid": 235528,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 95,
+          "groups": 6
+        },
+        {
+          "id": 7,
+          "instances": 18,
+          "groups": 1
+        },
+        {
+          "id": 9,
+          "instances": 23,
+          "groups": 1
+        },
+        {
+          "id": 10,
+          "instances": 39,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 16,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 43,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Klmace",
+      "id": 19,
+      "guid": 43414442,
+      "type": "Paladin",
+      "server": "WildGrowth",
+      "icon": "Paladin-Retribution",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Yukkmeui",
+      "id": 10,
+      "guid": 39994716,
+      "type": "Rogue",
+      "server": "WildGrowth",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        }
+      ]
+    },
+    {
+      "name": "Kandral",
+      "id": 6,
+      "guid": 33972696,
+      "type": "Paladin",
+      "server": "WildGrowth",
+      "icon": "Paladin-Retribution",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Demorphosa",
+      "id": 2,
+      "guid": 38447413,
+      "type": "Warlock",
+      "server": "WildGrowth",
+      "icon": "Warlock",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Freezz",
+      "id": 11,
+      "guid": 40491084,
+      "type": "Mage",
+      "server": "WildGrowth",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Demm",
+      "id": 27,
+      "guid": 34048103,
+      "type": "Warrior",
+      "server": "WildGrowth",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        }
+      ]
+    },
+    {
+      "name": "Getáfix",
+      "id": 12,
+      "guid": 35730946,
+      "type": "Druid",
+      "server": "WildGrowth",
+      "icon": "Druid",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        }
+      ]
+    },
+    {
+      "name": "Eye Tentacle",
+      "id": 48,
+      "guid": 235668,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 94,
+          "groups": 5
+        },
+        {
+          "id": 15,
+          "instances": 19,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 37,
+          "groups": 2
+        },
+        {
+          "id": 17,
+          "instances": 19,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Anotherpally",
+      "id": 7,
+      "guid": 33228550,
+      "type": "Paladin",
+      "server": "WildGrowth",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        }
+      ]
+    },
+    {
+      "name": "Poppels",
+      "id": 14,
+      "guid": 34152537,
+      "type": "Druid",
+      "server": "WildGrowth",
+      "icon": "Druid",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Vaniljekrem",
+      "id": 13,
+      "guid": 41555660,
+      "type": "Paladin",
+      "server": "WildGrowth",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Holyjamcan",
+      "id": 1,
+      "guid": 57636286,
+      "type": "Paladin",
+      "server": "WildGrowth",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Stabimir",
+      "id": 20,
+      "guid": 36588616,
+      "type": "Rogue",
+      "server": "WildGrowth",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Pusspuss",
+      "id": 83,
+      "guid": 36685884,
+      "type": "Druid",
+      "server": "WildGrowth",
+      "icon": "Druid-Balance",
+      "fights": [
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    },
+    {
+      "name": "Icemaschine",
+      "id": 16,
+      "guid": 47186454,
+      "type": "Hunter",
+      "server": "WildGrowth",
+      "icon": "Hunter-Marksmanship",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 57
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        }
+      ]
+    },
+    {
+      "name": "Plaguenurse",
+      "id": 15,
+      "guid": 47006251,
+      "type": "Priest",
+      "server": "WildGrowth",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        },
+        {
+          "id": 53
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 56
+        },
+        {
+          "id": 58
+        },
+        {
+          "id": 59
+        },
+        {
+          "id": 60
+        },
+        {
+          "id": 61
+        },
+        {
+          "id": 62
+        },
+        {
+          "id": 63
+        },
+        {
+          "id": 64
+        },
+        {
+          "id": 65
+        },
+        {
+          "id": 66
+        },
+        {
+          "id": 67
+        }
+      ]
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Eye Tentacle",
+      "id": 97,
+      "guid": 236077,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_siphonmana.jpg",
+      "fights": [
+        {
+          "id": 42,
+          "instances": 9,
+          "groups": 3
+        },
+        {
+          "id": 43,
+          "instances": 18,
+          "groups": 3
+        },
+        {
+          "id": 44,
+          "instances": 18,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Galaxias",
+      "id": 8,
+      "guid": 33702888,
+      "type": "Hunter",
+      "server": "WildGrowth",
+      "icon": "Hunter",
+      "fights": [
+        {
+          "id": 46
+        }
+      ]
+    },
+    {
+      "name": "Anubisath Defender",
+      "id": 84,
+      "guid": 234830,
+      "type": "NPC",
+      "icon": "custom-icon-ability_thunderclap.jpg",
+      "fights": [
+        {
+          "id": 36,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 37,
+          "instances": 1,
+          "groups": 2
+        },
+        {
+          "id": 38,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 39,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 40,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Qiraji Scorpion",
+      "id": 88,
+      "guid": 15317,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_selfdestruct.jpg",
+      "fights": [
+        {
+          "id": 39,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 41,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 42,
+          "instances": 31,
+          "groups": 1
+        },
+        {
+          "id": 43,
+          "instances": 30,
+          "groups": 3
+        },
+        {
+          "id": 44,
+          "instances": 30,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Cattyperry",
+      "id": 3,
+      "guid": 38550288,
+      "type": "Druid",
+      "server": "WildGrowth",
+      "icon": "Druid",
+      "fights": [
+        {
+          "id": 46
+        }
+      ]
+    },
+    {
+      "name": "Spawn of Fankriss",
+      "id": 61,
+      "guid": 15630,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "fights": [
+        {
+          "id": 22,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 23,
+          "instances": 9,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Qiraji Champion",
+      "id": 101,
+      "guid": 234798,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 45,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 46,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 47,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 49,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 53,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Beetle",
+      "id": 38,
+      "guid": 15475,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 31,
+          "instances": 1
+        },
+        {
+          "id": 50,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Vem",
+      "id": 45,
+      "guid": 15544,
+      "type": "Boss",
+      "icon": "custom-icon-ability_golemthunderclap.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Hatchling",
+      "id": 62,
+      "guid": 15962,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 22,
+          "instances": 12,
+          "groups": 2
+        },
+        {
+          "id": 23,
+          "instances": 12,
+          "groups": 1
+        },
+        {
+          "id": 49,
+          "instances": 1,
+          "groups": 0
+        }
+      ]
+    },
+    {
+      "name": "Emperor Vek'nilash",
+      "id": 93,
+      "guid": 15275,
+      "type": "Boss",
+      "icon": "custom-icon-inv_gauntlets_05.jpg",
+      "fights": [
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 43,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Spawn",
+      "id": 123,
+      "guid": 12265,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_flamebolt.jpg",
+      "fights": [
+        {
+          "id": 61,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Stinger",
+      "id": 77,
+      "guid": 15235,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_charge.jpg",
+      "fights": [
+        {
+          "id": 29,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 30,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 32,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 33,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Hatchling",
+      "id": 63,
+      "guid": 15962,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 22,
+          "instances": 12,
+          "groups": 2
+        },
+        {
+          "id": 23,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 49,
+          "instances": 5,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Princess Yauj",
+      "id": 46,
+      "guid": 15543,
+      "type": "Boss",
+      "icon": "custom-icon-ability_ghoulfrenzy.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Princess Huhuran",
+      "id": 81,
+      "guid": 15509,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_corrosivebreath.jpg",
+      "fights": [
+        {
+          "id": 34,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Eye of C'Thun",
+      "id": 111,
+      "guid": 15589,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_callstorm.jpg",
+      "fights": [
+        {
+          "id": 58,
+          "instances": 1
+        },
+        {
+          "id": 59,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Giant Claw Tentacle",
+      "id": 116,
+      "guid": 15728,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_earthquake.jpg",
+      "fights": [
+        {
+          "id": 58,
+          "instances": 15,
+          "groups": 8
+        },
+        {
+          "id": 59,
+          "instances": 7,
+          "groups": 7
+        },
+        {
+          "id": 60,
+          "instances": 7,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lord Kri",
+      "id": 44,
+      "guid": 15511,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_corrosivebreath.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Anubisath Sentinel",
+      "id": 9,
+      "guid": 15264,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_manaburn.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Elemental",
+      "id": 139,
+      "guid": 12076,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 65,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 66,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Fankriss the Unyielding",
+      "id": 60,
+      "guid": 15510,
+      "type": "Boss",
+      "icon": "custom-icon-ability_criticalstrike.jpg",
+      "fights": [
+        {
+          "id": 22,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Eye Tentacle",
+      "id": 32,
+      "guid": 235528,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 6,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Qiraji Scarab",
+      "id": 82,
+      "guid": 15316,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_vampiricaura.jpg",
+      "fights": [
+        {
+          "id": 35,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 40,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 41,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 42,
+          "instances": 29,
+          "groups": 1
+        },
+        {
+          "id": 43,
+          "instances": 26,
+          "groups": 1
+        },
+        {
+          "id": 44,
+          "instances": 27,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Scorpion",
+      "id": 37,
+      "guid": 15476,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 20,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 22,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 25,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 37,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 53,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 57,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Borer",
+      "id": 41,
+      "guid": 15622,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 46,
+          "groups": 1
+        },
+        {
+          "id": 10,
+          "instances": 46,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Ouro Spawner",
+      "id": 102,
+      "guid": 15957,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_earthquake.jpg",
+      "fights": [
+        {
+          "id": 50,
+          "instances": 1
+        },
+        {
+          "id": 51,
+          "instances": 1
+        },
+        {
+          "id": 52,
+          "instances": 1
+        },
+        {
+          "id": 53,
+          "instances": 1
+        },
+        {
+          "id": 54,
+          "instances": 1
+        },
+        {
+          "id": 55,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Anubisath Warder",
+      "id": 105,
+      "guid": 15311,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_sealoffire.jpg",
+      "fights": [
+        {
+          "id": 52,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 54,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 55,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Glob of Viscidus",
+      "id": 70,
+      "guid": 15667,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 24,
+          "instances": 17,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Flesh Tentacle",
+      "id": 114,
+      "guid": 15802,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_acid_01.jpg",
+      "fights": [
+        {
+          "id": 58,
+          "instances": 10,
+          "groups": 11
+        },
+        {
+          "id": 59,
+          "instances": 8,
+          "groups": 8
+        }
+      ]
+    },
+    {
+      "name": "Curse of Madness",
+      "id": 107,
+      "guid": 236173,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 56,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Freezz",
+      "id": 11,
+      "guid": 40491084,
+      "type": "Mage",
+      "server": "WildGrowth",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 46
+        }
+      ]
+    },
+    {
+      "name": "Sartura's Royal Guard",
+      "id": 56,
+      "guid": 15984,
+      "type": "NPC",
+      "icon": "custom-icon-ability_whirlwind.jpg",
+      "fights": [
+        {
+          "id": 19,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Surger",
+      "id": 128,
+      "guid": 12101,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_charge.jpg",
+      "fights": [
+        {
+          "id": 63,
+          "instances": 1
+        },
+        {
+          "id": 65,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Holyjamcan",
+      "id": 1,
+      "guid": 57636286,
+      "type": "Paladin",
+      "server": "WildGrowth",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 46
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Warrior",
+      "id": 39,
+      "guid": 15230,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 10,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Obsidian Nullifier",
+      "id": 104,
+      "guid": 15312,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 52,
+          "instances": 4,
+          "groups": 2
+        },
+        {
+          "id": 54,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 55,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Claw Tentacle",
+      "id": 112,
+      "guid": 15725,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_earthquake.jpg",
+      "fights": [
+        {
+          "id": 58,
+          "instances": 15,
+          "groups": 1
+        },
+        {
+          "id": 59,
+          "instances": 16,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "The Prophet Skeram",
+      "id": 31,
+      "guid": 176525,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 6,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Qiraji Lasher",
+      "id": 78,
+      "guid": 15249,
+      "type": "NPC",
+      "icon": "custom-icon-ability_whirlwind.jpg",
+      "fights": [
+        {
+          "id": 29,
+          "instances": 1
+        },
+        {
+          "id": 32,
+          "instances": 1
+        },
+        {
+          "id": 33,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Wasp",
+      "id": 76,
+      "guid": 15236,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_naturetouchdecay.jpg",
+      "fights": [
+        {
+          "id": 29,
+          "instances": 5,
+          "groups": 1
+        },
+        {
+          "id": 30,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 32,
+          "instances": 5,
+          "groups": 1
+        },
+        {
+          "id": 33,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Qiraji Warlord",
+      "id": 103,
+      "guid": 234814,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_thunderclap.jpg",
+      "fights": [
+        {
+          "id": 51,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battleguard Sartura",
+      "id": 55,
+      "guid": 15516,
+      "type": "Boss",
+      "icon": "custom-icon-ability_whirlwind.jpg",
+      "fights": [
+        {
+          "id": 19,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Baron Geddon",
+      "id": 131,
+      "guid": 228433,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_incinerate.jpg",
+      "fights": [
+        {
+          "id": 67,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Dirt Mound",
+      "id": 108,
+      "guid": 15712,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_earthquake.jpg",
+      "fights": [
+        {
+          "id": 56,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 57,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Qiraji Slayer",
+      "id": 100,
+      "guid": 234800,
+      "type": "NPC",
+      "icon": "custom-icon-ability_whirlwind.jpg",
+      "fights": [
+        {
+          "id": 45,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 46,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 47,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 48,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 53,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 54,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Qiraji Brainwasher",
+      "id": 34,
+      "guid": 15247,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_manaburn.jpg",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 4,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Molten Destroyer",
+      "id": 136,
+      "guid": 11659,
+      "type": "NPC",
+      "icon": "custom-icon-ability_smash.jpg",
+      "fights": [
+        {
+          "id": 63,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Annihilator",
+      "id": 121,
+      "guid": 11665,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 61,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 62,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 63,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 64,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Ouro",
+      "id": 106,
+      "guid": 15517,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_thorns.jpg",
+      "fights": [
+        {
+          "id": 56,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Giant Eye Tentacle",
+      "id": 117,
+      "guid": 15334,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_earthquake.jpg",
+      "fights": [
+        {
+          "id": 58,
+          "instances": 10
+        },
+        {
+          "id": 59,
+          "instances": 6
+        }
+      ]
+    },
+    {
+      "name": "Vaniljekrem",
+      "id": 13,
+      "guid": 41555660,
+      "type": "Paladin",
+      "server": "WildGrowth",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 46
+        }
+      ]
+    },
+    {
+      "name": "Ouro Scarab",
+      "id": 109,
+      "guid": 15718,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 57,
+          "instances": 9,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Eye Tentacle",
+      "id": 113,
+      "guid": 15726,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_earthquake.jpg",
+      "fights": [
+        {
+          "id": 58,
+          "instances": 104,
+          "groups": 11
+        },
+        {
+          "id": 59,
+          "instances": 64,
+          "groups": 8
+        }
+      ]
+    },
+    {
+      "name": "C'Thun",
+      "id": 115,
+      "guid": 15727,
+      "type": "Boss",
+      "icon": "custom-icon-inv_misc_ahnqirajtrinket_05.jpg",
+      "fights": [
+        {
+          "id": 58,
+          "instances": 1
+        },
+        {
+          "id": 59,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Obsidian Eradicator",
+      "id": 25,
+      "guid": 15262,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Toxic Slime",
+      "id": 68,
+      "guid": 15925,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 24,
+          "instances": 5,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Molten Giant",
+      "id": 120,
+      "guid": 11658,
+      "type": "NPC",
+      "icon": "custom-icon-ability_smash.jpg",
+      "fights": [
+        {
+          "id": 61,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 63,
+          "instances": 5,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Vek Twins Trigger",
+      "id": 96,
+      "guid": 15695,
+      "type": "NPC",
+      "icon": "custom-icon-classic_temp.jpg",
+      "fights": [
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 43,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Drone",
+      "id": 58,
+      "guid": 15300,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 120,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 5,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Hive Crawler",
+      "id": 72,
+      "guid": 15240,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_corrosivebreath.jpg",
+      "fights": [
+        {
+          "id": 26,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 27,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 28,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "The Prophet Skeram",
+      "id": 28,
+      "guid": 15263,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Yauj Brood",
+      "id": 50,
+      "guid": 15621,
+      "type": "NPC",
+      "icon": "custom-icon-inv_gauntlets_04.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 14,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Klmace",
+      "id": 19,
+      "guid": 43414442,
+      "type": "Paladin",
+      "server": "WildGrowth",
+      "icon": "Paladin-Retribution",
+      "fights": [
+        {
+          "id": 46
+        }
+      ]
+    },
+    {
+      "name": "Flameguard",
+      "id": 138,
+      "guid": 11667,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_immolation.jpg",
+      "fights": [
+        {
+          "id": 65,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 66,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Roach",
+      "id": 47,
+      "guid": 4076,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 3
+        },
+        {
+          "id": 54,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Viscidus",
+      "id": 64,
+      "guid": 15299,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_corrosivebreath.jpg",
+      "fights": [
+        {
+          "id": 24,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Soldier",
+      "id": 52,
+      "guid": 15229,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 6,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Qiraji Mindslayer",
+      "id": 99,
+      "guid": 234762,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_deathsembrace.jpg",
+      "fights": [
+        {
+          "id": 45,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 46,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 54,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Emperor Vek'lor",
+      "id": 95,
+      "guid": 15276,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 43,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Ancient Core Hound",
+      "id": 127,
+      "guid": 11673,
+      "type": "NPC",
+      "icon": "custom-icon-ability_racial_cannibalize.jpg",
+      "fights": [
+        {
+          "id": 62,
+          "instances": 1,
+          "groups": 2
+        },
+        {
+          "id": 63,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 65,
+          "instances": 1,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Gilded Scarab",
+      "id": 57,
+      "guid": 234193,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Vekniss Guardian",
+      "id": 36,
+      "guid": 15233,
+      "type": "NPC",
+      "icon": "custom-icon-ability_gouge.jpg",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 10,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 15,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 17,
+          "instances": 6,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Firelord",
+      "id": 122,
+      "guid": 11668,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_sealofkings.jpg",
+      "fights": [
+        {
+          "id": 61,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 62,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 63,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Firewalker",
+      "id": 140,
+      "guid": 11666,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 65,
+          "instances": 1,
+          "groups": 2
+        },
+        {
+          "id": 66,
+          "instances": 1,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Poison Cloud",
+      "id": 49,
+      "guid": 15933,
+      "type": "NPC",
+      "icon": "custom-icon-ability_creature_disease_02.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1,
+          "groups": 2
+        }
+      ]
+    }
+  ],
+  "friendlyPets": [
+    {
+      "name": "Greenum",
+      "id": 91,
+      "guid": 12848578,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_summonfelhunter.jpg",
+      "petOwner": 2,
+      "fights": [
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 43,
+          "instances": 1
+        },
+        {
+          "id": 44,
+          "instances": 1
+        },
+        {
+          "id": 45,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Shadowfiend",
+      "id": 71,
+      "guid": 202079,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_shadowfiend.jpg",
+      "petOwner": 5,
+      "fights": [
+        {
+          "id": 24,
+          "instances": 1
+        },
+        {
+          "id": 34,
+          "instances": 1
+        },
+        {
+          "id": 67,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Homunculus",
+      "id": 66,
+      "guid": 202392,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_summonimp.jpg",
+      "petOwner": 5,
+      "fights": [
+        {
+          "id": 24,
+          "instances": 2
+        },
+        {
+          "id": 43,
+          "instances": 2
+        },
+        {
+          "id": 56,
+          "instances": 1
+        },
+        {
+          "id": 58,
+          "instances": 4
+        },
+        {
+          "id": 59,
+          "instances": 1
+        },
+        {
+          "id": 67,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Pagyal",
+      "id": 21,
+      "guid": 10389724,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_summonimp.jpg",
+      "petOwner": 2,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 12,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        },
+        {
+          "id": 22,
+          "instances": 1
+        },
+        {
+          "id": 23,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        },
+        {
+          "id": 26,
+          "instances": 1
+        },
+        {
+          "id": 27,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        },
+        {
+          "id": 30,
+          "instances": 1
+        },
+        {
+          "id": 32,
+          "instances": 1
+        },
+        {
+          "id": 34,
+          "instances": 1
+        },
+        {
+          "id": 36,
+          "instances": 1
+        },
+        {
+          "id": 37,
+          "instances": 1
+        },
+        {
+          "id": 38,
+          "instances": 1
+        },
+        {
+          "id": 56,
+          "instances": 1
+        },
+        {
+          "id": 57,
+          "instances": 1
+        },
+        {
+          "id": 58,
+          "instances": 1
+        },
+        {
+          "id": 59,
+          "instances": 1
+        },
+        {
+          "id": 61,
+          "instances": 1
+        },
+        {
+          "id": 62,
+          "instances": 1
+        },
+        {
+          "id": 63,
+          "instances": 1
+        },
+        {
+          "id": 64,
+          "instances": 1
+        },
+        {
+          "id": 65,
+          "instances": 1
+        },
+        {
+          "id": 66,
+          "instances": 1
+        },
+        {
+          "id": 67,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Homunculus",
+      "id": 65,
+      "guid": 202391,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_twistedfaith.jpg",
+      "petOwner": 5,
+      "fights": [
+        {
+          "id": 24,
+          "instances": 2
+        },
+        {
+          "id": 43,
+          "instances": 2
+        },
+        {
+          "id": 56,
+          "instances": 1
+        },
+        {
+          "id": 58,
+          "instances": 4
+        },
+        {
+          "id": 59,
+          "instances": 1
+        },
+        {
+          "id": 67,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Homunculus",
+      "id": 67,
+      "guid": 202390,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_twistedfaith.jpg",
+      "petOwner": 5,
+      "fights": [
+        {
+          "id": 24,
+          "instances": 2
+        },
+        {
+          "id": 43,
+          "instances": 2
+        },
+        {
+          "id": 56,
+          "instances": 1
+        },
+        {
+          "id": 58,
+          "instances": 4
+        },
+        {
+          "id": 59,
+          "instances": 1
+        },
+        {
+          "id": 67,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Kombine",
+      "id": 17,
+      "guid": 12011211,
+      "type": "Pet",
+      "icon": "abilities/ability_hunter_beastcall.jpg",
+      "petOwner": 4,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 12,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 22,
+          "instances": 1
+        },
+        {
+          "id": 23,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        },
+        {
+          "id": 26,
+          "instances": 1
+        },
+        {
+          "id": 27,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        },
+        {
+          "id": 30,
+          "instances": 1
+        },
+        {
+          "id": 33,
+          "instances": 1
+        },
+        {
+          "id": 34,
+          "instances": 1
+        },
+        {
+          "id": 36,
+          "instances": 1
+        },
+        {
+          "id": 37,
+          "instances": 1
+        },
+        {
+          "id": 38,
+          "instances": 1
+        },
+        {
+          "id": 39,
+          "instances": 1
+        },
+        {
+          "id": 40,
+          "instances": 1
+        },
+        {
+          "id": 41,
+          "instances": 1
+        },
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 43,
+          "instances": 1
+        },
+        {
+          "id": 44,
+          "instances": 1
+        },
+        {
+          "id": 45,
+          "instances": 1
+        },
+        {
+          "id": 46,
+          "instances": 1
+        },
+        {
+          "id": 47,
+          "instances": 1
+        },
+        {
+          "id": 48,
+          "instances": 1
+        },
+        {
+          "id": 49,
+          "instances": 1
+        },
+        {
+          "id": 51,
+          "instances": 1
+        },
+        {
+          "id": 52,
+          "instances": 1
+        },
+        {
+          "id": 53,
+          "instances": 1
+        },
+        {
+          "id": 54,
+          "instances": 1
+        },
+        {
+          "id": 55,
+          "instances": 1
+        },
+        {
+          "id": 56,
+          "instances": 1
+        },
+        {
+          "id": 58,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Shadowfiend",
+      "id": 23,
+      "guid": 202079,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_shadowfiend.jpg",
+      "petOwner": 15,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        },
+        {
+          "id": 40,
+          "instances": 1
+        },
+        {
+          "id": 56,
+          "instances": 1
+        },
+        {
+          "id": 58,
+          "instances": 2
+        },
+        {
+          "id": 59,
+          "instances": 2
+        },
+        {
+          "id": 66,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Treant",
+      "id": 86,
+      "guid": 204346,
+      "type": "Pet",
+      "icon": "abilities/ability_druid_forceofnature.jpg",
+      "petOwner": 83,
+      "fights": [
+        {
+          "id": 37,
+          "instances": 3
+        },
+        {
+          "id": 38,
+          "instances": 3
+        },
+        {
+          "id": 40,
+          "instances": 3
+        },
+        {
+          "id": 42,
+          "instances": 3
+        },
+        {
+          "id": 43,
+          "instances": 6
+        },
+        {
+          "id": 44,
+          "instances": 6
+        },
+        {
+          "id": 46,
+          "instances": 3
+        },
+        {
+          "id": 47,
+          "instances": 3
+        },
+        {
+          "id": 49,
+          "instances": 3
+        },
+        {
+          "id": 52,
+          "instances": 3
+        },
+        {
+          "id": 55,
+          "instances": 3
+        },
+        {
+          "id": 56,
+          "instances": 9
+        },
+        {
+          "id": 58,
+          "instances": 24
+        },
+        {
+          "id": 59,
+          "instances": 27
+        },
+        {
+          "id": 61,
+          "instances": 3
+        },
+        {
+          "id": 62,
+          "instances": 3
+        },
+        {
+          "id": 63,
+          "instances": 9
+        },
+        {
+          "id": 64,
+          "instances": 3
+        },
+        {
+          "id": 66,
+          "instances": 3
+        },
+        {
+          "id": 67,
+          "instances": 9
+        }
+      ]
+    }
+  ],
+  "enemyPets": [
+    {
+      "name": "Anubisath Warrior",
+      "id": 85,
+      "guid": 15537,
+      "type": "Pet",
+      "icon": "abilities/trade_engineering.jpg",
+      "petOwner": 84,
+      "fights": [
+        {
+          "id": 36,
+          "instances": 2
+        },
+        {
+          "id": 37,
+          "instances": 2
+        },
+        {
+          "id": 39,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Invisible Bunny",
+      "id": 59,
+      "guid": 234218,
+      "type": "Pet",
+      "icon": "abilities/trade_engineering.jpg",
+      "petOwner": 57,
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Anubisath Swarmguard",
+      "id": 87,
+      "guid": 15538,
+      "type": "Pet",
+      "icon": "abilities/trade_engineering.jpg",
+      "petOwner": 84,
+      "fights": [
+        {
+          "id": 38,
+          "instances": 2
+        },
+        {
+          "id": 40,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "logVersion": 17,
+  "gameVersion": 2,
+  "phases": [],
+  "title": "AQ ",
+  "owner": "Poppels",
+  "start": 1739732524186,
+  "end": 1739743241834,
+  "zone": 2016,
+  "exportedCharacters": [
+    {
+      "id": 78328690,
+      "name": "Anotherpally",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 80587122,
+      "name": "Cattyperry",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 79415136,
+      "name": "Chanfarm",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 78328691,
+      "name": "Chanvar",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 78530785,
+      "name": "Demm",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 89662177,
+      "name": "Demorphosa",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 81679424,
+      "name": "Freezz",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 78882941,
+      "name": "Galaxias",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 80137718,
+      "name": "Getáfix",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 78328684,
+      "name": "Healingpants",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 92690691,
+      "name": "Holyjamcan",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 90815303,
+      "name": "Icemaschine",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 78760540,
+      "name": "Jeeraya",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 79536232,
+      "name": "Kandral",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 89557463,
+      "name": "Klmace",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 87470042,
+      "name": "Plaguenurse",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 79733949,
+      "name": "Poppels",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 79874134,
+      "name": "Pusspuss",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 80138212,
+      "name": "Stabimir",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 82514804,
+      "name": "Vaniljekrem",
+      "server": "Wild Growth",
+      "region": "EU"
+    },
+    {
+      "id": 83438917,
+      "name": "Yukkmeui",
+      "server": "Wild Growth",
+      "region": "EU"
+    }
+  ]
+}
