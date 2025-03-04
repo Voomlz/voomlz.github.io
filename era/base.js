@@ -32,6 +32,18 @@ import { Unit } from "./threat/unit.js";
  */
 
 /**
+ * @typedef {{coeff: BuffMultiplierFn}} ThreatCoefficientObject
+ */
+
+/**
+ * @typedef {(buffs: SpellMap<boolean>, spellId: SpellId | null, fight: Fight) => ThreatCoefficientFn} BuffMultiplierFn
+ */
+
+/**
+ * @typedef {BuffMultiplierFn | ThreatCoefficientObject} BuffMultiplier
+ */
+
+/**
  * @typedef {{ [key: string]: T } | {}} ClassMap<T>
  * @template T
  */
@@ -46,7 +58,7 @@ import { Unit } from "./threat/unit.js";
  *   aggroLossBuffs: SpellMap<boolean>;
  *   auraImplications: ClassMap<SpellMap<SpellId>>;
  *   baseThreatCoefficients: ClassMap<ThreatCoefficientFn>;
- *   buffMultipliers: SpellMap<ThreatCoefficientFn>;
+ *   buffMultipliers: SpellMap<BuffMultiplier>;
  *   buffNames: SpellMap<string>;
  *   combatantImplications: ClassMap<CombatantImplicationsFn>;
  *   invulnerabilityBuffs: SpellMap<string>;
