@@ -40,7 +40,16 @@ export const buffMultipliers = {
 };
 
 export const talents = {
-  // TODO: era ImpRF
+  "Improved Righteous Fury": {
+    maxRank: 3,
+    coeff: function (buffs, rank = 3) {
+      if (!(25780 in buffs)) return getThreatCoefficient(1);
+      let amp = 1 + Math.floor((rank * 50) / 3) / 100;
+      return getThreatCoefficient({
+        2: (1 + 0.6 * amp) / config.Mods.RighteousFury,
+      });
+    },
+  },
 };
 
 export const fixateBuffs = {};
