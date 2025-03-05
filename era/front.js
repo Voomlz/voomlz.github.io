@@ -170,10 +170,32 @@ const reports = {};
  * @param {import("./base.js").GameVersionConfig} config
  */
 export function selectReport(config) {
+  let wcl = getParameterByName("id");
   let el = document.querySelector("#reportSelect");
   let el_fightSelect = document.querySelector("#fightSelect");
+  let el_enemySelect = document.querySelector("#enemySelect");
+  let el_targetSelect = document.querySelector("#targetSelect");
+
+  let fightParam =
+    el_fightSelect === null ? "" : "&fight=" + el_fightSelect.value;
+  let enemyParam =
+    el_enemySelect === null ? "" : "&enemy=" + el_enemySelect.value;
+  let targetParam =
+    el_targetSelect === null ? "" : "&target=" + el_targetSelect.value;
+
   el_fightSelect.innerHTML = "";
   let reportId = el.value;
+  if (!wcl || wcl !== reportId) {
+    location.href =
+      location.origin +
+      location.pathname +
+      "?id=" +
+      el.value +
+      fightParam +
+      enemyParam +
+      targetParam;
+    return;
+  }
   let urlmatch = reportId.match(
     /https:\/\/(?:[a-z]+\.)?(?:classic\.|www\.)?warcraftlogs\.com\/reports\/((?:a:)?\w+)/
   );
@@ -494,6 +516,18 @@ function plot(config, reportId, fight, enemy) {
         selectEnemy(config);
       }
     );
+  if (config.enableSplitHealingThreatOption) {
+    createCheckbox(
+      el_div,
+      globalThis.splitHealingThreatOption,
+      "Split healing threat (was removed in TBC)",
+      (x) => {
+        globalThis.splitHealingThreatOption = x;
+        fight.process();
+        selectEnemy(config);
+      }
+    );
+  }
   plotXRange = [0, (fight.end - fight.start) / 1000];
   globalThis.Plotly.newPlot(el_plot, plotData, {
     title: `Threat - ${enemy.name}`,
