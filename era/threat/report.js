@@ -29,6 +29,9 @@ export class Report {
      * @type {Record<string, import("./wcl.js").WCLUnit> | undefined}
      */
     this.units = undefined;
+
+    /** @type {'Alliance' | 'Horde' | undefined} */
+    this.faction = undefined;
   }
 
   async fetch() {
@@ -82,7 +85,8 @@ export class Report {
         this.reportId,
         f,
         this.units,
-        this.faction
+        this.faction,
+        this.data?.gameVersion
       );
     }
   }
