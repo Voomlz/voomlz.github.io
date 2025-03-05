@@ -16,7 +16,10 @@ export class Unit {
    */
   constructor(config, key, name, type, events, fight) {
     this.config = config;
-    // Info is an object from WCL API
+    this.mdStacksPerBand = [];
+    this.lastInvisibility = 0;
+    /** @type {Unit | null} */
+    this.lastTarget = null;
     this.key = key;
     /** @type {import("../threat/fight.js").Fight} */
     this.fight = fight;
@@ -90,6 +93,62 @@ export class Unit {
   }
 
   /**
+   * @param {number} value
+   */
+  setLastInvisibility(value) {
+    this.lastInvisibility = value;
+  }
+
+  /**
+   * @param {number} amount
+   * @param {import("../threat/wcl.js").WCLEvent} ev
+   * @param {import("../threat/fight.js").Fight} fight
+   * @returns {boolean}
+   */
+  handleMisdirectionDamage(amount, ev, fight) {
+    // filter serpent sting
+    if (ev.ability.guid === 27016) return false;
+
+    if (!this.fight.mdAuras[this.key]) return false;
+
+    for (let md of this.fight.mdAuras[this.key]) {
+      for (let band of md.bands) {
+        // Adding a delay for projectile traveling time...
+        // 3 seconds
+        if (
+          ev.timestamp >= band.startTime &&
+          band.endTime + 3 * 1000 >= ev.timestamp
+        ) {
+          if (!this.mdStacksPerBand[band.startTime]) {
+            this.mdStacksPerBand[band.startTime] = 3;
+          } else if (this.mdStacksPerBand[band.startTime] !== 1) {
+            this.mdStacksPerBand[band.startTime] =
+              this.mdStacksPerBand[band.startTime] - 1;
+          } else continue;
+          let target = fight.eventToUnit(ev, "target");
+          if (target) {
+            if (globalThis.DEBUGMODE) {
+              console.log(
+                `[${ev.timestamp}] MD: Redirecting ${amount} from ${this.name} to ${md.name}`
+              );
+            }
+            target.addThreat(
+              md.id,
+              amount,
+              ev.timestamp,
+              "Misdirect (" + ev.ability.name + ")",
+              this.threatCoeff(ev.ability)
+            );
+            return true;
+          }
+        }
+      }
+    }
+
+    return false;
+  }
+
+  /**
    * @param {import("../threat/wcl.js").WCLAbility} [ability]
    * @returns {import("../base.js").ThreatCoefficient}
    */
@@ -134,6 +193,7 @@ export class Unit {
     );
   }
 
+  /** @returns {import("../base.js").Border} */
   get border() {
     // Returns vertex border width and color for plotting
     if (this.invulnerable.length) {
@@ -204,6 +264,7 @@ export class Unit {
    */
   checkTargetExists(unitId, timestamp) {}
 }
+
 // Class for players and pets
 
 export class Player extends Unit {
@@ -217,9 +278,11 @@ export class Player extends Unit {
    */
   constructor(config, key, info, events, fight, tranquilAir = false) {
     super(config, key, info.name, info.type, events, fight);
+    /** @type {import("../threat/wcl.js").WCLFriendlyUnit} */
     this.global = info;
     this.talents = info.talents;
 
+    /** @type {import("./wcl.js").WCLCombatantInfoEvent[]} */
     this.combatantInfos = events.filter(
       (e) => e.type === "combatantinfo" && e.sourceID === Number(key)
     );
@@ -307,7 +370,8 @@ export class Player extends Unit {
     for (let i = 0; i < events.length; ++i) {
       if (!("ability" in events[i])) continue;
       if (Unit.eventToKey(events[i], "source") !== this.key) continue;
-      if (![20925, 20927, 20928].includes(events[i].ability.guid)) continue;
+      if (![20925, 20927, 20928, 27179].includes(events[i].ability.guid))
+        continue;
       this.buffs[25780] = true;
       this.tank = true;
       return;
