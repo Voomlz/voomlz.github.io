@@ -1,0 +1,5489 @@
+{
+  "lang": "en",
+  "fights": [
+    {
+      "id": 1,
+      "boss": 0,
+      "originalBoss": 610,
+      "start_time": 35272,
+      "end_time": 345094,
+      "name": "Razorgore the Untamed",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 2,
+      "boss": 50610,
+      "start_time": 345144,
+      "end_time": 373210,
+      "name": "Razorgore the Untamed",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 2,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 1,
+      "phases": [
+        {
+          "id": 1,
+          "startTime": 345144
+        }
+      ],
+      "maps": []
+    },
+    {
+      "id": 3,
+      "boss": 0,
+      "start_time": 402200,
+      "end_time": 425577,
+      "name": "Blackwing Spellbinder",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 4,
+      "boss": 50611,
+      "start_time": 672146,
+      "end_time": 704063,
+      "name": "Vaelastrasz the Corrupt",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 5,
+      "boss": 0,
+      "start_time": 764154,
+      "end_time": 793135,
+      "name": "Death Talon Captain",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 6,
+      "boss": 0,
+      "start_time": 805263,
+      "end_time": 818913,
+      "name": "Death Talon Captain",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 7,
+      "boss": 0,
+      "start_time": 836377,
+      "end_time": 889367,
+      "name": "Death Talon Captain",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 8,
+      "boss": 0,
+      "start_time": 914360,
+      "end_time": 1171277,
+      "name": "Blackwing Spellbinder",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 9,
+      "boss": 0,
+      "start_time": 1184027,
+      "end_time": 1187085,
+      "name": "Corrupted Bronze Whelp",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 10,
+      "boss": 0,
+      "start_time": 1211375,
+      "end_time": 1223665,
+      "name": "Blackwing Spellbinder",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 11,
+      "boss": 50612,
+      "start_time": 1233445,
+      "end_time": 1289758,
+      "name": "Broodlord Lashlayer",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 12,
+      "boss": 0,
+      "start_time": 1293725,
+      "end_time": 1321168,
+      "name": "Blackwing Spellbinder",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 13,
+      "boss": 0,
+      "start_time": 1333776,
+      "end_time": 1391344,
+      "name": "Blackwing Spellbinder",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 14,
+      "boss": 0,
+      "start_time": 1425239,
+      "end_time": 1463204,
+      "name": "Death Talon Overseer",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 15,
+      "boss": 0,
+      "start_time": 1520459,
+      "end_time": 1581910,
+      "name": "Death Talon Overseer",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 16,
+      "boss": 0,
+      "start_time": 1685415,
+      "end_time": 1685415,
+      "name": "Blackwing Spellbinder",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 17,
+      "boss": 50613,
+      "start_time": 1693882,
+      "end_time": 1773623,
+      "name": "Firemaw",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 18,
+      "boss": 0,
+      "start_time": 1812609,
+      "end_time": 1865398,
+      "name": "Death Talon Wyrmguard",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 19,
+      "boss": 0,
+      "start_time": 1886957,
+      "end_time": 1939086,
+      "name": "Death Talon Overseer",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 20,
+      "boss": 0,
+      "start_time": 1978262,
+      "end_time": 2033864,
+      "name": "Death Talon Overseer",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 21,
+      "boss": 0,
+      "start_time": 2068408,
+      "end_time": 2107257,
+      "name": "Death Talon Overseer",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 22,
+      "boss": 0,
+      "start_time": 2158717,
+      "end_time": 2201762,
+      "name": "Death Talon Overseer",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 23,
+      "boss": 0,
+      "start_time": 2240471,
+      "end_time": 2311591,
+      "name": "Death Talon Wyrmguard",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 24,
+      "boss": 50614,
+      "start_time": 2340863,
+      "end_time": 2399253,
+      "name": "Ebonroc",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 25,
+      "boss": 50615,
+      "start_time": 2474581,
+      "end_time": 2527694,
+      "name": "Flamegor",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 26,
+      "boss": 0,
+      "start_time": 2528642,
+      "end_time": 2528642,
+      "name": "Unknown",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 27,
+      "boss": 0,
+      "start_time": 2570344,
+      "end_time": 2632534,
+      "name": "Death Talon Wyrmguard",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 28,
+      "boss": 50616,
+      "start_time": 2708139,
+      "end_time": 2819073,
+      "name": "Chromaggus",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 29,
+      "boss": 0,
+      "originalBoss": 617,
+      "start_time": 2897456,
+      "end_time": 2897456,
+      "name": "Nefarian",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 30,
+      "boss": 0,
+      "originalBoss": 617,
+      "start_time": 2910310,
+      "end_time": 3050530,
+      "name": "Nefarian",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 31,
+      "boss": 50617,
+      "start_time": 3051185,
+      "end_time": 3174793,
+      "name": "Nefarian",
+      "zoneID": 469,
+      "zoneName": "Blackwing Lair",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 2,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 1,
+      "phases": [
+        {
+          "id": 1,
+          "startTime": 3051185
+        }
+      ],
+      "maps": []
+    }
+  ],
+  "completeRaids": [
+    {
+      "id": 10000,
+      "start_time": 35272,
+      "end_time": 3174793,
+      "boss": 50630,
+      "name": "Blackwing Lair",
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 2,
+      "completeRaidSize": 40,
+      "hasWorldBuffs": true
+    }
+  ],
+  "friendlies": [
+    {
+      "name": "Sgtboolaid",
+      "id": 17,
+      "guid": 49465700,
+      "type": "Warrior",
+      "server": "Mankrik",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Neow",
+      "id": 35,
+      "guid": 48861646,
+      "type": "Rogue",
+      "server": "Mankrik",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Schoolcraft",
+      "id": 57,
+      "guid": 33505587,
+      "type": "Warrior",
+      "server": "Mankrik",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Dwarfdwarf",
+      "id": 28,
+      "guid": 37011122,
+      "type": "Paladin",
+      "server": "Mankrik",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Gummo",
+      "id": 33,
+      "guid": 42887867,
+      "type": "Rogue",
+      "server": "Mankrik",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Bre",
+      "id": 21,
+      "guid": 39282425,
+      "type": "Warrior",
+      "server": "Pagle",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Gigantichad",
+      "id": 30,
+      "guid": 50541692,
+      "type": "Hunter",
+      "server": "Mankrik",
+      "icon": "Hunter-Marksmanship",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "name": "Tomorisan",
+      "id": 5,
+      "guid": 49404020,
+      "type": "Priest",
+      "server": "Mankrik",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 61,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "Pet",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 2
+        },
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Razorgore the Untamed",
+      "id": 47,
+      "guid": 12435,
+      "type": "Boss",
+      "icon": "custom-icon-inv_misc_monsterclaw_02.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Rexyyz",
+      "id": 8,
+      "guid": 49919298,
+      "type": "Mage",
+      "server": "Mankrik",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Tortious",
+      "id": 32,
+      "guid": 51128414,
+      "type": "Rogue",
+      "server": "Mankrik",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Light",
+      "id": 22,
+      "guid": 59863561,
+      "type": "Warrior",
+      "server": "Pagle",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Euterp",
+      "id": 25,
+      "guid": 37084518,
+      "type": "Warrior",
+      "server": "Mankrik",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Endymion",
+      "id": 43,
+      "guid": 41126982,
+      "type": "Rogue",
+      "server": "Westfall",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Kromite",
+      "id": 31,
+      "guid": 40639372,
+      "type": "Hunter",
+      "server": "Pagle",
+      "icon": "Hunter-Marksmanship",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Moirella",
+      "id": 1,
+      "guid": 51723388,
+      "type": "Paladin",
+      "server": "Mankrik",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Feud",
+      "id": 24,
+      "guid": 37340852,
+      "type": "Warrior",
+      "server": "Mankrik",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Larryhughes",
+      "id": 23,
+      "guid": 34048221,
+      "type": "Warrior",
+      "server": "Mankrik",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Bigglefist",
+      "id": 20,
+      "guid": 36472873,
+      "type": "Warrior",
+      "server": "Mankrik",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Vibra",
+      "id": 34,
+      "guid": 2866758,
+      "type": "Priest",
+      "server": "Westfall",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Grosmini",
+      "id": 29,
+      "guid": 34252824,
+      "type": "Paladin",
+      "server": "Mankrik",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Shaunhealz",
+      "id": 36,
+      "guid": 49955824,
+      "type": "Priest",
+      "server": "Ashkandi",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Miskovsky",
+      "id": 14,
+      "guid": 51362812,
+      "type": "Druid",
+      "server": "Windseeker",
+      "icon": "Druid",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Shakeyourbot",
+      "id": 26,
+      "guid": 47823580,
+      "type": "Warlock",
+      "server": "Mankrik",
+      "icon": "Warlock-Destruction",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Freshcakes",
+      "id": 37,
+      "guid": 34213068,
+      "type": "Rogue",
+      "server": "Mankrik",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Fizzbuzz",
+      "id": 18,
+      "guid": 50936582,
+      "type": "Warrior",
+      "server": "Westfall",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Sushideux",
+      "id": 4,
+      "guid": 34044731,
+      "type": "Priest",
+      "server": "Mankrik",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Nella",
+      "id": 10,
+      "guid": 34718847,
+      "type": "Mage",
+      "server": "Mankrik",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Einbarran",
+      "id": 6,
+      "guid": 39483103,
+      "type": "Priest",
+      "server": "Mankrik",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Bloodyheals",
+      "id": 75,
+      "guid": 53408976,
+      "type": "Paladin",
+      "server": "Mankrik",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Smokinschwag",
+      "id": 9,
+      "guid": 50762289,
+      "type": "Mage",
+      "server": "Mankrik",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Qwertylock",
+      "id": 27,
+      "guid": 52003647,
+      "type": "Warlock",
+      "server": "Westfall",
+      "icon": "Warlock-Destruction",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Lord Victor Nefarius",
+      "id": 100,
+      "guid": 10162,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Coconut",
+      "id": 7,
+      "guid": 33932905,
+      "type": "Mage",
+      "server": "Mankrik",
+      "icon": "Mage-Frost",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Darknado",
+      "id": 12,
+      "guid": 17322238,
+      "type": "Warrior",
+      "server": "Mankrik",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Mcstabbier",
+      "id": 38,
+      "guid": 13558161,
+      "type": "Rogue",
+      "server": "Windseeker",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Patunia",
+      "id": 15,
+      "guid": 50544951,
+      "type": "Druid",
+      "server": "Pagle",
+      "icon": "Druid",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Cort",
+      "id": 16,
+      "guid": 45806518,
+      "type": "Paladin",
+      "server": "Mankrik",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Sake",
+      "id": 19,
+      "guid": 41467412,
+      "type": "Warrior",
+      "server": "Ashkandi",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Andr\u00f6id",
+      "id": 85,
+      "guid": 47526550,
+      "type": "Rogue",
+      "server": "Mankrik",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Anasutra",
+      "id": 2,
+      "guid": 50943351,
+      "type": "Priest",
+      "server": "Westfall",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Luny",
+      "id": 3,
+      "guid": 51089552,
+      "type": "Priest",
+      "server": "Mankrik",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Ebonroc",
+      "id": 90,
+      "guid": 14601,
+      "type": "Boss",
+      "icon": "custom-icon-ability_ghoulfrenzy.jpg",
+      "fights": [
+        {
+          "id": 24,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Black Drakonid",
+      "id": 106,
+      "guid": 14265,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 30,
+          "instances": 16,
+          "groups": 3
+        },
+        {
+          "id": 31,
+          "instances": 17,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamegor",
+      "id": 91,
+      "guid": 11981,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_sealoffire.jpg",
+      "fights": [
+        {
+          "id": 25,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Corrupted Blue Whelp",
+      "id": 68,
+      "guid": 14024,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 51,
+          "groups": 2
+        },
+        {
+          "id": 10,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 13,
+          "instances": 2,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Chromaggus",
+      "id": 93,
+      "guid": 14020,
+      "type": "Boss",
+      "icon": "custom-icon-ability_druid_challangingroar.jpg",
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Razorgore the Untamed",
+      "id": 47,
+      "guid": 12435,
+      "type": "Boss",
+      "icon": "custom-icon-inv_misc_monsterclaw_02.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Taskmaster",
+      "id": 13,
+      "guid": 12458,
+      "type": "NPC",
+      "icon": "custom-icon-spell_holy_blessingofprotection.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 3,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 5,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 6,
+          "instances": 8,
+          "groups": 1
+        },
+        {
+          "id": 7,
+          "instances": 9,
+          "groups": 2
+        },
+        {
+          "id": 8,
+          "instances": 9,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Firemaw",
+      "id": 87,
+      "guid": 11983,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Death Talon Flamescale",
+      "id": 65,
+      "guid": 12463,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fire.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 7,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Bone Construct",
+      "id": 111,
+      "guid": 14605,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 31,
+          "instances": 46,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Guardsman",
+      "id": 46,
+      "guid": 14456,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Grethok the Controller",
+      "id": 41,
+      "guid": 12557,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_starfall.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Spellbinder",
+      "id": 11,
+      "guid": 12457,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_siphonmana.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 5,
+          "groups": 9
+        },
+        {
+          "id": 2,
+          "instances": 3,
+          "groups": 2
+        },
+        {
+          "id": 3,
+          "instances": 4,
+          "groups": 2
+        },
+        {
+          "id": 4,
+          "instances": 4,
+          "groups": 2
+        },
+        {
+          "id": 5,
+          "instances": 5,
+          "groups": 1
+        },
+        {
+          "id": 6,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 7,
+          "instances": 5,
+          "groups": 2
+        },
+        {
+          "id": 8,
+          "instances": 5,
+          "groups": 7
+        },
+        {
+          "id": 10,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 5,
+          "groups": 3
+        },
+        {
+          "id": 12,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 13,
+          "instances": 5,
+          "groups": 4
+        },
+        {
+          "id": 14,
+          "instances": 5,
+          "groups": 1
+        },
+        {
+          "id": 15,
+          "instances": 5,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 17,
+          "instances": 4,
+          "groups": 3
+        },
+        {
+          "id": 18,
+          "instances": 4,
+          "groups": 2
+        },
+        {
+          "id": 19,
+          "instances": 4,
+          "groups": 2
+        },
+        {
+          "id": 20,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 22,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Death Talon Overseer",
+      "id": 74,
+      "guid": 12461,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 14,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 15,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 18,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 20,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 22,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Chromatic Drakonid",
+      "id": 105,
+      "guid": 14302,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 30,
+          "instances": 2,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Legionnaire",
+      "id": 51,
+      "guid": 12416,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 38,
+          "groups": 4
+        },
+        {
+          "id": 2,
+          "instances": 38,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Warlock",
+      "id": 81,
+      "guid": 12459,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 14,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 15,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 20,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 22,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Death Talon Wyrmguard",
+      "id": 73,
+      "guid": 12460,
+      "type": "NPC",
+      "icon": "custom-icon-ability_bullrush.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 23,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 27,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Legionnaire",
+      "id": 49,
+      "guid": 12416,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 38,
+          "groups": 12
+        },
+        {
+          "id": 2,
+          "instances": 1,
+          "groups": 0
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Mage",
+      "id": 54,
+      "guid": 12420,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 36,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Death Talon Wyrmkin",
+      "id": 67,
+      "guid": 12465,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_flamebolt.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 7,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Corrupted Red Whelp",
+      "id": 72,
+      "guid": 14022,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 48,
+          "groups": 3
+        },
+        {
+          "id": 10,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 13,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Corrupted Bronze Whelp",
+      "id": 69,
+      "guid": 14025,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 44,
+          "groups": 4
+        },
+        {
+          "id": 9,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 10,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 13,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Bronze Drakonid",
+      "id": 103,
+      "guid": 14263,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 30,
+          "instances": 20,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Corrupted Green Whelp",
+      "id": 71,
+      "guid": 14023,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 49,
+          "groups": 4
+        },
+        {
+          "id": 10,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 7,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lord Victor Nefarius",
+      "id": 100,
+      "guid": 10162,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 30,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Death Talon Dragonspawn",
+      "id": 55,
+      "guid": 12422,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 22,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 22,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Master Elemental Shaper Krixix",
+      "id": 89,
+      "guid": 14401,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 23,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Death Talon Captain",
+      "id": 64,
+      "guid": 12467,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fire.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 1,
+          "groups": 2
+        },
+        {
+          "id": 6,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 7,
+          "instances": 1,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Vaelastrasz the Corrupt",
+      "id": 60,
+      "guid": 13020,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_sealoffire.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Death Talon Hatcher",
+      "id": 70,
+      "guid": 12468,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_selfdestruct.jpg",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 11,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Black Drakonid",
+      "id": 108,
+      "guid": 14265,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fire.jpg",
+      "fights": [
+        {
+          "id": 30,
+          "instances": 16,
+          "groups": 1
+        },
+        {
+          "id": 31,
+          "instances": 17,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Broodlord Lashlayer",
+      "id": 80,
+      "guid": 12017,
+      "type": "Boss",
+      "icon": "custom-icon-spell_holy_excorcism_02.jpg",
+      "fights": [
+        {
+          "id": 11,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Blackwing Technician",
+      "id": 56,
+      "guid": 13996,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_selfdestruct.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 13,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 14,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 15,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 10,
+          "groups": 1
+        },
+        {
+          "id": 20,
+          "instances": 10,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 9,
+          "groups": 1
+        },
+        {
+          "id": 22,
+          "instances": 10,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Death Talon Seether",
+      "id": 66,
+      "guid": 12464,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 7,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Nefarian",
+      "id": 110,
+      "guid": 11583,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_charm.jpg",
+      "fights": [
+        {
+          "id": 31,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "friendlyPets": [
+    {
+      "name": "Zahara",
+      "id": 39,
+      "guid": 7845337,
+      "type": "Pet",
+      "icon": "abilities/ability_hunter_beastcall.jpg",
+      "petOwner": 31,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 92,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "Pet",
+      "petOwner": 23,
+      "fights": [
+        {
+          "id": 25,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 62,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 12,
+      "fights": [
+        {
+          "id": 4,
+          "instances": 2
+        },
+        {
+          "id": 25,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 99,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 35,
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 98,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 35,
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Chadcat",
+      "id": 42,
+      "guid": 9573833,
+      "type": "Pet",
+      "icon": "custom-icon-ability_druid_rake.jpg",
+      "petOwner": 30,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 63,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 94,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 33,
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 97,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 38,
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 96,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 85,
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Summoned Skeleton",
+      "id": 59,
+      "guid": 11200,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_raisedead.jpg",
+      "petOwner": 12,
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Summoned Skeleton",
+      "id": 58,
+      "guid": 11200,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_raisedead.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 95,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 17,
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "enemyPets": [],
+  "logVersion": 17,
+  "gameVersion": 2,
+  "phases": [
+    {
+      "boss": 50610,
+      "separatesWipes": false,
+      "phases": []
+    },
+    {
+      "boss": 50617,
+      "separatesWipes": false,
+      "phases": []
+    }
+  ],
+  "title": "1-31-2025 BWL",
+  "owner": "StaffOfCorn",
+  "start": 1738381554876,
+  "end": 1738384729669,
+  "zone": 2002,
+  "exportedCharacters": [
+    {
+      "id": 88506709,
+      "name": "Anasutra",
+      "server": "Westfall",
+      "region": "US"
+    },
+    {
+      "id": 81480223,
+      "name": "Andr\u00f6id",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 75596469,
+      "name": "Bigglefist",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 91358416,
+      "name": "Bloodyheals",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 76790936,
+      "name": "Bre",
+      "server": "Pagle",
+      "region": "US"
+    },
+    {
+      "id": 92015015,
+      "name": "Coconut",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 83360237,
+      "name": "Cort",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 75245105,
+      "name": "Darknado",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 77217255,
+      "name": "Dwarfdwarf",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 82083499,
+      "name": "Einbarran",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 82518840,
+      "name": "Endymion",
+      "server": "Westfall",
+      "region": "US"
+    },
+    {
+      "id": 81797519,
+      "name": "Euterp",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 77906949,
+      "name": "Feud",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 88079138,
+      "name": "Fizzbuzz",
+      "server": "Westfall",
+      "region": "US"
+    },
+    {
+      "id": 76190257,
+      "name": "Freshcakes",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 82742187,
+      "name": "Gigantichad",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 74527785,
+      "name": "Grosmini",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 81330462,
+      "name": "Gummo",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 80616841,
+      "name": "Kromite",
+      "server": "Pagle",
+      "region": "US"
+    },
+    {
+      "id": 75372971,
+      "name": "Larryhughes",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 91960489,
+      "name": "Light",
+      "server": "Pagle",
+      "region": "US"
+    },
+    {
+      "id": 88669688,
+      "name": "Luny",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 67304735,
+      "name": "Mcstabbier",
+      "server": "Windseeker",
+      "region": "US"
+    },
+    {
+      "id": 84432285,
+      "name": "Miskovsky",
+      "server": "Windseeker",
+      "region": "US"
+    },
+    {
+      "id": 91318313,
+      "name": "Moirella",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 91133484,
+      "name": "Nella",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 81576788,
+      "name": "Neow",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 82248436,
+      "name": "Patunia",
+      "server": "Pagle",
+      "region": "US"
+    },
+    {
+      "id": 88566978,
+      "name": "Qwertylock",
+      "server": "Westfall",
+      "region": "US"
+    },
+    {
+      "id": 81882570,
+      "name": "Rexyyz",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 91966855,
+      "name": "Sake",
+      "server": "Ashkandi",
+      "region": "US"
+    },
+    {
+      "id": 68642034,
+      "name": "Schoolcraft",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 85465234,
+      "name": "Sgtboolaid",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 81882568,
+      "name": "Shakeyourbot",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 83413923,
+      "name": "Shaunhealz",
+      "server": "Ashkandi",
+      "region": "US"
+    },
+    {
+      "id": 86826499,
+      "name": "Smokinschwag",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 74321136,
+      "name": "Sushideux",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 82083150,
+      "name": "Tomorisan",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 83307258,
+      "name": "Tortious",
+      "server": "Mankrik",
+      "region": "US"
+    },
+    {
+      "id": 80450235,
+      "name": "Vibra",
+      "server": "Westfall",
+      "region": "US"
+    }
+  ]
+}

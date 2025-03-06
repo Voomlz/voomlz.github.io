@@ -1,0 +1,7750 @@
+{
+  "lang": "en",
+  "fights": [
+    {
+      "id": 1,
+      "boss": 51107,
+      "start_time": 0,
+      "end_time": 34578,
+      "name": "Anub'Rekhan",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 2,
+      "boss": 0,
+      "start_time": 38509,
+      "end_time": 135257,
+      "name": "Crypt Reaver",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 3,
+      "boss": 51110,
+      "start_time": 135341,
+      "end_time": 177412,
+      "name": "Grand Widow Faerlina",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 4,
+      "boss": 0,
+      "start_time": 180871,
+      "end_time": 266977,
+      "name": "Plagued Gargoyle",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 5,
+      "boss": 51116,
+      "start_time": 277719,
+      "end_time": 310240,
+      "name": "Maexxna",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 6,
+      "boss": 0,
+      "start_time": 310489,
+      "end_time": 313049,
+      "name": "Maexxna Spiderling",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 7,
+      "boss": 0,
+      "start_time": 326776,
+      "end_time": 423246,
+      "name": "Stoneskin Gargoyle",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 8,
+      "boss": 51117,
+      "start_time": 433746,
+      "end_time": 469379,
+      "name": "Noth the Plaguebringer",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 9,
+      "boss": 0,
+      "start_time": 471578,
+      "end_time": 510368,
+      "name": "Plague Beast",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 10,
+      "boss": 51112,
+      "start_time": 512314,
+      "end_time": 558223,
+      "name": "Heigan the Unclean",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 11,
+      "boss": 0,
+      "start_time": 562041,
+      "end_time": 562206,
+      "name": "Diseased Maggot",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 12,
+      "boss": 51115,
+      "start_time": 601291,
+      "end_time": 695351,
+      "name": "Loatheb",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 13,
+      "boss": 0,
+      "start_time": 700262,
+      "end_time": 837171,
+      "name": "Grobbulus",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 14,
+      "boss": 0,
+      "start_time": 849288,
+      "end_time": 857856,
+      "name": "Deathknight Cavalier",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 15,
+      "boss": 51113,
+      "start_time": 864522,
+      "end_time": 905962,
+      "name": "Instructor Razuvious",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 16,
+      "boss": 0,
+      "start_time": 906154,
+      "end_time": 976891,
+      "name": "Unholy Axe",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 17,
+      "boss": 51109,
+      "start_time": 992392,
+      "end_time": 1288323,
+      "name": "Gothik the Harvester",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 18,
+      "boss": 0,
+      "start_time": 1310378,
+      "end_time": 1316459,
+      "name": "Necropolis Acolyte",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 19,
+      "boss": 0,
+      "start_time": 1334148,
+      "end_time": 1342100,
+      "name": "Necropolis Acolyte",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 20,
+      "boss": 51121,
+      "start_time": 1350510,
+      "end_time": 1421121,
+      "name": "The Four Horsemen",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 21,
+      "boss": 0,
+      "start_time": 1425435,
+      "end_time": 1610871,
+      "name": "Grobbulus",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 22,
+      "boss": 51118,
+      "start_time": 1639038,
+      "end_time": 1720333,
+      "name": "Patchwerk",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 23,
+      "boss": 0,
+      "start_time": 1731786,
+      "end_time": 1743828,
+      "name": "Stitched Spewer",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 24,
+      "boss": 51111,
+      "start_time": 1758227,
+      "end_time": 1811445,
+      "name": "Grobbulus",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 25,
+      "boss": 0,
+      "start_time": 1815521,
+      "end_time": 1831785,
+      "name": "Stitched Spewer",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 26,
+      "boss": 51108,
+      "start_time": 1833408,
+      "end_time": 1869678,
+      "name": "Gluth",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 2,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 27,
+      "boss": 0,
+      "start_time": 1889656,
+      "end_time": 1889656,
+      "name": "Unknown",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 28,
+      "boss": 51120,
+      "start_time": 1905430,
+      "end_time": 2037209,
+      "name": "Thaddius",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 29,
+      "boss": 51119,
+      "start_time": 2063144,
+      "end_time": 2080812,
+      "name": "Sapphiron",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 30,
+      "boss": 0,
+      "originalBoss": 1114,
+      "start_time": 2155198,
+      "end_time": 2484223,
+      "name": "Kel'Thuzad",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 31,
+      "boss": 51114,
+      "start_time": 2484264,
+      "end_time": 2570715,
+      "name": "Kel'Thuzad",
+      "zoneID": 533,
+      "zoneName": "Naxxramas",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 2,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    }
+  ],
+  "completeRaids": [
+    {
+      "id": 10000,
+      "start_time": 0,
+      "end_time": 2570715,
+      "boss": 51125,
+      "name": "Naxxramas",
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 2,
+      "completeRaidSize": 40,
+      "hasWorldBuffs": true
+    }
+  ],
+  "friendlies": [
+    {
+      "name": "Husar",
+      "id": 15,
+      "guid": 27089833,
+      "type": "Paladin",
+      "server": "Firemaw",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Parse",
+      "id": 40,
+      "guid": 36873462,
+      "type": "Warrior",
+      "server": "Ashbringer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Pugzqt",
+      "id": 28,
+      "guid": 25844084,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Mallocc",
+      "id": 39,
+      "guid": 25841462,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Roguishh",
+      "id": 30,
+      "guid": 40658565,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Inkia",
+      "id": 5,
+      "guid": 27266465,
+      "type": "Priest",
+      "server": "Firemaw",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Gwumpyx",
+      "id": 20,
+      "guid": 37945300,
+      "type": "Rogue",
+      "server": "Mograine",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Gdkat",
+      "id": 2,
+      "guid": 4197509,
+      "type": "Priest",
+      "server": "Firemaw",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Koskenkorva",
+      "id": 12,
+      "guid": 26087405,
+      "type": "Mage",
+      "server": "Firemaw",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Arvoxd",
+      "id": 23,
+      "guid": 26420570,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Frelser",
+      "id": 1,
+      "guid": 27194633,
+      "type": "Priest",
+      "server": "Firemaw",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Chadnado",
+      "id": 33,
+      "guid": 38040981,
+      "type": "Warrior",
+      "server": "Skullflame",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Wizu",
+      "id": 14,
+      "guid": 19094456,
+      "type": "Mage",
+      "server": "Firemaw",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Tj",
+      "id": 7,
+      "guid": 26280322,
+      "type": "Priest",
+      "server": "Noggenfogger",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Faeriefirety",
+      "id": 8,
+      "guid": 39729963,
+      "type": "Druid",
+      "server": "Golemagg",
+      "icon": "Druid",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Cadlien",
+      "id": 18,
+      "guid": 18698718,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Wolris",
+      "id": 6,
+      "guid": 27482454,
+      "type": "Hunter",
+      "server": "Firemaw",
+      "icon": "Hunter-Marksmanship",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Deca",
+      "id": 13,
+      "guid": 26218141,
+      "type": "Priest",
+      "server": "Skullflame",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Oblivions",
+      "id": 27,
+      "guid": 27425460,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Littleloser",
+      "id": 11,
+      "guid": 26807927,
+      "type": "Mage",
+      "server": "Firemaw",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Voomlx",
+      "id": 35,
+      "guid": 26884336,
+      "type": "Warrior",
+      "server": "Ashbringer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Marijumana",
+      "id": 21,
+      "guid": 19095882,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Zaket",
+      "id": 32,
+      "guid": 19729438,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 126,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "Pet",
+      "fights": [
+        {
+          "id": 12,
+          "instances": 8
+        }
+      ]
+    },
+    {
+      "name": "Latyxdd",
+      "id": 41,
+      "guid": 27242161,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Eplios",
+      "id": 26,
+      "guid": 25828160,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Lebish",
+      "id": 3,
+      "guid": 26686496,
+      "type": "Warlock",
+      "server": "Firemaw",
+      "icon": "Warlock-Destruction",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Naxxramas Worshipper",
+      "id": 77,
+      "guid": 16506,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Salvdali",
+      "id": 34,
+      "guid": 29986453,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Karapally",
+      "id": 4,
+      "guid": 37841776,
+      "type": "Paladin",
+      "server": "Firemaw",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Wftestthree",
+      "id": 31,
+      "guid": 26978971,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Panz\u00e8r",
+      "id": 25,
+      "guid": 27028389,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Amii",
+      "id": 29,
+      "guid": 27012448,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 117,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "Pet",
+      "fights": [
+        {
+          "id": 12,
+          "instances": 14
+        }
+      ]
+    },
+    {
+      "name": "Jochem",
+      "id": 24,
+      "guid": 19045831,
+      "type": "Warrior",
+      "server": "Mograine",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Tragortf",
+      "id": 38,
+      "guid": 26986786,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Drst",
+      "id": 22,
+      "guid": 22038729,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Chosme",
+      "id": 9,
+      "guid": 26242537,
+      "type": "Mage",
+      "server": "Firemaw",
+      "icon": "Mage",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Deathknight Understudy",
+      "id": 175,
+      "guid": 16803,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_reincarnation.jpg",
+      "fights": [
+        {
+          "id": 15,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Znipsqt",
+      "id": 37,
+      "guid": 26097973,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Lysten",
+      "id": 10,
+      "guid": 29427393,
+      "type": "Warlock",
+      "server": "Firemaw",
+      "icon": "Warlock-Destruction",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Kekxsec",
+      "id": 16,
+      "guid": 27035317,
+      "type": "Priest",
+      "server": "Firemaw",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Coltyy",
+      "id": 36,
+      "guid": 24306798,
+      "type": "Warrior",
+      "server": "Firemaw",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    },
+    {
+      "name": "Truel\u00edght",
+      "id": 17,
+      "guid": 27193127,
+      "type": "Paladin",
+      "server": "Firemaw",
+      "icon": "Paladin",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        }
+      ]
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Spirit of Mograine",
+      "id": 208,
+      "guid": 16775,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Tomb Horror",
+      "id": 79,
+      "guid": 15979,
+      "type": "NPC",
+      "icon": "custom-icon-ability_impalingbolt.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Unrelenting Rider",
+      "id": 195,
+      "guid": 16126,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_unholystrength.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Spirit of Korth'azz",
+      "id": 207,
+      "guid": 16778,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Sewage Slime",
+      "id": 157,
+      "guid": 16375,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_corpseexplode.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 3,
+          "groups": 1
+        },
+        {
+          "id": 22,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Bile Retcher",
+      "id": 212,
+      "guid": 16018,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_acid_01.jpg",
+      "fights": [
+        {
+          "id": 21,
+          "instances": 5,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Plagued Bat",
+      "id": 101,
+      "guid": 16037,
+      "type": "NPC",
+      "icon": "custom-icon-ability_creature_disease_03.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 17,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Patchwork Golem",
+      "id": 93,
+      "guid": 16017,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_abolishmagic.jpg",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 4,
+          "groups": 2
+        },
+        {
+          "id": 21,
+          "instances": 6,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Naxxramas Worshipper",
+      "id": 77,
+      "guid": 16506,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Spider",
+      "id": 45,
+      "guid": 14881,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 3,
+          "groups": 2
+        },
+        {
+          "id": 4,
+          "instances": 2,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Unstoppable Abomination",
+      "id": 239,
+      "guid": 16428,
+      "type": "NPC",
+      "icon": "custom-icon-ability_criticalstrike.jpg",
+      "fights": [
+        {
+          "id": 30,
+          "instances": 14,
+          "groups": 15
+        }
+      ]
+    },
+    {
+      "name": "Deathknight Understudy",
+      "id": 175,
+      "guid": 16803,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_reincarnation.jpg",
+      "fights": [
+        {
+          "id": 15,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Ghost of Naxxramas",
+      "id": 87,
+      "guid": 16419,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Embalming Slime",
+      "id": 213,
+      "guid": 16024,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_corpseexplode.jpg",
+      "fights": [
+        {
+          "id": 21,
+          "instances": 20,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Venom Stalker",
+      "id": 50,
+      "guid": 15976,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_corrosivebreath.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Gluth",
+      "id": 230,
+      "guid": 15932,
+      "type": "Boss",
+      "icon": "custom-icon-ability_devour.jpg",
+      "fights": [
+        {
+          "id": 26,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Highlord Mograine",
+      "id": 204,
+      "guid": 16062,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_gathershadows.jpg",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Necro Knight Guardian",
+      "id": 188,
+      "guid": 16452,
+      "type": "NPC",
+      "icon": "custom-icon-spell_frost_frostnova.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Diseased Maggot",
+      "id": 106,
+      "guid": 16056,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 11,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Unholy Axe",
+      "id": 176,
+      "guid": 16194,
+      "type": "NPC",
+      "icon": "custom-icon-ability_whirlwind.jpg",
+      "fights": [
+        {
+          "id": 16,
+          "instances": 3,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Kel'Thuzad",
+      "id": 243,
+      "guid": 15990,
+      "type": "Boss",
+      "icon": "custom-icon-spell_frost_frostbolt02.jpg",
+      "fights": [
+        {
+          "id": 31,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Shadow Fissure",
+      "id": 244,
+      "guid": 16129,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_creepingplague.jpg",
+      "fights": [
+        {
+          "id": 31,
+          "instances": 4,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Naxxramas Military Sub-Boss Trigger",
+      "id": 184,
+      "guid": 16137,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 5,
+          "groups": 7
+        }
+      ]
+    },
+    {
+      "name": "Thane Korth'azz",
+      "id": 203,
+      "guid": 16064,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Soul Weaver",
+      "id": 240,
+      "guid": 16429,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 30,
+          "instances": 14,
+          "groups": 3
+        },
+        {
+          "id": 31,
+          "instances": 14,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Bat",
+      "id": 102,
+      "guid": 16036,
+      "type": "NPC",
+      "icon": "custom-icon-ability_hunter_pet_bat.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 13,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Maggot",
+      "id": 54,
+      "guid": 16030,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 5,
+          "groups": 6
+        },
+        {
+          "id": 23,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Skeletal Smith",
+      "id": 163,
+      "guid": 16193,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_thunderclap.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Maexxna",
+      "id": 88,
+      "guid": 15952,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_acid_01.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Plague Beast",
+      "id": 57,
+      "guid": 16034,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_abolishmagic.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 2
+        },
+        {
+          "id": 10,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Zombie Chow",
+      "id": 231,
+      "guid": 16360,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 26,
+          "instances": 5,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Plagued Ghoul",
+      "id": 80,
+      "guid": 16447,
+      "type": "NPC",
+      "icon": "custom-icon-ability_creature_disease_03.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 12,
+          "groups": 2
+        },
+        {
+          "id": 17,
+          "instances": 16,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Mad Scientist",
+      "id": 219,
+      "guid": 16020,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_manaburn.jpg",
+      "fights": [
+        {
+          "id": 21,
+          "instances": 20,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Surgical Assistant",
+      "id": 220,
+      "guid": 16022,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_siphonmana.jpg",
+      "fights": [
+        {
+          "id": 21,
+          "instances": 25,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Anub'Rekhan",
+      "id": 43,
+      "guid": 15956,
+      "type": "Boss",
+      "icon": "custom-icon-ability_backstab.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Crypt Guard",
+      "id": 44,
+      "guid": 16573,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Spirit of Naxxramas",
+      "id": 85,
+      "guid": 16449,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Spectral Horse",
+      "id": 199,
+      "guid": 16149,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warstomp.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 3,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Plagued Warrior",
+      "id": 98,
+      "guid": 16984,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Web Wrap",
+      "id": 89,
+      "guid": 16486,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Mr. Bigglesworth",
+      "id": 53,
+      "guid": 16998,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Grobbulus",
+      "id": 156,
+      "guid": 15931,
+      "type": "Boss",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 22,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Mutated Grub",
+      "id": 100,
+      "guid": 16297,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_acid_01.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 7,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Unrelenting Deathknight",
+      "id": 191,
+      "guid": 16125,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_shadowward.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 11,
+          "groups": 6
+        }
+      ]
+    },
+    {
+      "name": "Death Lord",
+      "id": 173,
+      "guid": 16861,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_curseofsargeras.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Risen Deathknight",
+      "id": 52,
+      "guid": 16154,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 6,
+          "groups": 2
+        },
+        {
+          "id": 14,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Dread Creeper",
+      "id": 48,
+      "guid": 15974,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_gathershadows.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 8,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Sir Zeliek",
+      "id": 205,
+      "guid": 16063,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_gathershadows.jpg",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Necropolis Acolyte",
+      "id": 81,
+      "guid": 16368,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 8,
+          "groups": 1
+        },
+        {
+          "id": 17,
+          "instances": 5,
+          "groups": 3
+        },
+        {
+          "id": 18,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Deathknight Cavalier",
+      "id": 171,
+      "guid": 16163,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 7,
+          "groups": 1
+        },
+        {
+          "id": 14,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Naxxramas Cultist",
+      "id": 75,
+      "guid": 15980,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 22,
+          "groups": 1
+        },
+        {
+          "id": 3,
+          "instances": 22,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 22,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Spectral Trainee",
+      "id": 187,
+      "guid": 16127,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 17,
+          "groups": 10
+        }
+      ]
+    },
+    {
+      "name": "Deathknight Captain",
+      "id": 153,
+      "guid": 16145,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 11,
+          "groups": 3
+        },
+        {
+          "id": 16,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Unholy Staff",
+      "id": 181,
+      "guid": 16215,
+      "type": "NPC",
+      "icon": "custom-icon-spell_frost_frostnova.jpg",
+      "fights": [
+        {
+          "id": 16,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Heigan the Unclean",
+      "id": 104,
+      "guid": 15936,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_painfulafflictions.jpg",
+      "fights": [
+        {
+          "id": 10,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Stitched Spewer",
+      "id": 226,
+      "guid": 16025,
+      "type": "NPC",
+      "icon": "custom-icon-ability_kick.jpg",
+      "fights": [
+        {
+          "id": 23,
+          "instances": 7,
+          "groups": 1
+        },
+        {
+          "id": 24,
+          "instances": 7,
+          "groups": 1
+        },
+        {
+          "id": 25,
+          "instances": 7,
+          "groups": 1
+        },
+        {
+          "id": 26,
+          "instances": 7,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Grobbulus Cloud",
+      "id": 227,
+      "guid": 16363,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_naturetouchdecay.jpg",
+      "fights": [
+        {
+          "id": 24,
+          "instances": 6,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lady Blaumeux",
+      "id": 202,
+      "guid": 16065,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_gathershadows.jpg",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Living Monstrosity",
+      "id": 218,
+      "guid": 16021,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_possession.jpg",
+      "fights": [
+        {
+          "id": 21,
+          "instances": 5
+        }
+      ]
+    },
+    {
+      "name": "Death Touched Warrior",
+      "id": 152,
+      "guid": 16158,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 10,
+          "groups": 6
+        }
+      ]
+    },
+    {
+      "name": "Sludge Belcher",
+      "id": 155,
+      "guid": 16029,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_abolishmagic.jpg",
+      "fights": [
+        {
+          "id": 21,
+          "instances": 6
+        }
+      ]
+    },
+    {
+      "name": "Stoneskin Gargoyle",
+      "id": 94,
+      "guid": 16168,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_acid_01.jpg",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 8,
+          "groups": 2
+        },
+        {
+          "id": 8,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Gothik the Harvester",
+      "id": 201,
+      "guid": 16060,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Noth the Plaguebringer",
+      "id": 97,
+      "guid": 15954,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_animatedead.jpg",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Deathknight Vindicator",
+      "id": 189,
+      "guid": 16451,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Sapphiron",
+      "id": 236,
+      "guid": 15989,
+      "type": "Boss",
+      "icon": "custom-icon-spell_frost_frostshock.jpg",
+      "fights": [
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Instructor Razuvious",
+      "id": 174,
+      "guid": 16061,
+      "type": "Boss",
+      "icon": "custom-icon-ability_warrior_decisivestrike.jpg",
+      "fights": [
+        {
+          "id": 15,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Plague Slime",
+      "id": 55,
+      "guid": 16243,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Blizzard",
+      "id": 237,
+      "guid": 16474,
+      "type": "NPC",
+      "icon": "custom-icon-spell_frost_icestorm.jpg",
+      "fights": [
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Patchwerk",
+      "id": 223,
+      "guid": 16028,
+      "type": "Boss",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 22,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Doom Touched Warrior",
+      "id": 164,
+      "guid": 16157,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 5,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Plagued Gargoyle",
+      "id": 83,
+      "guid": 16446,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_acid_01.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 4,
+          "groups": 1
+        },
+        {
+          "id": 17,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Stalagg",
+      "id": 234,
+      "guid": 15929,
+      "type": "Boss",
+      "icon": "custom-icon-ability_bullrush.jpg",
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Toxic Tunnel",
+      "id": 229,
+      "guid": 16400,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_abolishmagic.jpg",
+      "fights": [
+        {
+          "id": 25,
+          "instances": 7,
+          "groups": 1
+        },
+        {
+          "id": 26,
+          "instances": 7,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Crypt Reaver",
+      "id": 59,
+      "guid": 15978,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Skeletal Steed",
+      "id": 172,
+      "guid": 16067,
+      "type": "NPC",
+      "icon": "custom-icon-spell_frost_stun.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 14,
+          "instances": 8,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Infectious Skitterer",
+      "id": 47,
+      "guid": 15977,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_corrosivebreath.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 30,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 90,
+          "groups": 3
+        },
+        {
+          "id": 3,
+          "instances": 10,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 20,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Unholy Swords",
+      "id": 182,
+      "guid": 16216,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 16,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Grand Widow Faerlina",
+      "id": 78,
+      "guid": 15953,
+      "type": "Boss",
+      "icon": "Boss",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Eye Stalk",
+      "id": 105,
+      "guid": 16236,
+      "type": "NPC",
+      "icon": "custom-icon-inv_misc_monstertail_06.jpg",
+      "fights": [
+        {
+          "id": 10,
+          "instances": 7,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Dark Touched Warrior",
+      "id": 154,
+      "guid": 16156,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 2,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Deathknight",
+      "id": 51,
+      "guid": 16146,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_gathershadows.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 14,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Naxxramas Follower",
+      "id": 76,
+      "guid": 16505,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_charge.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 3,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Spore",
+      "id": 150,
+      "guid": 16286,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_regeneration_02.jpg",
+      "fights": [
+        {
+          "id": 12,
+          "instances": 7,
+          "groups": 4
+        },
+        {
+          "id": 13,
+          "instances": 7,
+          "groups": 5
+        }
+      ]
+    },
+    {
+      "name": "Spectral Deathknight",
+      "id": 193,
+      "guid": 16148,
+      "type": "NPC",
+      "icon": "custom-icon-ability_whirlwind.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 10,
+          "groups": 7
+        }
+      ]
+    },
+    {
+      "name": "Shade of Naxxramas",
+      "id": 159,
+      "guid": 16164,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 2
+        },
+        {
+          "id": 16,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Rat",
+      "id": 92,
+      "guid": 4075,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 13,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 14,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 8,
+          "groups": 2
+        },
+        {
+          "id": 21,
+          "instances": 2,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Necro Knight",
+      "id": 158,
+      "guid": 16165,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 13,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 4,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Feugen",
+      "id": 233,
+      "guid": 15930,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_spectralsight.jpg",
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Thaddius",
+      "id": 235,
+      "guid": 15928,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_chainlightning.jpg",
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Maexxna Spiderling",
+      "id": 90,
+      "guid": 17055,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 10,
+          "groups": 1
+        },
+        {
+          "id": 6,
+          "instances": 10,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Spectral Rider",
+      "id": 198,
+      "guid": 16150,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_unholystrength.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Necro Stalker",
+      "id": 73,
+      "guid": 16453,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_corrosivebreath.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Larva",
+      "id": 103,
+      "guid": 16068,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 4,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Unrelenting Trainee",
+      "id": 185,
+      "guid": 16124,
+      "type": "NPC",
+      "icon": "custom-icon-ability_gouge.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 30,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Soldier of the Frozen Wastes",
+      "id": 238,
+      "guid": 16427,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 30,
+          "instances": 107,
+          "groups": 1
+        },
+        {
+          "id": 31,
+          "instances": 107,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Bile Sludge",
+      "id": 221,
+      "guid": 16142,
+      "type": "Pet",
+      "icon": "Pet",
+      "fights": [
+        {
+          "id": 21,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Loatheb",
+      "id": 107,
+      "guid": 16011,
+      "type": "Boss",
+      "icon": "custom-icon-inv_misc_herb_ragveil.jpg",
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Naxxramas Acolyte",
+      "id": 74,
+      "guid": 15981,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 26,
+          "groups": 1
+        },
+        {
+          "id": 3,
+          "instances": 26,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 26,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Carrion Spinner",
+      "id": 49,
+      "guid": 15975,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_corrosivebreath.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 6,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 11,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Infectious Ghoul",
+      "id": 91,
+      "guid": 16244,
+      "type": "NPC",
+      "icon": "custom-icon-ability_gouge.jpg",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 6,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Fallout Slime",
+      "id": 228,
+      "guid": 16290,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_corpseexplode.jpg",
+      "fights": [
+        {
+          "id": 24,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "friendlyPets": [
+    {
+      "name": "Goblin Land Mine",
+      "id": 200,
+      "guid": 7527,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 16,
+      "fights": [
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 69,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 36,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 224,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 41,
+      "fights": [
+        {
+          "id": 22,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 134,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 23,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 14
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 161,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 12,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 115,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 27,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 140,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 14,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 133,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fire.jpg",
+      "petOwner": 3,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 123,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 30,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 162,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 40,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 129,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 40,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 8
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 144,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 16,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 6
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 132,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 33,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 6
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 215,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 6,
+      "fights": [
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 225,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 25,
+      "fights": [
+        {
+          "id": 22,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 151,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 17,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 112,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 26,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 214,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 26,
+      "fights": [
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 145,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 37,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 5
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 122,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 32,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 168,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 33,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 179,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 4,
+      "fights": [
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 143,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 7,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 68,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 3,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 113,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 18,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 131,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 16,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 3
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 119,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fire.jpg",
+      "petOwner": 15,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 169,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 1,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 82,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 20,
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 166,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 37,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 147,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 35,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 7
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 146,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 30,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 5
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 124,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 22,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 149,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 6,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 60,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 23,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 109,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 21,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 62,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 28,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 120,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 12,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 170,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 14,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 217,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 13,
+      "fights": [
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 139,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 25,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 121,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 41,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 64,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 39,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Windychanuwu",
+      "id": 42,
+      "guid": 10519398,
+      "type": "Pet",
+      "icon": "abilities/ability_hunter_beastcall.jpg",
+      "petOwner": 6,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 22,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 148,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 9,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 118,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 28,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 72,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 22,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 135,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 33,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 13
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 114,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 36,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 66,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 34,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 70,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 25,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 167,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 29,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 138,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 37,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 9
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 137,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 3,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 11
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 61,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 41,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 128,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 29,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 65,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 21,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 136,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 12
+        }
+      ]
+    },
+    {
+      "name": "Summoned Skeleton",
+      "id": 46,
+      "guid": 11200,
+      "type": "Pet",
+      "icon": "Pet",
+      "petOwner": 33,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 127,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 8
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 110,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 18,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 71,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 27,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 141,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 11,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 7
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 108,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 4,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Servant of Weldon Barov",
+      "id": 84,
+      "guid": 11636,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_summonvoidwalker.jpg",
+      "petOwner": 20,
+      "fights": [
+        {
+          "id": 4,
+          "instances": 3
+        }
+      ]
+    },
+    {
+      "name": "Love Fool",
+      "id": 177,
+      "guid": 16111,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 35,
+      "fights": [
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 95,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 2,
+      "fights": [
+        {
+          "id": 7,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 160,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 16,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 165,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 32,
+      "fights": [
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 67,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 18,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 116,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 32,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 216,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 10,
+      "fights": [
+        {
+          "id": 21,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 130,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 22,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 10
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 142,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 34,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 3
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 111,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 26,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Advanced Target Dummy",
+      "id": 178,
+      "guid": 2674,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 30,
+      "fights": [
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 58,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 38,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Masterwork Target Dummy",
+      "id": 63,
+      "guid": 12426,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_metamorphosis.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Arcanite Dragonling",
+      "id": 125,
+      "guid": 12473,
+      "type": "Pet",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "petOwner": 7,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "enemyPets": [
+    {
+      "name": "Bile Sludge",
+      "id": 222,
+      "guid": 16142,
+      "type": "Pet",
+      "icon": "Pet",
+      "petOwner": 155,
+      "fights": [
+        {
+          "id": 21,
+          "instances": 3
+        }
+      ]
+    }
+  ],
+  "logVersion": 14,
+  "gameVersion": 2,
+  "phases": [],
+  "title": "Naxxramas",
+  "owner": "Vooml",
+  "start": 1712686413177,
+  "end": 1712688983892,
+  "zone": 2006,
+  "exportedCharacters": [
+    {
+      "id": 75518081,
+      "name": "Amii",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76231675,
+      "name": "Arvoxd",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 61580221,
+      "name": "Cadlien",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 79903842,
+      "name": "Chadnado",
+      "server": "Skullflame",
+      "region": "EU"
+    },
+    {
+      "id": 74147876,
+      "name": "Chosme",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 67259275,
+      "name": "Coltyy",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76098544,
+      "name": "Deca",
+      "server": "Skullflame",
+      "region": "EU"
+    },
+    {
+      "id": 75275627,
+      "name": "Drst",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 73647537,
+      "name": "Eplios",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 81560761,
+      "name": "Faeriefirety",
+      "server": "Golemagg",
+      "region": "EU"
+    },
+    {
+      "id": 76305225,
+      "name": "Frelser",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76604571,
+      "name": "Gdkat",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 79826060,
+      "name": "Gwumpyx",
+      "server": "Mograine",
+      "region": "EU"
+    },
+    {
+      "id": 75595242,
+      "name": "Husar",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76231674,
+      "name": "Inkia",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 77501013,
+      "name": "Jochem",
+      "server": "Mograine",
+      "region": "EU"
+    },
+    {
+      "id": 80405208,
+      "name": "Karapally",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76155986,
+      "name": "Kekxsec",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 72859136,
+      "name": "Koskenkorva",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76517961,
+      "name": "Latyxdd",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 75957600,
+      "name": "Lebish",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76165578,
+      "name": "Littleloser",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76855545,
+      "name": "Lysten",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 70153279,
+      "name": "Mallocc",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 59525399,
+      "name": "Marijumana",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76838034,
+      "name": "Oblivions",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 75474413,
+      "name": "Panz\u00e8r",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 79149682,
+      "name": "Parse",
+      "server": "Ashbringer",
+      "region": "EU"
+    },
+    {
+      "id": 76447189,
+      "name": "Pugzqt",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 81847046,
+      "name": "Roguishh",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 77212999,
+      "name": "Salvdali",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76640622,
+      "name": "Tj",
+      "server": "Noggenfogger",
+      "region": "EU"
+    },
+    {
+      "id": 76321355,
+      "name": "Tragortf",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76165579,
+      "name": "Truel\u00edght",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 75426736,
+      "name": "Voomlx",
+      "server": "Ashbringer",
+      "region": "EU"
+    },
+    {
+      "id": 77376588,
+      "name": "Wftestthree",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 59525398,
+      "name": "Wizu",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 76952434,
+      "name": "Wolris",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 62375002,
+      "name": "Zaket",
+      "server": "Firemaw",
+      "region": "EU"
+    },
+    {
+      "id": 73019514,
+      "name": "Znipsqt",
+      "server": "Firemaw",
+      "region": "EU"
+    }
+  ]
+}

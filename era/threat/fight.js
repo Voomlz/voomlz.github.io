@@ -1,4 +1,4 @@
-import { fetchWCLreport, fetchWCLCombatantInfo } from "./wcl.js";
+import { fetchWCLreport } from "./wcl.js";
 import { Unit, Player, NPC } from "./unit.js";
 import { handler_basic, handler_mark, threatFunctions } from "../base.js";
 
@@ -31,7 +31,6 @@ export class Fight {
     this.faction = faction;
     this.reportId = reportId;
     this.tranquilAir = false;
-    this.combatantInfos = [];
 
     /** @type {Record<string, NPC>} */
     this.enemies = {};
@@ -41,9 +40,6 @@ export class Fight {
 
     /** @type {Record<string, Unit>} */
     this.units = {};
-
-    /** @type {import("./wcl.js").WCLCombatantInfoEvent[]} */
-    this.combatantInfos = [];
 
     /** @type {import("./wcl.js").WCLEvent[] | undefined} */
     this.events = undefined;
@@ -57,13 +53,6 @@ export class Fight {
       this.end,
       this.config
     );
-    if (this.combatantInfos.length === 0) {
-      this.combatantInfos = await fetchWCLCombatantInfo(
-        this.reportId + "?",
-        this.start,
-        this.end
-      );
-    }
     // Custom events
     if (this.encounter === 791) {
       // High Priestess Arlokk
@@ -126,7 +115,6 @@ export class Fight {
           k,
           this.globalUnits[id],
           this.events,
-          this.combatantInfos.filter((i) => i.sourceID === Number(id)),
           this.tranquilAir
         );
       }
@@ -141,7 +129,7 @@ export class Fight {
    * @returns {[Record<string, Unit>, Record<string, Unit>]}
    */
   eventToFriendliesAndEnemies(ev, unit) {
-    let friendly = ev[unit + "IsFriendly"];
+    let friendly = ev[unit + "IsFriendly"] ?? ev.type === "combatantinfo";
     let friendlies = friendly ? this.friendlies : this.enemies;
     let enemies = friendly ? this.enemies : this.friendlies;
     return [friendlies, enemies];
@@ -232,9 +220,6 @@ export class Fight {
     if (source) {
       if (ev.x) {
         if (ev.type !== "damage") {
-          if (source.name === "Naxxramas") {
-            console.log(JSON.stringify(ev));
-          }
           // fix losing the decimal point due to casting data type
           source.lastX = ev.x / 100;
           source.lastY = ev.y / 100;
