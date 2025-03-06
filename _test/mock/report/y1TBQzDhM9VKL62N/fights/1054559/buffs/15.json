@@ -1,0 +1,25 @@
+{
+  "auras": [
+    {
+      "name": "Aitheer",
+      "id": 15,
+      "guid": 62584163,
+      "type": "Hunter",
+      "icon": "Hunter-Survival",
+      "totalUptime": 4013,
+      "totalUses": 1,
+      "bands": [
+        {
+          "startTime": 1055897,
+          "endTime": 1059910
+        }
+      ]
+    }
+  ],
+  "totalTime": 138824,
+  "useTargets": true,
+  "startTime": 1054559,
+  "endTime": 1193383,
+  "logVersion": 17,
+  "gameVersion": 5
+}

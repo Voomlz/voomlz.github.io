@@ -1,0 +1,7398 @@
+{
+  "events": [
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 7,
+      "gear": [
+        {
+          "id": 71356,
+          "quality": 4,
+          "icon": "inv_helm_circlet_firelands_d_01.jpg",
+          "itemLevel": 384,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 78382,
+          "quality": 4,
+          "icon": "inv_misc_necklace15.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 71546,
+          "quality": 4,
+          "icon": "inv_shoulder_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 52019,
+          "quality": 2,
+          "icon": "inv_misc_ribbon_01.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 71542,
+          "quality": 4,
+          "icon": "inv_chest_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71254,
+          "quality": 4,
+          "icon": "inv_belt_mail_raidshaman_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52257,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            },
+            {
+              "id": 52257,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71545,
+          "quality": 4,
+          "icon": "inv_pants_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4110,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71451,
+          "quality": 4,
+          "icon": "inv_boots_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71425,
+          "quality": 4,
+          "icon": "inv_bracer_mail_pvphunter_c_02.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71297,
+          "quality": 4,
+          "icon": "inv_gauntlets_mail_raidshaman_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4068,
+          "gems": [
+            {
+              "id": 52257,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ],
+          "setID": 1014
+        },
+        {
+          "id": 71237,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_94.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65373,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_87.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 68926,
+          "quality": 4,
+          "icon": "trade_archaeology_shark-jaws.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 69149,
+          "quality": 4,
+          "icon": "inv_trinket_firelands_01.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 60232,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_caster_c_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4096,
+          "onUseEnchant": 3605,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71777,
+          "quality": 4,
+          "icon": "inv_axe_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4097,
+          "temporaryEnchant": 5
+        },
+        {
+          "id": 71408,
+          "quality": 4,
+          "icon": "inv_shield_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4091,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71149,
+          "quality": 4,
+          "icon": "inv_feather_06.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 7,
+          "ability": 28878,
+          "stacks": 1,
+          "icon": "inv_helmet_21.jpg",
+          "name": null
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 7,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 736,
+      "agility": 678,
+      "stamina": 7839,
+      "intellect": 7298,
+      "spirit": 2964,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 32667,
+      "critMelee": 482,
+      "critRanged": 482,
+      "critSpell": 482,
+      "hasteMelee": 1861,
+      "hasteRanged": 1861,
+      "hasteSpell": 1861,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 5,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 33,
+          "icon": "trade_engineering.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 10,
+      "gear": [
+        {
+          "id": 71356,
+          "quality": 4,
+          "icon": "inv_helm_circlet_firelands_d_01.jpg",
+          "itemLevel": 384,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71556,
+          "quality": 4,
+          "icon": "inv_shoulder_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 41253,
+          "quality": 2,
+          "icon": "inv_shirt_13.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 71552,
+          "quality": 4,
+          "icon": "inv_chest_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71254,
+          "quality": 4,
+          "icon": "inv_belt_mail_raidshaman_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71555,
+          "quality": 4,
+          "icon": "inv_pants_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4110,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71451,
+          "quality": 4,
+          "icon": "inv_boots_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4069,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71425,
+          "quality": 4,
+          "icon": "inv_bracer_mail_pvphunter_c_02.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71553,
+          "quality": 4,
+          "icon": "inv_gauntlets_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4107,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71210,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_01b.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4080
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4080,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 68925,
+          "quality": 4,
+          "icon": "inv_trinket_naxxramas06.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 60232,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_caster_c_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4096,
+          "onUseEnchant": 3605,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71086,
+          "quality": 5,
+          "icon": "stave_2h_tarecgosa_e_01stagefinal.jpg",
+          "itemLevel": 397,
+          "permanentEnchant": 4097,
+          "temporaryEnchant": 5,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71148,
+          "quality": 4,
+          "icon": "inv_misc_cat_trinket02.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65905,
+          "quality": 2,
+          "icon": "inv_misc_tabard_earthenring.jpg",
+          "itemLevel": 85
+        }
+      ],
+      "auras": [
+        {
+          "source": 10,
+          "ability": 28878,
+          "stacks": 1,
+          "icon": "inv_helmet_21.jpg",
+          "name": null
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 5,
+          "ability": 54646,
+          "stacks": 1,
+          "icon": "spell_arcane_studentofmagic.jpg",
+          "name": "Focus Magic"
+        },
+        {
+          "source": 10,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 736,
+      "agility": 678,
+      "stamina": 7999,
+      "intellect": 8347,
+      "spirit": 1423,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 20322,
+      "critMelee": 432,
+      "critRanged": 432,
+      "critSpell": 432,
+      "hasteMelee": 2784,
+      "hasteRanged": 2784,
+      "hasteSpell": 2784,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 7,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 12,
+      "gear": [
+        {
+          "id": 71103,
+          "quality": 4,
+          "icon": "inv_helmet_leather_raiddruid_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 52296,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52232,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ],
+          "setID": 1004
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71495,
+          "quality": 4,
+          "icon": "inv_shoulder_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71494,
+          "quality": 4,
+          "icon": "inv_chest_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52232,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            },
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71249,
+          "quality": 4,
+          "icon": "inv_belt_leather_raiddruid_j_01.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52232,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71493,
+          "quality": 4,
+          "icon": "inv_pants_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4110,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71436,
+          "quality": 4,
+          "icon": "inv_boots_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4069,
+          "gems": [
+            {
+              "id": 52232,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71341,
+          "quality": 4,
+          "icon": "inv_bracer_leather_raiddruid_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4108
+        },
+        {
+          "id": 71491,
+          "quality": 4,
+          "icon": "inv_gauntlets_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4107,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71449,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_03c.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71237,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_94.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69111,
+          "quality": 4,
+          "icon": "trade_archaeology_shark-jaws.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 65124,
+          "quality": 4,
+          "icon": "inv_misc_cat_trinket12.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 60232,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_caster_c_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4096,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 78485,
+          "quality": 4,
+          "icon": "inv_mace_1h_deathwingraiddw_d_01.jpg",
+          "itemLevel": 390,
+          "permanentEnchant": 4097
+        },
+        {
+          "id": 71448,
+          "quality": 4,
+          "icon": "inv_offhand_1h_firelandsraid_d_02.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4091
+        },
+        {
+          "id": 71149,
+          "quality": 4,
+          "icon": "inv_feather_06.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52232,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 12,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 701,
+      "agility": 693,
+      "stamina": 7863,
+      "intellect": 8771,
+      "spirit": 2214,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 15664,
+      "critMelee": 372,
+      "critRanged": 372,
+      "critSpell": 372,
+      "hasteMelee": 2050,
+      "hasteRanged": 2050,
+      "hasteSpell": 2050,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 9,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 1,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 20,
+      "gear": [
+        {
+          "id": 71108,
+          "quality": 4,
+          "icon": "inv_helmet_leather_raiddruid_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ],
+          "setID": 1003
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71450,
+          "quality": 4,
+          "icon": "inv_shoulder_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 4335,
+          "quality": 2,
+          "icon": "inv_shirt_16.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 71499,
+          "quality": 4,
+          "icon": "inv_chest_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71249,
+          "quality": 4,
+          "icon": "inv_belt_leather_raiddruid_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71498,
+          "quality": 4,
+          "icon": "inv_pants_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4110,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69952,
+          "quality": 4,
+          "icon": "inv_boots_leather_raiddruid_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71341,
+          "quality": 4,
+          "icon": "inv_bracer_leather_raiddruid_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4108,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71496,
+          "quality": 4,
+          "icon": "inv_gauntlets_leather_raiddruid_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4068,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71449,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_03c.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 68925,
+          "quality": 4,
+          "icon": "inv_trinket_naxxramas06.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 71434,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4096,
+          "onUseEnchant": 3605
+        },
+        {
+          "id": 71086,
+          "quality": 5,
+          "icon": "stave_2h_tarecgosa_e_01stagefinal.jpg",
+          "itemLevel": 397,
+          "permanentEnchant": 4097,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71148,
+          "quality": 4,
+          "icon": "inv_misc_cat_trinket02.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 20,
+          "ability": 87552,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 701,
+      "agility": 693,
+      "stamina": 7898,
+      "intellect": 7195,
+      "spirit": 1638,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 15636,
+      "critMelee": 528,
+      "critRanged": 528,
+      "critSpell": 528,
+      "hasteMelee": 2786,
+      "hasteRanged": 2786,
+      "hasteSpell": 2786,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 1,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 9,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 5,
+      "gear": [
+        {
+          "id": 60237,
+          "quality": 4,
+          "icon": "inv_helm_robe_raidmage_i_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71511,
+          "quality": 4,
+          "icon": "inv_shoulder_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52239,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71510,
+          "quality": 4,
+          "icon": "inv_chest_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52239,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71258,
+          "quality": 4,
+          "icon": "inv_belt_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71509,
+          "quality": 4,
+          "icon": "inv_pants_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4112,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71447,
+          "quality": 4,
+          "icon": "inv_boots_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52239,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65138,
+          "quality": 4,
+          "icon": "inv_bracer_robe_raidmage_i_01.jpg",
+          "itemLevel": 372,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71286,
+          "quality": 4,
+          "icon": "inv_gauntlets_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4068,
+          "gems": [
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ],
+          "setID": 1007
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4080,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71449,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_03c.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4080
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 68925,
+          "quality": 4,
+          "icon": "inv_trinket_naxxramas06.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 60232,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_caster_c_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4115,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71086,
+          "quality": 5,
+          "icon": "stave_2h_tarecgosa_e_01stagefinal.jpg",
+          "itemLevel": 397,
+          "permanentEnchant": 4097,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71151,
+          "quality": 4,
+          "icon": "inv_wand_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 46874,
+          "quality": 3,
+          "icon": "inv_shirt_guildtabard_01.jpg",
+          "itemLevel": 1
+        }
+      ],
+      "auras": [
+        {
+          "source": 5,
+          "ability": 6117,
+          "stacks": 1,
+          "icon": "spell_magearmor.jpg",
+          "name": "Mage Armor"
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 5,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 636,
+      "agility": 645,
+      "stamina": 7882,
+      "intellect": 8123,
+      "spirit": 216,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 13089,
+      "critMelee": 1596,
+      "critRanged": 1596,
+      "critSpell": 1596,
+      "hasteMelee": 2028,
+      "hasteRanged": 2028,
+      "hasteSpell": 2028,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 33,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 5,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 4,
+      "gear": [
+        {
+          "id": 71272,
+          "quality": 4,
+          "icon": "inv_helmet_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 52296,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1009
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71531,
+          "quality": 4,
+          "icon": "inv_shoulder_robe_raidpriest_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71530,
+          "quality": 4,
+          "icon": "inv_chest_robe_raidpriest_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71357,
+          "quality": 4,
+          "icon": "inv_belt_robe_raidpriest_j_01.jpg",
+          "itemLevel": 384,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71529,
+          "quality": 4,
+          "icon": "inv_pants_robe_raidpriest_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4114,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69953,
+          "quality": 4,
+          "icon": "inv_boots_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4069,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 60238,
+          "quality": 4,
+          "icon": "inv_bracer_cloth_raidpriest_i_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4257,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71271,
+          "quality": 4,
+          "icon": "inv_gauntlets_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4068,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1009
+        },
+        {
+          "id": 76153,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_101.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4080
+        },
+        {
+          "id": 71237,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_94.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4080,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69111,
+          "quality": 4,
+          "icon": "trade_archaeology_shark-jaws.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 65124,
+          "quality": 4,
+          "icon": "inv_misc_cat_trinket12.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 60232,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_caster_c_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4115,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71774,
+          "quality": 4,
+          "icon": "inv_stave_2h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4097,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71150,
+          "quality": 4,
+          "icon": "inv_wand_1h_firelandsraid_d_02.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 4,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 645,
+      "agility": 654,
+      "stamina": 7700,
+      "intellect": 7180,
+      "spirit": 2997,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 13063,
+      "critMelee": 173,
+      "critRanged": 173,
+      "critSpell": 173,
+      "hasteMelee": 2034,
+      "hasteRanged": 2034,
+      "hasteSpell": 2034,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 6,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 32,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 14,
+      "gear": [
+        {
+          "id": 71356,
+          "quality": 4,
+          "icon": "inv_helm_circlet_firelands_d_01.jpg",
+          "itemLevel": 384,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71423,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_2.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71295,
+          "quality": 4,
+          "icon": "inv_shoulder_mail_raidshaman_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1016
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71552,
+          "quality": 4,
+          "icon": "inv_chest_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71254,
+          "quality": 4,
+          "icon": "inv_belt_mail_raidshaman_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71555,
+          "quality": 4,
+          "icon": "inv_pants_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4110,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71451,
+          "quality": 4,
+          "icon": "inv_boots_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71425,
+          "quality": 4,
+          "icon": "inv_bracer_mail_pvphunter_c_02.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71553,
+          "quality": 4,
+          "icon": "inv_gauntlets_mail_raidshaman_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4068,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71024,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_03c.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69139,
+          "quality": 4,
+          "icon": "inv_trinket_firelands_03.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 60232,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_caster_c_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4096,
+          "onUseEnchant": 3605,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71086,
+          "quality": 5,
+          "icon": "stave_2h_tarecgosa_e_01stagefinal.jpg",
+          "itemLevel": 397,
+          "permanentEnchant": 4097,
+          "temporaryEnchant": 5,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71149,
+          "quality": 4,
+          "icon": "inv_feather_06.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 14,
+          "ability": 28878,
+          "stacks": 1,
+          "icon": "inv_helmet_21.jpg",
+          "name": null
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 14,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 736,
+      "agility": 678,
+      "stamina": 7938,
+      "intellect": 8178,
+      "spirit": 1463,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 20230,
+      "critMelee": 512,
+      "critRanged": 512,
+      "critSpell": 512,
+      "hasteMelee": 2671,
+      "hasteRanged": 2671,
+      "hasteSpell": 2671,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 7,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 17,
+      "gear": [
+        {
+          "id": 71282,
+          "quality": 4,
+          "icon": "inv_helm_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1008
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71598,
+          "quality": 4,
+          "icon": "inv_shoulder_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71597,
+          "quality": 4,
+          "icon": "inv_chest_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71258,
+          "quality": 4,
+          "icon": "inv_belt_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4188,
+          "gems": [
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71596,
+          "quality": 4,
+          "icon": "inv_pants_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4113,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71447,
+          "quality": 4,
+          "icon": "inv_boots_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71265,
+          "quality": 4,
+          "icon": "inv_bracer_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71358,
+          "quality": 4,
+          "icon": "inv_gauntlets_robe_raidmage_j_01.jpg",
+          "itemLevel": 384,
+          "permanentEnchant": 4068,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71449,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_03c.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69139,
+          "quality": 4,
+          "icon": "inv_trinket_firelands_03.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 60232,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_caster_c_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4115,
+          "gems": [
+            {
+              "id": 52205,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71086,
+          "quality": 5,
+          "icon": "stave_2h_tarecgosa_e_01stagefinal.jpg",
+          "itemLevel": 397,
+          "permanentEnchant": 4097,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71473,
+          "quality": 4,
+          "icon": "inv_wand_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 17,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 17,
+          "ability": 28176,
+          "stacks": 1,
+          "icon": "spell_shadow_felarmour.jpg",
+          "name": "Fel Armor"
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 645,
+      "agility": 653,
+      "stamina": 7963,
+      "intellect": 6802,
+      "spirit": 180,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 13131,
+      "critMelee": 1069,
+      "critRanged": 1069,
+      "critSpell": 1069,
+      "hasteMelee": 2346,
+      "hasteRanged": 2346,
+      "hasteSpell": 2346,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 32,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 6,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 3,
+      "gear": [
+        {
+          "id": 71093,
+          "quality": 4,
+          "icon": "inv_helmet_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1011
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71521,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71091,
+          "quality": 4,
+          "icon": "inv_chest_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ],
+          "setID": 1011
+        },
+        {
+          "id": 71253,
+          "quality": 4,
+          "icon": "inv_belt_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52257,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71520,
+          "quality": 4,
+          "icon": "inv_pants_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4110,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71475,
+          "quality": 4,
+          "icon": "inv_boots_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71452,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4257,
+          "gems": [
+            {
+              "id": 52257,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71518,
+          "quality": 4,
+          "icon": "inv_gauntlets_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4068,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71237,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_94.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71211,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_02c.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 62050,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_tsunamicard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 65124,
+          "quality": 4,
+          "icon": "inv_misc_cat_trinket12.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 71229,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4096
+        },
+        {
+          "id": 71777,
+          "quality": 4,
+          "icon": "inv_axe_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4097
+        },
+        {
+          "id": 71408,
+          "quality": 4,
+          "icon": "inv_shield_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4091,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71149,
+          "quality": 4,
+          "icon": "inv_feather_06.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52257,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69210,
+          "quality": 4,
+          "icon": "inv_epicguildtabard.jpg",
+          "itemLevel": 1
+        }
+      ],
+      "auras": [
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 3,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 769,
+      "agility": 699,
+      "stamina": 7834,
+      "intellect": 7107,
+      "spirit": 3005,
+      "dodge": 0,
+      "parry": 163,
+      "block": 0,
+      "armor": 38491,
+      "critMelee": 714,
+      "critRanged": 714,
+      "critSpell": 714,
+      "hasteMelee": 1872,
+      "hasteRanged": 1872,
+      "hasteSpell": 1872,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 33,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 5,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 16,
+      "gear": [
+        {
+          "id": 71070,
+          "quality": 4,
+          "icon": "inv_helm_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4208,
+          "gems": [
+            {
+              "id": 68779,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ],
+          "setID": 1017
+        },
+        {
+          "id": 71446,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_53.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71603,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4194,
+          "gems": [
+            {
+              "id": 52203,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71600,
+          "quality": 4,
+          "icon": "inv_chest_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52241,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            },
+            {
+              "id": 52241,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71443,
+          "quality": 4,
+          "icon": "inv_belt_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52228,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            },
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71602,
+          "quality": 4,
+          "icon": "inv_glove_pants_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4126,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69946,
+          "quality": 4,
+          "icon": "inv_boots_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71418,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4256
+        },
+        {
+          "id": 71069,
+          "quality": 4,
+          "icon": "inv_glove_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4106,
+          "gems": [
+            {
+              "id": 52241,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ],
+          "setID": 1017
+        },
+        {
+          "id": 71215,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_99.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 70738,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_01a.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 68995,
+          "quality": 4,
+          "icon": "inv_summerfest_firepotion.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 69113,
+          "quality": 4,
+          "icon": "inv_misc_enggizmos_20.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 69879,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_tank_d_01.jpg",
+          "itemLevel": 372,
+          "permanentEnchant": 4100
+        },
+        {
+          "id": 71445,
+          "quality": 4,
+          "icon": "inv_axe_2h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4099
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71154,
+          "quality": 4,
+          "icon": "inv_thrown_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 16,
+          "ability": 2458,
+          "stacks": 1,
+          "icon": "ability_racial_avatar.jpg",
+          "name": "Berserker Stance"
+        },
+        {
+          "source": 16,
+          "ability": 6562,
+          "stacks": 1,
+          "icon": "inv_helmet_21.jpg",
+          "name": null
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 16,
+          "ability": 87545,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 7600,
+      "agility": 723,
+      "stamina": 7876,
+      "intellect": 59,
+      "spirit": 85,
+      "dodge": 0,
+      "parry": 2000,
+      "block": 0,
+      "armor": 26084,
+      "critMelee": 2135,
+      "critRanged": 2135,
+      "critSpell": 2135,
+      "hasteMelee": 662,
+      "hasteRanged": 662,
+      "hasteSpell": 662,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 32,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 9,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 0,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 2,
+      "gear": [
+        {
+          "id": 71430,
+          "quality": 4,
+          "icon": "inv_helmet_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4208,
+          "gems": [
+            {
+              "id": 68779,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52213,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71446,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_53.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71603,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4202,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 38,
+          "quality": 2,
+          "icon": "inv_shirt_05.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 71600,
+          "quality": 4,
+          "icon": "inv_chest_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52222,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52222,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65040,
+          "quality": 4,
+          "icon": "inv_belt_plate_raiddeathknight_i_01.jpg",
+          "itemLevel": 372,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71602,
+          "quality": 4,
+          "icon": "inv_glove_pants_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4126,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71029,
+          "quality": 4,
+          "icon": "inv_boot_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65085,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raiddeathknight_i_01.jpg",
+          "itemLevel": 372,
+          "permanentEnchant": 4256,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71069,
+          "quality": 4,
+          "icon": "inv_glove_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52222,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1017
+        },
+        {
+          "id": 71215,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_99.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65106,
+          "quality": 4,
+          "icon": "inv_misc_diamondring3.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 68995,
+          "quality": 4,
+          "icon": "inv_summerfest_firepotion.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 69113,
+          "quality": 4,
+          "icon": "inv_misc_enggizmos_20.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71227,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4100,
+          "onUseEnchant": 3605
+        },
+        {
+          "id": 71445,
+          "quality": 4,
+          "icon": "inv_axe_2h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4099
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71154,
+          "quality": 4,
+          "icon": "inv_thrown_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 31405,
+          "quality": 2,
+          "icon": "inv_shirt_15.jpg",
+          "itemLevel": 1
+        }
+      ],
+      "auras": [
+        {
+          "source": 2,
+          "ability": 2457,
+          "stacks": 1,
+          "icon": "ability_warrior_offensivestance.jpg",
+          "name": "Battle Stance"
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 2,
+          "ability": 87545,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 7574,
+      "agility": 726,
+      "stamina": 7789,
+      "intellect": 59,
+      "spirit": 85,
+      "dodge": 0,
+      "parry": 1993,
+      "block": 0,
+      "armor": 26017,
+      "critMelee": 2395,
+      "critRanged": 2395,
+      "critSpell": 2395,
+      "hasteMelee": 699,
+      "hasteRanged": 699,
+      "hasteSpell": 699,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 32,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 7,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 2,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 54,
+      "gear": [
+        {
+          "id": 71421,
+          "quality": 4,
+          "icon": "inv_helm_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71598,
+          "quality": 4,
+          "icon": "inv_shoulder_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71597,
+          "quality": 4,
+          "icon": "inv_chest_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71357,
+          "quality": 4,
+          "icon": "inv_belt_robe_raidpriest_j_01.jpg",
+          "itemLevel": 384,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71596,
+          "quality": 4,
+          "icon": "inv_pants_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4113,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71447,
+          "quality": 4,
+          "icon": "inv_boots_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52232,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65138,
+          "quality": 4,
+          "icon": "inv_bracer_robe_raidmage_i_01.jpg",
+          "itemLevel": 372,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71281,
+          "quality": 4,
+          "icon": "inv_glove_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4107,
+          "gems": [
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ],
+          "setID": 1008
+        },
+        {
+          "id": 71449,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_03c.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 68925,
+          "quality": 4,
+          "icon": "inv_trinket_naxxramas06.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 71434,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4115
+        },
+        {
+          "id": 71422,
+          "quality": 4,
+          "icon": "inv_sword_1h_firelandsraid_d_04.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4097
+        },
+        {
+          "id": 71462,
+          "quality": 4,
+          "icon": "inv_offhand_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4091
+        },
+        {
+          "id": 71151,
+          "quality": 4,
+          "icon": "inv_wand_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 35280,
+          "quality": 3,
+          "icon": "inv_misc_tabardsummer01.jpg",
+          "itemLevel": 1
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 54,
+          "ability": 28176,
+          "stacks": 1,
+          "icon": "spell_shadow_felarmour.jpg",
+          "name": "Fel Armor"
+        },
+        {
+          "source": 54,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 663,
+      "agility": 672,
+      "stamina": 8810,
+      "intellect": 7986,
+      "spirit": 207,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 68196,
+      "critMelee": 661,
+      "critRanged": 661,
+      "critSpell": 661,
+      "hasteMelee": 1495,
+      "hasteRanged": 1495,
+      "hasteSpell": 1495,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 0,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 10,
+          "icon": "spell_frost_icestorm.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 19,
+      "gear": [
+        {
+          "id": 71421,
+          "quality": 4,
+          "icon": "inv_helm_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71531,
+          "quality": 4,
+          "icon": "inv_shoulder_robe_raidpriest_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4199,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71274,
+          "quality": 4,
+          "icon": "inv_chest_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ],
+          "setID": 1009
+        },
+        {
+          "id": 71258,
+          "quality": 4,
+          "icon": "inv_belt_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71529,
+          "quality": 4,
+          "icon": "inv_pants_robe_raidpriest_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4110,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69953,
+          "quality": 4,
+          "icon": "inv_boots_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4069,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71266,
+          "quality": 4,
+          "icon": "inv_bracer_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71271,
+          "quality": 4,
+          "icon": "inv_gauntlets_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4068,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ],
+          "setID": 1009
+        },
+        {
+          "id": 71237,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_94.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71211,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_02c.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 69139,
+          "quality": 4,
+          "icon": "inv_trinket_firelands_03.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 69111,
+          "quality": 4,
+          "icon": "trade_archaeology_shark-jaws.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71434,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4115
+        },
+        {
+          "id": 71774,
+          "quality": 4,
+          "icon": "inv_stave_2h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4097,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 72871,
+          "quality": 4,
+          "icon": "inv_wand_1h_430nightelf_c_01.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 65907,
+          "quality": 2,
+          "icon": "inv_misc_tabard_therazane.jpg",
+          "itemLevel": 85
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 19,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 19,
+          "ability": 588,
+          "stacks": 1,
+          "icon": "spell_holy_innerfire.jpg",
+          "name": "Inner Fire"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 648,
+      "agility": 656,
+      "stamina": 7712,
+      "intellect": 8007,
+      "spirit": 3003,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 18450,
+      "critMelee": 483,
+      "critRanged": 483,
+      "critSpell": 483,
+      "hasteMelee": 2093,
+      "hasteRanged": 2093,
+      "hasteSpell": 2093,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 7,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 8,
+      "gear": [
+        {
+          "id": 70948,
+          "quality": 4,
+          "icon": "inv_helmet_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4206,
+          "gems": [
+            {
+              "id": 52293,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52231,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            }
+          ],
+          "setID": 1013
+        },
+        {
+          "id": 70929,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_52.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 71526,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4198,
+          "gems": [
+            {
+              "id": 52219,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71405,
+          "quality": 4,
+          "icon": "inv_chest_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4103,
+          "gems": [
+            {
+              "id": 52231,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            },
+            {
+              "id": 52231,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71443,
+          "quality": 4,
+          "icon": "inv_belt_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52219,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            },
+            {
+              "id": 52219,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71515,
+          "quality": 4,
+          "icon": "inv_pants_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4270,
+          "gems": [
+            {
+              "id": 52203,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52219,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71420,
+          "quality": 4,
+          "icon": "inv_boots_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52231,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71470,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4089,
+          "gems": [
+            {
+              "id": 52231,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71064,
+          "quality": 4,
+          "icon": "inv_gauntlets_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4107,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52219,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ],
+          "setID": 1012
+        },
+        {
+          "id": 70934,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_95.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52219,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71367,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_02b.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 68995,
+          "quality": 4,
+          "icon": "inv_summerfest_firepotion.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 65072,
+          "quality": 4,
+          "icon": "inv_misc_ahnqirajtrinket_03.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 71415,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4090,
+          "gems": [
+            {
+              "id": 52224,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52224,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71562,
+          "quality": 4,
+          "icon": "inv_axe_1h_firelandsraid_d_02.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4099
+        },
+        {
+          "id": 71460,
+          "quality": 4,
+          "icon": "inv_shield_firelandsraid_d_02.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4085,
+          "gems": [
+            {
+              "id": 52231,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            },
+            {
+              "id": 52231,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            }
+          ]
+        },
+        {
+          "id": 70939,
+          "quality": 4,
+          "icon": "inv_misc_statue_09.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52219,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior.jpg"
+            }
+          ]
+        },
+        {
+          "id": 52252,
+          "quality": 4,
+          "icon": "inv_shirt_guildtabard_01.jpg",
+          "itemLevel": 80
+        }
+      ],
+      "auras": [
+        {
+          "source": 8,
+          "ability": 25780,
+          "stacks": 1,
+          "icon": "spell_holy_sealoffury.jpg",
+          "name": "Righteous Fury"
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 8,
+          "ability": 87554,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 8,
+          "ability": 54428,
+          "stacks": 1,
+          "icon": "spell_holy_aspiration.jpg",
+          "name": "Divine Plea"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 6460,
+      "agility": 952,
+      "stamina": 11322,
+      "intellect": 111,
+      "spirit": 117,
+      "dodge": 1210,
+      "parry": 2214,
+      "block": 0,
+      "armor": 42383,
+      "critMelee": 157,
+      "critRanged": 157,
+      "critSpell": 157,
+      "hasteMelee": 0,
+      "hasteRanged": 0,
+      "hasteSpell": 0,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 0,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 32,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 9,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 13,
+      "gear": [
+        {
+          "id": 71277,
+          "quality": 4,
+          "icon": "inv_helmet_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1010
+        },
+        {
+          "id": 71472,
+          "quality": 4,
+          "icon": "inv_misc_necklace_firelands_1.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71536,
+          "quality": 4,
+          "icon": "inv_shoulder_robe_raidpriest_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71535,
+          "quality": 4,
+          "icon": "inv_chest_robe_raidpriest_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71258,
+          "quality": 4,
+          "icon": "inv_belt_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52236,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71534,
+          "quality": 4,
+          "icon": "inv_pants_robe_raidpriest_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4114,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69953,
+          "quality": 4,
+          "icon": "inv_boots_robe_raidpriest_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 60238,
+          "quality": 4,
+          "icon": "inv_bracer_cloth_raidpriest_i_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4257,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71358,
+          "quality": 4,
+          "icon": "inv_gauntlets_robe_raidmage_j_01.jpg",
+          "itemLevel": 384,
+          "permanentEnchant": 4107,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71210,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_01b.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65053,
+          "quality": 4,
+          "icon": "inv_misc_bell_01.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 71434,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4115
+        },
+        {
+          "id": 71086,
+          "quality": 5,
+          "icon": "stave_2h_tarecgosa_e_01stagefinal.jpg",
+          "itemLevel": 397,
+          "permanentEnchant": 4097,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71473,
+          "quality": 4,
+          "icon": "inv_wand_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 46874,
+          "quality": 3,
+          "icon": "inv_shirt_guildtabard_01.jpg",
+          "itemLevel": 1
+        }
+      ],
+      "auras": [
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 13,
+          "ability": 588,
+          "stacks": 1,
+          "icon": "spell_holy_innerfire.jpg",
+          "name": "Inner Fire"
+        },
+        {
+          "source": 13,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 651,
+      "agility": 649,
+      "stamina": 7813,
+      "intellect": 7681,
+      "spirit": 1500,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 18534,
+      "critMelee": 985,
+      "critRanged": 985,
+      "critSpell": 985,
+      "hasteMelee": 2464,
+      "hasteRanged": 2464,
+      "hasteSpell": 2464,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 10,
+          "icon": "spell_frost_icestorm.jpg"
+        },
+        {
+          "id": 0,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 18,
+      "gear": [
+        {
+          "id": 71421,
+          "quality": 4,
+          "icon": "inv_helm_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52239,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71213,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_18.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 71511,
+          "quality": 4,
+          "icon": "inv_shoulder_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52208,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 3427,
+          "quality": 2,
+          "icon": "inv_shirt_black_01.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 71510,
+          "quality": 4,
+          "icon": "inv_chest_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71357,
+          "quality": 4,
+          "icon": "inv_belt_robe_raidpriest_j_01.jpg",
+          "itemLevel": 384,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71509,
+          "quality": 4,
+          "icon": "inv_pants_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4113,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69954,
+          "quality": 4,
+          "icon": "inv_boots_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4069,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71350,
+          "quality": 4,
+          "icon": "inv_bracer_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71507,
+          "quality": 4,
+          "icon": "inv_gauntlets_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71449,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_03c.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 68998,
+          "quality": 4,
+          "icon": "spell_fire_rune.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 71434,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4115
+        },
+        {
+          "id": 71086,
+          "quality": 5,
+          "icon": "stave_2h_tarecgosa_e_01stagefinal.jpg",
+          "itemLevel": 397,
+          "permanentEnchant": 4097,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71151,
+          "quality": 4,
+          "icon": "inv_wand_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 18,
+          "ability": 30482,
+          "stacks": 1,
+          "icon": "ability_mage_moltenarmor.jpg",
+          "name": "Molten Armor"
+        },
+        {
+          "source": 18,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 636,
+      "agility": 645,
+      "stamina": 8002,
+      "intellect": 8223,
+      "spirit": 216,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 13249,
+      "critMelee": 1633,
+      "critRanged": 1633,
+      "critSpell": 1633,
+      "hasteMelee": 2084,
+      "hasteRanged": 2084,
+      "hasteSpell": 2084,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 35,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 26,
+      "gear": [
+        {
+          "id": 71060,
+          "quality": 4,
+          "icon": "inv_helmet_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4208,
+          "gems": [
+            {
+              "id": 68779,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1000
+        },
+        {
+          "id": 71446,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_53.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71480,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4202,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71476,
+          "quality": 4,
+          "icon": "inv_chest_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71250,
+          "quality": 4,
+          "icon": "inv_belt_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52213,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71431,
+          "quality": 4,
+          "icon": "inv_pant_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4126,
+          "gems": [
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            },
+            {
+              "id": 52214,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71404,
+          "quality": 4,
+          "icon": "inv_boot_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4069,
+          "gems": [
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71418,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4256
+        },
+        {
+          "id": 71477,
+          "quality": 4,
+          "icon": "inv_glove_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4106,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71215,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_99.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 60226,
+          "quality": 4,
+          "icon": "inv_misc_rubystar.jpg",
+          "itemLevel": 379,
+          "gems": [
+            {
+              "id": 52214,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 68995,
+          "quality": 4,
+          "icon": "inv_summerfest_firepotion.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 65072,
+          "quality": 4,
+          "icon": "inv_misc_ahnqirajtrinket_03.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 69879,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_tank_d_01.jpg",
+          "itemLevel": 372,
+          "permanentEnchant": 4100,
+          "onUseEnchant": 3605
+        },
+        {
+          "id": 71445,
+          "quality": 4,
+          "icon": "inv_axe_2h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 3368
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71147,
+          "quality": 4,
+          "icon": "spell_fire_sealoffire.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 26,
+          "ability": 6562,
+          "stacks": 1,
+          "icon": "inv_helmet_21.jpg",
+          "name": null
+        },
+        {
+          "source": 26,
+          "ability": 48265,
+          "stacks": 1,
+          "icon": "spell_shadow_demonicempathy.jpg",
+          "name": "Unholy Presence"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 26,
+          "ability": 87545,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 9174,
+      "agility": 721,
+      "stamina": 7926,
+      "intellect": 58,
+      "spirit": 85,
+      "dodge": 0,
+      "parry": 2425,
+      "block": 0,
+      "armor": 26188,
+      "critMelee": 2008,
+      "critRanged": 2008,
+      "critSpell": 2008,
+      "hasteMelee": 2167,
+      "hasteRanged": 2167,
+      "hasteSpell": 2167,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 5,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 1,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 35,
+          "icon": "trade_engineering.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 64,
+      "gear": [
+        {
+          "id": 60237,
+          "quality": 4,
+          "icon": "inv_helm_robe_raidmage_i_01.jpg",
+          "itemLevel": 379,
+          "permanentEnchant": 4207,
+          "gems": [
+            {
+              "id": 68780,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71213,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_18.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 71290,
+          "quality": 4,
+          "icon": "inv_shoulder_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4200,
+          "gems": [
+            {
+              "id": 52239,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ],
+          "setID": 1007
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71510,
+          "quality": 4,
+          "icon": "inv_chest_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52239,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            },
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71258,
+          "quality": 4,
+          "icon": "inv_belt_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71509,
+          "quality": 4,
+          "icon": "inv_pants_robe_raidmage_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4113,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69954,
+          "quality": 4,
+          "icon": "inv_boots_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4104,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71265,
+          "quality": 4,
+          "icon": "inv_bracer_robe_raidwarlock_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4257
+        },
+        {
+          "id": 71286,
+          "quality": 4,
+          "icon": "inv_gauntlets_robe_raidmage_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4068,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52217,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ],
+          "setID": 1007
+        },
+        {
+          "id": 71217,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_98.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71449,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_03c.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 62047,
+          "quality": 4,
+          "icon": "inv_inscription_tarot_volcanocard.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 68925,
+          "quality": 4,
+          "icon": "inv_trinket_naxxramas06.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 71230,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4115
+        },
+        {
+          "id": 71086,
+          "quality": 5,
+          "icon": "stave_2h_tarecgosa_e_01stagefinal.jpg",
+          "itemLevel": 397,
+          "permanentEnchant": 4097,
+          "gems": [
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52207,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71151,
+          "quality": 4,
+          "icon": "inv_wand_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 45574,
+          "quality": 2,
+          "icon": "inv_misc_tournaments_tabard_human.jpg",
+          "itemLevel": 1
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 64,
+          "ability": 30482,
+          "stacks": 1,
+          "icon": "ability_mage_moltenarmor.jpg",
+          "name": "Molten Armor"
+        },
+        {
+          "source": 64,
+          "ability": 87547,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 639,
+      "agility": 647,
+      "stamina": 7730,
+      "intellect": 8417,
+      "spirit": 209,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 12960,
+      "critMelee": 1557,
+      "critRanged": 1557,
+      "critSpell": 1557,
+      "hasteMelee": 2150,
+      "hasteRanged": 2150,
+      "hasteSpell": 2150,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 2,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 36,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 55,
+      "gear": [
+        {
+          "id": 71065,
+          "quality": 4,
+          "icon": "inv_helmet_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4208,
+          "gems": [
+            {
+              "id": 68779,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1012
+        },
+        {
+          "id": 71446,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_53.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71516,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4202,
+          "gems": [
+            {
+              "id": 52240,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 859,
+          "quality": 2,
+          "icon": "inv_shirt_02.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 78822,
+          "quality": 4,
+          "icon": "inv_chest_plate_raidpaladin_k_01.jpg",
+          "itemLevel": 384,
+          "gems": [
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71250,
+          "quality": 4,
+          "icon": "inv_belt_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71515,
+          "quality": 4,
+          "icon": "inv_pants_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4126,
+          "gems": [
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            },
+            {
+              "id": 52240,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71029,
+          "quality": 4,
+          "icon": "inv_boot_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4094,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71418,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4256
+        },
+        {
+          "id": 71064,
+          "quality": 4,
+          "icon": "inv_gauntlets_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4106,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1012
+        },
+        {
+          "id": 60226,
+          "quality": 4,
+          "icon": "inv_misc_rubystar.jpg",
+          "itemLevel": 379,
+          "gems": [
+            {
+              "id": 52240,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71215,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_99.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52255,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65072,
+          "quality": 4,
+          "icon": "inv_misc_ahnqirajtrinket_03.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 69113,
+          "quality": 4,
+          "icon": "inv_misc_enggizmos_20.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71415,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4100,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71352,
+          "quality": 4,
+          "icon": "inv_mace_2h_sulfuras_d_01.jpg",
+          "itemLevel": 384,
+          "permanentEnchant": 4099,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71147,
+          "quality": 4,
+          "icon": "spell_fire_sealoffire.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 31404,
+          "quality": 2,
+          "icon": "inv_shirt_15.jpg",
+          "itemLevel": 1
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 55,
+          "ability": 87545,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 8471,
+      "agility": 952,
+      "stamina": 7864,
+      "intellect": 111,
+      "spirit": 117,
+      "dodge": 0,
+      "parry": 2242,
+      "block": 0,
+      "armor": 26001,
+      "critMelee": 1784,
+      "critRanged": 1784,
+      "critSpell": 1784,
+      "hasteMelee": 522,
+      "hasteRanged": 522,
+      "hasteSpell": 522,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 7,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 2,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 32,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054559,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 1,
+      "gear": [
+        {
+          "id": 71060,
+          "quality": 4,
+          "icon": "inv_helmet_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4208,
+          "gems": [
+            {
+              "id": 52294,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52243,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ],
+          "setID": 1000
+        },
+        {
+          "id": 71446,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_53.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71432,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4198,
+          "gems": [
+            {
+              "id": 52242,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior2.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71469,
+          "quality": 4,
+          "icon": "inv_chest_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4103,
+          "gems": [
+            {
+              "id": 52243,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52242,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior2.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71443,
+          "quality": 4,
+          "icon": "inv_belt_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52218,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior5.jpg"
+            },
+            {
+              "id": 52261,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye04.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71479,
+          "quality": 4,
+          "icon": "inv_pant_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4127,
+          "gems": [
+            {
+              "id": 52243,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52261,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye04.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71404,
+          "quality": 4,
+          "icon": "inv_boot_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4062,
+          "gems": [
+            {
+              "id": 52243,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71470,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 3850,
+          "gems": [
+            {
+              "id": 52242,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior2.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71419,
+          "quality": 4,
+          "icon": "inv_glove_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4107,
+          "gems": [
+            {
+              "id": 52242,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior2.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71215,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_99.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52214,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65382,
+          "quality": 4,
+          "icon": "inv_misc_pearlring2.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 69109,
+          "quality": 4,
+          "icon": "ability_druid_balanceofpower.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 65072,
+          "quality": 4,
+          "icon": "inv_misc_ahnqirajtrinket_03.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 71227,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4100
+        },
+        {
+          "id": 71781,
+          "quality": 4,
+          "icon": "inv_sword_2h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 3847,
+          "gems": [
+            {
+              "id": 52242,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior2.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71147,
+          "quality": 4,
+          "icon": "spell_fire_sealoffire.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52261,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye04.jpg"
+            }
+          ]
+        },
+        {
+          "id": 35221,
+          "quality": 2,
+          "icon": "inv_shirt_guildtabard_01.jpg",
+          "itemLevel": 20
+        }
+      ],
+      "auras": [
+        {
+          "source": 1,
+          "ability": 48263,
+          "stacks": 1,
+          "icon": "spell_misc_warsongfocus.jpg",
+          "name": "Blood Presence"
+        },
+        {
+          "source": 1,
+          "ability": 6562,
+          "stacks": 1,
+          "icon": "inv_helmet_21.jpg",
+          "name": null
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 87554,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 5496,
+      "agility": 758,
+      "stamina": 13144,
+      "intellect": 37,
+      "spirit": 65,
+      "dodge": 257,
+      "parry": 1786,
+      "block": 0,
+      "armor": 44415,
+      "critMelee": 782,
+      "critRanged": 782,
+      "critSpell": 782,
+      "hasteMelee": 1736,
+      "hasteRanged": 1736,
+      "hasteSpell": 1736,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 35,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054560,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 6,
+      "gear": [
+        {
+          "id": 71065,
+          "quality": 4,
+          "icon": "inv_helmet_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4208,
+          "gems": [
+            {
+              "id": 68779,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1012
+        },
+        {
+          "id": 71446,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_53.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 60348,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raidpaladin_i_01.jpg",
+          "itemLevel": 359,
+          "permanentEnchant": 4202,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 932
+        },
+        {
+          "id": 45,
+          "quality": 2,
+          "icon": "inv_shirt_01.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 71512,
+          "quality": 4,
+          "icon": "inv_chest_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52213,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71250,
+          "quality": 4,
+          "icon": "inv_belt_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71515,
+          "quality": 4,
+          "icon": "inv_pants_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4126,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52240,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69946,
+          "quality": 4,
+          "icon": "inv_boots_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4094,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71261,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4256,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71064,
+          "quality": 4,
+          "icon": "inv_gauntlets_plate_raidpaladin_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4106,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1012
+        },
+        {
+          "id": 71215,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_99.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71433,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_01a.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 68972,
+          "quality": 4,
+          "icon": "inv_misc_enggizmos_20.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 62469,
+          "quality": 4,
+          "icon": "inv_misc_idol_05.jpg",
+          "itemLevel": 359
+        },
+        {
+          "id": 69879,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_tank_d_01.jpg",
+          "itemLevel": 372,
+          "permanentEnchant": 4100
+        },
+        {
+          "id": 71780,
+          "quality": 4,
+          "icon": "inv_sword_2h_firelandsraid_d_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4099,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71147,
+          "quality": 4,
+          "icon": "spell_fire_sealoffire.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69210,
+          "quality": 4,
+          "icon": "inv_epicguildtabard.jpg",
+          "itemLevel": 1
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        },
+        {
+          "source": 6,
+          "ability": 87545,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 7102,
+      "agility": 699,
+      "stamina": 7558,
+      "intellect": 132,
+      "spirit": 138,
+      "dodge": 0,
+      "parry": 1873,
+      "block": 0,
+      "armor": 25691,
+      "critMelee": 2051,
+      "critRanged": 2051,
+      "critSpell": 2051,
+      "hasteMelee": 590,
+      "hasteRanged": 590,
+      "hasteSpell": 590,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 7,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 2,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 32,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054560,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 99,
+      "gear": [
+        {
+          "id": 71060,
+          "quality": 4,
+          "icon": "inv_helmet_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4208,
+          "gems": [
+            {
+              "id": 68779,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ],
+          "setID": 1000
+        },
+        {
+          "id": 71446,
+          "quality": 4,
+          "icon": "inv_jewelry_necklace_53.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 71480,
+          "quality": 4,
+          "icon": "inv_shoulder_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4202,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71469,
+          "quality": 4,
+          "icon": "inv_chest_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52213,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 65369,
+          "quality": 4,
+          "icon": "inv_belt_plate_raiddeathknight_i_01.jpg",
+          "itemLevel": 372,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71484,
+          "quality": 4,
+          "icon": "inv_pant_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4126,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71029,
+          "quality": 4,
+          "icon": "inv_boot_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4094,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71418,
+          "quality": 4,
+          "icon": "inv_bracer_plate_raidwarrior_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4256
+        },
+        {
+          "id": 71482,
+          "quality": 4,
+          "icon": "inv_glove_plate_raiddeathknight_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4106,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71433,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_firelandsraid_01a.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71215,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_99.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 68972,
+          "quality": 4,
+          "icon": "inv_misc_enggizmos_20.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 65072,
+          "quality": 4,
+          "icon": "inv_misc_ahnqirajtrinket_03.jpg",
+          "itemLevel": 372
+        },
+        {
+          "id": 69879,
+          "quality": 4,
+          "icon": "inv_misc_cape_cataclysm_tank_d_01.jpg",
+          "itemLevel": 372,
+          "permanentEnchant": 4100
+        },
+        {
+          "id": 71562,
+          "quality": 4,
+          "icon": "inv_axe_1h_firelandsraid_d_02.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 3370
+        },
+        {
+          "id": 71562,
+          "quality": 4,
+          "icon": "inv_axe_1h_firelandsraid_d_02.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 3368
+        },
+        {
+          "id": 71147,
+          "quality": 4,
+          "icon": "spell_fire_sealoffire.jpg",
+          "itemLevel": 378,
+          "gems": [
+            {
+              "id": 52206,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 99,
+          "ability": 48265,
+          "stacks": 1,
+          "icon": "spell_shadow_demonicempathy.jpg",
+          "name": "Unholy Presence"
+        },
+        {
+          "source": 99,
+          "ability": 87545,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 8825,
+      "agility": 724,
+      "stamina": 7920,
+      "intellect": 58,
+      "spirit": 85,
+      "dodge": 122,
+      "parry": 2499,
+      "block": 0,
+      "armor": 26057,
+      "critMelee": 729,
+      "critRanged": 729,
+      "critSpell": 729,
+      "hasteMelee": 1810,
+      "hasteRanged": 1810,
+      "hasteSpell": 1810,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 5,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 5,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054560,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 15,
+      "gear": [
+        {
+          "id": 71442,
+          "quality": 4,
+          "icon": "inv_helm_mail_raidhunter_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4209,
+          "gems": [
+            {
+              "id": 68778,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52209,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71354,
+          "quality": 4,
+          "icon": "inv_neck_firelands_03.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 71505,
+          "quality": 4,
+          "icon": "inv_shoulder_mail_raidhunter_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4204,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 41248,
+          "quality": 2,
+          "icon": "inv_shirt_red_01.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 71054,
+          "quality": 4,
+          "icon": "inv_chest_mail_raidhunter_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52209,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ],
+          "setID": 1005
+        },
+        {
+          "id": 71255,
+          "quality": 4,
+          "icon": "inv_belt_mail_raidhunter_j_01.jpg",
+          "itemLevel": 378,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52220,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71504,
+          "quality": 4,
+          "icon": "inv_pants_mail_raidhunter_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4126,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52220,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71457,
+          "quality": 4,
+          "icon": "inv_boots_mail_raidhunter_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4105,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71365,
+          "quality": 4,
+          "icon": "inv_bracer_mail_raidhunter_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4258
+        },
+        {
+          "id": 71050,
+          "quality": 4,
+          "icon": "inv_glove_mail_raidhunter_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 3222,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52209,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ],
+          "setID": 1005
+        },
+        {
+          "id": 71032,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_91.jpg",
+          "itemLevel": 378
+        },
+        {
+          "id": 71216,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_96.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52258,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 69112,
+          "quality": 4,
+          "icon": "spell_deathknight_gnaw_ghoul.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 68994,
+          "quality": 4,
+          "icon": "inv_gizmo_electrifiedether.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 71415,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4100,
+          "gems": [
+            {
+              "id": 52258,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            },
+            {
+              "id": 52258,
+              "itemLevel": 85,
+              "icon": "inv_jewelcrafting_dragonseye05.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71466,
+          "quality": 4,
+          "icon": "inv_staff_99.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4227
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        },
+        {
+          "id": 71558,
+          "quality": 4,
+          "icon": "inv_weapon_crossbow_40.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4267
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 15,
+          "ability": 87546,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 15,
+          "ability": 34477,
+          "stacks": 1,
+          "icon": "ability_hunter_misdirection.jpg",
+          "name": "Misdirection"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 684,
+      "agility": 10340,
+      "stamina": 8631,
+      "intellect": 118,
+      "spirit": 124,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 20171,
+      "critMelee": 1832,
+      "critRanged": 1832,
+      "critSpell": 1832,
+      "hasteMelee": 1276,
+      "hasteRanged": 1276,
+      "hasteSpell": 1276,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 3,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 7,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    },
+    {
+      "timestamp": 1054560,
+      "type": "combatantinfo",
+      "fight": 13,
+      "sourceID": 9,
+      "gear": [
+        {
+          "id": 71047,
+          "quality": 4,
+          "icon": "inv_helmet_leather_raidrogue_j_01.jpg",
+          "itemLevel": 378,
+          "permanentEnchant": 4209,
+          "gems": [
+            {
+              "id": 68778,
+              "itemLevel": 85,
+              "icon": "inv_misc_metagem_b.jpg"
+            },
+            {
+              "id": 52204,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior4.jpg"
+            }
+          ],
+          "setID": 1006
+        },
+        {
+          "id": 71354,
+          "quality": 4,
+          "icon": "inv_neck_firelands_03.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 71541,
+          "quality": 4,
+          "icon": "inv_shoulders_leather_raidrogue_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4204,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 44694,
+          "quality": 2,
+          "icon": "inv_misc_bandage_08.jpg",
+          "itemLevel": 1
+        },
+        {
+          "id": 71455,
+          "quality": 4,
+          "icon": "inv_chest_leather_raidrogue_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4102,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 60231,
+          "quality": 4,
+          "icon": "inv_belt_leatherraidrogue_i_01.jpg",
+          "itemLevel": 379,
+          "onUseEnchant": 4223,
+          "gems": [
+            {
+              "id": 52220,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            },
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71540,
+          "quality": 4,
+          "icon": "inv_pants_leather_raidrogue_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4440,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52220,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior3.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71467,
+          "quality": 4,
+          "icon": "inv_boot_leather_raidrogue_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4076,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71428,
+          "quality": 4,
+          "icon": "inv_bracer_leather_raidrogue_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4190
+        },
+        {
+          "id": 71538,
+          "quality": 4,
+          "icon": "inv_gauntlet_leather_raidrogue_j_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4107,
+          "onUseEnchant": 4179,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71216,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_96.jpg",
+          "itemLevel": 391,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71401,
+          "quality": 4,
+          "icon": "inv_jewelry_ring_91.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 69112,
+          "quality": 4,
+          "icon": "spell_deathknight_gnaw_ghoul.jpg",
+          "itemLevel": 391
+        },
+        {
+          "id": 68994,
+          "quality": 4,
+          "icon": "inv_gizmo_electrifiedether.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 71415,
+          "quality": 4,
+          "icon": "inv_cape_firelands_fireset_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 1099,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            },
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71778,
+          "quality": 4,
+          "icon": "inv_knife_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4099,
+          "temporaryEnchant": 323
+        },
+        {
+          "id": 71427,
+          "quality": 4,
+          "icon": "inv_knife_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 391,
+          "permanentEnchant": 4099,
+          "temporaryEnchant": 7,
+          "gems": [
+            {
+              "id": 52212,
+              "itemLevel": 85,
+              "icon": "inv_misc_cutgemsuperior6.jpg"
+            }
+          ]
+        },
+        {
+          "id": 71353,
+          "quality": 4,
+          "icon": "inv_bow_1h_firelandsraid_d_01.jpg",
+          "itemLevel": 384
+        },
+        {
+          "id": 0,
+          "quality": 1,
+          "icon": "inv_axe_02.jpg",
+          "itemLevel": 0
+        }
+      ],
+      "auras": [
+        {
+          "source": 20,
+          "ability": 24907,
+          "stacks": 1,
+          "icon": "spell_nature_moonglow.jpg",
+          "name": "Moonkin Aura"
+        },
+        {
+          "source": 9,
+          "ability": 87546,
+          "stacks": 1,
+          "icon": "spell_misc_food.jpg",
+          "name": "Well Fed"
+        },
+        {
+          "source": 9,
+          "ability": 57934,
+          "stacks": 1,
+          "icon": "ability_rogue_tricksofthetrade.jpg",
+          "name": "Tricks of the Trade"
+        },
+        {
+          "source": 1,
+          "ability": 57330,
+          "stacks": 1,
+          "icon": "inv_misc_horn_02.jpg",
+          "name": "Horn of Winter"
+        }
+      ],
+      "expansion": "cataclysm",
+      "faction": 1,
+      "specID": 0,
+      "strength": 721,
+      "agility": 7934,
+      "stamina": 7860,
+      "intellect": 69,
+      "spirit": 91,
+      "dodge": 0,
+      "parry": 0,
+      "block": 0,
+      "armor": 15761,
+      "critMelee": 639,
+      "critRanged": 639,
+      "critSpell": 639,
+      "hasteMelee": 1913,
+      "hasteRanged": 1913,
+      "hasteSpell": 1913,
+      "speed": 0,
+      "leech": 0,
+      "avoidance": 0,
+      "mastery": 0,
+      "versatilityDamageDone": 0,
+      "versatilityHealingDone": 0,
+      "versatilityDamageReduction": 0,
+      "talentTree": [],
+      "talents": [
+        {
+          "id": 31,
+          "icon": "trade_engineering.jpg"
+        },
+        {
+          "id": 2,
+          "icon": "inv_axe_02.jpg"
+        },
+        {
+          "id": 8,
+          "icon": "inv_axe_02.jpg"
+        }
+      ],
+      "pvpTalents": [],
+      "customPowerSet": [],
+      "secondaryCustomPowerSet": [],
+      "tertiaryCustomPowerSet": []
+    }
+  ],
+  "count": 24
+}

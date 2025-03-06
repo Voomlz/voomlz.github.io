@@ -30,6 +30,26 @@ export async function loadTargetFromReport(
     if (apiPath.startsWith("report/fights/")) {
       // Base report fights endpoint
       mockFile = path.join("_test", "mock", "report", reportId, "fights.json");
+    } else if (
+      apiPath.startsWith("report/events/") &&
+      searchParams.get("filter") === 'type IN ("combatantinfo")'
+    ) {
+      // Events endpoint with filter
+      const start = searchParams.get("start");
+
+      if (!start) {
+        throw new Error("Missing 'start' parameter in events request");
+      }
+
+      mockFile = path.join(
+        "_test",
+        "mock",
+        "report",
+        reportId,
+        "fights",
+        start,
+        "combatantinfo.json"
+      );
     } else if (apiPath.startsWith("report/events/")) {
       // Events endpoint with filter
       const start = searchParams.get("start");
@@ -46,6 +66,29 @@ export async function loadTargetFromReport(
         "fights",
         start,
         "events.json"
+      );
+    } else if (apiPath.startsWith("report/tables/buffs/")) {
+      // Events endpoint with filter
+      const start = searchParams.get("start");
+      const sourceId = searchParams.get("sourceid");
+
+      if (!start) {
+        throw new Error("Missing 'start' parameter in events request");
+      }
+
+      if (!sourceId) {
+        throw new Error("Missing 'sourceid' parameter in buffs request");
+      }
+
+      mockFile = path.join(
+        "_test",
+        "mock",
+        "report",
+        reportId,
+        "fights",
+        start,
+        "buffs",
+        `${sourceId}.json`
       );
     } else {
       throw new Error(`Unhandled API endpoint: ${apiPath}`);
