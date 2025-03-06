@@ -24,6 +24,10 @@ export class Fight {
     this.end = fight.end_time;
     this.id = fight.id;
     this.encounter = fight.boss;
+
+    /** @type {import("./wcl.js").WCLFight} */
+    this.wclData = fight;
+
     /**
      * @type {Record<string, import("./wcl.js").WCLUnit>}
      */
@@ -115,6 +119,7 @@ export class Fight {
           k,
           this.globalUnits[id],
           this.events,
+          this,
           this.tranquilAir
         );
       }
