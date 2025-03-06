@@ -1,0 +1,8778 @@
+{
+  "lang": "en",
+  "fights": [
+    {
+      "id": 1,
+      "boss": 0,
+      "start_time": 385515,
+      "end_time": 439162,
+      "name": "Molten Giant",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 2,
+      "boss": 0,
+      "start_time": 461825,
+      "end_time": 493077,
+      "name": "Firelord",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 3,
+      "boss": 0,
+      "start_time": 515233,
+      "end_time": 622693,
+      "name": "Molten Destroyer",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 4,
+      "boss": 0,
+      "start_time": 634082,
+      "end_time": 676831,
+      "name": "Firelord",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 5,
+      "boss": 0,
+      "start_time": 690434,
+      "end_time": 702798,
+      "name": "Lava Surger",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 6,
+      "boss": 0,
+      "start_time": 713374,
+      "end_time": 749856,
+      "name": "Lava Surger",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 7,
+      "boss": 0,
+      "start_time": 762559,
+      "end_time": 801307,
+      "name": "Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 8,
+      "boss": 0,
+      "start_time": 824715,
+      "end_time": 865791,
+      "name": "Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 9,
+      "boss": 150663,
+      "start_time": 951836,
+      "end_time": 973750,
+      "name": "Lucifron",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 10,
+      "boss": 0,
+      "start_time": 997896,
+      "end_time": 1072743,
+      "name": "Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 11,
+      "boss": 0,
+      "start_time": 1091573,
+      "end_time": 1129017,
+      "name": "Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 12,
+      "boss": 150664,
+      "start_time": 1166421,
+      "end_time": 1206893,
+      "name": "Magmadar",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 13,
+      "boss": 0,
+      "start_time": 1247619,
+      "end_time": 1256394,
+      "name": "Flame Imp",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 14,
+      "boss": 0,
+      "start_time": 1287372,
+      "end_time": 1303589,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 15,
+      "boss": 0,
+      "start_time": 1323295,
+      "end_time": 1356259,
+      "name": "Molten Giant",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 16,
+      "boss": 0,
+      "start_time": 1367392,
+      "end_time": 1382160,
+      "name": "Firelord",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 17,
+      "boss": 0,
+      "start_time": 1393738,
+      "end_time": 1405839,
+      "name": "Lava Annihilator",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 18,
+      "boss": 0,
+      "start_time": 1431404,
+      "end_time": 1445070,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 19,
+      "boss": 0,
+      "start_time": 1457054,
+      "end_time": 1522732,
+      "name": "Molten Destroyer",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 20,
+      "boss": 150665,
+      "start_time": 1538056,
+      "end_time": 1563820,
+      "name": "Gehennas",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 21,
+      "boss": 0,
+      "start_time": 1581193,
+      "end_time": 1637475,
+      "name": "Molten Destroyer",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 22,
+      "boss": 0,
+      "start_time": 1652757,
+      "end_time": 1733376,
+      "name": "Molten Destroyer",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 23,
+      "boss": 0,
+      "start_time": 1750299,
+      "end_time": 1763521,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 24,
+      "boss": 150666,
+      "start_time": 1826992,
+      "end_time": 1862266,
+      "name": "Garr",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 25,
+      "boss": 0,
+      "start_time": 1862470,
+      "end_time": 1960883,
+      "name": "Firesworn",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 26,
+      "boss": 0,
+      "start_time": 2037911,
+      "end_time": 2112395,
+      "name": "Lava Surger",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 27,
+      "boss": 0,
+      "start_time": 2139075,
+      "end_time": 2217719,
+      "name": "Lava Reaver",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 28,
+      "boss": 150668,
+      "start_time": 2272799,
+      "end_time": 2310023,
+      "name": "Baron Geddon",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 29,
+      "boss": 0,
+      "start_time": 2341377,
+      "end_time": 2373076,
+      "name": "Lava Reaver",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 30,
+      "boss": 0,
+      "start_time": 2385842,
+      "end_time": 2395223,
+      "name": "Firelord",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 31,
+      "boss": 0,
+      "start_time": 2409058,
+      "end_time": 2427531,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 32,
+      "boss": 0,
+      "start_time": 2437585,
+      "end_time": 2449949,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 33,
+      "boss": 150667,
+      "start_time": 2508290,
+      "end_time": 2523287,
+      "name": "Shazzrah",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 34,
+      "boss": 0,
+      "start_time": 2523327,
+      "end_time": 2523327,
+      "name": "Unknown",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 35,
+      "boss": 0,
+      "start_time": 2553405,
+      "end_time": 2669787,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 36,
+      "boss": 0,
+      "start_time": 2690928,
+      "end_time": 2729827,
+      "name": "Firewalker",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 37,
+      "boss": 0,
+      "start_time": 2740964,
+      "end_time": 2798584,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 38,
+      "boss": 0,
+      "start_time": 2818737,
+      "end_time": 2846846,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 39,
+      "boss": 0,
+      "start_time": 2885887,
+      "end_time": 2898850,
+      "name": "Lava Annihilator",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 40,
+      "boss": 150669,
+      "start_time": 2942562,
+      "end_time": 2975668,
+      "name": "Sulfuron Harbinger",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 41,
+      "boss": 0,
+      "start_time": 3009746,
+      "end_time": 3021657,
+      "name": "Lava Surger",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 42,
+      "boss": 0,
+      "start_time": 3046402,
+      "end_time": 3079495,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 43,
+      "boss": 0,
+      "start_time": 3115790,
+      "end_time": 3132332,
+      "name": "Ancient Core Hound",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 44,
+      "boss": 0,
+      "start_time": 3153362,
+      "end_time": 3197820,
+      "name": "Lava Annihilator",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 45,
+      "boss": 150670,
+      "start_time": 3223234,
+      "end_time": 3263428,
+      "name": "Golemagg the Incinerator",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 46,
+      "boss": 0,
+      "start_time": 3263499,
+      "end_time": 3263728,
+      "name": "Golemagg the Incinerator",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 47,
+      "boss": 0,
+      "start_time": 3301565,
+      "end_time": 3343128,
+      "name": "Lava Annihilator",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 48,
+      "boss": 150671,
+      "start_time": 3412599,
+      "end_time": 3463944,
+      "name": "Majordomo Executus",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 10000,
+      "fightPercentage": 10000,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    },
+    {
+      "id": 49,
+      "boss": 0,
+      "start_time": 3594415,
+      "end_time": 3603210,
+      "name": "Lava Surger",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 50,
+      "boss": 0,
+      "start_time": 3623628,
+      "end_time": 3631862,
+      "name": "Lava Surger",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 51,
+      "boss": 0,
+      "start_time": 3670474,
+      "end_time": 3682311,
+      "name": "Lava Surger",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3
+    },
+    {
+      "id": 52,
+      "boss": 150672,
+      "start_time": 3775622,
+      "end_time": 3836208,
+      "name": "Ragnaros",
+      "zoneID": 409,
+      "zoneName": "Molten Core",
+      "zoneDifficulty": 3,
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "classicSeasonID": 5,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": []
+    }
+  ],
+  "completeRaids": [
+    {
+      "id": 10000,
+      "start_time": 385515,
+      "end_time": 3836208,
+      "boss": 100673,
+      "name": "Molten Core",
+      "size": 40,
+      "difficulty": 3,
+      "kill": true,
+      "partial": 2,
+      "completeRaidSize": 40,
+      "missedTrashDetails": [
+        {
+          "gameIDs": [
+            11659,
+            11658
+          ],
+          "label": "Molten Destroyer / Molten Giant",
+          "requiredCount": 10,
+          "actualCount": 14,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            11668,
+            11665
+          ],
+          "label": "Firelord / Lava Annihilator",
+          "requiredCount": 21,
+          "actualCount": 22,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            11673
+          ],
+          "label": "Ancient Core Hound",
+          "requiredCount": 13,
+          "actualCount": 14,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            12101
+          ],
+          "label": "Lava Surger",
+          "requiredCount": 11,
+          "actualCount": 12,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            12076
+          ],
+          "label": "Lava Elemental",
+          "requiredCount": 8,
+          "actualCount": 8,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            11667
+          ],
+          "label": "Flameguard",
+          "requiredCount": 7,
+          "actualCount": 8,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            11666
+          ],
+          "label": "Firewalker",
+          "requiredCount": 7,
+          "actualCount": 8,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            12100
+          ],
+          "label": "Lava Reaver",
+          "requiredCount": 3,
+          "actualCount": 4,
+          "timePenalty": 0
+        }
+      ],
+      "classicSeasonID": 5,
+      "hasWorldBuffs": true
+    }
+  ],
+  "friendlies": [
+    {
+      "name": "Glorb",
+      "id": 34,
+      "guid": 53710206,
+      "type": "Rogue",
+      "server": "Nightslayer",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Ivn",
+      "id": 41,
+      "guid": 54151588,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Pieceofcandy",
+      "id": 71,
+      "guid": 55387053,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Slugzug",
+      "id": 9,
+      "guid": 54157402,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Beegcak",
+      "id": 8,
+      "guid": 53963248,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Plantsh",
+      "id": 26,
+      "guid": 53895655,
+      "type": "Priest",
+      "server": "Nightslayer",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Bonsai",
+      "id": 21,
+      "guid": 54204949,
+      "type": "Warlock",
+      "server": "Nightslayer",
+      "icon": "Warlock-Destruction",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Tj",
+      "id": 19,
+      "guid": 53656209,
+      "type": "Priest",
+      "server": "Nightslayer",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Tommywiseau",
+      "id": 1,
+      "guid": 53902177,
+      "type": "Hunter",
+      "server": "Nightslayer",
+      "icon": "Hunter-Marksmanship",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Sizzlebean",
+      "id": 30,
+      "guid": 54993106,
+      "type": "Shaman",
+      "server": "Nightslayer",
+      "icon": "Shaman",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Mmbop",
+      "id": 25,
+      "guid": 58670156,
+      "type": "Mage",
+      "server": "Nightslayer",
+      "icon": "Mage-Frost",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Curseofgirth",
+      "id": 18,
+      "guid": 54248441,
+      "type": "Warlock",
+      "server": "Nightslayer",
+      "icon": "Warlock-Destruction",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Wachootoo",
+      "id": 60,
+      "guid": 56128814,
+      "type": "Shaman",
+      "server": "Nightslayer",
+      "icon": "Shaman",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Jokic",
+      "id": 4,
+      "guid": 53936960,
+      "type": "Shaman",
+      "server": "Nightslayer",
+      "icon": "Shaman",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Chore",
+      "id": 38,
+      "guid": 54444168,
+      "type": "Priest",
+      "server": "Nightslayer",
+      "icon": "Priest-Holy",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Bubztwo",
+      "id": 3,
+      "guid": 54109081,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Quadravaxxed",
+      "id": 33,
+      "guid": 53950170,
+      "type": "Shaman",
+      "server": "Nightslayer",
+      "icon": "Shaman",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Wsg",
+      "id": 35,
+      "guid": 53927832,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Goryinthehse",
+      "id": 32,
+      "guid": 54092470,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 130,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "Pet",
+      "fights": [
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 44,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Hemorrhoid",
+      "id": 20,
+      "guid": 53928452,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Healtank",
+      "id": 6,
+      "guid": 53876685,
+      "type": "Druid",
+      "server": "Nightslayer",
+      "icon": "Druid-Restoration",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 46
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Imbuetiful",
+      "id": 7,
+      "guid": 54242607,
+      "type": "Shaman",
+      "server": "Nightslayer",
+      "icon": "Shaman",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Zorkoa",
+      "id": 40,
+      "guid": 56102828,
+      "type": "Mage",
+      "server": "Nightslayer",
+      "icon": "Mage-Frost",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Jengi",
+      "id": 24,
+      "guid": 59594842,
+      "type": "Hunter",
+      "server": "Nightslayer",
+      "icon": "Hunter-Marksmanship",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Pacothetaco",
+      "id": 37,
+      "guid": 54302167,
+      "type": "Rogue",
+      "server": "Nightslayer",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Fentjelqing",
+      "id": 29,
+      "guid": 56256940,
+      "type": "Rogue",
+      "server": "Nightslayer",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Khazra",
+      "id": 11,
+      "guid": 55707765,
+      "type": "Shaman",
+      "server": "Nightslayer",
+      "icon": "Shaman-Restoration",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Throbkebab",
+      "id": 27,
+      "guid": 54092642,
+      "type": "Mage",
+      "server": "Nightslayer",
+      "icon": "Mage-Frost",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Bladeflurry",
+      "id": 14,
+      "guid": 54108420,
+      "type": "Rogue",
+      "server": "Nightslayer",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Apokka",
+      "id": 44,
+      "guid": 53934361,
+      "type": "Rogue",
+      "server": "Nightslayer",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Necroboogie",
+      "id": 13,
+      "guid": 55493389,
+      "type": "Priest",
+      "server": "Nightslayer",
+      "icon": "Priest",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Fentarillo",
+      "id": 43,
+      "guid": 54121644,
+      "type": "Shaman",
+      "server": "Nightslayer",
+      "icon": "Shaman",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Beefinator",
+      "id": 28,
+      "guid": 53711702,
+      "type": "Shaman",
+      "server": "Nightslayer",
+      "icon": "Shaman",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Tigak",
+      "id": 36,
+      "guid": 53893406,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Crty",
+      "id": 23,
+      "guid": 53909740,
+      "type": "Warlock",
+      "server": "Nightslayer",
+      "icon": "Warlock-Destruction",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Boondoggle",
+      "id": 50,
+      "guid": 54242805,
+      "type": "Rogue",
+      "server": "Nightslayer",
+      "icon": "Rogue-Assassination",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Genny",
+      "id": 12,
+      "guid": 53697621,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Slicemaster",
+      "id": 39,
+      "guid": 54774888,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Defavre",
+      "id": 10,
+      "guid": 53911660,
+      "type": "Mage",
+      "server": "Nightslayer",
+      "icon": "Mage-Frost",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Vaxedmasker",
+      "id": 22,
+      "guid": 54098164,
+      "type": "Warrior",
+      "server": "Nightslayer",
+      "icon": "Warrior-Fury",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        },
+        {
+          "id": 21
+        },
+        {
+          "id": 22
+        },
+        {
+          "id": 23
+        },
+        {
+          "id": 24
+        },
+        {
+          "id": 25
+        },
+        {
+          "id": 26
+        },
+        {
+          "id": 27
+        },
+        {
+          "id": 28
+        },
+        {
+          "id": 29
+        },
+        {
+          "id": 30
+        },
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        },
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        },
+        {
+          "id": 36
+        },
+        {
+          "id": 37
+        },
+        {
+          "id": 38
+        },
+        {
+          "id": 39
+        },
+        {
+          "id": 40
+        },
+        {
+          "id": 41
+        },
+        {
+          "id": 42
+        },
+        {
+          "id": 43
+        },
+        {
+          "id": 44
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 47
+        },
+        {
+          "id": 48
+        },
+        {
+          "id": 49
+        },
+        {
+          "id": 50
+        },
+        {
+          "id": 51
+        },
+        {
+          "id": 52
+        }
+      ]
+    },
+    {
+      "name": "Summoned Skeleton",
+      "id": 87,
+      "guid": 11200,
+      "type": "Pet",
+      "icon": "Pet",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Ancient Core Hound",
+      "id": 70,
+      "guid": 11673,
+      "type": "NPC",
+      "icon": "custom-icon-ability_racial_cannibalize.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 2
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 22,
+          "instances": 2
+        },
+        {
+          "id": 23,
+          "instances": 1
+        },
+        {
+          "id": 31,
+          "instances": 1
+        },
+        {
+          "id": 32,
+          "instances": 2
+        },
+        {
+          "id": 35,
+          "instances": 1
+        },
+        {
+          "id": 37,
+          "instances": 1
+        },
+        {
+          "id": 38,
+          "instances": 2
+        },
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 43,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Flameguard",
+      "id": 115,
+      "guid": 11667,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_immolation.jpg",
+      "fights": [
+        {
+          "id": 26,
+          "instances": 1
+        },
+        {
+          "id": 27,
+          "instances": 2
+        },
+        {
+          "id": 29,
+          "instances": 1
+        },
+        {
+          "id": 35,
+          "instances": 2
+        },
+        {
+          "id": 36,
+          "instances": 1
+        },
+        {
+          "id": 37,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Golemagg the Incinerator",
+      "id": 142,
+      "guid": 11988,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_immolation.jpg",
+      "fights": [
+        {
+          "id": 45,
+          "instances": 1
+        },
+        {
+          "id": 46,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Firelord",
+      "id": 59,
+      "guid": 11668,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_soulburn.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 30,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 42,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 47,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Magmadar",
+      "id": 91,
+      "guid": 11982,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_meteorstorm.jpg",
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Firewalker",
+      "id": 116,
+      "guid": 11666,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 26,
+          "instances": 1,
+          "groups": 2
+        },
+        {
+          "id": 27,
+          "instances": 2,
+          "groups": 2
+        },
+        {
+          "id": 29,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 35,
+          "instances": 2,
+          "groups": 4
+        },
+        {
+          "id": 36,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 37,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Baron Geddon",
+      "id": 122,
+      "guid": 12056,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_incinerate.jpg",
+      "fights": [
+        {
+          "id": 28,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Flame of Ragnaros",
+      "id": 152,
+      "guid": 13148,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_selfdestruct.jpg",
+      "fights": [
+        {
+          "id": 52,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Garr",
+      "id": 106,
+      "guid": 12057,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_earthbind.jpg",
+      "fights": [
+        {
+          "id": 24,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Flame Imp",
+      "id": 78,
+      "guid": 11669,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_sealoffire.jpg",
+      "fights": [
+        {
+          "id": 6,
+          "instances": 10,
+          "groups": 1
+        },
+        {
+          "id": 13,
+          "instances": 10,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Healer",
+      "id": 147,
+      "guid": 11663,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_antishadow.jpg",
+      "fights": [
+        {
+          "id": 48,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Reaver",
+      "id": 121,
+      "guid": 12100,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 27,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        },
+        {
+          "id": 35,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Lucifron",
+      "id": 85,
+      "guid": 12118,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Core Rager",
+      "id": 143,
+      "guid": 11672,
+      "type": "NPC",
+      "icon": "custom-icon-ability_druid_disembowel.jpg",
+      "fights": [
+        {
+          "id": 45,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 46,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Elite",
+      "id": 145,
+      "guid": 11664,
+      "type": "NPC",
+      "icon": "custom-icon-spell_holy_excorcism_02.jpg",
+      "fights": [
+        {
+          "id": 48,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker",
+      "id": 103,
+      "guid": 11661,
+      "type": "NPC",
+      "icon": "custom-icon-spell_holy_sealofwrath.jpg",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Surger",
+      "id": 69,
+      "guid": 12101,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_charge.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 5,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 6,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 15,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 26,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 38,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 41,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 49,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 50,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 51,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Core Hound",
+      "id": 80,
+      "guid": 11671,
+      "type": "NPC",
+      "icon": "custom-icon-ability_gouge.jpg",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 5,
+          "groups": 1
+        },
+        {
+          "id": 8,
+          "instances": 5,
+          "groups": 1
+        },
+        {
+          "id": 10,
+          "instances": 11,
+          "groups": 1
+        },
+        {
+          "id": 11,
+          "instances": 5,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Spawn",
+      "id": 65,
+      "guid": 12265,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_flamebolt.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 2,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 4,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 16,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 47,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Molten Giant",
+      "id": 2,
+      "guid": 11658,
+      "type": "NPC",
+      "icon": "custom-icon-ability_smash.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 3,
+          "instances": 3,
+          "groups": 2
+        },
+        {
+          "id": 15,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Sulfuron Harbinger",
+      "id": 127,
+      "guid": 12098,
+      "type": "Boss",
+      "icon": "custom-icon-ability_throw.jpg",
+      "fights": [
+        {
+          "id": 40,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Ragnaros",
+      "id": 148,
+      "guid": 11502,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_flametounge.jpg",
+      "fights": [
+        {
+          "id": 52,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Protector",
+      "id": 86,
+      "guid": 12119,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_cleave.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Annihilator",
+      "id": 75,
+      "guid": 11665,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 2
+        },
+        {
+          "id": 22,
+          "instances": 1
+        },
+        {
+          "id": 35,
+          "instances": 2
+        },
+        {
+          "id": 39,
+          "instances": 1
+        },
+        {
+          "id": 44,
+          "instances": 1
+        },
+        {
+          "id": 47,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Molten Destroyer",
+      "id": 72,
+      "guid": 11659,
+      "type": "NPC",
+      "icon": "custom-icon-ability_smash.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 21,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 22,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Elemental",
+      "id": 114,
+      "guid": 12076,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 26,
+          "instances": 2
+        },
+        {
+          "id": 27,
+          "instances": 2
+        },
+        {
+          "id": 36,
+          "instances": 2
+        },
+        {
+          "id": 37,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Firesworn",
+      "id": 105,
+      "guid": 12099,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_volcano.jpg",
+      "fights": [
+        {
+          "id": 24,
+          "instances": 8,
+          "groups": 1
+        },
+        {
+          "id": 25,
+          "instances": 8,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Majordomo Executus",
+      "id": 146,
+      "guid": 12018,
+      "type": "Boss",
+      "icon": "custom-icon-spell_arcane_blink.jpg",
+      "fights": [
+        {
+          "id": 48,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Gehennas",
+      "id": 102,
+      "guid": 12259,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shadow_shadowbolt.jpg",
+      "fights": [
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Priest",
+      "id": 126,
+      "guid": 11662,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_immolation.jpg",
+      "fights": [
+        {
+          "id": 40,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Shazzrah",
+      "id": 123,
+      "guid": 12264,
+      "type": "Boss",
+      "icon": "custom-icon-spell_nature_wispsplode.jpg",
+      "fights": [
+        {
+          "id": 33,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "friendlyPets": [
+    {
+      "name": "Searing Totem VI",
+      "id": 97,
+      "guid": 7402,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_searingtotem.jpg",
+      "petOwner": 43,
+      "fights": [
+        {
+          "id": 12,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        },
+        {
+          "id": 33,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Nazneri",
+      "id": 63,
+      "guid": 10245219,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_summonsuccubus.jpg",
+      "petOwner": 18,
+      "fights": [
+        {
+          "id": 32,
+          "instances": 1
+        },
+        {
+          "id": 40,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 139,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 34,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Fire Nova Totem III",
+      "id": 79,
+      "guid": 6111,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_sealoffire.jpg",
+      "petOwner": 60,
+      "fights": [
+        {
+          "id": 6,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 134,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 41,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 135,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 22,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 101,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "Pet",
+      "petOwner": 1,
+      "fights": [
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Choloz",
+      "id": 104,
+      "guid": 10103537,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_summonimp.jpg",
+      "petOwner": 23,
+      "fights": [
+        {
+          "id": 47,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "OhHiMark",
+      "id": 73,
+      "guid": 10320950,
+      "type": "Pet",
+      "icon": "abilities/ability_hunter_beastcall.jpg",
+      "petOwner": 1,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 6,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 12,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 22,
+          "instances": 1
+        },
+        {
+          "id": 23,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        },
+        {
+          "id": 25,
+          "instances": 1
+        },
+        {
+          "id": 26,
+          "instances": 1
+        },
+        {
+          "id": 27,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        },
+        {
+          "id": 30,
+          "instances": 1
+        },
+        {
+          "id": 31,
+          "instances": 1
+        },
+        {
+          "id": 33,
+          "instances": 1
+        },
+        {
+          "id": 35,
+          "instances": 1
+        },
+        {
+          "id": 36,
+          "instances": 1
+        },
+        {
+          "id": 37,
+          "instances": 1
+        },
+        {
+          "id": 38,
+          "instances": 1
+        },
+        {
+          "id": 39,
+          "instances": 1
+        },
+        {
+          "id": 40,
+          "instances": 1
+        },
+        {
+          "id": 41,
+          "instances": 1
+        },
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 45,
+          "instances": 1
+        },
+        {
+          "id": 47,
+          "instances": 1
+        },
+        {
+          "id": 48,
+          "instances": 1
+        },
+        {
+          "id": 50,
+          "instances": 1
+        },
+        {
+          "id": 51,
+          "instances": 1
+        },
+        {
+          "id": 52,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Fire Nova Totem V",
+      "id": 144,
+      "guid": 7845,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_sealoffire.jpg",
+      "petOwner": 43,
+      "fights": [
+        {
+          "id": 45,
+          "instances": 1
+        },
+        {
+          "id": 48,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Disxia",
+      "id": 67,
+      "guid": 10149681,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_summonsuccubus.jpg",
+      "petOwner": 23,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 40,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 136,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 140,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 35,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        },
+        {
+          "id": 45,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Magma Totem IV",
+      "id": 128,
+      "guid": 7466,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_selfdestruct.jpg",
+      "petOwner": 43,
+      "fights": [
+        {
+          "id": 40,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 137,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 20,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Earthbind Totem",
+      "id": 109,
+      "guid": 2630,
+      "type": "Pet",
+      "icon": "abilities/spell_nature_strengthofearthtotem02.jpg",
+      "petOwner": 30,
+      "fights": [
+        {
+          "id": 25,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 132,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 8,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        },
+        {
+          "id": 45,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "dahginmi",
+      "id": 47,
+      "guid": 10915258,
+      "type": "Pet",
+      "icon": "custom-icon-ability_druid_ferociousbite.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 6,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 12,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        },
+        {
+          "id": 21,
+          "instances": 1
+        },
+        {
+          "id": 22,
+          "instances": 1
+        },
+        {
+          "id": 24,
+          "instances": 1
+        },
+        {
+          "id": 26,
+          "instances": 1
+        },
+        {
+          "id": 27,
+          "instances": 1
+        },
+        {
+          "id": 28,
+          "instances": 1
+        },
+        {
+          "id": 29,
+          "instances": 1
+        },
+        {
+          "id": 30,
+          "instances": 1
+        },
+        {
+          "id": 32,
+          "instances": 1
+        },
+        {
+          "id": 33,
+          "instances": 1
+        },
+        {
+          "id": 35,
+          "instances": 1
+        },
+        {
+          "id": 36,
+          "instances": 1
+        },
+        {
+          "id": 37,
+          "instances": 1
+        },
+        {
+          "id": 38,
+          "instances": 1
+        },
+        {
+          "id": 39,
+          "instances": 1
+        },
+        {
+          "id": 40,
+          "instances": 1
+        },
+        {
+          "id": 41,
+          "instances": 1
+        },
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 43,
+          "instances": 1
+        },
+        {
+          "id": 45,
+          "instances": 1
+        },
+        {
+          "id": 47,
+          "instances": 1
+        },
+        {
+          "id": 48,
+          "instances": 1
+        },
+        {
+          "id": 50,
+          "instances": 1
+        },
+        {
+          "id": 51,
+          "instances": 1
+        },
+        {
+          "id": 52,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 138,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 71,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 133,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 36,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        },
+        {
+          "id": 45,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Fire Nova Totem V",
+      "id": 129,
+      "guid": 7845,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_sealoffire.jpg",
+      "petOwner": 7,
+      "fights": [
+        {
+          "id": 40,
+          "instances": 1
+        },
+        {
+          "id": 48,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Summoned Skeleton",
+      "id": 88,
+      "guid": 11200,
+      "type": "Pet",
+      "icon": "Pet",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 33,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 131,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "Pet",
+      "petOwner": 9,
+      "fights": [
+        {
+          "id": 42,
+          "instances": 1
+        },
+        {
+          "id": 43,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Battle Chicken",
+      "id": 141,
+      "guid": 8836,
+      "type": "Pet",
+      "icon": "custom-icon-spell_shadow_unholyfrenzy.jpg",
+      "petOwner": 37,
+      "fights": [
+        {
+          "id": 44,
+          "instances": 1
+        },
+        {
+          "id": 45,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "enemyPets": [],
+  "logVersion": 17,
+  "gameVersion": 2,
+  "phases": [],
+  "title": "fresh mc 1-22-25",
+  "owner": "Rabidchiwawa007",
+  "start": 1737608253709,
+  "end": 1737612089917,
+  "zone": 1028,
+  "exportedCharacters": [
+    {
+      "id": 91911542,
+      "name": "Apokka",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91181544,
+      "name": "Beefinator",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208840,
+      "name": "Beegcak",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91512617,
+      "name": "Bladeflurry",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208864,
+      "name": "Bonsai",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91910477,
+      "name": "Boondoggle",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208838,
+      "name": "Bubztwo",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91385050,
+      "name": "Chore",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91206491,
+      "name": "Crty",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208839,
+      "name": "Curseofgirth",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 92136547,
+      "name": "Defavre",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208850,
+      "name": "Fentarillo",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91669990,
+      "name": "Fentjelqing",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91512614,
+      "name": "Genny",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91512612,
+      "name": "Glorb",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208847,
+      "name": "Goryinthehse",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91674419,
+      "name": "Healtank",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91226961,
+      "name": "Hemorrhoid",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91210504,
+      "name": "Imbuetiful",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91226958,
+      "name": "Ivn",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 92136546,
+      "name": "Jengi",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208868,
+      "name": "Jokic",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91226960,
+      "name": "Khazra",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 92136551,
+      "name": "Mmbop",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91512611,
+      "name": "Necroboogie",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208861,
+      "name": "Pacothetaco",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208858,
+      "name": "Pieceofcandy",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208848,
+      "name": "Plantsh",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91210510,
+      "name": "Quadravaxxed",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208851,
+      "name": "Sizzlebean",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 92136549,
+      "name": "Slicemaster",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91205374,
+      "name": "Slugzug",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208854,
+      "name": "Throbkebab",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91205386,
+      "name": "Tigak",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91226959,
+      "name": "Tj",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91226956,
+      "name": "Tommywiseau",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91210497,
+      "name": "Vaxedmasker",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 92136552,
+      "name": "Wachootoo",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208557,
+      "name": "Wsg",
+      "server": "Nightslayer",
+      "region": "US"
+    },
+    {
+      "id": 91208867,
+      "name": "Zorkoa",
+      "server": "Nightslayer",
+      "region": "US"
+    }
+  ]
+}
