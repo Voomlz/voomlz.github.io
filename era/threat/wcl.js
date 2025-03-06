@@ -77,7 +77,7 @@ export async function fetchWCLreport(path, start, end, config) {
     type IN ("death","cast","begincast") 
     OR ability.id IN (${Object.keys(config.notableBuffs).join(",")}) 
     OR (
-      type IN ("damage","heal","healing","miss","applybuff","applybuffstack","refreshbuff",
+      type IN ("combatantinfo","damage","heal","healing","miss","applybuff","applybuffstack","refreshbuff",
                "applydebuff","applydebuffstack","refreshdebuff","resourcechange","absorbed",
                "healabsorbed","leech","drain", "removebuff") 
       AND ability.id NOT IN (${config.zeroThreatSpells.join(",")})
@@ -107,26 +107,6 @@ async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
     t = json.nextPageTimestamp;
   }
   return auras;
-}
-
-/**
- * @param {string} path
- * @param {number} start
- * @param {number} end
- * @returns {Promise<WCLCombatantInfoEvent[]>}
- */
-export async function fetchWCLCombatantInfo(path, start, end) {
-  let t = start;
-  let events = [];
-  while (typeof t === "number") {
-    let filter = encodeURI(`type IN ("combatantinfo")`);
-    let query = `report/events/${path}&start=${t}&end=${end}&filter=${filter}`;
-    let json = await fetchWCLv1(query);
-    if (!json.events) throw "Could not parse report " + path;
-    events.push(...json.events);
-    t = json.nextPageTimestamp;
-  }
-  return events;
 }
 
 /**

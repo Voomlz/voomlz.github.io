@@ -210,14 +210,16 @@ export class Player extends Unit {
    * @param {string} key
    * @param {import("./wcl.js").WCLFriendlyUnit} info
    * @param {import("./wcl.js").WCLEvent[]} events
-   * @param {import("./wcl.js").WCLCombatantInfoEvent[]} combatantInfos
    * @param {boolean} [tranquilAir]
    */
-  constructor(config, key, info, events, combatantInfos, tranquilAir = false) {
+  constructor(config, key, info, events, tranquilAir = false) {
     super(config, key, info.name, info.type, events);
     this.global = info;
     this.talents = info.talents;
-    this.combatantInfos = combatantInfos;
+
+    this.combatantInfos = events.filter(
+      (e) => e.type === "combatantinfo" && e.sourceID === Number(key)
+    );
 
     console.assert(
       "initialBuffs" in info,
