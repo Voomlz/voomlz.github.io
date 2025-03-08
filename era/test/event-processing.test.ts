@@ -39,13 +39,15 @@ describe("Event Processing", () => {
       handler_basic(damageEvent, mockFight);
 
       // Verify the target received threat
-      expect(mockTarget.addThreat).toHaveBeenCalled();
-      const addThreatCall = mockTarget.addThreat.mock.calls[0];
-
-      expect(addThreatCall[0]).toBe("player1"); // source key
-      expect(addThreatCall[1]).toBe(250); // amount (200 + 50 absorbed)
-      expect(addThreatCall[2]).toBe(1000); // timestamp
-      expect(addThreatCall[3]).toBe("Fireball"); // ability name
+      expect(mockTarget.addThreat).toHaveBeenCalledTimes(1);
+      expect(mockTarget.addThreat).toHaveBeenCalledWith(
+        "player1",
+        250,
+        1000,
+        "Fireball",
+        expect.objectContaining({ value: 1.0 }),
+        0 // bonusThreat
+      );
     });
 
     test("processes heal events with 0.5 threat coefficient split among enemies", () => {
@@ -92,16 +94,15 @@ describe("Event Processing", () => {
       // Check each enemy received the correct threat
       // Heal threat should be amount * 0.5, then split between enemies
       for (const enemy of Object.values(mockEnemies)) {
-        expect(enemy.addThreat).toHaveBeenCalled();
-        const addThreatCall = enemy.addThreat.mock.calls[0];
-
-        expect(addThreatCall[0]).toBe("player1"); // source key
-        expect(addThreatCall[1]).toBe(300); // amount (raw healing amount)
-        expect(addThreatCall[2]).toBe(1000); // timestamp
-        expect(addThreatCall[3]).toBe("Healing Touch"); // ability name
-
-        // Coefficient should be 0.5 (heal mod) * 0.5 (split) = 0.25
-        expect(addThreatCall[4].value).toBe(0.25);
+        expect(enemy.addThreat).toHaveBeenCalledTimes(1);
+        expect(enemy.addThreat).toHaveBeenCalledWith(
+          "player1",
+          300,
+          1000,
+          "Healing Touch",
+          // Coefficient should be 0.5 (heal mod) * 0.5 (split) = 0.25
+          expect.objectContaining({ value: 0.5 * 0.5 })
+        );
       }
     });
 
@@ -138,13 +139,14 @@ describe("Event Processing", () => {
       handler_basic(debuffEvent, mockFight);
 
       // Verify threat was generated (120 is the default debuff threat)
-      expect(mockTarget.addThreat).toHaveBeenCalled();
-      const addThreatCall = mockTarget.addThreat.mock.calls[0];
-
-      expect(addThreatCall[0]).toBe("player1"); // source key
-      expect(addThreatCall[1]).toBe(120); // amount (default debuff threat)
-      expect(addThreatCall[2]).toBe(1000); // timestamp
-      expect(addThreatCall[3]).toBe("Curse of Elements"); // ability name
+      expect(mockTarget.addThreat).toHaveBeenCalledTimes(1);
+      expect(mockTarget.addThreat).toHaveBeenCalledWith(
+        "player1",
+        120,
+        1000,
+        "Curse of Elements",
+        expect.objectContaining({ value: 1.0 })
+      );
     });
 
     test("splits {apply|refreshbuff} threat between (alive) enemies", () => {
@@ -207,22 +209,22 @@ describe("Event Processing", () => {
       // Verify threat was generated (60 is the default buff threat)
       const { enemy1, enemy2, deadEnemy } = mockEnemies;
       expect(enemy1.addThreat).toHaveBeenCalled();
-      expect(enemy1.addThreat.mock.calls[0]).toEqual([
+      expect(enemy1.addThreat).toHaveBeenCalledWith(
         "player1",
         60,
         1000,
         "Arcane Intellect",
-        coeffHalf,
-      ]);
+        coeffHalf
+      );
 
       expect(enemy2.addThreat).toHaveBeenCalled();
-      expect(enemy2.addThreat.mock.calls[0]).toEqual([
+      expect(enemy2.addThreat).toHaveBeenCalledWith(
         "player1",
         60,
         1000,
         "Arcane Intellect",
-        coeffHalf,
-      ]);
+        coeffHalf
+      );
 
       expect(deadEnemy.addThreat).not.toHaveBeenCalled();
     });
