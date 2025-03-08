@@ -484,14 +484,14 @@ export class ThreatTrace {
   threatBySkill(range = [-Infinity, Infinity]) {
     let output = {};
     for (let i = 0, lastThreat = 0; i < this.threat.length; ++i) {
-      let delta = this.threat[i] - lastThreat;
-      if (delta === 0) continue;
+      let threat = this.threat[i] - lastThreat;
+      if (threat === 0) continue;
       lastThreat = this.threat[i];
       let time = (this.time[i] - this.fight.start) / 1000;
       if (time >= range[0] && time <= range[1]) {
         let name = this.text[i];
         if (!(name in output)) output[name] = 0;
-        output[name] += delta;
+        output[name] += threat;
       }
     }
     return output;
