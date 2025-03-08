@@ -175,19 +175,67 @@ describe("Threat Handlers", () => {
       });
 
       // Verify correct bonus threat calculation
-      expect(mockTarget.addThreat).toHaveBeenCalled();
-      const addThreatCall = mockTarget.addThreat.mock.calls[0];
+      expect(mockTarget.addThreat).toHaveBeenCalledTimes(1);
+      expect(mockTarget.addThreat).toHaveBeenCalledWith(
+        "source1",
+        100,
+        1000,
+        "Sunder Armor",
+        expect.objectContaining({ value: 1.5 * 1.5 }),
+        1.5 * 200
+      );
+    });
 
-      // The main damage should be multiplied by coeff * multiplier
-      expect(addThreatCall[4].value).toBe(2.25); // 1.5 * 1.5
+    test("includes bonus threat in debug info", () => {
+      const mockSource = {
+        key: "source1",
+        threatCoeff: vi.fn(() => ({ value: 1.5, debug: [] })),
+      };
+      const mockTarget = {
+        key: "target1",
+        addThreat: vi.fn(),
+      };
+      const mockFight = {
+        eventToUnit: vi.fn((ev, type) => {
+          if (type === "source") return mockSource;
+          if (type === "target") return mockTarget;
+          return null;
+        }),
+      };
+      const mockEvent = {
+        timestamp: 1000,
+        ability: { name: "Test Ability", guid: 123 },
+      };
 
-      // The bonus threat should be multiplied by coeff.value (1.5)
-      expect(addThreatCall[5]).toBe(300); // 200 * 1.5
+      // Call the function
+      threatFunctions.sourceThreatenTarget({
+        ev: mockEvent,
+        fight: mockFight,
+        amount: 100,
+        bonusThreat: 200,
+      });
+
+      // Verify addThreat was called on the target with correct parameters
+      expect(mockTarget.addThreat).toHaveBeenCalledTimes(1);
+      expect(mockTarget.addThreat).toHaveBeenCalledWith(
+        "source1",
+        100,
+        1000,
+        "Test Ability",
+        expect.objectContaining({
+          value: 1.5,
+          debug: expect.arrayContaining([
+            expect.objectContaining({}),
+            expect.objectContaining({ value: 1.0, bonus: 200 }),
+          ]),
+        }),
+        200 * 1.5
+      );
     });
   });
 
   describe("unitThreatenEnemiesSplit", () => {
-    test("splits threat among multiple enemies", () => {
+    test("splits threat among enemies", () => {
       // Mock objects
       const mockSource = {
         key: "source1",
@@ -228,18 +276,222 @@ describe("Threat Handlers", () => {
 
       // Check that each enemy got half the threat
       for (const enemy of Object.values(mockEnemies)) {
-        expect(enemy.addThreat).toHaveBeenCalled();
-        const addThreatCall = enemy.addThreat.mock.calls[0];
+        expect(enemy.addThreat).toHaveBeenCalledTimes(1);
+        expect(enemy.addThreat).toHaveBeenCalledWith(
+          "source1",
+          200,
+          1000,
+          "Healing Spell",
+          expect.objectContaining({ value: 1.5 * 0.5 * 0.5 })
+        );
+      }
+    });
 
-        expect(addThreatCall[0]).toBe("source1"); // source key
-        expect(addThreatCall[1]).toBe(200); // amount
-        expect(addThreatCall[2]).toBe(1000); // timestamp
-        expect(addThreatCall[3]).toBe("Healing Spell"); // ability name
+    test("only applies split and threat to alive enemies", () => {
+      // Mock objects
+      const mockSource = {
+        key: "source1",
+        threatCoeff: vi.fn(() => ({ value: 1.5, debug: [] })),
+      };
+      const mockEnemies = {
+        enemy1: {
+          key: "enemy1",
+          alive: true,
+          addThreat: vi.fn(),
+        },
+        deadEnemy: {
+          key: "deadEnemy",
+          alive: false,
+          addThreat: vi.fn(),
+        },
+      };
+      const mockFight = {
+        eventToUnit: vi.fn(() => mockSource),
+        eventToFriendliesAndEnemies: vi.fn(() => [
+          {}, // Friendlies (empty)
+          mockEnemies, // Enemies
+        ]),
+      };
+      const mockEvent = {
+        timestamp: 1000,
+        ability: { name: "Healing Spell", guid: 123 },
+      };
 
-        // Check coefficient calculations
-        const coefficient = addThreatCall[4];
-        // 1.5 (base) * 0.5 (multiplier) * 0.5 (split between 2 enemies)
-        expect(coefficient.value).toBe(0.375);
+      // Call the function
+      threatFunctions.unitThreatenEnemiesSplit({
+        ev: mockEvent,
+        unit: "source",
+        fight: mockFight,
+        amount: 200,
+      });
+
+      // Check that each enemy got half the threat
+      expect(mockEnemies.enemy1.addThreat).toHaveBeenCalledTimes(1);
+      expect(mockEnemies.enemy1.addThreat).toHaveBeenCalledWith(
+        "source1",
+        200,
+        1000,
+        "Healing Spell",
+        expect.objectContaining({ value: 1.5 })
+      );
+
+      expect(mockEnemies.deadEnemy.addThreat).not.toHaveBeenCalled();
+    });
+
+    test("does not pass through source coefficient if useThreatCoeffs is false", () => {
+      // Mock objects
+      const mockSource = {
+        key: "source1",
+        threatCoeff: vi.fn(() => ({ value: 1.5, debug: [] })),
+      };
+      const mockEnemies = {
+        enemy1: {
+          key: "enemy1",
+          alive: true,
+          addThreat: vi.fn(),
+        },
+        enemy2: {
+          key: "enemy2",
+          alive: true,
+          addThreat: vi.fn(),
+        },
+      };
+      const mockFight = {
+        eventToUnit: vi.fn(() => mockSource),
+        eventToFriendliesAndEnemies: vi.fn(() => [
+          {}, // Friendlies (empty)
+          mockEnemies, // Enemies
+        ]),
+      };
+      const mockEvent = {
+        timestamp: 1000,
+        ability: { name: "Healing Spell", guid: 123 },
+      };
+
+      // Call the function
+      threatFunctions.unitThreatenEnemiesSplit({
+        ev: mockEvent,
+        unit: "source",
+        fight: mockFight,
+        amount: 200,
+        useThreatCoeffs: false,
+      });
+
+      /// Check that each enemy got half the threat
+      for (const enemy of Object.values(mockEnemies)) {
+        expect(enemy.addThreat).toHaveBeenCalledTimes(1);
+        expect(enemy.addThreat).toHaveBeenCalledWith(
+          "source1",
+          200,
+          1000,
+          "Healing Spell",
+          expect.objectContaining({ value: 0.5 })
+        );
+      }
+    });
+
+    test("does not pass through source coefficient if useThreatCoeffs is false", () => {
+      // Mock objects
+      const mockSource = {
+        key: "source1",
+        threatCoeff: vi.fn(() => ({ value: 1.5, debug: [] })),
+      };
+      const mockEnemies = {
+        enemy1: {
+          key: "enemy1",
+          alive: true,
+          addThreat: vi.fn(),
+        },
+        enemy2: {
+          key: "enemy2",
+          alive: true,
+          addThreat: vi.fn(),
+        },
+      };
+      const mockFight = {
+        eventToUnit: vi.fn(() => mockSource),
+        eventToFriendliesAndEnemies: vi.fn(() => [
+          {}, // Friendlies (empty)
+          mockEnemies, // Enemies
+        ]),
+      };
+      const mockEvent = {
+        timestamp: 1000,
+        ability: { name: "Healing Spell", guid: 123 },
+      };
+
+      // Call the function
+      threatFunctions.unitThreatenEnemiesSplit({
+        ev: mockEvent,
+        unit: "source",
+        fight: mockFight,
+        amount: 200,
+        useThreatCoeffs: false,
+      });
+
+      /// Check that each enemy got half the threat
+      for (const enemy of Object.values(mockEnemies)) {
+        expect(enemy.addThreat).toHaveBeenCalledTimes(1);
+        expect(enemy.addThreat).toHaveBeenCalledWith(
+          "source1",
+          200,
+          1000,
+          "Healing Spell",
+          expect.objectContaining({ value: 0.5 })
+        );
+      }
+    });
+
+    test("applies the optional multiplier as a coefficient", () => {
+      // Mock objects
+      const mockSource = {
+        key: "source1",
+        threatCoeff: vi.fn(() => ({ value: 1.5, debug: [] })),
+      };
+      const mockEnemies = {
+        enemy1: {
+          key: "enemy1",
+          alive: true,
+          addThreat: vi.fn(),
+        },
+        enemy2: {
+          key: "enemy2",
+          alive: true,
+          addThreat: vi.fn(),
+        },
+      };
+      const mockFight = {
+        eventToUnit: vi.fn(() => mockSource),
+        eventToFriendliesAndEnemies: vi.fn(() => [
+          {}, // Friendlies (empty)
+          mockEnemies, // Enemies
+        ]),
+      };
+      const mockEvent = {
+        timestamp: 1000,
+        ability: { name: "Healing Spell", guid: 123 },
+      };
+
+      // Call the function
+      threatFunctions.unitThreatenEnemiesSplit({
+        ev: mockEvent,
+        unit: "source",
+        fight: mockFight,
+        amount: 200,
+        multiplier: 2,
+        useThreatCoeffs: false,
+      });
+
+      /// Check that each enemy got half the threat
+      for (const enemy of Object.values(mockEnemies)) {
+        expect(enemy.addThreat).toHaveBeenCalledTimes(1);
+        expect(enemy.addThreat).toHaveBeenCalledWith(
+          "source1",
+          200,
+          1000,
+          "Healing Spell",
+          expect.objectContaining({ value: 0.5 * 2.0 })
+        );
       }
     });
   });
