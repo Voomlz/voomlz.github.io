@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "main": "threat/front.js",
+  "type": "module",
   "scripts": {
     "start": "npx http-server ./",
     "test": "vitest"
