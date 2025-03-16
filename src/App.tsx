@@ -1,5 +1,7 @@
 import "./App.css";
-import * as config from "../era/spells";
+import * as era from "../era/spells";
+import * as sod from "../sod/spells";
+import * as tbc from "../classic/tbc/spells";
 
 import React, { useState } from "react";
 import { Button } from "primereact/button";
@@ -14,9 +16,16 @@ import { ThreatTable } from "./components/ThreatTable";
 import { Disclaimer } from "./components/dialog/Disclaimer";
 import { Changelog } from "./components/dialog/Changelog";
 import { Tutorial } from "./components/dialog/Tutorial";
-import { useThreatState } from "./components/hooks/useThreatState";
+import { Config, useThreatState } from "./components/hooks/useThreatState";
 
 import "./App.css";
+
+const configs = Object.freeze<Config>({
+  vanilla: era,
+  fresh: era,
+  sod,
+  classic: tbc,
+});
 
 /**
  * Main container component for threat visualization
@@ -34,29 +43,10 @@ export const App: React.FC = () => {
       loadFight,
       clearError,
     },
-  ] = useThreatState(config);
+  ] = useThreatState(configs);
   const { report, fight, enemyId, targetId, isLoading, error } = state;
 
   const [plotRange, setPlotRange] = useState<[number, number]>([0, 0]);
-
-  // // Cache for plot data to be shared between components
-  // // const [plotData, setPlotData] = useState<any[]>([]);
-
-  // // Setup global props for backward compatibility
-  // useEffect(() => {
-  //   window.plotData = plotData;
-  //   window.recolorPlot = () => {
-  //     // This would trigger a re-render of the plot component
-  //     if (enemy) {
-  //       setEnemy(
-  //         Object.create(
-  //           Object.getPrototypeOf(enemy),
-  //           Object.getOwnPropertyDescriptors(enemy)
-  //         )
-  //       );
-  //     }
-  //   };
-  // }, [plotData, enemy, setEnemy]);
 
   const enemy = fight && enemyId ? fight.enemies[enemyId] : undefined;
   const activeTrace = enemy && targetId ? enemy.threat[targetId] : undefined;
@@ -123,9 +113,9 @@ export const App: React.FC = () => {
         />
       )}
 
-      {enemy && fight && (
+      {report && enemy && fight && (
         <ThreatPlot
-          config={config}
+          config={report.config}
           reportId={report?.reportId || ""}
           fight={fight}
           enemy={enemy}
@@ -141,9 +131,9 @@ export const App: React.FC = () => {
         />
       )}
 
-      {activeTrace && (
+      {report && activeTrace && (
         <ThreatTable
-          config={config}
+          config={report.config}
           trace={activeTrace}
           plotRange={plotRange}
         />
@@ -154,7 +144,7 @@ export const App: React.FC = () => {
   );
 };
 
-function InfoButtonBar() {
+const InfoButtonBar: React.FC = () => {
   // Modal states
   const [disclaimerOpen, setDisclaimerOpen] = useState(false);
   const [changelogOpen, setChangelogOpen] = useState(false);
@@ -188,4 +178,4 @@ function InfoButtonBar() {
       <Tutorial isOpen={tutorialOpen} onClose={() => setTutorialOpen(false)} />
     </div>
   );
-}
+};

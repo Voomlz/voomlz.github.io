@@ -4,6 +4,13 @@ import { Fight } from "../../../era/threat/fight.js";
 import { GameVersionConfig } from "../../../era/base";
 import { getParameterByName } from "../utils.js";
 
+export interface Config {
+  vanilla: GameVersionConfig;
+  fresh: GameVersionConfig;
+  sod: GameVersionConfig;
+  classic: GameVersionConfig;
+}
+
 // Types
 interface UrlParams {
   id: string | undefined;
@@ -67,7 +74,7 @@ function getUrlParameters(): UrlParams {
  * ```
  */
 export function useThreatState(
-  config: GameVersionConfig
+  config: Config
 ): [ThreatState, ThreatStateHandlers] {
   const urlParams = getUrlParameters();
 
@@ -97,7 +104,11 @@ export function useThreatState(
 
     setState((prev) => ({ ...prev, isLoading: true, error: undefined }));
     try {
-      const report = new Report(config, state.reportId);
+      const report = new Report(
+        extractConfigVersionFromUrl(state.url!, config),
+        state.reportId
+      );
+      // TODO: determine config from report version
       await report.fetch();
       setState((prev) => ({ ...prev, report, isLoading: false }));
     } catch (error) {
@@ -221,4 +232,26 @@ function extractReportIdFromUrl(
     /https:\/\/(?:[a-z]+\.)?(?:classic\.|www\.)?warcraftlogs\.com\/reports\/((?:a:)?\w+)/
   );
   return urlmatch ? urlmatch[1] : idParam;
+}
+
+function extractConfigVersionFromUrl(
+  url: string,
+  config: Config
+): GameVersionConfig {
+  const urlmatch = url.match(/(\w+).warcraftlogs\.com/);
+  const version = urlmatch ? urlmatch[1] : undefined;
+  // console.log({ version });
+
+  switch (version) {
+    case "vanilla":
+      return config.vanilla;
+    case "fresh":
+      return config.fresh;
+    case "sod":
+      return config.sod;
+    case "classic":
+      return config.classic;
+    default:
+      throw new Error(`Unknown config version: ${version}`);
+  }
 }
