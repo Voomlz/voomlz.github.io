@@ -1,7 +1,13 @@
 import React, { useMemo } from "react";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
 import { ThreatTrace } from "../../era/threat/unit.js";
 import { GameVersionConfig, SpellMap } from "../../era/base";
 import { ColorSelector } from "./ColorSelector";
+import { Card } from "primereact/card";
+
+import styles from "./ThreatTable.module.css";
+import { InputText } from "primereact/inputtext";
 
 /**
  * Interface for threat data calculations
@@ -54,18 +60,32 @@ export const ThreatTable: React.FC<ThreatTableProps> = ({
     };
   }, [trace, plotRange, width]);
 
+  const tableData = useMemo(() => {
+    const sortedSkills = Object.keys(threatBySkill).sort(
+      (a, b) => threatBySkill[b] - threatBySkill[a]
+    );
+
+    const totalThreat = Object.values(threatBySkill).reduce(
+      (sum: number, val: number) => sum + val,
+      0
+    );
+
+    return sortedSkills
+      .map((name) => ({
+        name,
+        threat: threatBySkill[name].toFixed(2),
+        threatPerSecond: (threatBySkill[name] / rangeWidth).toFixed(2),
+      }))
+      .concat({
+        name: "Total",
+        threat: totalThreat.toFixed(2),
+        threatPerSecond: (totalThreat / rangeWidth).toFixed(2),
+      });
+  }, [rangeWidth, threatBySkill]);
+
   if (!trace) {
     return <div>No target selected</div>;
   }
-
-  const sortedSkills = Object.keys(threatBySkill).sort(
-    (a, b) => threatBySkill[b] - threatBySkill[a]
-  );
-
-  const totalThreat = Object.values(threatBySkill).reduce(
-    (sum: number, val: number) => sum + val,
-    0
-  );
 
   // Handler for color change
   const handleColorChange = (color: string) => {
@@ -96,12 +116,34 @@ export const ThreatTable: React.FC<ThreatTableProps> = ({
     return "#ffffff";
   };
 
+  const talentDataTable = trace.target.global
+    ? Object.entries(trace.target.global.talents).map(
+        ([talentName, talent]) => ({
+          talentName,
+          talent,
+        })
+      )
+    : undefined;
+
+  const buffDataTable = Object.entries(trace.target.global.initialBuffs).map(
+    ([buffId, status]) => {
+      const buffIdNum = parseInt(buffId);
+      const coefficient = config.buffMultipliers[buffIdNum]?.(
+        trace.target.spellSchool
+      );
+      const buffName = config.buffNames[buffIdNum] || buffId;
+      return {
+        buffId,
+        buffName,
+        coefficient,
+        status,
+      };
+    }
+  );
   return (
-    <div id="threatTableContainer">
+    <Card id="threatTableContainer">
       {/* Target info and color selector */}
       <div>
-        {trace.target.name} - Started fight with threat coeff{" "}
-        {trace.target.initialCoeff.toFixed(4)}
         {trace.target.global && (
           <ColorSelector
             target={trace.target}
@@ -109,120 +151,89 @@ export const ThreatTable: React.FC<ThreatTableProps> = ({
             initialColor={getInitialColor()}
           />
         )}
+        {trace.target.name} - Started fight with threat coeff{" "}
+        {trace.target.initialCoeff.toFixed(4)}
       </div>
 
       {/* Threat table */}
-      <table>
-        <thead>
-          <tr>
-            <th>Ability</th>
-            <th title="Over the currently zoomed x range.">Threat (*)</th>
-            <th>Per {rangeWidth.toFixed(2)} seconds</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedSkills.map((skill) => (
-            <tr key={skill}>
-              <td>{skill}</td>
-              <td align="right">{threatBySkill[skill].toFixed(2)}</td>
-              <td align="right">
-                {(threatBySkill[skill] / rangeWidth).toFixed(2)}
-              </td>
-            </tr>
-          ))}
-          <tr>
-            <td>Total</td>
-            <td align="right">{totalThreat.toFixed(2)}</td>
-            <td align="right">{(totalThreat / rangeWidth).toFixed(2)}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className={styles.mainThreatTable}>
+        <DataTable showGridlines size="small" value={tableData}>
+          <Column field="name" header="Ability" />
+          <Column field="threat" header="Threat (*)" />
+          <Column
+            field="threatPerSecond"
+            header={`Per ${rangeWidth.toFixed(2)} seconds`}
+          />
+        </DataTable>
+      </div>
 
-      {/* Buff table */}
-      {trace.target.global && (
-        <table>
-          <thead>
-            <tr>
-              <th>Buff</th>
-              <th title="Fetch fight again to recompute">
-                On/off at start (*)
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(trace.target.global.initialBuffs).map(
-              ([buffId, status]) => {
-                const buffIdNum = parseInt(buffId);
-                const coefficient = config.buffMultipliers[buffIdNum]?.(
-                  trace.target.spellSchool
-                );
-                const buffName = config.buffNames[buffIdNum] || buffId;
+      <div className={styles.fiftyFifty}>
+        {/* Buff table */}
+        {buffDataTable && (
+          <DataTable showGridlines size="small" value={buffDataTable}>
+            <Column
+              field="buffName"
+              header="Buff"
+              body={(rowData) => (
+                <span>
+                  {rowData.buffName} {rowData.coefficient}
+                </span>
+              )}
+            />
+            <Column
+              field="status"
+              header="On/off at start (*)"
+              headerTooltip="Fetch fight again to recompute"
+              body={(rowData) => (
+                <select
+                  value={rowData.status}
+                  onChange={(e) => {
+                    if (trace.target.global) {
+                      trace.target.global.initialBuffs[rowData.buffId] =
+                        parseInt(e.target.value);
+                    }
+                  }}
+                >
+                  <option value="0">Infer</option>
+                  <option value="1">On</option>
+                  <option value="2">Off</option>
+                  <option value="3">Inferred on</option>
+                  <option value="4">Inferred off</option>
+                </select>
+              )}
+            />
+          </DataTable>
+        )}
 
-                return (
-                  <tr key={buffId}>
-                    <td>
-                      {buffName} {coefficient}
-                    </td>
-                    <td>
-                      <select
-                        value={status}
-                        onChange={(e) => {
-                          if (trace.target.global) {
-                            trace.target.global.initialBuffs[buffId] = parseInt(
-                              e.target.value
-                            );
-                          }
-                        }}
-                      >
-                        <option value="0">Infer</option>
-                        <option value="1">On</option>
-                        <option value="2">Off</option>
-                        <option value="3">Inferred on</option>
-                        <option value="4">Inferred off</option>
-                      </select>
-                    </td>
-                  </tr>
-                );
-              }
-            )}
-          </tbody>
-        </table>
-      )}
-
-      {/* Talent table */}
-      {trace.target.global && (
-        <table>
-          <thead>
-            <tr>
-              <th>Talent name</th>
-              <th title="Fetch fight again to recompute">Rank (*)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(trace.target.global.talents).map(
-              ([talentName, talent]) => (
-                <tr key={talentName}>
-                  <td>{talentName}</td>
-                  <td>
-                    <input
-                      type="number"
-                      min="0"
-                      max={talent.maxRank}
-                      value={talent.rank}
-                      className="talent"
-                      onChange={(e) => {
-                        talent.rank = parseInt(e.target.value);
-                      }}
-                    />
-                    {` / ${talent.maxRank}`}
-                  </td>
-                </tr>
-              )
-            )}
-          </tbody>
-        </table>
-      )}
-    </div>
+        {/* Talent table */}
+        {talentDataTable && (
+          <DataTable showGridlines size="small" value={talentDataTable}>
+            <Column field="talentName" header="Talent name" />
+            <Column
+              field="talentRank"
+              header="Rank (*)"
+              body={({ talent }) => (
+                <>
+                  {/* TODO: doesn't update state */}
+                  <InputText
+                    size="small"
+                    type="number"
+                    min="0"
+                    max={talent.maxRank}
+                    value={talent.rank}
+                    className="talent"
+                    onChange={(e) => {
+                      talent.rank = parseInt(e.target.value);
+                    }}
+                  />
+                  {` / ${talent.maxRank}`}
+                </>
+              )}
+            />
+          </DataTable>
+        )}
+      </div>
+    </Card>
   );
 };
 

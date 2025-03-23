@@ -5,9 +5,10 @@ import { NPC, Player } from "../../era/threat/unit.js";
 import { GameVersionConfig } from "../../era/base";
 import { classColors, getColor } from "../../era/colors.js";
 import { Checkbox } from "primereact/checkbox";
-import { Layout, PlotData } from "plotly.js";
+import { Config, Layout, PlotData } from "plotly.js";
 
-const SCROLLBAR_WIDTH = 16;
+import styles from "./ThreatPlot.module.css";
+import { Card } from "primereact/card";
 
 /**
  * Props for the ThreatPlot component
@@ -22,6 +23,7 @@ export interface ThreatPlotProps {
   onTargetClicked: (target: string) => void;
 }
 
+const PLOTLY_LAYOUT: Partial<Config> = { responsive: true };
 /**
  * Component for displaying the threat plot
  */
@@ -57,7 +59,7 @@ export const ThreatPlot: React.FC<ThreatPlotProps> = ({
     if (!enemy) return;
 
     setPlotRange([0, (fight.end - fight.start) / 1000]);
-  }, [enemy, fight, config, debugCoefficients, colorByClass]);
+  }, [enemy, fight, config, debugCoefficients, colorByClass, setPlotRange]);
 
   const handleColorByClassChange = (checked: boolean) => {
     setColorByClass(checked);
@@ -88,81 +90,97 @@ export const ThreatPlot: React.FC<ThreatPlotProps> = ({
     setPlotRange([xRange[0], xRange[1]]);
   };
 
-  const layout: Partial<Layout> = {
-    title: {
-      text: title,
-      font: { color: "#fff" },
-    },
-    xaxis: {
-      title: "Time (s)",
-      titlefont: { color: "#fff" },
-      tickcolor: "#666",
-      tickfont: { color: "#fff" },
-      rangemode: "tozero",
-      gridcolor: "#666",
-      linecolor: "#999",
-      range: plotRange,
-    },
-    yaxis: {
-      title: "Threat",
-      titlefont: { color: "#fff" },
-      tickcolor: "#666",
-      tickfont: { color: "#fff" },
-      rangemode: "tozero",
-      gridcolor: "#666",
-      linecolor: "#999",
-    },
-    width: window.innerWidth - SCROLLBAR_WIDTH,
-    height: (window.innerWidth - SCROLLBAR_WIDTH) / (1920 / 1080),
-    hovermode: "closest",
-    plot_bgcolor: "#222",
-    paper_bgcolor: "#222",
-    legend: { font: { color: "#fff" } },
-  };
+  const layout: Partial<Layout> = useMemo(
+    () => ({
+      title: {
+        text: title,
+        font: { color: "#fff" },
+      },
+      xaxis: {
+        title: "Time (s)",
+        titlefont: { color: "#fff" },
+        tickcolor: "#666",
+        tickfont: { color: "#fff" },
+        rangemode: "tozero",
+        gridcolor: "#666",
+        linecolor: "#999",
+        range: plotRange,
+      },
+      yaxis: {
+        title: "Threat",
+        titlefont: { color: "#fff" },
+        tickcolor: "#666",
+        tickfont: { color: "#fff" },
+        rangemode: "tozero",
+        gridcolor: "#666",
+        linecolor: "#999",
+      },
+      hovermode: "closest",
+      plot_bgcolor: "#161d21",
+      paper_bgcolor: "#161d21",
+      legend: { font: { color: "#fff" } },
+      autosize: true,
+      // TODO: reduce margins for mobile layout
+      // margin: {
+      //   l: 0,
+      //   r: 0,
+      //   // t: 0,
+      //   b: 0,
+      //   pad: 0,
+      // },
+    }),
+    [title, plotRange]
+  );
 
   return (
-    <div id="output">
-      <Plot
-        data={plotData}
-        layout={layout}
-        onClick={handlePlotClick}
-        onRelayout={handlePlotRelayout}
-      />
+    <Card className={styles.container}>
+      <div className={styles.content}>
+        <Plot
+          data={plotData}
+          layout={layout}
+          config={PLOTLY_LAYOUT}
+          onClick={handlePlotClick}
+          onRelayout={handlePlotRelayout}
+          className={styles.plot}
+        />
 
-      <div className="plot-controls">
-        <div className="flex align-items-center">
-          <Checkbox
-            checked={colorByClass}
-            onChange={(e) => handleColorByClassChange(e.checked === true)}
-          />
-          <label className="ml-2">Color by class</label>
-        </div>
-
-        <div className="flex align-items-center">
-          <Checkbox
-            checked={debugCoefficients}
-            onChange={(e) => handleDebugCoefficientsChange(e.checked === true)}
-          />
-          <label className="ml-2">Display detailed coefficients</label>
-        </div>
-
-        {fight.faction === "Horde" && (
+        <div className={styles.plotControls}>
           <div className="flex align-items-center">
             <Checkbox
-              checked={fight.tranquilAir}
-              onChange={(e) => {
-                fight.tranquilAir = e.checked === true;
-                fight.process();
-                // Let the parent component handle re-rendering
-                // by triggering a re-selection of the enemy
-                onTargetClicked(`${reportId};${fight.id};${enemy.key};`);
-              }}
+              checked={colorByClass}
+              onChange={(e) => handleColorByClassChange(e.checked === true)}
             />
-            <label className="ml-2">Tranquil Air</label>
+            <label className="ml-2">Color by class</label>
           </div>
-        )}
+
+          <div className="flex align-items-center">
+            <Checkbox
+              checked={debugCoefficients}
+              onChange={(e) =>
+                handleDebugCoefficientsChange(e.checked === true)
+              }
+            />
+            <label className="ml-2">Display detailed coefficients</label>
+          </div>
+
+          {fight.faction === "Horde" && (
+            <div className="flex align-items-center">
+              <Checkbox
+                checked={fight.tranquilAir}
+                onChange={(e) => {
+                  fight.tranquilAir = e.checked === true;
+                  fight.process();
+                  // Let the parent component handle re-rendering
+                  // by triggering a re-selection of the enemy
+                  onTargetClicked(`${reportId};${fight.id};${enemy.key};`);
+                }}
+              />
+              <label className="ml-2">Tranquil Air</label>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

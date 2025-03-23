@@ -1,4 +1,3 @@
-import "./App.css";
 import * as era from "../era/spells";
 import * as sod from "../sod/spells";
 import * as tbc from "../classic/tbc/spells";
@@ -18,7 +17,8 @@ import { Changelog } from "./components/dialog/Changelog";
 import { Tutorial } from "./components/dialog/Tutorial";
 import { Config, useThreatState } from "./components/hooks/useThreatState";
 
-import "./App.css";
+import { Card } from "primereact/card";
+import styles from "./App.module.css";
 
 const configs = Object.freeze<Config>({
   vanilla: era,
@@ -52,11 +52,11 @@ export const App: React.FC = () => {
   const activeTrace = enemy && targetId ? enemy.threat[targetId] : undefined;
 
   return (
-    <div className="threat-viewer">
+    <div className={styles.container}>
       <h1>WoW Classic Threat Viewer</h1>
 
-      <div className="selectors">
-        <div className="selector-row">
+      <Card className={styles.selectors}>
+        <div className={styles.selectorRow}>
           <ReportInput
             disabled={isLoading}
             value={state.url || ""}
@@ -65,7 +65,7 @@ export const App: React.FC = () => {
           />
         </div>
 
-        <div className="selector-row">
+        <div className={styles.selectorRow}>
           <FightSelector
             report={report}
             value={state.fightId}
@@ -75,7 +75,7 @@ export const App: React.FC = () => {
           />
         </div>
 
-        <div className="selector-row">
+        <div className={styles.selectorRow}>
           <EnemySelector
             fight={fight}
             value={state.enemyId}
@@ -84,7 +84,7 @@ export const App: React.FC = () => {
           />
         </div>
 
-        <div className="selector-row">
+        <div className={styles.selectorRow}>
           <TargetSelector
             fight={fight}
             enemyId={enemyId}
@@ -93,7 +93,7 @@ export const App: React.FC = () => {
             disabled={isLoading}
           />
         </div>
-      </div>
+      </Card>
 
       {error && (
         <Message
@@ -153,8 +153,10 @@ const InfoButtonBar: React.FC = memo(() => {
   const [tutorialOpen, setTutorialOpen] = useState(false);
 
   return (
-    <div className="info-links">
+    <div className={styles.infoBar}>
       <Button
+        outlined
+        severity="secondary"
         label="Disclaimer"
         onClick={() => setDisclaimerOpen(true)}
         icon="pi pi-info-circle"
@@ -164,6 +166,8 @@ const InfoButtonBar: React.FC = memo(() => {
         onClose={() => setDisclaimerOpen(false)}
       />
       <Button
+        outlined
+        severity="secondary"
         label="Changelog"
         onClick={() => setChangelogOpen(true)}
         icon="pi pi-history"
@@ -173,12 +177,16 @@ const InfoButtonBar: React.FC = memo(() => {
         onClose={() => setChangelogOpen(false)}
       />
       <Button
+        outlined
+        severity="secondary"
         label="Tutorial"
         onClick={() => setTutorialOpen(true)}
         icon="pi pi-question-circle"
       />
       <Tutorial isOpen={tutorialOpen} onClose={() => setTutorialOpen(false)} />
       <Button
+        outlined
+        severity="secondary"
         label="Discord"
         onClick={() => window.open("https://discord.gg/3J4FGUNfW7", "_blank")}
         icon="pi pi-discord"
