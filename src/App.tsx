@@ -3,7 +3,7 @@ import * as era from "../era/spells";
 import * as sod from "../sod/spells";
 import * as tbc from "../classic/tbc/spells";
 
-import React, { useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { Button } from "primereact/button";
 import { Message } from "primereact/message";
 
@@ -101,7 +101,7 @@ export const App: React.FC = () => {
           icon="pi pi-exclamation-triangle"
           content={
             <>
-              {error}
+              <span>{error}</span>
               <Button
                 icon="pi pi-times"
                 onClick={clearError}
@@ -112,6 +112,8 @@ export const App: React.FC = () => {
           }
         />
       )}
+
+      <CompatibilityWarning />
 
       {report && enemy && fight && (
         <ThreatPlot
@@ -144,7 +146,7 @@ export const App: React.FC = () => {
   );
 };
 
-const InfoButtonBar: React.FC = () => {
+const InfoButtonBar: React.FC = memo(() => {
   // Modal states
   const [disclaimerOpen, setDisclaimerOpen] = useState(false);
   const [changelogOpen, setChangelogOpen] = useState(false);
@@ -178,4 +180,48 @@ const InfoButtonBar: React.FC = () => {
       <Tutorial isOpen={tutorialOpen} onClose={() => setTutorialOpen(false)} />
     </div>
   );
-};
+});
+
+const CompatibilityWarning: React.FC = memo(() => {
+  const [isDismissed, setIsDismissed] = useState(
+    localStorage.getItem("compatWarningDismissed") === "true"
+  );
+
+  const dismissWarning = useCallback(() => {
+    localStorage.setItem("compatWarningDismissed", JSON.stringify(true));
+    setIsDismissed(true);
+  }, []);
+
+  if (isDismissed) return null;
+
+  return (
+    <Message
+      severity="error"
+      icon="pi pi-exclamation-triangle"
+      content={
+        <>
+          <ul>
+            <li>
+              Note: SoD threat is getting close, but still missing some class
+              and raid boss mechanics. Feel free to provide help and give
+              feedback on the{" "}
+              <a href="https://discord.gg/3J4FGUNfW7" target="__blank">
+                discord
+              </a>
+            </li>
+            <li>
+              Wrath/Cata/MoP logs are not compatible with the tool. There is no
+              work in progress to make them compatible.
+            </li>
+          </ul>
+          <Button
+            icon="pi pi-times"
+            onClick={dismissWarning}
+            className="p-button-text p-button-rounded"
+            style={{ marginLeft: "auto" }}
+          />
+        </>
+      }
+    />
+  );
+});

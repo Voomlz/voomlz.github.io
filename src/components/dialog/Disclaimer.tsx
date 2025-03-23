@@ -22,23 +22,16 @@ export const Disclaimer: React.FC<DisclaimerProps> = ({ isOpen, onClose }) => {
       modal
     >
       <div className="disclaimer-content">
+        <p>Private logs cannot be imported.</p>
         <p>
-          This tool attempts to compute threat values based on combat logs. Due
-          to limitations in the WoW Classic logging API, not all threat
-          mechanics can be perfectly captured. Use the results as a guideline
-          rather than absolute values.
+          This is modified from{" "}
+          <a href="https://github.com/nuiva/nuiva.github.io" target="_blank">
+            https://github.com/nuiva/nuiva.github.io
+          </a>
         </p>
         <p>
-          Threat calculations are based on publicly available information and
-          testing, but may not be 100% accurate due to hidden game mechanics.
-        </p>
-        <p>
-          Some abilities and mechanics might not be correctly captured in logs,
-          which could result in inaccurate threat values.
-        </p>
-        <p>
-          Please report any bugs or inconsistencies you find to help improve
-          this tool.
+          For any feedback or inconsistencies feel free to join us on{" "}
+          <a href="https://discord.gg/3J4FGUNfW7">discord</a>.
         </p>
       </div>
     </Dialog>

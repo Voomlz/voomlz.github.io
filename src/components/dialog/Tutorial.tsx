@@ -22,63 +22,43 @@ export const Tutorial: React.FC<TutorialProps> = ({ isOpen, onClose }) => {
       modal
     >
       <div className="tutorial-content">
-        <h3>Getting Started</h3>
         <ol>
           <li>
-            <strong>Enter a Report ID:</strong> Paste a WarcraftLogs report URL
-            or ID in the Report field and click "Select Report"
+            Go to warcraft logs and copy your report. Can use directly the
+            entire url (ex:
+            https://classic.warcraftlogs.com/reports/TvCLWArKDBYbw6Hk#fight=last)
+            or only the id (ex: TvCLWArKDBYbw6Hk)
+          </li>
+          <li>Go to https://voomlz.github.io/</li>
+          <li>Past your ID/report url in 'Report ID'</li>
+          <li>Clic on 'Fetch'</li>
+          <li>Select the fight you wanna see</li>
+          <li>Clic on 'Fetch/Refresh'</li>
+        </ol>
+        Going further
+        <ol start={7}>
+          <li>Select the player you wanna see details in 'Target'</li>
+          <li>
+            Check In the 'buffs' table that everything is correctly set up
+            (salvation, stances, and other buffs)
+          </li>
+          <li>If buffs are not correctly inferred automatically, force them</li>
+          <li>
+            click on 'Fetch/Refresh' after modifying buffs to recalculate new
+            threat
           </li>
           <li>
-            <strong>Select a Fight:</strong> Choose a boss fight from the
-            dropdown menu
-          </li>
-          <li>
-            <strong>Choose an Enemy:</strong> Select the enemy/boss you want to
-            analyze
-          </li>
-          <li>
-            <strong>Select a Target:</strong> Choose the player you want to view
-            threat details for
+            You can share the graphs (now only sharing the report, wip) by
+            copying the url and sharing it
           </li>
         </ol>
-
-        <h3>Understanding the Graph</h3>
-        <p>
-          The graph shows threat over time for all players against the selected
-          enemy. Each line represents a different player, with colors
-          corresponding to their class.
-        </p>
-        <p>
-          You can click on any player's line to see their detailed threat
-          breakdown.
-        </p>
-
-        <h3>Threat Details</h3>
-        <p>
-          The threat table shows a breakdown of threat sources for the selected
-          player:
-        </p>
-        <ul>
-          <li>Ability name</li>
-          <li>Total threat generated</li>
-          <li>Threat per second</li>
-        </ul>
-
-        <h3>Advanced Features</h3>
-        <p>You can customize some aspects of the visualization:</p>
-        <ul>
+        If something seem incorrect
+        <ol>
+          <li>Try to force refresh the website (ctrl f5 on chrome)</li>
           <li>
-            Toggle "Color by class" to switch between class colors and automatic
-            coloring
+            Double check the default buffs that were inferred to the players
           </li>
-          <li>
-            View "Display detailed coefficients" for more information about
-            threat multipliers
-          </li>
-          <li>
-            For players you can adjust buff status and talent ranks if needed
-          </li>
-        </ul>
+        </ol>
       </div>
     </Dialog>
   );
