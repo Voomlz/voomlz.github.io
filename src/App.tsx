@@ -178,6 +178,11 @@ const InfoButtonBar: React.FC = memo(() => {
         icon="pi pi-question-circle"
       />
       <Tutorial isOpen={tutorialOpen} onClose={() => setTutorialOpen(false)} />
+      <Button
+        label="Discord"
+        onClick={() => window.open("https://discord.gg/3J4FGUNfW7", "_blank")}
+        icon="pi pi-discord"
+      />
     </div>
   );
 });

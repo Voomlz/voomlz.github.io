@@ -24,7 +24,7 @@ export const Disclaimer: React.FC<DisclaimerProps> = ({ isOpen, onClose }) => {
       <div className="disclaimer-content">
         <p>Private logs cannot be imported.</p>
         <p>
-          This is modified from{" "}
+          This tool is modified from{" "}
           <a href="https://github.com/nuiva/nuiva.github.io" target="_blank">
             https://github.com/nuiva/nuiva.github.io
           </a>
