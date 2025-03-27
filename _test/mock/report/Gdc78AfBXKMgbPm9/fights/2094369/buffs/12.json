@@ -1,0 +1,25 @@
+{
+  "auras": [
+    {
+      "name": "Jhuntd",
+      "id": 12,
+      "guid": 66895638,
+      "type": "Hunter",
+      "icon": "Hunter-Survival",
+      "totalUptime": 4013,
+      "totalUses": 1,
+      "bands": [
+        {
+          "startTime": 2094665,
+          "endTime": 2098678
+        }
+      ]
+    }
+  ],
+  "totalTime": 186134,
+  "useTargets": true,
+  "startTime": 2094369,
+  "endTime": 2280503,
+  "logVersion": 14,
+  "gameVersion": 5
+}

@@ -1,0 +1,6031 @@
+{
+  "lang": "en",
+  "fights": [
+    {
+      "id": 1,
+      "boss": 0,
+      "start_time": 166,
+      "end_time": 29204,
+      "name": "Molten Lord",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 2,
+      "boss": 1206,
+      "start_time": 71257,
+      "end_time": 959435,
+      "name": "Alysrazor",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": false,
+      "partial": 2,
+      "inProgress": false,
+      "bossPercentage": 10000,
+      "fightPercentage": 10000,
+      "lastPhaseAsAbsoluteIndex": 1,
+      "lastPhaseForPercentageDisplay": 1,
+      "phases": [
+        {
+          "id": 1,
+          "startTime": 71257
+        },
+        {
+          "id": 2,
+          "startTime": 329257
+        }
+      ],
+      "maps": [
+        367,
+        1414,
+        198,
+        367
+      ]
+    },
+    {
+      "id": 3,
+      "boss": 1204,
+      "start_time": 1130664,
+      "end_time": 1334614,
+      "name": "Lord Rhyolith",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 1,
+      "lastPhaseForPercentageDisplay": 2,
+      "phases": [
+        {
+          "id": 1,
+          "startTime": 1130664
+        },
+        {
+          "id": 2,
+          "startTime": 1313506
+        }
+      ],
+      "maps": [
+        367
+      ]
+    },
+    {
+      "id": 4,
+      "boss": 1206,
+      "start_time": 1490344,
+      "end_time": 1895500,
+      "name": "Alysrazor",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 4,
+      "lastPhaseForPercentageDisplay": 1,
+      "phases": [
+        {
+          "id": 1,
+          "startTime": 1490344
+        },
+        {
+          "id": 2,
+          "startTime": 1748344
+        },
+        {
+          "id": 3,
+          "startTime": 1772262
+        },
+        {
+          "id": 4,
+          "startTime": 1806244
+        },
+        {
+          "id": 1,
+          "startTime": 1833727
+        }
+      ],
+      "maps": [
+        367
+      ]
+    },
+    {
+      "id": 5,
+      "boss": 0,
+      "start_time": 1942356,
+      "end_time": 1988765,
+      "name": "Flamewaker Beast Handler",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 6,
+      "boss": 0,
+      "originalBoss": 1205,
+      "start_time": 2016326,
+      "end_time": 2016356,
+      "name": "Shannox",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 7,
+      "boss": 0,
+      "start_time": 2045848,
+      "end_time": 2052286,
+      "name": "Cinderslither Snake",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 8,
+      "boss": 1205,
+      "start_time": 2094369,
+      "end_time": 2280503,
+      "name": "Shannox",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": [
+        367
+      ]
+    },
+    {
+      "id": 9,
+      "boss": 1197,
+      "start_time": 2594317,
+      "end_time": 2956793,
+      "name": "Beth'tilac",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 1,
+      "lastPhaseForPercentageDisplay": 2,
+      "phases": [
+        {
+          "id": 1,
+          "startTime": 2594317
+        },
+        {
+          "id": 2,
+          "startTime": 2872745
+        }
+      ],
+      "maps": [
+        367
+      ]
+    },
+    {
+      "id": 10,
+      "boss": 0,
+      "start_time": 2997364,
+      "end_time": 3086278,
+      "name": "Molten Flamefather",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 11,
+      "boss": 1200,
+      "start_time": 3150605,
+      "end_time": 3458483,
+      "name": "Baleroc",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 0,
+      "lastPhaseForPercentageDisplay": 0,
+      "maps": [
+        367
+      ]
+    },
+    {
+      "id": 12,
+      "boss": 0,
+      "start_time": 3465856,
+      "end_time": 3483049,
+      "name": "Druid of the Flame",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 13,
+      "boss": 0,
+      "start_time": 3493353,
+      "end_time": 3493382,
+      "name": "Druid of the Flame",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 14,
+      "boss": 0,
+      "start_time": 3507602,
+      "end_time": 3668025,
+      "name": "Druid of the Flame",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 15,
+      "boss": 1185,
+      "start_time": 3855306,
+      "end_time": 4277192,
+      "name": "Majordomo Staghelm",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 25,
+      "lastPhaseForPercentageDisplay": 1,
+      "phases": [
+        {
+          "id": 2,
+          "startTime": 3855306
+        },
+        {
+          "id": 1,
+          "startTime": 3868073
+        },
+        {
+          "id": 1,
+          "startTime": 3888873
+        },
+        {
+          "id": 2,
+          "startTime": 3904869
+        },
+        {
+          "id": 1,
+          "startTime": 3919284
+        },
+        {
+          "id": 1,
+          "startTime": 3939271
+        },
+        {
+          "id": 2,
+          "startTime": 3954485
+        },
+        {
+          "id": 1,
+          "startTime": 3968882
+        },
+        {
+          "id": 1,
+          "startTime": 3988862
+        },
+        {
+          "id": 2,
+          "startTime": 4004063
+        },
+        {
+          "id": 1,
+          "startTime": 4018469
+        },
+        {
+          "id": 1,
+          "startTime": 4039278
+        },
+        {
+          "id": 2,
+          "startTime": 4054470
+        },
+        {
+          "id": 1,
+          "startTime": 4068869
+        },
+        {
+          "id": 1,
+          "startTime": 4088861
+        },
+        {
+          "id": 2,
+          "startTime": 4104065
+        },
+        {
+          "id": 1,
+          "startTime": 4118468
+        },
+        {
+          "id": 1,
+          "startTime": 4138464
+        },
+        {
+          "id": 2,
+          "startTime": 4153672
+        },
+        {
+          "id": 1,
+          "startTime": 4168078
+        },
+        {
+          "id": 1,
+          "startTime": 4188875
+        },
+        {
+          "id": 2,
+          "startTime": 4204871
+        },
+        {
+          "id": 1,
+          "startTime": 4219266
+        },
+        {
+          "id": 1,
+          "startTime": 4239276
+        },
+        {
+          "id": 2,
+          "startTime": 4254468
+        },
+        {
+          "id": 1,
+          "startTime": 4268874
+        }
+      ],
+      "maps": [
+        369
+      ]
+    },
+    {
+      "id": 16,
+      "boss": 0,
+      "start_time": 4321604,
+      "end_time": 4365379,
+      "name": "Lava Wielder",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 17,
+      "boss": 0,
+      "start_time": 4376795,
+      "end_time": 4447908,
+      "name": "Molten Erupter",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    },
+    {
+      "id": 18,
+      "boss": 1203,
+      "start_time": 4555690,
+      "end_time": 5269145,
+      "name": "Ragnaros",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": false,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 2717,
+      "fightPercentage": 2717,
+      "lastPhaseAsAbsoluteIndex": 5,
+      "lastPhaseForPercentageDisplay": 4,
+      "phases": [
+        {
+          "id": 1,
+          "startTime": 4555690
+        },
+        {
+          "id": 2,
+          "startTime": 4694359
+        },
+        {
+          "id": 3,
+          "startTime": 4727540
+        },
+        {
+          "id": 4,
+          "startTime": 4909705
+        },
+        {
+          "id": 5,
+          "startTime": 4967178
+        },
+        {
+          "id": 6,
+          "startTime": 5121533
+        }
+      ],
+      "maps": [
+        369
+      ]
+    },
+    {
+      "id": 19,
+      "boss": 1203,
+      "start_time": 5408544,
+      "end_time": 6240943,
+      "name": "Ragnaros",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4,
+      "size": 25,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 3,
+      "inProgress": false,
+      "bossPercentage": 1,
+      "fightPercentage": 1,
+      "lastPhaseAsAbsoluteIndex": 5,
+      "lastPhaseForPercentageDisplay": 4,
+      "phases": [
+        {
+          "id": 1,
+          "startTime": 5408544
+        },
+        {
+          "id": 2,
+          "startTime": 5547493
+        },
+        {
+          "id": 3,
+          "startTime": 5580755
+        },
+        {
+          "id": 4,
+          "startTime": 5761289
+        },
+        {
+          "id": 5,
+          "startTime": 5818845
+        },
+        {
+          "id": 6,
+          "startTime": 5973120
+        }
+      ],
+      "maps": [
+        369
+      ]
+    },
+    {
+      "id": 20,
+      "boss": 0,
+      "start_time": 6250449,
+      "end_time": 6256364,
+      "name": "Dreadflame Spawn",
+      "zoneID": 720,
+      "zoneName": "Firelands",
+      "zoneDifficulty": 4
+    }
+  ],
+  "completeRaids": [
+    {
+      "id": 10000,
+      "start_time": 166,
+      "end_time": 6240943,
+      "boss": 1201,
+      "name": "Firelands",
+      "size": 25,
+      "difficulty": 4,
+      "kill": true,
+      "partial": 2,
+      "completeRaidSize": 25,
+      "missedTrashDetails": [
+        {
+          "gameIDs": [
+            53222,
+            53224,
+            53185,
+            53115,
+            53128,
+            53094,
+            53223,
+            53134,
+            54073,
+            53119,
+            53167
+          ],
+          "label": "Flamewaker Centurion / Flamewaker Taskmaster / Flamewaker Overseer / Molten Lord / Giant Fire Scorpion / Patriarch Fire Turtle / Flamewaker Beast Handler / Ancient Core Hound / Flamewaker Hound Master / Flamewaker Forward Guard / Unbound Pyrelord",
+          "requiredCount": 14,
+          "actualCount": 27,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53795
+          ],
+          "label": "Egg Pile",
+          "requiredCount": 2,
+          "actualCount": 2,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53791
+          ],
+          "label": "Blazing Monstrosity",
+          "requiredCount": 1,
+          "actualCount": 1,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53786
+          ],
+          "label": "Blazing Monstrosity",
+          "requiredCount": 1,
+          "actualCount": 1,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53793
+          ],
+          "label": "Harbinger of Flame",
+          "requiredCount": 4,
+          "actualCount": 4,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53616
+          ],
+          "label": "Kar the Everburning",
+          "requiredCount": 1,
+          "actualCount": 1,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53167
+          ],
+          "label": "Unbound Pyrelord",
+          "requiredCount": 2,
+          "actualCount": 6,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            54161
+          ],
+          "label": "Flame Archon",
+          "requiredCount": 4,
+          "actualCount": 4,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            54143
+          ],
+          "label": "Molten Flamefather",
+          "requiredCount": 2,
+          "actualCount": 2,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53619
+          ],
+          "label": "Druid of the Flame",
+          "requiredCount": 6,
+          "actualCount": 6,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53575
+          ],
+          "label": "Lava Wielder",
+          "requiredCount": 1,
+          "actualCount": 1,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53617
+          ],
+          "label": "Molten Erupter",
+          "requiredCount": 1,
+          "actualCount": 1,
+          "timePenalty": 0
+        },
+        {
+          "gameIDs": [
+            53545
+          ],
+          "label": "Molten Spewer",
+          "requiredCount": 1,
+          "actualCount": 1,
+          "timePenalty": 0
+        }
+      ]
+    }
+  ],
+  "friendlies": [
+    {
+      "name": "Cenarius",
+      "id": 247,
+      "guid": 53872,
+      "type": "NPC",
+      "icon": "custom-icon-spell_frost_ring-of-frost.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 1,
+          "groups": 3
+        },
+        {
+          "id": 19,
+          "instances": 1,
+          "groups": 6
+        }
+      ]
+    },
+    {
+      "name": "Boogerbrains",
+      "id": 24,
+      "guid": 52065727,
+      "type": "Druid",
+      "server": "Whitemane",
+      "icon": "Druid-Balance",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Viper",
+      "id": 243,
+      "guid": 19921,
+      "type": "Pet",
+      "icon": "Pet",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Chrispchiken",
+      "id": 63,
+      "guid": 62205282,
+      "type": "Unknown",
+      "server": "Whitemane",
+      "icon": "Unknown",
+      "fights": [
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "name": "Zith",
+      "id": 27,
+      "guid": 50272909,
+      "type": "Druid",
+      "server": "Whitemane",
+      "icon": "Druid-Restoration",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Stuffy",
+      "id": 20,
+      "guid": 228700,
+      "type": "Druid",
+      "server": "Whitemane",
+      "icon": "Druid",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Cloudburst",
+      "id": 251,
+      "guid": 54147,
+      "type": "NPC",
+      "icon": "custom-icon-spell_frost_manarecharge.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Venomous Snake",
+      "id": 205,
+      "guid": 19833,
+      "type": "Pet",
+      "icon": "Pet",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 4
+        },
+        {
+          "id": 19,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Grimmbooze",
+      "id": 47,
+      "guid": 61607449,
+      "type": "Hunter",
+      "server": "Whitemane",
+      "icon": "Hunter-Survival",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Valtrina",
+      "id": 16,
+      "guid": 65551627,
+      "type": "Paladin",
+      "server": "Whitemane",
+      "icon": "Paladin-Retribution",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Immolation Trap",
+      "id": 182,
+      "guid": 53724,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_flameshock.jpg",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 14,
+          "groups": 7
+        }
+      ]
+    },
+    {
+      "name": "Scts",
+      "id": 22,
+      "guid": 36588257,
+      "type": "Warlock",
+      "server": "Whitemane",
+      "icon": "Warlock-Affliction",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Alistairin",
+      "id": 13,
+      "guid": 66711855,
+      "type": "Priest",
+      "server": "Whitemane",
+      "icon": "Priest-Discipline",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Jhuntd",
+      "id": 12,
+      "guid": 66895638,
+      "type": "Hunter",
+      "server": "Whitemane",
+      "icon": "Hunter-Survival",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Djedt",
+      "id": 28,
+      "guid": 62299386,
+      "type": "Shaman",
+      "server": "Whitemane",
+      "icon": "Shaman-Elemental",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Hnt",
+      "id": 29,
+      "guid": 29114469,
+      "type": "Hunter",
+      "server": "Whitemane",
+      "icon": "Hunter-Survival",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Anthomage",
+      "id": 26,
+      "guid": 34081591,
+      "type": "Mage",
+      "server": "Whitemane",
+      "icon": "Mage-Fire",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Weeramping",
+      "id": 19,
+      "guid": 34060527,
+      "type": "Warrior",
+      "server": "Whitemane",
+      "icon": "Warrior-Arms",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 13
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Warnu",
+      "id": 1,
+      "guid": 62989948,
+      "type": "Warrior",
+      "server": "Whitemane",
+      "icon": "Warrior-Arms",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Ceeze",
+      "id": 25,
+      "guid": 65265145,
+      "type": "Mage",
+      "server": "Whitemane",
+      "icon": "Mage-Fire",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Bttb",
+      "id": 9,
+      "guid": 62274217,
+      "type": "Priest",
+      "server": "Whitemane",
+      "icon": "Priest-Shadow",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Arch Druid Hamuul Runetotem",
+      "id": 254,
+      "guid": 53876,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_stranglevines.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 1,
+          "groups": 2
+        },
+        {
+          "id": 19,
+          "instances": 1,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Litterbox",
+      "id": 4,
+      "guid": 48813294,
+      "type": "Shaman",
+      "server": "Whitemane",
+      "icon": "Shaman",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Hamzsz",
+      "id": 38,
+      "guid": 66796020,
+      "type": "Warrior",
+      "server": "Whitemane",
+      "icon": "Warrior-Arms",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Kimjongchill",
+      "id": 2,
+      "guid": 61792139,
+      "type": "DeathKnight",
+      "server": "Whitemane",
+      "icon": "DeathKnight-Unholy",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Edshearin",
+      "id": 31,
+      "guid": 66272363,
+      "type": "Shaman",
+      "server": "Whitemane",
+      "icon": "Shaman-Elemental",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Hashyyx",
+      "id": 18,
+      "guid": 66523402,
+      "type": "Paladin",
+      "server": "Whitemane",
+      "icon": "Paladin-Holy",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Nuran",
+      "id": 68,
+      "guid": 66368985,
+      "type": "Unknown",
+      "server": "Whitemane",
+      "icon": "Unknown",
+      "fights": [
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "name": "Nismò",
+      "id": 64,
+      "guid": 66702218,
+      "type": "Warrior",
+      "server": "Whitemane",
+      "icon": "Warrior",
+      "fights": [
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "name": "Doodrick",
+      "id": 21,
+      "guid": 65189065,
+      "type": "DeathKnight",
+      "server": "Whitemane",
+      "icon": "DeathKnight-Unholy",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Noheartp",
+      "id": 15,
+      "guid": 65799473,
+      "type": "Paladin",
+      "server": "Whitemane",
+      "icon": "Paladin-Holy",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Kitasan",
+      "id": 14,
+      "guid": 63264763,
+      "type": "Warrior",
+      "server": "Whitemane",
+      "icon": "Warrior-Protection",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Slimdkay",
+      "id": 92,
+      "guid": 66430161,
+      "type": "DeathKnight",
+      "server": "Whitemane",
+      "icon": "DeathKnight-Unholy",
+      "fights": [
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 12
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "name": "Yapcounter",
+      "id": 10,
+      "guid": 63264145,
+      "type": "Rogue",
+      "server": "Whitemane",
+      "icon": "Rogue-Subtlety",
+      "fights": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        },
+        {
+          "id": 9
+        },
+        {
+          "id": 10
+        },
+        {
+          "id": 11
+        },
+        {
+          "id": 14
+        },
+        {
+          "id": 15
+        },
+        {
+          "id": 16
+        },
+        {
+          "id": 17
+        },
+        {
+          "id": 18
+        },
+        {
+          "id": 19
+        }
+      ]
+    },
+    {
+      "name": "Malfurion Stormrage",
+      "id": 249,
+      "guid": 53875,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_eyeofthestorm.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Magma Trap",
+      "id": 234,
+      "guid": 53086,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_selfdestruct.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 5,
+          "groups": 12
+        },
+        {
+          "id": 19,
+          "instances": 5,
+          "groups": 11
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Subjugator",
+      "id": 102,
+      "guid": 53188,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_incinerate.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Harbinger of Flame",
+      "id": 109,
+      "guid": 53793,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Shard of Torment",
+      "id": 211,
+      "guid": 53495,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_twistedfaith.jpg",
+      "fights": [
+        {
+          "id": 11,
+          "instances": 18,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Ashtongue Adder",
+      "id": 177,
+      "guid": 54275,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 7,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Burning Orb",
+      "id": 217,
+      "guid": 53216,
+      "type": "NPC",
+      "icon": "custom-icon-spell_mage_flameorb.jpg",
+      "fights": [
+        {
+          "id": 15,
+          "instances": 32,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Kindleworm",
+      "id": 55,
+      "guid": 54277,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2
+        },
+        {
+          "id": 7,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Fiery Vortex",
+      "id": 172,
+      "guid": 53693,
+      "type": "NPC",
+      "icon": "custom-icon-ability_mage_firestarter.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Living Meteor",
+      "id": 246,
+      "guid": 53500,
+      "type": "NPC",
+      "icon": "custom-icon-spell_mage_flameorb.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Molten Erupter",
+      "id": 221,
+      "guid": 53617,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shaman_lavasurge.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Centurion",
+      "id": 108,
+      "guid": 53222,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_savageblow.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 5,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Liquid Obsidian",
+      "id": 147,
+      "guid": 52619,
+      "type": "NPC",
+      "icon": "custom-icon-inv_misc_armorkit_03.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 25,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Son of Flame",
+      "id": 237,
+      "guid": 53140,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 16,
+          "groups": 2
+        },
+        {
+          "id": 19,
+          "instances": 16,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Right Foot",
+      "id": 78,
+      "guid": 53087,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Beth'tilac",
+      "id": 189,
+      "guid": 52498,
+      "type": "Boss",
+      "icon": "custom-icon-spell_fire_fireball.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Blazing Monstrosity",
+      "id": 110,
+      "guid": 53786,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_meteorstorm.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Molten Flamefather",
+      "id": 207,
+      "guid": 54143,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_earthquake.jpg",
+      "fights": [
+        {
+          "id": 10,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Blazing Monstrosity",
+      "id": 111,
+      "guid": 53791,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_meteorstorm.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Dreadflame Spawn",
+      "id": 253,
+      "guid": 54203,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 2,
+          "groups": 3
+        },
+        {
+          "id": 19,
+          "instances": 2,
+          "groups": 3
+        },
+        {
+          "id": 20,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Fiery Tornado",
+      "id": 171,
+      "guid": 53698,
+      "type": "NPC",
+      "icon": "custom-icon-ability_mage_firestarter.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Cauterizer",
+      "id": 79,
+      "guid": 53121,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_immolation.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 10,
+          "groups": 3
+        },
+        {
+          "id": 5,
+          "instances": 1,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Pathfinder",
+      "id": 80,
+      "guid": 53120,
+      "type": "NPC",
+      "icon": "custom-icon-inv_spear_10.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 8,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Unstable Magma",
+      "id": 105,
+      "guid": 53901,
+      "type": "NPC",
+      "icon": "custom-icon-trade_engineering.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Volcano",
+      "id": 143,
+      "guid": 52582,
+      "type": "NPC",
+      "icon": "custom-icon-ability_rhyolith_volcano.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1,
+          "groups": 0
+        },
+        {
+          "id": 3,
+          "instances": 18,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Scion",
+      "id": 245,
+      "guid": 53231,
+      "type": "NPC",
+      "icon": "custom-icon-inv_elemental_mote_fire01.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 19,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Cinderslither Snake",
+      "id": 42,
+      "guid": 54276,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 7,
+          "instances": 1
+        },
+        {
+          "id": 13,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Unbound Pyrelord",
+      "id": 98,
+      "guid": 53167,
+      "type": "NPC",
+      "icon": "custom-icon-inv_elemental_mote_fire01.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 7,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Blazing Talon Initiate",
+      "id": 49,
+      "guid": 53369,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 5,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Unstable Pyrelord",
+      "id": 118,
+      "guid": 53630,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 8,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Molten Meteor",
+      "id": 167,
+      "guid": 54563,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_meteorstorm.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Spark of Rhyolith",
+      "id": 150,
+      "guid": 53211,
+      "type": "NPC",
+      "icon": "custom-icon-ability_rhyolith_immolation.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Magmaspray Beetle",
+      "id": 122,
+      "guid": 54274,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 12,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Cinderweb Spinner",
+      "id": 192,
+      "guid": 52524,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 27,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Fire Scorpion",
+      "id": 77,
+      "guid": 53127,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_flameblades.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 36,
+          "groups": 19
+        }
+      ]
+    },
+    {
+      "name": "Voracious Hatchling",
+      "id": 161,
+      "guid": 53898,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_bloodnova.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 3,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Baleroc",
+      "id": 210,
+      "guid": 53494,
+      "type": "Boss",
+      "icon": "custom-icon-ability_mage_livingbomb.jpg",
+      "fights": [
+        {
+          "id": 11,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Plump Lava Worm",
+      "id": 166,
+      "guid": 53520,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shaman_lavasurge.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 12,
+          "groups": 5
+        }
+      ]
+    },
+    {
+      "name": "Shannox",
+      "id": 176,
+      "guid": 53691,
+      "type": "Boss",
+      "icon": "custom-icon-ability_throw.jpg",
+      "fights": [
+        {
+          "id": 6,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Hell Hound",
+      "id": 94,
+      "guid": 53206,
+      "type": "NPC",
+      "icon": "custom-icon-ability_druid_mangle.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 8,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Rageface",
+      "id": 178,
+      "guid": 53695,
+      "type": "NPC",
+      "icon": "custom-icon-ability_creature_poison_01.jpg",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Molten Meteor",
+      "id": 163,
+      "guid": 53489,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_meteorstorm.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 3
+        }
+      ]
+    },
+    {
+      "name": "Ragnaros",
+      "id": 232,
+      "guid": 52409,
+      "type": "Boss",
+      "icon": "custom-icon-achievement_firelands-raid_ragnaros.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Egg Pile",
+      "id": 112,
+      "guid": 53795,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Unbound Smoldering Elemental",
+      "id": 46,
+      "guid": 53732,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shaman_lavaburst.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 60,
+          "groups": 18
+        },
+        {
+          "id": 11,
+          "instances": 18,
+          "groups": 11
+        }
+      ]
+    },
+    {
+      "name": "Lava Spawn",
+      "id": 121,
+      "guid": 53622,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_flamebolt.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Molten Boulder",
+      "id": 169,
+      "guid": 53496,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shaman_lavaburst.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Engorged Broodling",
+      "id": 196,
+      "guid": 53745,
+      "type": "NPC",
+      "icon": "custom-icon-inv_misc_summerfest_brazierred.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 89,
+          "groups": 7
+        }
+      ]
+    },
+    {
+      "name": "Volcano",
+      "id": 120,
+      "guid": 52582,
+      "type": "NPC",
+      "icon": "custom-icon-ability_rhyolith_volcano.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2
+        },
+        {
+          "id": 3,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Blazing Talon Clawshaper",
+      "id": 173,
+      "guid": 53734,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_soulburn.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Magmakin",
+      "id": 209,
+      "guid": 54144,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_volcano.jpg",
+      "fights": [
+        {
+          "id": 10,
+          "instances": 15,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Beast Handler",
+      "id": 107,
+      "guid": 53223,
+      "type": "NPC",
+      "icon": "custom-icon-inv_spear_10.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2,
+          "groups": 1
+        },
+        {
+          "id": 5,
+          "instances": 2,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Unleashed Flame",
+      "id": 155,
+      "guid": 54347,
+      "type": "NPC",
+      "icon": "custom-icon-ability_mage_firestarter.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 3,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Lord Rhyolith",
+      "id": 75,
+      "guid": 52558,
+      "type": "Boss",
+      "icon": "custom-icon-ability_rhyolith_immolation.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Lava Wielder",
+      "id": 218,
+      "guid": 53575,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shaman_lavaflow.jpg",
+      "fights": [
+        {
+          "id": 16,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Overseer",
+      "id": 91,
+      "guid": 53185,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shaman_lavaburst.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 3,
+          "groups": 5
+        }
+      ]
+    },
+    {
+      "name": "Ancient Core Hound",
+      "id": 86,
+      "guid": 53134,
+      "type": "NPC",
+      "icon": "custom-icon-ability_creature_poison_01.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Dreadflame",
+      "id": 256,
+      "guid": 54127,
+      "type": "NPC",
+      "icon": "custom-icon-ability_mage_firestarter.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Herald of the Burning End",
+      "id": 159,
+      "guid": 53375,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_sealoffire.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 7
+        }
+      ]
+    },
+    {
+      "name": "Fragment of Rhyolith",
+      "id": 144,
+      "guid": 52620,
+      "type": "NPC",
+      "icon": "custom-icon-inv_elemental_mote_fire01.jpg",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 25,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Left Foot",
+      "id": 76,
+      "guid": 52577,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Molten Lord",
+      "id": 3,
+      "guid": 53115,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_incinerate.jpg",
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Majordomo Staghelm",
+      "id": 214,
+      "guid": 52571,
+      "type": "Boss",
+      "icon": "custom-icon-spell_mage_flameorb.jpg",
+      "fights": [
+        {
+          "id": 15,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Smouldering Hatchling",
+      "id": 114,
+      "guid": 53794,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 9,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Trainee",
+      "id": 174,
+      "guid": 53244,
+      "type": "NPC",
+      "icon": "custom-icon-inv_sword_11.jpg",
+      "fights": [
+        {
+          "id": 5,
+          "instances": 5,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Riplimb",
+      "id": 179,
+      "guid": 53694,
+      "type": "NPC",
+      "icon": "custom-icon-ability_backstab.jpg",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Blazing Talon Initiate",
+      "id": 51,
+      "guid": 53896,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shaman_firenova.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 5,
+          "groups": 4
+        }
+      ]
+    },
+    {
+      "name": "Molten Spewer",
+      "id": 222,
+      "guid": 53545,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shadow_rainoffire.jpg",
+      "fights": [
+        {
+          "id": 17,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Druid of the Flame",
+      "id": 212,
+      "guid": 53619,
+      "type": "NPC",
+      "icon": "custom-icon-spell_nature_unleashedrage.jpg",
+      "fights": [
+        {
+          "id": 12,
+          "instances": 5,
+          "groups": 1
+        },
+        {
+          "id": 13,
+          "instances": 1,
+          "groups": 1
+        },
+        {
+          "id": 14,
+          "instances": 6,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Firestorm",
+      "id": 119,
+      "guid": 53986,
+      "type": "NPC",
+      "icon": "custom-icon-ability_vehicle_demolisherflamecatapult.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Kar the Everburning",
+      "id": 117,
+      "guid": 53616,
+      "type": "NPC",
+      "icon": "custom-icon-ability_vehicle_demolisherflamecatapult.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Voracious Hatchling",
+      "id": 165,
+      "guid": 53509,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_bloodnova.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 2,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Animator",
+      "id": 101,
+      "guid": 53187,
+      "type": "NPC",
+      "icon": "custom-icon-ability_mage_moltenarmor.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 8,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Molten Elemental",
+      "id": 240,
+      "guid": 53189,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_ragnaros_molteninferno.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 60,
+          "groups": 3
+        },
+        {
+          "id": 19,
+          "instances": 60,
+          "groups": 3
+        }
+      ]
+    },
+    {
+      "name": "Flame Archon",
+      "id": 206,
+      "guid": 54161,
+      "type": "NPC",
+      "icon": "custom-icon-ability_mage_firestarter.jpg",
+      "fights": [
+        {
+          "id": 10,
+          "instances": 4,
+          "groups": 1
+        }
+      ]
+    },
+    {
+      "name": "Magma Conduit",
+      "id": 208,
+      "guid": 54145,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_felcano.jpg",
+      "fights": [
+        {
+          "id": 10,
+          "instances": 3,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Lava Wave",
+      "id": 244,
+      "guid": 53363,
+      "type": "NPC",
+      "icon": "custom-icon-spell_shaman_lavasurge.jpg",
+      "fights": [
+        {
+          "id": 18,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Taskmaster",
+      "id": 54,
+      "guid": 53224,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_savageblow.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1,
+          "groups": 11
+        }
+      ]
+    },
+    {
+      "name": "Spear of Shannox",
+      "id": 184,
+      "guid": 53752,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_sealoffire.jpg",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Crystal Prison",
+      "id": 181,
+      "guid": 53819,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 8,
+          "instances": 6,
+          "groups": 5
+        }
+      ]
+    },
+    {
+      "name": "Cinderweb Spiderling",
+      "id": 194,
+      "guid": 52447,
+      "type": "NPC",
+      "icon": "NPC",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 87,
+          "groups": 7
+        }
+      ]
+    },
+    {
+      "name": "Giant Fire Scorpion",
+      "id": 74,
+      "guid": 53128,
+      "type": "NPC",
+      "icon": "custom-icon-ability_warrior_unrelentingassault.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 5,
+          "groups": 7
+        }
+      ]
+    },
+    {
+      "name": "Flamewaker Forward Guard",
+      "id": 85,
+      "guid": 53119,
+      "type": "NPC",
+      "icon": "custom-icon-inv_sword_11.jpg",
+      "fights": [
+        {
+          "id": 2,
+          "instances": 4
+        },
+        {
+          "id": 5,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Cinderweb Drone",
+      "id": 199,
+      "guid": 52581,
+      "type": "NPC",
+      "icon": "custom-icon-spell_fire_fireball02.jpg",
+      "fights": [
+        {
+          "id": 9,
+          "instances": 3,
+          "groups": 2
+        }
+      ]
+    },
+    {
+      "name": "Alysrazor",
+      "id": 158,
+      "guid": 52530,
+      "type": "Boss",
+      "icon": "custom-icon-spell_shaman_lavaburst.jpg",
+      "fights": [
+        {
+          "id": 4,
+          "instances": 1
+        }
+      ]
+    }
+  ],
+  "friendlyPets": [
+    {
+      "name": "Venomous Snake",
+      "id": 203,
+      "guid": 19833,
+      "type": "Pet",
+      "icon": "custom-icon-ability_poisonsting.jpg",
+      "petOwner": 29,
+      "fights": [
+        {
+          "id": 9,
+          "instances": 34
+        }
+      ]
+    },
+    {
+      "name": "Mirror Image",
+      "id": 97,
+      "guid": 53438,
+      "type": "Pet",
+      "icon": "abilities/spell_magic_lesserinvisibilty.jpg",
+      "petOwner": 25,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 8
+        },
+        {
+          "id": 3,
+          "instances": 4
+        },
+        {
+          "id": 4,
+          "instances": 4
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 4
+        },
+        {
+          "id": 9,
+          "instances": 6
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 6
+        },
+        {
+          "id": 14,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 7
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 12
+        },
+        {
+          "id": 19,
+          "instances": 14
+        }
+      ]
+    },
+    {
+      "name": "Spineflayer",
+      "id": 37,
+      "guid": 6742517,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_animatedead.jpg",
+      "petOwner": 21,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Searing Totem",
+      "id": 81,
+      "guid": 2523,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_searingtotem.jpg",
+      "petOwner": 31,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 3
+        },
+        {
+          "id": 3,
+          "instances": 2
+        },
+        {
+          "id": 4,
+          "instances": 2
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 3
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 2
+        },
+        {
+          "id": 14,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 3
+        },
+        {
+          "id": 18,
+          "instances": 4
+        },
+        {
+          "id": 19,
+          "instances": 5
+        }
+      ]
+    },
+    {
+      "name": "Burning Treant",
+      "id": 45,
+      "guid": 53432,
+      "type": "Pet",
+      "icon": "abilities/ability_druid_forceofnature.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 8
+        },
+        {
+          "id": 3,
+          "instances": 2
+        },
+        {
+          "id": 4,
+          "instances": 7
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 3
+        },
+        {
+          "id": 9,
+          "instances": 4
+        },
+        {
+          "id": 11,
+          "instances": 6
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 8
+        },
+        {
+          "id": 18,
+          "instances": 10
+        },
+        {
+          "id": 19,
+          "instances": 7
+        }
+      ]
+    },
+    {
+      "name": "Zeus",
+      "id": 30,
+      "guid": 7099959,
+      "type": "Pet",
+      "icon": "abilities/ability_hunter_beastcall.jpg",
+      "petOwner": 29,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Viper",
+      "id": 215,
+      "guid": 19921,
+      "type": "Pet",
+      "icon": "Pet",
+      "petOwner": 12,
+      "fights": [
+        {
+          "id": 15,
+          "instances": 7
+        }
+      ]
+    },
+    {
+      "name": "Mirror Image",
+      "id": 88,
+      "guid": 31216,
+      "type": "Pet",
+      "icon": "abilities/spell_magic_managain.jpg",
+      "petOwner": 25,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 3
+        },
+        {
+          "id": 4,
+          "instances": 3
+        },
+        {
+          "id": 8,
+          "instances": 3
+        },
+        {
+          "id": 9,
+          "instances": 3
+        },
+        {
+          "id": 11,
+          "instances": 6
+        },
+        {
+          "id": 15,
+          "instances": 3
+        },
+        {
+          "id": 18,
+          "instances": 12
+        },
+        {
+          "id": 19,
+          "instances": 15
+        }
+      ]
+    },
+    {
+      "name": "Earth Elemental Totem",
+      "id": 137,
+      "guid": 15430,
+      "type": "Pet",
+      "icon": "abilities/spell_nature_earthelemental_totem.jpg",
+      "petOwner": 31,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 2
+        },
+        {
+          "id": 19,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Viper",
+      "id": 202,
+      "guid": 19921,
+      "type": "Pet",
+      "icon": "custom-icon-spell_nature_nullifydisease.jpg",
+      "petOwner": 29,
+      "fights": [
+        {
+          "id": 9,
+          "instances": 35
+        }
+      ]
+    },
+    {
+      "name": "Guardian of Ancient Kings",
+      "id": 153,
+      "guid": 46499,
+      "type": "Pet",
+      "icon": "abilities/spell_holy_heroism.jpg",
+      "petOwner": 15,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 2
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 2
+        },
+        {
+          "id": 19,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Treant",
+      "id": 103,
+      "guid": 1964,
+      "type": "Pet",
+      "icon": "abilities/ability_druid_forceofnature.jpg",
+      "petOwner": 24,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 3
+        },
+        {
+          "id": 3,
+          "instances": 6
+        },
+        {
+          "id": 4,
+          "instances": 6
+        },
+        {
+          "id": 8,
+          "instances": 6
+        },
+        {
+          "id": 9,
+          "instances": 6
+        },
+        {
+          "id": 11,
+          "instances": 6
+        },
+        {
+          "id": 15,
+          "instances": 9
+        },
+        {
+          "id": 18,
+          "instances": 12
+        },
+        {
+          "id": 19,
+          "instances": 12
+        }
+      ]
+    },
+    {
+      "name": "Wolf",
+      "id": 11,
+      "guid": 7156766,
+      "type": "Pet",
+      "icon": "abilities/ability_hunter_beastcall.jpg",
+      "petOwner": 12,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Zhaaghon",
+      "id": 23,
+      "guid": 4141452,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_summonfelhunter.jpg",
+      "petOwner": 22,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 12,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Fire Elemental Totem",
+      "id": 131,
+      "guid": 15439,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_elemental_totem.jpg",
+      "petOwner": 28,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 2
+        },
+        {
+          "id": 4,
+          "instances": 3
+        },
+        {
+          "id": 8,
+          "instances": 2
+        },
+        {
+          "id": 9,
+          "instances": 3
+        },
+        {
+          "id": 11,
+          "instances": 3
+        },
+        {
+          "id": 15,
+          "instances": 3
+        },
+        {
+          "id": 18,
+          "instances": 6
+        },
+        {
+          "id": 19,
+          "instances": 6
+        }
+      ]
+    },
+    {
+      "name": "Army of the Dead Ghoul",
+      "id": 128,
+      "guid": 24207,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_coneofsilence.jpg",
+      "petOwner": 2,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 8
+        },
+        {
+          "id": 4,
+          "instances": 8
+        },
+        {
+          "id": 8,
+          "instances": 8
+        },
+        {
+          "id": 9,
+          "instances": 8
+        },
+        {
+          "id": 11,
+          "instances": 8
+        },
+        {
+          "id": 15,
+          "instances": 8
+        },
+        {
+          "id": 18,
+          "instances": 8
+        },
+        {
+          "id": 19,
+          "instances": 8
+        }
+      ]
+    },
+    {
+      "name": "Greater Earth Elemental",
+      "id": 134,
+      "guid": 15352,
+      "type": "Pet",
+      "icon": "abilities/spell_nature_earthelemental_totem.jpg",
+      "petOwner": 28,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 2
+        },
+        {
+          "id": 19,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Shadowfiend",
+      "id": 154,
+      "guid": 19668,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_shadowfiend.jpg",
+      "petOwner": 13,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 2
+        },
+        {
+          "id": 19,
+          "instances": 3
+        }
+      ]
+    },
+    {
+      "name": "Ebon Gargoyle",
+      "id": 116,
+      "guid": 27829,
+      "type": "Pet",
+      "icon": "abilities/ability_deathknight_summongargoyle.jpg",
+      "petOwner": 92,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 2
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 2
+        },
+        {
+          "id": 11,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 2
+        },
+        {
+          "id": 18,
+          "instances": 4
+        },
+        {
+          "id": 19,
+          "instances": 5
+        }
+      ]
+    },
+    {
+      "name": "Army of the Dead Ghoul",
+      "id": 130,
+      "guid": 24207,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_coneofsilence.jpg",
+      "petOwner": 92,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 8
+        },
+        {
+          "id": 4,
+          "instances": 8
+        },
+        {
+          "id": 8,
+          "instances": 8
+        },
+        {
+          "id": 9,
+          "instances": 8
+        },
+        {
+          "id": 11,
+          "instances": 8
+        },
+        {
+          "id": 15,
+          "instances": 8
+        },
+        {
+          "id": 18,
+          "instances": 8
+        },
+        {
+          "id": 19,
+          "instances": 8
+        }
+      ]
+    },
+    {
+      "name": "Glaciertaker",
+      "id": 95,
+      "guid": 7034236,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_animatedead.jpg",
+      "petOwner": 92,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Mirror Image",
+      "id": 40,
+      "guid": 53438,
+      "type": "Pet",
+      "icon": "abilities/spell_magic_lesserinvisibilty.jpg",
+      "petOwner": 26,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 9
+        },
+        {
+          "id": 3,
+          "instances": 3
+        },
+        {
+          "id": 4,
+          "instances": 2
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 3
+        },
+        {
+          "id": 9,
+          "instances": 5
+        },
+        {
+          "id": 10,
+          "instances": 2
+        },
+        {
+          "id": 11,
+          "instances": 6
+        },
+        {
+          "id": 14,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 8
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 10
+        },
+        {
+          "id": 19,
+          "instances": 13
+        }
+      ]
+    },
+    {
+      "name": "Fire Elemental Totem",
+      "id": 141,
+      "guid": 15439,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_elemental_totem.jpg",
+      "petOwner": 4,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 2
+        },
+        {
+          "id": 4,
+          "instances": 3
+        },
+        {
+          "id": 8,
+          "instances": 2
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 4
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 6
+        },
+        {
+          "id": 19,
+          "instances": 8
+        }
+      ]
+    },
+    {
+      "name": "Venomous Snake",
+      "id": 216,
+      "guid": 19833,
+      "type": "Pet",
+      "icon": "Pet",
+      "petOwner": 12,
+      "fights": [
+        {
+          "id": 15,
+          "instances": 6
+        }
+      ]
+    },
+    {
+      "name": "Greater Fire Elemental",
+      "id": 142,
+      "guid": 15438,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_elemental_totem.jpg",
+      "petOwner": 4,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 2
+        },
+        {
+          "id": 4,
+          "instances": 3
+        },
+        {
+          "id": 8,
+          "instances": 2
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 4
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 6
+        },
+        {
+          "id": 19,
+          "instances": 8
+        }
+      ]
+    },
+    {
+      "name": "Ebon Gargoyle",
+      "id": 140,
+      "guid": 27829,
+      "type": "Pet",
+      "icon": "abilities/ability_deathknight_summongargoyle.jpg",
+      "petOwner": 2,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 2
+        },
+        {
+          "id": 11,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 2
+        },
+        {
+          "id": 18,
+          "instances": 3
+        },
+        {
+          "id": 19,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Venomous Snake",
+      "id": 242,
+      "guid": 19833,
+      "type": "Pet",
+      "icon": "custom-icon-ability_poisonsting.jpg",
+      "petOwner": 47,
+      "fights": [
+        {
+          "id": 18,
+          "instances": 17
+        },
+        {
+          "id": 19,
+          "instances": 19
+        }
+      ]
+    },
+    {
+      "name": "Greater Earth Elemental",
+      "id": 139,
+      "guid": 15352,
+      "type": "Pet",
+      "icon": "abilities/spell_nature_earthelemental_totem.jpg",
+      "petOwner": 31,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 2
+        },
+        {
+          "id": 19,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Guardian of Ancient Kings",
+      "id": 151,
+      "guid": 46506,
+      "type": "Pet",
+      "icon": "abilities/spell_holy_heroism.jpg",
+      "petOwner": 16,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 2
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 2
+        },
+        {
+          "id": 18,
+          "instances": 2
+        },
+        {
+          "id": 19,
+          "instances": 3
+        }
+      ]
+    },
+    {
+      "name": "Magma Totem",
+      "id": 257,
+      "guid": 5929,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_selfdestruct.jpg",
+      "petOwner": 31,
+      "fights": [
+        {
+          "id": 19,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Greater Fire Elemental",
+      "id": 133,
+      "guid": 15438,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_elemental_totem.jpg",
+      "petOwner": 28,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 2
+        },
+        {
+          "id": 4,
+          "instances": 3
+        },
+        {
+          "id": 8,
+          "instances": 2
+        },
+        {
+          "id": 9,
+          "instances": 3
+        },
+        {
+          "id": 11,
+          "instances": 3
+        },
+        {
+          "id": 15,
+          "instances": 3
+        },
+        {
+          "id": 18,
+          "instances": 6
+        },
+        {
+          "id": 19,
+          "instances": 6
+        }
+      ]
+    },
+    {
+      "name": "Greater Fire Elemental",
+      "id": 138,
+      "guid": 15438,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_elemental_totem.jpg",
+      "petOwner": 31,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 3
+        },
+        {
+          "id": 19,
+          "instances": 3
+        }
+      ]
+    },
+    {
+      "name": "Ebon Imp",
+      "id": 168,
+      "guid": 50675,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_auraofdarkness.jpg",
+      "petOwner": 22,
+      "fights": [
+        {
+          "id": 4,
+          "instances": 4
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 4
+        },
+        {
+          "id": 15,
+          "instances": 7
+        },
+        {
+          "id": 18,
+          "instances": 10
+        },
+        {
+          "id": 19,
+          "instances": 7
+        }
+      ]
+    },
+    {
+      "name": "Shadowy Apparition",
+      "id": 41,
+      "guid": 46954,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_painandsuffering.jpg",
+      "petOwner": 9,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 6
+        },
+        {
+          "id": 2,
+          "instances": 17
+        },
+        {
+          "id": 3,
+          "instances": 24
+        },
+        {
+          "id": 4,
+          "instances": 141
+        },
+        {
+          "id": 5,
+          "instances": 2
+        },
+        {
+          "id": 8,
+          "instances": 11
+        },
+        {
+          "id": 9,
+          "instances": 15
+        },
+        {
+          "id": 11,
+          "instances": 19
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 30
+        },
+        {
+          "id": 16,
+          "instances": 4
+        },
+        {
+          "id": 17,
+          "instances": 11
+        },
+        {
+          "id": 18,
+          "instances": 66
+        },
+        {
+          "id": 19,
+          "instances": 64
+        }
+      ]
+    },
+    {
+      "name": "Magma Totem",
+      "id": 175,
+      "guid": 5929,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_selfdestruct.jpg",
+      "petOwner": 4,
+      "fights": [
+        {
+          "id": 5,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Searing Totem",
+      "id": 32,
+      "guid": 2523,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_searingtotem.jpg",
+      "petOwner": 28,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 11
+        },
+        {
+          "id": 4,
+          "instances": 2
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Shadowfiend",
+      "id": 106,
+      "guid": 19668,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_shadowfiend.jpg",
+      "petOwner": 9,
+      "fights": [
+        {
+          "id": 2,
+          "instances": 2
+        },
+        {
+          "id": 3,
+          "instances": 2
+        },
+        {
+          "id": 4,
+          "instances": 6
+        },
+        {
+          "id": 8,
+          "instances": 3
+        },
+        {
+          "id": 9,
+          "instances": 4
+        },
+        {
+          "id": 11,
+          "instances": 5
+        },
+        {
+          "id": 15,
+          "instances": 7
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 9
+        },
+        {
+          "id": 19,
+          "instances": 12
+        }
+      ]
+    },
+    {
+      "name": "Cauterizing Flame",
+      "id": 39,
+      "guid": 53475,
+      "type": "Pet",
+      "icon": "abilities/spell_holy_summonlightwell.jpg",
+      "petOwner": 13,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 11
+        },
+        {
+          "id": 3,
+          "instances": 4
+        },
+        {
+          "id": 4,
+          "instances": 3
+        },
+        {
+          "id": 8,
+          "instances": 4
+        },
+        {
+          "id": 11,
+          "instances": 5
+        },
+        {
+          "id": 15,
+          "instances": 7
+        },
+        {
+          "id": 17,
+          "instances": 2
+        },
+        {
+          "id": 18,
+          "instances": 13
+        },
+        {
+          "id": 19,
+          "instances": 15
+        }
+      ]
+    },
+    {
+      "name": "Fire Elemental Totem",
+      "id": 136,
+      "guid": 15439,
+      "type": "Pet",
+      "icon": "abilities/spell_fire_elemental_totem.jpg",
+      "petOwner": 31,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 3
+        },
+        {
+          "id": 19,
+          "instances": 3
+        }
+      ]
+    },
+    {
+      "name": "Spirit Link Totem",
+      "id": 204,
+      "guid": 53006,
+      "type": "Pet",
+      "icon": "abilities/spell_shaman_spiritlink.jpg",
+      "petOwner": 4,
+      "fights": [
+        {
+          "id": 9,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Wooze",
+      "id": 48,
+      "guid": 6497418,
+      "type": "Pet",
+      "icon": "abilities/ability_hunter_beastcall.jpg",
+      "petOwner": 47,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Mirror Image",
+      "id": 156,
+      "guid": 31216,
+      "type": "Pet",
+      "icon": "abilities/spell_magic_managain.jpg",
+      "petOwner": 26,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 3
+        },
+        {
+          "id": 4,
+          "instances": 3
+        },
+        {
+          "id": 8,
+          "instances": 3
+        },
+        {
+          "id": 9,
+          "instances": 3
+        },
+        {
+          "id": 11,
+          "instances": 6
+        },
+        {
+          "id": 15,
+          "instances": 9
+        },
+        {
+          "id": 18,
+          "instances": 12
+        },
+        {
+          "id": 19,
+          "instances": 15
+        }
+      ]
+    },
+    {
+      "name": "Pebblegrinder",
+      "id": 17,
+      "guid": 7028446,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_animatedead.jpg",
+      "petOwner": 2,
+      "fights": [
+        {
+          "id": 1,
+          "instances": 1
+        },
+        {
+          "id": 2,
+          "instances": 1
+        },
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 5,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 10,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 12,
+          "instances": 1
+        },
+        {
+          "id": 14,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 16,
+          "instances": 1
+        },
+        {
+          "id": 17,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 1
+        },
+        {
+          "id": 20,
+          "instances": 1
+        }
+      ]
+    },
+    {
+      "name": "Viper",
+      "id": 241,
+      "guid": 19921,
+      "type": "Pet",
+      "icon": "custom-icon-ability_poisonsting.jpg",
+      "petOwner": 47,
+      "fights": [
+        {
+          "id": 18,
+          "instances": 19
+        },
+        {
+          "id": 19,
+          "instances": 21
+        }
+      ]
+    },
+    {
+      "name": "Earth Elemental Totem",
+      "id": 132,
+      "guid": 15430,
+      "type": "Pet",
+      "icon": "abilities/spell_nature_earthelemental_totem.jpg",
+      "petOwner": 28,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 2
+        },
+        {
+          "id": 19,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Army of the Dead Ghoul",
+      "id": 129,
+      "guid": 24207,
+      "type": "Pet",
+      "icon": "abilities/spell_shadow_coneofsilence.jpg",
+      "petOwner": 21,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 8
+        },
+        {
+          "id": 8,
+          "instances": 8
+        },
+        {
+          "id": 11,
+          "instances": 8
+        },
+        {
+          "id": 15,
+          "instances": 8
+        },
+        {
+          "id": 18,
+          "instances": 6
+        },
+        {
+          "id": 19,
+          "instances": 8
+        }
+      ]
+    },
+    {
+      "name": "Ebon Gargoyle",
+      "id": 157,
+      "guid": 27829,
+      "type": "Pet",
+      "icon": "abilities/ability_deathknight_summongargoyle.jpg",
+      "petOwner": 21,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 2
+        },
+        {
+          "id": 11,
+          "instances": 2
+        },
+        {
+          "id": 15,
+          "instances": 2
+        },
+        {
+          "id": 18,
+          "instances": 4
+        },
+        {
+          "id": 19,
+          "instances": 4
+        }
+      ]
+    },
+    {
+      "name": "Guardian of Ancient Kings",
+      "id": 152,
+      "guid": 46499,
+      "type": "Pet",
+      "icon": "abilities/spell_holy_heroism.jpg",
+      "petOwner": 18,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 1
+        },
+        {
+          "id": 19,
+          "instances": 2
+        }
+      ]
+    },
+    {
+      "name": "Doomguard",
+      "id": 145,
+      "guid": 11859,
+      "type": "Pet",
+      "icon": "abilities/warlock_summon_doomguard.jpg",
+      "petOwner": 22,
+      "fights": [
+        {
+          "id": 3,
+          "instances": 1
+        },
+        {
+          "id": 4,
+          "instances": 1
+        },
+        {
+          "id": 8,
+          "instances": 1
+        },
+        {
+          "id": 9,
+          "instances": 1
+        },
+        {
+          "id": 11,
+          "instances": 1
+        },
+        {
+          "id": 15,
+          "instances": 1
+        },
+        {
+          "id": 18,
+          "instances": 2
+        },
+        {
+          "id": 19,
+          "instances": 2
+        }
+      ]
+    }
+  ],
+  "enemyPets": [],
+  "logVersion": 14,
+  "gameVersion": 5,
+  "phases": [
+    {
+      "boss": 1185,
+      "separatesWipes": false,
+      "phases": [
+        "Scorpion Form",
+        "Cat Form"
+      ]
+    },
+    {
+      "boss": 1203,
+      "separatesWipes": true,
+      "phases": [
+        "Stage One: By Fire Be Purged!",
+        "Intermission: Minions of Fire!",
+        "Stage Two: Sulfuras Will Be Your End",
+        "Intermission: Denizens of Flame!",
+        "Stage Three: Begone From My Realm!",
+        "Stage Four: The True Power of the Firelord!"
+      ],
+      "intermissions": [
+        2,
+        4
+      ]
+    },
+    {
+      "boss": 1204,
+      "separatesWipes": true,
+      "phases": [
+        "Stage One: Nuisances, Nuisances!",
+        "Stage Two: Now you will BURN!"
+      ]
+    },
+    {
+      "boss": 1206,
+      "separatesWipes": true,
+      "phases": [
+        "Stage One: I Will Burn You From the Sky!",
+        "Stage Two: The Skies are Mine!",
+        "Stage Three: Burnout!",
+        "Stage Four: Reborn in Flame!"
+      ]
+    },
+    {
+      "boss": 1197,
+      "separatesWipes": true,
+      "phases": [
+        "Stage One: The Cinderweb",
+        "Stage Two: The Frenzy!"
+      ]
+    }
+  ],
+  "title": "Firelands",
+  "owner": "zitheras",
+  "start": 1737169377837,
+  "end": 1737177889414,
+  "zone": 1027,
+  "exportedCharacters": [
+    {
+      "id": 87587098,
+      "name": "Alistairin",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 62213879,
+      "name": "Anthomage",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 68116010,
+      "name": "Boogerbrains",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 75357835,
+      "name": "Bttb",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 81799134,
+      "name": "Ceeze",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 75567557,
+      "name": "Djedt",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 83254574,
+      "name": "Doodrick",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 67535958,
+      "name": "Edshearin",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 76741347,
+      "name": "Grimmbooze",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 92214571,
+      "name": "Hamzsz",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 85338582,
+      "name": "Hashyyx",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 61037667,
+      "name": "Hnt",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 90234924,
+      "name": "Jhuntd",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 83236549,
+      "name": "Kimjongchill",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 76749657,
+      "name": "Kitasan",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 66080110,
+      "name": "Litterbox",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 83156238,
+      "name": "Noheartp",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 63868259,
+      "name": "Scts",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 83757227,
+      "name": "Slimdkay",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 40947699,
+      "name": "Stuffy",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 82180789,
+      "name": "Valtrina",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 82665488,
+      "name": "Warnu",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 77266247,
+      "name": "Weeramping",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 76778800,
+      "name": "Yapcounter",
+      "server": "Whitemane",
+      "region": "US"
+    },
+    {
+      "id": 68078330,
+      "name": "Zith",
+      "server": "Whitemane",
+      "region": "US"
+    }
+  ]
+}
