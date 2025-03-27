@@ -159,10 +159,11 @@ export const ThreatTable: React.FC<ThreatTableProps> = ({
       <div className={styles.mainThreatTable}>
         <DataTable showGridlines size="small" value={tableData}>
           <Column field="name" header="Ability" />
-          <Column field="threat" header="Threat (*)" />
+          <Column field="threat" header="Threat (*)" align="right" />
           <Column
             field="threatPerSecond"
             header={`Per ${rangeWidth.toFixed(2)} seconds`}
+            align="right"
           />
         </DataTable>
       </div>
