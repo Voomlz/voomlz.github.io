@@ -28,7 +28,7 @@ import { Unit } from "./threat/unit.js";
  */
 
 /**
- * @typedef {(spellSchool: number) => number} ThreatCoefficientFn
+ * @typedef {(spellSchool?: number) => number} ThreatCoefficientFn
  */
 
 /**
@@ -236,9 +236,9 @@ export const threatFunctions = {
     if (!u) return;
     let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
     let numEnemies = 0;
-    for (let k in enemies) {
-      if (enemies[k].alive) numEnemies += 1;
-    }
+    const aliveEnemies = Object.values(enemies).filter((e) => e.alive);
+    numEnemies = aliveEnemies.length;
+
     let coeff = applyThreatCoefficient(
       useThreatCoeffs ? u.threatCoeff(ev.ability) : BASE_COEFFICIENT,
       multiplier,
@@ -253,8 +253,8 @@ export const threatFunctions = {
       );
     }
 
-    for (let k in enemies) {
-      enemies[k].addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
+    for (let e of aliveEnemies) {
+      e.addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
     }
   },
 
