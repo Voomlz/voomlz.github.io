@@ -1,4 +1,5 @@
 import {
+  additiveThreatCoeff,
   borders,
   getThreatCoefficient,
   handler_damage,
@@ -71,8 +72,10 @@ export const talents = {
     coeff: function (buffs, rank = 3) {
       if (config.Buff.RighteousFury in buffs) {
         return getThreatCoefficient({
-          [School.Holy]:
-            (1 + rank * config.Mods.ImpRf) / config.Mods.RighteousFury,
+          [School.Holy]: additiveThreatCoeff(
+            rank * config.Mods.ImpRf,
+            config.Mods.RighteousFury
+          ),
         });
       }
       return getThreatCoefficient(1);
@@ -86,7 +89,7 @@ export const talents = {
       }
       const mod = 1 - rank * config.Mods.Vengeance;
       return getThreatCoefficient({
-        [School.Pysical]: mod,
+        [School.Physical]: mod,
         [School.Holy]: mod,
       });
     },

@@ -84,31 +84,31 @@ test.describe("/sod/ threat values", () => {
 
     await expect(page.locator("#threatTableContainer")).toMatchAriaSnapshot(`
       - textbox
-      - text: "Neitsa - Started fight with threat coeff 1.95"
+      - text: "Neitsa - Started fight with threat coeff 2.85"
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 86.47 seconds"
-          - row "Seal of Martyrdom	111918.60	1294.25"
+          - row "Seal of Martyrdom	158833.80	1836.78"
           - row "Melee	108772.50	1257.86"
-          - row "Hammer of the Righteous	35521.20	410.77"
-          - row "Shield of Righteousness	22836.45	264.08"
-          - row "Avenger's Shield	22029.15	254.75"
+          - row "Hammer of the Righteous	51915.60	600.36"
+          - row "Shield of Righteousness	33376.35	385.97"
+          - row "Avenger's Shield	32196.45	372.33"
+          - row "Holy Shield	18786.06	217.25"
+          - row "Judgement of Martyrdom	16196.55	187.30"
           - row "Redoubt	13230.00	152.99"
-          - row "Holy Shield	12853.62	148.64"
-          - row "Judgement of Martyrdom	11081.85	128.15"
-          - row "Exorcism	6253.65	72.32"
-          - row "Judgement of Light	6099.60	70.54"
+          - row "Exorcism	9139.95	105.70"
+          - row "Judgement of Light	8914.80	103.09"
+          - row "Vindication	4104.00	47.46"
           - row "Thorns	3868.50	44.74"
-          - row "Vindication	2808.00	32.47"
           - row "Righteous Fury	1826.00	21.12"
           - row "Wild Strike	1800.00	20.82"
           - row "Defender's Resolve	1260.00	14.57"
+          - row "Holy Fortitude	1197.00	13.84"
           - row "Fire Strike	925.50	10.70"
-          - row "Holy Fortitude	819.00	9.47"
-          - row "Guarded by the Light	765.50	8.85"
+          - row "Guarded by the Light	819.50	9.48"
           - row "Crusader's Zeal	360.00	4.16"
-          - row "Divine Protection	117.00	1.35"
-          - row "Total	365146.12	4222.61"
+          - row "Divine Protection	171.00	1.98"
+          - row "Total	467693.56	5408.49"
       `);
   });
 
@@ -239,26 +239,26 @@ test.describe("/sod/ threat values", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 107.19 seconds"
-          - row "Melee	65252.10	608.78"
           - row "Seal of Martyrdom	57319.61	534.77"
+          - row "Melee	45676.47	426.15"
           - row "Judgement of Martyrdom	40880.21	381.40"
           - row "Righteous Vengeance	18817.40	175.56"
           - row "Seal of Command	13945.40	130.11"
           - row "Crusader Strike	11246.51	104.93"
-          - row "Divine Storm	8091.56	75.49"
           - row "Exorcism	6717.41	62.67"
           - row "Hammer of Wrath	6373.50	59.46"
           - row "Dragonbreath Chili	5858.30	54.66"
-          - row "Sheath of Light	5300.00	49.45"
-          - row "Vengeance	2821.00	26.32"
+          - row "Divine Storm	5804.87	54.16"
+          - row "Sheath of Light	3710.00	34.61"
+          - row "Vengeance	1974.70	18.42"
           - row "Vindication	1259.30	11.75"
           - row "Swift Judgement	1197.00	11.17"
           - row "Wild Strike	602.00	5.62"
           - row "Judgement of Wisdom	434.00	4.05"
-          - row "Wrath of Wray	42.00	0.39"
           - row "Avenging Wrath	29.40	0.27"
           - row "Aura Mastery	29.40	0.27"
-          - row "Total	246216.10	2297.11"
+          - row "Wrath of Wray	29.40	0.27"
+          - row "Total	221904.88	2070.30"
       `);
   });
 

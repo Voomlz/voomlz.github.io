@@ -137,7 +137,16 @@ export function getThreatCoefficient(values) {
  * @returns {ThreatCoefficientFn}
  */
 export function getAdditiveThreatCoefficient(value, base) {
-  return getThreatCoefficient((base + value) / base);
+  return getThreatCoefficient(additiveThreatCoeff(value, base));
+}
+
+/**
+ * Returns the multiplicative threat coefficient from a base and an additive value
+ * @param {number} value - The additive value to add to the base
+ * @param {number} base - The base threat coefficient
+ */
+export function additiveThreatCoeff(value, base) {
+  return (base + value) / base;
 }
 
 /**
