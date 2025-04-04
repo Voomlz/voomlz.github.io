@@ -1,6 +1,5 @@
 import {
   borders,
-  gearSetCount,
   getThreatCoefficient,
   GLOBAL_SPELL_HANDLER_ID,
   handler_bossDropThreatOnHit,
@@ -1066,12 +1065,12 @@ function handler_righteousDefense(ev, fight) {
       continue;
     }
     if (
-      enemies[j].lastTarget.global != null &&
-      enemies[j].threat[enemies[j].lastTarget.global.id] != null
+      enemies[j].lastTarget.wclUnit != null &&
+      enemies[j].threat[enemies[j].lastTarget.wclUnit.id] != null
     ) {
       maxThreat = Math.max(
         maxThreat,
-        enemies[j].threat[enemies[j].lastTarget.global.id].currentThreat
+        enemies[j].threat[enemies[j].lastTarget.wclUnit.id].currentThreat
       );
     }
     if (maxThreat !== 0) {
