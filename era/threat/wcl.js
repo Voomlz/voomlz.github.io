@@ -74,14 +74,14 @@ export async function fetchWCLreport(path, start, end, config) {
   let t = start;
   let events = [];
   let filter = encodeURI(`
-    type IN ("death","cast","begincast") 
-    OR ability.id IN (${Object.keys(config.notableBuffs).join(",")}) 
-    OR (
-      type IN ("combatantinfo","damage","heal","healing","miss","applybuff","applybuffstack","refreshbuff",
-               "applydebuff","applydebuffstack","refreshdebuff","resourcechange","absorbed",
-               "healabsorbed","leech","drain", "removebuff") 
-      AND ability.id NOT IN (${config.zeroThreatSpells.join(",")})
-    )`);
+type IN ("death","cast","begincast") 
+OR ability.id IN (${Object.keys(config.notableBuffs).join(",")}) 
+OR (
+  type IN ("combatantinfo","damage","heal","healing","miss","applybuff","applybuffstack","refreshbuff",
+  "applydebuff","applydebuffstack","refreshdebuff","resourcechange","absorbed",
+  "healabsorbed","leech","drain", "removebuff") 
+  AND ability.id NOT IN (${config.zeroThreatSpells.join(",")})
+)`);
   while (typeof t === "number") {
     let json = await fetchWCLv1(
       `report/events/${path}&start=${t}&end=${end}&filter=${filter}`
@@ -91,6 +91,22 @@ export async function fetchWCLreport(path, start, end, config) {
     t = json.nextPageTimestamp;
   }
   return events;
+}
+
+/**
+ * @param {string} path
+ * @param {number} start
+ * @param {number} end
+ * @param {number} source
+ * @returns {Promise<WCLAuraUptime[]>}
+ */
+export async function fetchWCLMisdirectionUptime(path, start, end, source) {
+  let query = `report/tables/buffs/${path}&start=${start}&end=${end}&abilityid=35079&sourceid=${source}`;
+  /** @type {WCLTableResponse} */
+  let json = await fetchWCLv1(query);
+  if (!json) throw "Could not parse report " + path;
+  json.auras.source = source;
+  return json.auras;
 }
 
 async function fetchWCLDebuffs(path, start, end, abilityId, stack) {
@@ -396,4 +412,25 @@ const WCLQuality = {
 
 /**
  * @typedef {WCLFriendlyUnit | WCLEnemyUnit | WCLFriendlyPet} WCLUnit
+ */
+
+/**
+ * @typedef {{
+ *   auras: WCLAuraUptime[];
+ *   totalTime: number;
+ *   useTargets: boolean;
+ *   startTime: number;
+ *   endTime: number;
+ *   logVersion: number;
+ *   gameVersion: number;
+ * }} WCLTableResponse
+ */
+
+/**
+ * @typedef {WCLAura & {
+ *   id: number;
+ *   totalUptime: number;
+ *   totalUses: number;
+ *   bands: {startTime: number; endTime: number}[];
+ * }} WCLAuraUptime
  */
