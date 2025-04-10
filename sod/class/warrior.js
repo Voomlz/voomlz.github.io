@@ -28,6 +28,9 @@ export const config = {
     /** Shield Slam from 2.0 mod to 3.0 mod */
     TAQ_Tank_4pc: 1.5,
 
+    /** Gladiator Stance no longer reduces your Armor or Threat, and instead increases threat by 30% */
+    SE_Tank_6pc: 1.3,
+
     /** 1.5x to Thunder Clap with the rune */
     FuriousThunder: 1.5,
 
@@ -41,6 +44,7 @@ export const config = {
   Tier: {
     T1_Tank: 1719,
     TAQ_Tank: 1857,
+    SE_Tank: 1933, // https://www.wowhead.com/classic-ptr/item-set=1933/lightbreakers-battlegear
   },
   Enchant: {
     SouOfEnmity: 7678, // T1_Tank_6pc
@@ -50,6 +54,7 @@ export const config = {
     ...era.config.Buff,
     T1_Tank_6pc: 457651,
     TAQ_Tank_4pc: 1214162,
+    SE_Tank_6pc: 1227245,
     RuneOfDevastate: 403195,
     RuneOfFuriousThunder: 403219,
   },
@@ -77,13 +82,23 @@ export const buffNames = {
   [config.Stance.Gladiator]: "Gladiator Stance",
   [config.Buff.T1_Tank_6pc]: "S03 - Item - T1 - Warrior - Tank 6P Bonus",
   [config.Buff.TAQ_Tank_4pc]: "S03 - Item - TAQ - Warrior - Tank 4P Bonus",
+  [config.Buff.SE_Tank_6pc]:
+    "S03 - Item - Scarlet Enclave - Warrior - Protection 6P Bonus",
   [config.Buff.RuneOfDevastate]: "Rune of Devastate",
   [config.Buff.RuneOfFuriousThunder]: "Rune of Furious Thunder",
 };
 
 export const buffMultipliers = {
   ...era.buffMultipliers,
-  [config.Stance.Gladiator]: getThreatCoefficient(config.Mods.GladiatorStance),
+  [config.Stance.Gladiator]: {
+    coeff: (buffs) => {
+      if (config.Buff.SE_Tank_6pc in buffs) {
+        return getThreatCoefficient(config.Mods.SE_Tank_6pc);
+      }
+
+      return getThreatCoefficient(config.Mods.GladiatorStance);
+    },
+  },
   [config.Buff.T1_Tank_6pc]: {
     coeff: (buffs, spellId) => {
       if (config.Stance.Defensive in buffs) {
@@ -177,6 +192,11 @@ export const combatantImplications = (unit, buffs, talents) => {
     gearHasTempEnchant(unit.gear, config.Enchant.SoulOfTheSentinel)
   ) {
     buffs[config.Buff.TAQ_Tank_4pc] = true;
+  }
+
+  // Scarlet Enclave Tank 6pc
+  if (gearSetCount(unit.gear, config.Tier.SE_Tank) >= 6) {
+    buffs[config.Buff.SE_Tank_6pc] = true;
   }
 
   if (gearHasTempEnchant(unit.gear, config.Rune.Devastate)) {
