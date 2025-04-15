@@ -18,16 +18,16 @@ test.describe("/era/ threat values - Naxx mechanics", () => {
               - row "Ability        Threat (*)  Per 81.30 seconds"
           - row "Heroic Strike	73234.07	900.84"
           - row "Hateful Strike	31200.00	383.79"
-          - row "Bloodthirst	14979.90	184.27"
+          - row "Bloodthirst	14981.02	184.28"
           - row "Revenge	10888.46	133.94"
+          - row "Battle Shout	1838.85	22.62"
           - row "Gift of Arthas	1614.60	19.86"
-          - row "Battle Shout	1601.15	19.70"
           - row "Melee	830.32	10.21"
           - row "Sunder Armor	780.39	9.60"
           - row "Bloodrage	157.13	1.93"
-          - row "Unbridled Wrath	93.25	1.15"
+          - row "Unbridled Wrath	95.42	1.17"
           - row "Kiss of the Spider	89.70	1.10"
-          - row "Total	135468.96	1666.39"
+          - row "Total	135709.95	1669.35"
       `);
   });
 

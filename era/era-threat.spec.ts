@@ -16,18 +16,18 @@ test.describe("/era/ threat values", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 34.58 seconds"
-          - row "Heroic Strike      44101.00    1275.41"
-          - row "Bloodthirst        19526.04    564.70"
-          - row "Melee              16111.62    465.95"
-          - row "Revenge            2953.37     85.41"
-          - row "Gift of Arthas     941.85      27.24"
-          - row "Sunder Armor       390.19      11.28"
-          - row "Demoralizing Shout 192.86      5.58"
-          - row "Judgement of Light 144.79      4.19"
-          - row "Kiss of the Spider 89.70       2.59"
-          - row "Unbridled Wrath    9.00        0.26"
-          - row "Battle Shout       7.85        0.23"
-          - row "Total              84468.27    2442.83"
+          - row "Heroic Strike	44101.00	1275.41"
+          - row "Bloodthirst	19526.04	564.70"
+          - row "Melee	16111.62	465.95"
+          - row "Revenge	2953.37	85.41"
+          - row "Gift of Arthas	941.85	27.24"
+          - row "Sunder Armor	390.19	11.28"
+          - row "Demoralizing Shout	192.86	5.58"
+          - row "Judgement of Light	145.04	4.19"
+          - row "Kiss of the Spider	89.70	2.59"
+          - row "Unbridled Wrath	9.03	0.26"
+          - row "Battle Shout	8.05	0.23"
+          - row "Total	84468.74	2442.85"
       `);
   });
 
@@ -69,18 +69,18 @@ test.describe("/era/ threat values", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 34.58 seconds"
-          - row "Cleave 15779.68 456.35"
-          - row "Melee 14248.64 412.07"
-          - row "Execute 8054.90 232.95"
-          - row "Bloodthirst 6582.91 190.38"
-          - row "Whirlwind 4473.00 129.36"
-          - row "Heroic Strike 4282.88 123.86"
-          - row "Hamstring 683.20 19.76"
-          - row "Dragonbreath Chili 162.40 4.70"
-          - row "Judgement of Light 19.87 0.57"
-          - row "Kiss of the Spider 11.20 0.32"
-          - row "Unbridled Wrath 6.39 0.18"
-          - row "Total 54305.07 1570.51"
+          - row "Cleave	15779.68	456.35"
+          - row "Melee	14248.64	412.07"
+          - row "Execute	8054.90	232.95"
+          - row "Bloodthirst	6582.92	190.38"
+          - row "Whirlwind	4473.00	129.36"
+          - row "Heroic Strike	4282.88	123.86"
+          - row "Hamstring	683.20	19.76"
+          - row "Dragonbreath Chili	162.40	4.70"
+          - row "Judgement of Light	19.97	0.58"
+          - row "Kiss of the Spider	11.20	0.32"
+          - row "Unbridled Wrath	6.44	0.19"
+          - row "Total	54305.23	1570.51"
       `);
   });
 
@@ -118,16 +118,16 @@ test.describe("/era/ threat values", () => {
       - table:
           - rowgroup:
               - row "Ability        Threat (*)  Per 34.58 seconds"
-          - row "Melee 6993.78 202.26"
-          - row "Sinister Strike 3533.17 102.18"
-          - row "Fire Shield 141.15 4.08"
-          - row "Burst of Energy 27.27 0.79"
-          - row "Blade Flurry 9.94 0.29"
-          - row "Relentless Strikes Effect 8.12 0.23"
-          - row "Judgement of Light 5.05 0.15"
-          - row "Slice and Dice 1.69 0.05"
-          - row "Head Rush 0.71 0.02"
-          - row "Total 10720.88 310.05"
+          - row "Melee	6993.78	202.26"
+          - row "Sinister Strike	3533.17	102.18"
+          - row "Fire Shield	141.15	4.08"
+          - row "Burst of Energy	27.27	0.79"
+          - row "Blade Flurry	9.94	0.29"
+          - row "Relentless Strikes Effect	8.34	0.24"
+          - row "Judgement of Light	5.08	0.15"
+          - row "Slice and Dice	1.72	0.05"
+          - row "Head Rush	0.71	0.02"
+          - row "Total	10721.18	310.06"
       `);
   });
 
