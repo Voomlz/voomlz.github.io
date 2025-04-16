@@ -1,6 +1,11 @@
-import { fetchWCLreport } from "./wcl.js";
+import { fetchWCLMisdirectionUptime, fetchWCLreport } from "./wcl.js";
 import { Unit, Player, NPC } from "./unit.js";
-import { handler_basic, handler_mark, threatFunctions } from "../base.js";
+import {
+  handler_basic,
+  handler_mark,
+  threatFunctions,
+  GLOBAL_SPELL_HANDLER_ID,
+} from "../base.js";
 
 /**
  * @typedef {'source' | 'target'} UnitSpecifier
@@ -12,9 +17,10 @@ export class Fight {
    * @param {string} reportId
    * @param {import("./wcl.js").WCLFight} fight
    * @param {Record<string, import("./wcl.js").WCLUnit>} globalUnits
-   * @param {string} faction
+   * @param {'Alliance' | 'Horde' | undefined} faction
+   * @param {number} gameVersion
    */
-  constructor(config, reportId, fight, globalUnits, faction) {
+  constructor(config, reportId, fight, globalUnits, faction, gameVersion) {
     /**
      * @type {import("../base.js").GameVersionConfig}
      */
@@ -24,6 +30,8 @@ export class Fight {
     this.end = fight.end_time;
     this.id = fight.id;
     this.encounter = fight.boss;
+    /** @type {number} */
+    this.gameVersion = gameVersion;
 
     /** @type {import("./wcl.js").WCLFight} */
     this.wclData = fight;
@@ -32,6 +40,7 @@ export class Fight {
      * @type {Record<string, import("./wcl.js").WCLUnit>}
      */
     this.globalUnits = globalUnits;
+    /** @type {'Alliance' | 'Horde' | undefined} */
     this.faction = faction;
     this.reportId = reportId;
     this.tranquilAir = false;
@@ -47,6 +56,9 @@ export class Fight {
 
     /** @type {import("./wcl.js").WCLEvent[] | undefined} */
     this.events = undefined;
+
+    /** @type {Record<string, import("./wcl.js").WCLAuraUptime[]>} */
+    this.mdAuras = {};
   }
 
   async fetch() {
@@ -87,6 +99,22 @@ export class Fight {
           }
         }
         lastTime = this.events[i].timestamp;
+      }
+    }
+
+    // TBC onwards: handle misdirection mechanics
+    if (this.gameVersion >= 5) {
+      for (let key in this.globalUnits) {
+        if (this.globalUnits[key].type === "Hunter") {
+          let misdirectionUptime = await fetchWCLMisdirectionUptime(
+            this.reportId + "?",
+            this.start,
+            this.end,
+            this.globalUnits[key].id
+          );
+          misdirectionUptime.source = this.globalUnits[key].id;
+          this.mdAuras[this.globalUnits[key].id] = misdirectionUptime;
+        }
       }
     }
   }
@@ -130,6 +158,39 @@ export class Fight {
       this.units[k] = a[k];
     }
     return this.units[k];
+  }
+
+  /**
+   * @param {import("./wcl.js").WCLEvent} ev
+   */
+  initFriendly(ev) {
+    let key = Unit.eventToKey(ev, "source");
+
+    if (!key || key == -1) return;
+    if (!(key in this.units)) {
+      let [friendlies] = this.eventToFriendliesAndEnemies(ev, "source");
+      let [id] = key.split(".");
+      let wclUnit = this.globalUnits[id];
+      if (!wclUnit) {
+        if (globalThis.DEBUGMODE)
+          console.log("Invalid unit", ev, "source", this.globalUnits);
+        return;
+      }
+      let type = wclUnit.type;
+      if (type === "NPC" || type === "Boss" || type === "Pet") {
+        return;
+      } else {
+        friendlies[key] = new Player(
+          this.config,
+          key,
+          this.globalUnits[id],
+          this.events,
+          this,
+          this.tranquilAir
+        );
+      }
+      this.units[key] = friendlies[key];
+    }
   }
 
   /**
@@ -236,6 +297,13 @@ export class Fight {
       }
     }
 
+    if (
+      "ability" in ev &&
+      this.config.spellFunctions[GLOBAL_SPELL_HANDLER_ID]
+    ) {
+      this.config.spellFunctions[GLOBAL_SPELL_HANDLER_ID](ev, this);
+    }
+
     let f = handler_basic;
     if ("ability" in ev && ev.ability.guid in this.config.spellFunctions) {
       f = this.config.spellFunctions[ev.ability.guid];
@@ -247,8 +315,14 @@ export class Fight {
     this.friendlies = {};
     this.enemies = {};
     this.units = {};
-    for (let i = 0; i < this.events.length; ++i) {
-      this.processEvent(this.events[i]);
+
+    // Force instantiate all friendly units so we don't have a bug with MD pull
+    const initialEvents = (this.events ?? []).slice(0, 450);
+    for (let ev of initialEvents) {
+      this.initFriendly(ev);
+    }
+    for (let ev of this.events ?? []) {
+      this.processEvent(ev);
     }
   }
 }

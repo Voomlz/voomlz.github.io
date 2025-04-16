@@ -1,68 +1,92 @@
-let DEBUGMODE = false;
+import {
+  applyThreatCoefficient,
+  borders,
+  gearSetCount,
+  getThreatCoefficient,
+  GLOBAL_SPELL_HANDLER_ID,
+  handler_bossDropThreatOnHit,
+  handler_bossThreatWipeOnCast,
+  handler_castCanMiss,
+  handler_damage,
+  handler_markSourceOnMiss,
+  handler_modDamage,
+  handler_modDamagePlusThreat,
+  handler_modHeal,
+  handler_resourcechange,
+  handler_threatOnBuff,
+  handler_threatOnDebuff,
+  handler_threatOnHit,
+  handler_vanish,
+  handler_zero,
+  threatFunctions,
+} from "../era/base.js";
 
-let borders = {
-  taunt: [3, "#ffa500"],
+export {
+  preferredSpellSchools,
+  aggroLossBuffs,
+  baseThreatCoefficients,
+  invulnerabilityBuffs,
+} from "../era/spells.js";
+
+import * as era from "../era/spells.js";
+import { Fight } from "../era/threat/fight.js";
+
+const Druid = {
+  Mod: {
+    /** Same as original handler_mangleModDamage */
+    Mangle: 1 + (1.5 - 1.15) / 1.15,
+    T6_2pc: 1.5,
+  },
+  Buff: {
+    T6_2pc: 38447,
+  },
+  Tier: {
+    T6: 676,
+  },
 };
 
-function getThreatCoefficient(values) {
-  if (typeof values === "number") {
-    values = { 0: values };
-  }
-  if (!(0 in values)) values[0] = 1;
-  return function (spellSchool = 0) {
-    if (spellSchool in values) return values[spellSchool];
-    return values[0];
-  };
-}
-
-const preferredSpellSchools = {
-  Mage: 16, // Frost
-  Priest: 2, // Holy
-  Paladin: 2, // Holy
-  Warlock: 32, // Shadow
-  // Others will be defaulted to 1 = physical
-};
-
-const baseThreatCoefficients = {
-  Rogue: getThreatCoefficient(0.71),
-  // Others will be defaulted to 1
-};
-
-const buffNames = {
-  1038: "Blessing of Salvation",
-  25895: "Greater Blessing of Salvation",
-  25909: "Tranquil Air Totem",
-  71: "Defensive Stance",
-  2457: "Battle Stance",
-  2458: "Berserker Stance",
-  5487: "Bear Form",
-  9634: "Dire Bear Form",
-  768: "Cat Form",
-  25780: "Righteous Fury",
+export const buffNames = {
+  ...era.buffNames,
   35079: "Misdirection",
   2613: "Enchant : Threat on gloves",
   2621: "Enchant : Subtlety",
+  40618: "Insignificance",
+  [Druid.Buff.T6_2pc]: "Improved Mangle (T6 2pc)",
 };
 
-const buffMultipliers = {
-  1038: getThreatCoefficient(0.7), // BoS
+export const initialBuffs = {
+  ...era.initialBuffs,
+  All: {
+    ...era.initialBuffs.All,
+    2613: 0,
+    2621: 0,
+  },
+};
+
+export const buffMultipliers = {
+  ...era.buffMultipliers,
   40618: getThreatCoefficient(0), // Gurtogg Insignificance
-  25895: getThreatCoefficient(0.7), // GBoS
-  25909: getThreatCoefficient(0.8), // Tranquil Air Totem Aura
-  71: getThreatCoefficient(1.3), // Defensive Stance
-  2457: getThreatCoefficient(0.8), // Battle Stance
-  2458: getThreatCoefficient(0.8), // Berserker Stance
-  5487: getThreatCoefficient(1.3), // Bear Form
-  9634: getThreatCoefficient(1.3), // Dire Bear Form
-  768: getThreatCoefficient(0.71), // Cat Form
-  25780: getThreatCoefficient({ 2: 1.6 }), // Righteous Fury
-  26400: getThreatCoefficient(0.3), // Fetish of the Sand Reaver
   2613: getThreatCoefficient(1.02), // gloves enchants
   2621: getThreatCoefficient(0.98), // subtlety enchants
+
+  [Druid.Buff.T6_2pc]: {
+    coeff: (buffs, spellId) => {
+      const mangleSpells = {
+        33878: true,
+        33986: true,
+        33987: true,
+      };
+
+      if (spellId in mangleSpells) {
+        return getThreatCoefficient(Druid.Mod.T6_2pc / Druid.Mod.Mangle);
+      }
+      // without T6, use the regular mangle mod
+      return getThreatCoefficient(1);
+    },
+  },
 };
 
-// The leaf elements are functions (buffs,rank) => threatCoefficient
-const talents = {
+export const talents = {
   Warrior: {
     Defiance: {
       maxRank: 3,
@@ -277,64 +301,19 @@ const talents = {
   },
 };
 
-// These make dots green-bordered
-const invulnerabilityBuffs = {
-  498: "Divine Protection",
-  5573: "Divine Protection",
-  642: "Divine Shield",
-  1020: "Divine Shield",
-  1022: "Blessing of Protection",
-  5599: "Blessing of Protection",
-  10278: "Blessing of Protection",
-  11958: "Ice Block",
-  3169: "LIP", // Limited Invulnerability Potion
-  19752: "Divine Intervention",
-  6724: "Light of Elune",
-};
-// These make dots yellow-bordered
-const aggroLossBuffs = {
-  118: true,
-  12824: true,
-  12825: true,
-  28272: true,
-  28271: true,
-  12826: true, // Mages' Polymorph
-  23023: true, // Razorgore Conflagrate
-  23310: true,
-  23311: true,
-  23312: true, // Chromaggus Time Lapse
-  22289: true, // Brood Power: Green
-  20604: true, // Lucifron Dominate Mind
-  24327: true, // Hakkar's Cause Insanity
-  23603: true, // Nefarian: Wild Polymorph
-  26580: true, // Princess Yauj: Fear
-};
-// These make dots orange
-const fixateBuffs = {
-  355: true, // Taunt
-  1161: true, // Challenging Shout
-  5209: true, // Challenging Roar
-  6795: true, // Growl
+export const fixateBuffs = {
+  ...era.fixateBuffs,
   40604: true, // Gurtogg Fel Rage
-  694: true,
-  7400: true,
-  7402: true,
-  20559: true,
-  20560: true, // Mocking Blow
-  29060: true, // Deathknight Understudy Taunt
 };
-// These make a dot in the graph on application and removal
-// Also used for event filtering in fetchWCLreport
-const notableBuffs = {
-  23397: true, // Nefarian's warrior class call
-  23398: true, // Druid class call
-};
-for (let k in buffMultipliers) notableBuffs[k] = true;
-for (let k in invulnerabilityBuffs) notableBuffs[k] = true;
-for (let k in aggroLossBuffs) notableBuffs[k] = true;
-for (let k in fixateBuffs) notableBuffs[k] = true;
 
-const auraImplications = {
+export const notableBuffs = {
+  ...era.notableBuffs,
+  ...buffNames,
+  ...buffMultipliers,
+};
+
+export const auraImplications = {
+  ...era.auraImplications,
   Warrior: {
     7384: 2457,
     7887: 2457,
@@ -378,401 +357,57 @@ const auraImplications = {
     25258: 71,
     30356: 71, // Shield slam
   },
-  /*
-    Druid: {
-        6807: 9634, 6808: 9634, 6809: 9634, 8972: 9634, 9745: 9634, 9880: 9634, 9881: 9634, 26996: 9634, //Maul
-        779: 9634, 780: 9634, 769: 9634, 9754: 9634, 9908: 9634, 26997: 9634, //Swipe
-        99: 9634, 1735: 9634, 9490: 9634, 9747: 9634, 9898: 9634, 26998: 9634, //Demoralizing Roar
-        33878: 9634, 33986: 9634, 33987: 9634, // mangle bear
-        33876: 9634, 33982: 9634, 33983: 9634, // mangle cat
-        33745: 9634, // lacerate
-        6795: 9634, //Growl
-        5229: 9634, //Enrage
-        17057: 9634, //Furor
-        8983: 9634, //Bash
-        9850: 768, //Claw
-        5221: 768, 6800: 768, 8992: 768, 9829: 768, 9830: 768, 27002: 768,  //Shred
-        9904: 768, //Rake
-        24248: 768, 31018: 768, 22828: 768, 22829: 768, //Ferocious Bite
-        9867: 768, //Ravage
-        9896: 768, 27008: 768, //Rip
-        9827: 768, //Pounce
-        9913: 768, //Prowl
-        9846: 768, //Tiger's Fury
-        1850: 768, 9821: 768, //Dash
-    }
-    */
-};
-
-const threatFunctions = {
-  sourceThreatenTarget(
-    ev,
-    fight,
-    amount,
-    useThreatCoeffs = true,
-    extraCoeff = 1
-  ) {
-    // extraCoeff is only used for tooltip text
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) {
-      return;
-    }
-    let coeff = (useThreatCoeffs ? a.threatCoeff(ev.ability) : 1) * extraCoeff;
-
-    b.addThreat(a.key, amount, ev.timestamp, ev.ability.name, coeff);
+  Druid: {
+    // intentionally blank, to undo all the era druid implications
   },
-  unitThreatenEnemiesSplit(ev, unit, fight, amount, useThreatCoeffs = true) {
-    let u = fight.eventToUnit(ev, unit);
-    if (!u) return;
-    let coeff = useThreatCoeffs ? u.threatCoeff(ev.ability) : 1;
-    let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
-    let numEnemies = 0;
-
-    if (splitHealingThreatOption) {
-      for (let k in enemies) {
-        if (enemies[k].alive) numEnemies += 1;
-      }
-      for (let k in enemies) {
-        enemies[k].addThreat(
-          u.key,
-          amount / numEnemies,
-          ev.timestamp,
-          ev.ability.name,
-          coeff
-        );
-      }
-    } else {
-      for (let k in enemies) {
-        enemies[k].addThreat(
-          u.key,
-          amount,
-          ev.timestamp,
-          ev.ability.name,
-          coeff
-        );
-      }
-    }
-  },
-  unitThreatenEnemiesSplitOnHealRedirect(ev, unit, fight, amount) {
-    let u = fight.eventToUnit(ev, unit);
-    if (!u) return;
-    let coeff;
-    if (u.type === "Paladin") {
-      // Only holy abilities (prayer of mending here) have coef
-      coeff = u.threatCoeff(ev.ability);
-    } else {
-      coeff = u.threatCoeff();
-    }
-    let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
-
-    if (splitHealingThreatOption) {
-      let numEnemies = 0;
-      for (let k in enemies) {
-        if (enemies[k].alive) numEnemies += 1;
-      }
-      for (let k in enemies) {
-        enemies[k].addThreat(
-          u.key,
-          amount / numEnemies,
-          ev.timestamp,
-          ev.ability.name,
-          coeff
-        );
-      }
-    } else {
-      for (let k in enemies) {
-        enemies[k].addThreat(
-          u.key,
-          amount,
-          ev.timestamp,
-          ev.ability.name,
-          coeff
-        );
-      }
-    }
-  },
-  unitThreatenEnemies(ev, unit, fight, amount, useThreatCoeffs = true) {
-    let u = fight.eventToUnit(ev, unit);
-    if (!u) return;
-    let coeff = useThreatCoeffs ? u.threatCoeff(ev.ability) : 1;
-    let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
-    for (let k in enemies) {
-      enemies[k].addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
-    }
-  },
-  unitLeaveCombat(ev, unit, fight, text) {
-    let u = fight.eventToUnit(ev, unit);
-    if (!u) return;
-    for (let k in fight.units) {
-      if (!("threat" in fight.units[k]) || !(u.key in fight.units[k].threat))
-        continue;
-      fight.units[k].setThreat(u.key, 0, ev.timestamp, text);
-    }
-  },
-  threatWipe(sources, targets, time, text) {
-    for (let a in sources) {
-      let source = sources[a];
-      for (let targetKey in targets) {
-        source.setThreat(targetKey, 0, time, text);
-      }
-    }
-  },
-  concat() {
-    return (ev, fight) => {
-      for (let i = 0; i < arguments.length; ++i) {
-        // Arguments is from outer func
-        arguments[i](ev, fight);
-      }
-    };
+  Paladin: {
+    27179: 25780, // Holy shield r4 -> Righteous Fury
   },
 };
 
-function handler_vanish(ev, fight) {
-  if (ev.type !== "cast") return;
-  threatFunctions.unitLeaveCombat(ev, "source", fight, ev.ability.name);
-}
+/**
+ * Modded: threatens the heal target, but also does not apply ability coefficient unless it's a paladin
+ *
+ *
+ * @param {{
+ *   ev: import("../era/threat/wcl.js").WCLEvent;
+ *   unit: import("../era/threat/fight.js").UnitSpecifier;
+ *   fight: Fight;
+ *   amount: number;
+ *   multiplier?: number;
+ * }} params
+ */
+function unitThreatenEnemiesSplitOnHealRedirect({
+  ev,
+  unit,
+  fight,
+  amount,
+  multiplier = 1,
+}) {
+  let u = fight.eventToUnit(ev, unit);
+  if (!u) return;
 
-function handler_mindcontrol(ev, fight) {
-  // Event target resets threat on everything on debuff apply and deapply.
-  // Not sure if this is the real behaviour...
-  if (ev.type === "applydebuff") {
-    threatFunctions.unitLeaveCombat(ev, "target", fight, ev.ability.name);
-  } else if (ev.type === "removedebuff") {
-    threatFunctions.unitLeaveCombat(
-      ev,
-      "target",
-      fight,
-      ev.ability.name + " fades"
-    );
-  }
-}
-
-function handler_resourcechange(ev, fight) {
-  if (ev.type !== "resourcechange") return;
-  let diff = ev.resourceChange - ev.waste;
-  // Not sure if threat should be given to "target" instead...
-  threatFunctions.unitThreatenEnemiesSplit(
-    ev,
-    "source",
-    fight,
-    ev.resourceChangeType === 0 ? diff / 2 : diff * 5,
-    false
+  let coeff = applyThreatCoefficient(
+    u.type === "Paladin" ? u.threatCoeff(ev.ability) : u.threatCoeff(),
+    multiplier,
+    ev.ability.name
   );
-}
 
-function handler_resourcechangeCoeff(ev, fight) {
-  if (ev.type !== "resourcechange") return;
-  let diff = ev.resourceChange - ev.waste;
-  // Not sure if threat should be given to "target" instead...
-  threatFunctions.unitThreatenEnemiesSplit(
-    ev,
-    "source",
-    fight,
-    ev.resourceChangeType === 0 ? diff / 2 : diff * 5,
-    true
-  );
-}
+  let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
+  const aliveEnemies = Object.values(enemies).filter((e) => e.alive);
+  const numEnemies = aliveEnemies.length;
 
-function handler_basic(ev, fight) {
-  switch (ev.type) {
-    case "damage":
-      let source = fight.eventToUnit(ev, "source");
-      if (source) {
-        if (
-          ev.sourceIsFriendly &&
-          source.handleMisdirectionDamage(ev.amount, ev, fight)
-        ) {
-        } else {
-          threatFunctions.sourceThreatenTarget(
-            ev,
-            fight,
-            ev.amount + (ev.absorbed || 0)
-          );
-        }
-      }
-      break;
-    case "heal":
-      if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.unitThreatenEnemiesSplit(
-        ev,
-        "source",
-        fight,
-        ev.amount / 2
-      );
-      break;
-    case "resourcechange":
-      if (DEBUGMODE) console.log("Unhandled resourcechange.", ev);
-      handler_resourcechange(ev, fight);
-      break;
-    case "applybuff":
-    case "refreshbuff":
-    case "applybuffstack":
-      if (DEBUGMODE) console.log("Unhandled buff.", ev);
-      if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, 60);
-      break;
-    case "applydebuff":
-    case "applydebuffstack":
-    case "refreshdebuff":
-      if (DEBUGMODE) console.log("Unhandled buff.", ev);
-      if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
-      threatFunctions.sourceThreatenTarget(ev, fight, 120);
-      break;
-    case "death":
-    case "combatantinfo":
-    case "encounterstart":
-    case "encounterend":
-    case "begincast":
-    case "removebuffstack":
-    case "removedebuffstack":
-    case "extraattacks":
-      break;
-    default:
-      if (DEBUGMODE) console.log("Unhandled event.", ev);
+  if (numEnemies !== 1 && (globalThis.splitHealingThreatOption ?? true)) {
+    coeff = applyThreatCoefficient(
+      coeff,
+      1 / numEnemies,
+      `split between ${numEnemies} enemies`
+    );
   }
-}
 
-function handler_mark(ev, fight) {
-  if (ev.type !== "cast") return;
-  if ("target" in ev && ev.target.id === -1) return; // Target is environment
-  let a = fight.eventToUnit(ev, "source");
-  let b = fight.eventToUnit(ev, "target");
-  if (ev.ability.guid === 1) {
-    a.lastTarget = b;
+  for (let e of aliveEnemies) {
+    e.addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
   }
-  if (!a || !b) return;
-  a.targetAttack(b.key, ev.timestamp, ev.ability.name);
-  if (ev.ability.guid === 1 || ev.ability.guid < 0) {
-    a.target = b;
-  }
-}
-
-function handler_markSourceOnMiss(border) {
-  return (ev, fight) => {
-    if (ev.type !== "damage") return;
-    if (ev.hitType !== 0 && ev.hitType <= 6) return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    b.addMark(a.key, ev.timestamp, "Missed " + ev.ability.name, border);
-  };
-}
-
-function handler_markSourceOnDebuff(border) {
-  return (ev, fight) => {
-    if (!["applydebuff", "applydebuffstack", "refreshdebuff"].includes(ev.type))
-      return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    let s = ev.ability.name;
-    //if (ev.type === "removedebuff") s += " fades";
-    b.addMark(a.key, ev.timestamp, s, border);
-  };
-}
-
-function handler_zero() {}
-
-function handler_castCanMiss(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t === "cast") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-    } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(ev, fight, -threatValue);
-    }
-  };
-}
-
-function handler_castCanMissNoCoefficient(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t === "cast") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue, false);
-    } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(ev, fight, -threatValue, false);
-    }
-  };
-}
-
-function handler_modDamage(multiplier) {
-  return (ev, fight) => {
-    if (ev.type !== "damage") return;
-    threatFunctions.sourceThreatenTarget(
-      ev,
-      fight,
-      ev.amount + (ev.absorbed || 0),
-      true,
-      multiplier
-    );
-  };
-}
-
-function handler_mangleModDamage() {
-  return (ev, fight) => {
-    if (ev.type !== "damage") return;
-    let source = fight.eventToUnit(ev, "source");
-    let multiplier = 1 + (1.5 - 1.15) / 1.15;
-    if (source.nbDruidT6Part >= 2) {
-      multiplier = 1.5;
-    }
-    threatFunctions.sourceThreatenTarget(
-      ev,
-      fight,
-      ev.amount + (ev.absorbed || 0),
-      true,
-      multiplier
-    );
-  };
-}
-
-function handler_modHeal(multiplier) {
-  return (ev, fight) => {
-    if (ev.type !== "heal") return;
-    threatFunctions.unitThreatenEnemiesSplit(
-      ev,
-      "source",
-      fight,
-      (multiplier * ev.amount) / 2
-    );
-  };
-}
-
-function handler_modDamagePlusThreat(multiplier, bonus) {
-  return (ev, fight) => {
-    if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-    threatFunctions.sourceThreatenTarget(
-      ev,
-      fight,
-      multiplier * (ev.amount + (ev.absorbed || 0)) + bonus
-    );
-  };
-}
-
-function handler_damage(ev, fight) {
-  if (ev.type !== "damage") return;
-  threatFunctions.sourceThreatenTarget(
-    ev,
-    fight,
-    ev.amount + (ev.absorbed || 0)
-  );
-}
-
-function handler_heal(ev, fight) {
-  if (ev.type !== "heal") return;
-  threatFunctions.unitThreatenEnemiesSplit(ev, "source", fight, ev.amount / 2);
-}
-
-function handler_threatOnHit(threatValue) {
-  return (ev, fight) => {
-    if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-    threatFunctions.sourceThreatenTarget(
-      ev,
-      fight,
-      ev.amount + (ev.absorbed || 0) + threatValue
-    );
-  };
 }
 
 let lastSunderEvent;
@@ -780,7 +415,7 @@ let lastSunderEvent;
 function handler_sunderArmor(threatValue) {
   return (ev, fight) => {
     if (ev.type === "cast") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
+      threatFunctions.sourceThreatenTarget({ ev, fight, amount: threatValue });
       return;
     }
 
@@ -793,11 +428,12 @@ function handler_sunderArmor(threatValue) {
 function handler_devastate(devastateValue, sunderValue) {
   return (ev, fight) => {
     if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
-    threatFunctions.sourceThreatenTarget(
+    threatFunctions.sourceThreatenTarget({
       ev,
       fight,
-      ev.amount + (ev.absorbed || 0) + devastateValue
-    );
+      amount: ev.amount + (ev.absorbed || 0),
+      bonusThreat: devastateValue,
+    });
 
     // Little hack to manage the case where we have multiple warrior sundering.
     // In WCL, only one will be considered as source of all sunder debuff on one target.
@@ -822,36 +458,13 @@ function handler_devastate(devastateValue, sunderValue) {
 
 function handler_threatAsTargetHealed(ev, fight) {
   if (ev.type === "cast") return;
-  threatFunctions.unitThreatenEnemiesSplitOnHealRedirect(
+  unitThreatenEnemiesSplitOnHealRedirect({
     ev,
-    "target",
+    unit: "target",
     fight,
-    ev.amount / 2
-  );
-}
-
-function handler_bossDropThreatOnHit(pct) {
-  return (ev, fight) => {
-    // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
-    // https://discordapp.com/channels/383596811517952002/673932163736928256/714590608819486740
-    // [00:27] ResultsMayVary: Just to expand on this. Spell threat drops (resists) cause threat loss. Physical misses (dodges/parries) do not cause threat drops.
-    if (
-      ev.type !== "damage" ||
-      (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) ||
-      ev.hitType === 0
-    )
-      return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    a.checkTargetExists(b.key, ev.timestamp);
-    a.setThreat(
-      b.key,
-      a.threat[b.key].currentThreat * pct,
-      ev.timestamp,
-      ev.ability.name
-    );
-  };
+    amount: ev.amount,
+    multiplier: 0.5,
+  });
 }
 
 let lastSpellReflectEvent;
@@ -908,47 +521,6 @@ function handler_hatefulstrike(mainTankThreat, offTankThreat) {
   };
 }
 
-function handler_bossDropThreatOnDebuff(pct) {
-  return (ev, fight) => {
-    if (ev.type !== "applydebuff") return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    a.checkTargetExists(b.key, ev.timestamp);
-    a.setThreat(
-      b.key,
-      a.threat[b.key].currentThreat * pct,
-      ev.timestamp,
-      ev.ability.name
-    );
-  };
-}
-
-function handler_bossDropThreatOnCast(pct) {
-  return (ev, fight) => {
-    if (ev.type !== "cast") return;
-    let a = fight.eventToUnit(ev, "source");
-    let b = fight.eventToUnit(ev, "target");
-    if (!a || !b) return;
-    a.checkTargetExists(b.key, ev.timestamp);
-    a.setThreat(
-      b.key,
-      a.threat[b.key].currentThreat * pct,
-      ev.timestamp,
-      ev.ability.name
-    );
-  };
-}
-
-function handler_bossThreatWipeOnCast(ev, fight) {
-  if (ev.type !== "cast") return;
-  let u = fight.eventToUnit(ev, "source");
-  if (!u) return;
-  for (let k in u.threat) {
-    u.setThreat(k, 0, ev.timestamp, ev.ability.name);
-  }
-}
-
 function handler_hydrossThreatWipeOnCast(ev, fight) {
   if (ev.type !== "cast") return;
   let u = fight.eventToUnit(ev, "source");
@@ -988,7 +560,45 @@ function handler_VashjBarrier(ev, fight) {
   }
 }
 
+/** @type {number | null} */
+let nightBaneNextLanding;
+
+/**
+ * Global handler (runs on every event) for Nightbane. After a certain delay it wipes all threat on
+ * all players/friendlies. It uses the first cast event after the delay to determine that Nightbane
+ * has landed (is now targetable).
+ *
+ * @param {import("../era/threat/wcl.js").WCLEvent} ev
+ * @param {import("../era/threat/fight.js").Fight} fight
+ */
+function handler_global_nightbaneLanding(ev, fight) {
+  if (nightBaneNextLanding) {
+    if (ev.sourceIsFriendly && !ev.targetIsFriendly) {
+      if (ev.timestamp > nightBaneNextLanding) {
+        let enemy =
+          /** @type {import("../era/threat/unit.js").NPC | undefined} */ (
+            fight.eventToUnit(ev, "target")
+          );
+        if (!enemy) return;
+        for (let playerKey in enemy.threat) {
+          enemy.setThreat(
+            playerKey,
+            0,
+            nightBaneNextLanding,
+            "Landing Threat Wipe"
+          );
+        }
+        nightBaneNextLanding = null;
+      }
+    }
+  }
+}
+
 function handler_nightbaneThreatWipeOnCast(delay) {
+  /**
+   * @param {import("../era/threat/wcl.js").WCLEvent} ev
+   * @param {import("../era/threat/fight.js").Fight} fight
+   */
   return (ev, fight) => {
     if (ev.type !== "cast") return;
     let u = fight.eventToUnit(ev, "source");
@@ -1013,22 +623,6 @@ function handler_illidanEndP2ThreatWipeOnCast(ev, fight) {
       }
     }
   }
-}
-
-function handler_bossPartialThreatWipeOnCast(pct) {
-  return (ev, fight) => {
-    if (ev.type !== "cast") return;
-    let u = fight.eventToUnit(ev, "source");
-    if (!u) return;
-    for (let k in u.threat) {
-      u.setThreat(
-        k,
-        u.threat[k].currentThreat * pct,
-        ev.timestamp,
-        ev.ability.name
-      );
-    }
-  };
 }
 
 function handler_partialThreatWipeOnCast(pct) {
@@ -1095,63 +689,27 @@ function handler_partialThreatWipeOnEvent(pct) {
   };
 }
 
-function handler_threatOnDebuff(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t !== "applydebuff" && t !== "refreshdebuff") return;
-    threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-  };
-}
-
-function handler_threatOnDebuffOrDamage(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t === "applydebuff") {
-      threatFunctions.sourceThreatenTarget(ev, fight, threatValue);
-    } else if (t === "damage") {
-      threatFunctions.sourceThreatenTarget(
-        ev,
-        fight,
-        ev.amount + (ev.absorbed || 0)
-      );
-    }
-  };
-}
-
 // https://zidnae.gitlab.io/tbc-armor-penetration-calc/tbc_bear_tc.html
-function handler_lacerate(threatValue, tickMultiplier) {
+function handler_lacerate(bonusThreat, tickMultiplier) {
   return (ev, fight) => {
     // miss dodge ect
     if (ev.type !== "damage" || ev.hitType > 6 || ev.hitType === 0) return;
 
     if (ev.tick) {
-      threatFunctions.sourceThreatenTarget(
+      threatFunctions.sourceThreatenTarget({
         ev,
         fight,
-        (ev.amount + (ev.absorbed || 0)) * tickMultiplier
-      );
+        amount: ev.amount + (ev.absorbed || 0),
+        multiplier: tickMultiplier,
+      });
       return;
     }
-    threatFunctions.sourceThreatenTarget(
+    threatFunctions.sourceThreatenTarget({
       ev,
       fight,
-      ev.amount + (ev.absorbed || 0) + threatValue
-    );
-  };
-}
-
-function handler_threatOnBuff(threatValue) {
-  return (ev, fight) => {
-    let t = ev.type;
-    if (t !== "applybuff" && t !== "refreshbuff") return;
-    let useCoeff = true;
-    threatFunctions.unitThreatenEnemiesSplit(
-      ev,
-      "source",
-      fight,
-      threatValue,
-      useCoeff
-    );
+      amount: ev.amount + (ev.absorbed || 0),
+      bonusThreat: bonusThreat,
+    });
   };
 }
 
@@ -1161,16 +719,22 @@ function handler_threatOnBuffUnsplit(threatValue, useCoeff) {
   return (ev, fight) => {
     let t = ev.type;
     if (t !== "applybuff" && t !== "refreshbuff") return;
-    threatFunctions.unitThreatenEnemies(
+    threatFunctions.unitThreatenEnemies({
       ev,
-      "source",
+      unit: "source",
       fight,
-      threatValue,
-      useCoeff
-    );
+      amount: threatValue,
+      useThreatCoeffs: useCoeff,
+    });
   };
 }
 
+/**
+ *
+ * @param {import("../era/threat/wcl.js").WCLEvent} ev
+ * @param {import("../era/threat/fight.js").Fight} fight
+ * @returns
+ */
 function handler_righteousDefense(ev, fight) {
   let target = fight.eventToUnit(ev, "target");
   let source = fight.eventToUnit(ev, "source");
@@ -1205,35 +769,12 @@ function handler_righteousDefense(ev, fight) {
   }
 }
 
-function handler_taunt(ev, fight) {
-  if (ev.type !== "applydebuff") return;
-  let u = fight.eventToUnit(ev, "target");
-  let v = fight.eventToUnit(ev, "source");
-  if (!u || !v) return;
-  if (!("threat" in u)) return;
-  let maxThreat = 0;
-  for (let k in u.threat) {
-    maxThreat = Math.max(maxThreat, u.threat[k].currentThreat);
-  }
-  u.setThreat(v.key, maxThreat, ev.timestamp, ev.ability.name);
-  u.target = v;
-}
+export const spellFunctions = {
+  ...era.spellFunctions,
 
-function handler_timelapse(ev, fight) {
-  if (ev.type !== "applydebuff") return;
-  let u = fight.eventToUnit(ev, "source");
-  let v = fight.eventToUnit(ev, "target");
-  if (!u || !v) return;
-  u.setThreat(
-    v.key,
-    u.threat[v.key].currentThreat * v.threatCoeff(),
-    ev.timestamp,
-    ev.ability.name
-  );
-}
-
-const spellFunctions = {
-  18670: handler_bossDropThreatOnHit(0.5), // Broodlord Knock Away
+  [GLOBAL_SPELL_HANDLER_ID]: threatFunctions.concat(
+    handler_global_nightbaneLanding
+  ),
 
   10101: handler_bossDropThreatOnHit(0.5), // Knock Away variants
   18813: handler_bossDropThreatOnHit(0.5),
@@ -1244,45 +785,15 @@ const spellFunctions = {
   32077: handler_bossDropThreatOnHit(0.5),
   32959: handler_bossDropThreatOnHit(0.5),
   37597: handler_bossDropThreatOnHit(0.5),
-  23339: handler_bossDropThreatOnHit(0.5), // BWL Wing Buffet
-  18392: handler_bossDropThreatOnCast(0), // Onyxia Fireball
-  19633: handler_bossDropThreatOnHit(0.75), // Onyxia Knock Away
+
   25778: handler_bossDropThreatOnHit(0.75), // Void Reaver, Fathom Lurker, Fathom Sporebat, Underbog Lord, Knock Away
   31389: handler_bossDropThreatOnHit(0.75), // Knock Away Generic
   37102: handler_bossDropThreatOnHit(0.75), // Crystalcore Devastator (TK) Knock Away
   30013: handler_bossThreatWipeOnCast, // Disarm (etheral thief in kara) removes threat
-  20534: handler_bossDropThreatOnCast(0), // Majordomo Teleport
-  20566: handler_bossThreatWipeOnCast, // Wrath of Ragnaros
-  23138: handler_bossThreatWipeOnCast, // Gate of Shazzrah
-  22289: handler_bossDropThreatOnDebuff(0.5), // Brood Power: Green
-  24408: handler_bossThreatWipeOnCast, // Bloodlord Mandokir's Charge
-  24690: handler_bossDropThreatOnDebuff(0), // Hakkar's Aspect of Arlokk
-  //20604: handler_mindcontrol, // Lucifron Dominate Mind
-  "-1": handler_bossThreatWipeOnCast, // Custom threat drop, currently for High Priestess Arlokk
-  23310: handler_timelapse,
-  23311: handler_timelapse,
-  23312: handler_timelapse,
-  800: function (ev, fight) {
-    // Twin Emperors' Twin Teleport
-    if (ev.type !== "applybuff") return;
-    let u = fight.eventToUnit(ev, "source");
-    for (let k in u.threat) {
-      u.setThreat(k, 0, ev.timestamp, ev.ability.name);
-    }
-  },
-  26102: handler_bossDropThreatOnHit(0), // Ouro's Sand Blast
-  26580: handler_bossDropThreatOnHit(0), // Yauj's Fear
-  26561: handler_bossThreatWipeOnCast, // Vem's Berserker Charge
-  11130: handler_bossDropThreatOnHit(0.5), // Qiraji Champion's Knock Away, need to confirm pct
-  28408: handler_bossThreatWipeOnCast, // Kel'Thuzad's Chains of Kel'Thuzad
+
   33237: handler_bossThreatWipeOnCast, // Kiggler the Crazed arcane explosion - HKM fight
   //37676: handler_nightbaneThreatWipeOnCast((43 * 1000)), // Leotheras demon form
   37098: handler_nightbaneThreatWipeOnCast(43 * 1000), // Nightbane's Rain of Bones. delay : 43 sec is the timer according to DBM
-  29060: handler_taunt, // Deathknight Understudy Taunt
-  28835: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Zeliek
-  28834: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Mograine
-  28833: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Blaumeux
-  28832: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Korth'azz
 
   /*  SSC */
   25035: handler_hydrossThreatWipeOnCast, // Hydross invoc spawns
@@ -1305,8 +816,6 @@ const spellFunctions = {
   33813: handler_hatefulstrike(1500, 0), // Gruul's hurtfulstrike
   28308: handler_hatefulstrike(1000, 2000), // Patchwerk's hateful strike
 
-  17624: handler_vanish, // Flask of Petrification
-
   // Trinkets
   35163: handler_zero, // Blessing of the Silver Crescent
   34106: handler_zero, // Arpen from bloodfurnance
@@ -1323,37 +832,17 @@ const spellFunctions = {
   // Enchant proc
   28093: handler_zero, // Lightning speed - mongoose weapon
 
-  // Paladin
-  25898: handler_threatOnBuff(60), // GBoK
-  25890: handler_threatOnBuff(60), // GBoL
   27145: handler_threatOnBuff(69), // GBoL r2
   27144: handler_threatOnBuff(69), // BoL r4
-  25916: handler_threatOnBuff(60), // GBoM
   25782: handler_threatOnBuff(60), // GBoM
   27141: handler_threatOnBuff(70), // GBoM r 3
   27140: handler_threatOnBuff(70), // BoM r 8
-  25895: handler_threatOnBuff(60), // GBoS
-  25899: handler_threatOnBuff(60), // GBoSanc
   27169: handler_threatOnBuff(70), // GBoSanc r 2
-  25894: handler_threatOnBuff(54), // GBoW
-  25918: handler_threatOnBuff(60), // GBoW
   27143: handler_threatOnBuff(70), // GBoW r3
-  19742: handler_threatOnBuff(14), // BoW
-  19850: handler_threatOnBuff(24), // BoW
-  19852: handler_threatOnBuff(34), // BoW
-  19853: handler_threatOnBuff(44), // BoW
-  19854: handler_threatOnBuff(54), // BoW
-  25290: handler_threatOnBuff(60), // BoW
+
   27142: handler_threatOnBuff(70), // BoW r 7
-  20293: threatFunctions.concat(handler_threatOnBuff(58), handler_damage), // Seal of Righteousness r8
+
   27155: threatFunctions.concat(handler_threatOnBuff(58), handler_damage), // Seal of Righteousness r9
-  20286: handler_damage, // Judgement of Righteousness
-  26573: handler_damage, // Consecration r1
-  20116: handler_damage, // Consecration r2
-  20922: handler_damage, // Consecration r3
-  20923: handler_damage, // Consecration r4
-  20924: handler_damage, // Consecration r5
-  24239: handler_damage, // Hammer of Wrath
 
   20925: handler_modDamage(1.35), // Holy Shield r1
   20927: handler_modDamage(1.35), // Holy Shield r2
@@ -1374,79 +863,21 @@ const spellFunctions = {
   20353: handler_zero, // Mana from judgement of wisdom r3
   27165: handler_zero, // Mana from judgement of wisdom r4
 
-  465: handler_zero, // Devotion Aura r1
-  10290: handler_zero, // Devotion Aura r2
-  643: handler_zero, // Devotion Aura r3
-  10291: handler_zero, // Devotion Aura r4
-  1032: handler_zero, // Devotion Aura r5
-  10292: handler_zero, // Devotion Aura r6
-  10293: handler_zero, // Devotion Aura r7
-  19746: handler_zero, // Concentration Aura
-  19891: handler_zero, // Fire Resistance Aura r1
-  19899: handler_zero, // Fire Resistance Aura r2
-  19900: handler_zero, // Fire Resistance Aura r3
-  19888: handler_zero, // Frost Resistance Aura r1
-  19897: handler_zero, // Frost Resistance Aura r2
-  19898: handler_zero, // Frost Resistance Aura r3
-  19876: handler_zero, // Shadow Resistance Aura r1
-  19895: handler_zero, // Shadow Resistance Aura r2
-  19896: handler_zero, // Shadow Resistance Aura r3
-  7294: handler_damage, // Retribution Aura r1
-  10298: handler_damage, // Retribution Aura r2
-  10299: handler_damage, // Retribution Aura r3
-  10300: handler_damage, // Retribution Aura r4
-  10301: handler_damage, // Retribution Aura r5
-  20218: handler_zero, // Sanctity Aura
-  // Paladin heals have .25 coefficient. Sources:
-  // cha#0438 2018-12-04 https://discordapp.com/channels/383596811517952002/456930992557654037/519502645858271243
-  //     [15:17] chaboi: but there is a grain of truth in that shitpost since paladin healing threat did get specifically nerfed by blizzard early on so they wouldnt be able to tank dungeons via just healing themselves
-  //     [15:18] chaboi: which is why paladin healing threat is 0.5, which is much lower than the other healers even if they talent into threat reduc
-  // 4man Onyxia https://classic.warcraftlogs.com/reports/TFqN9Z1HCxnLPypG
-  //     Paladin doesn't pull threat when he should at usual .5 heal coefficient.
-  635: handler_modHeal(0.5), // Holy Light r1
-  639: handler_modHeal(0.5), // Holy Light r2
-  647: handler_modHeal(0.5), // Holy Light r3
-  1026: handler_modHeal(0.5), // Holy Light r4
-  1042: handler_modHeal(0.5), // Holy Light r5
-  3472: handler_modHeal(0.5), // Holy Light r6
-  10328: handler_modHeal(0.5), // Holy Light r7
-  10329: handler_modHeal(0.5), // Holy Light r8
-  25292: handler_modHeal(0.5), // Holy Light r9
   27135: handler_modHeal(0.5), // Holy Light r10
   27136: handler_modHeal(0.5), // Holy Light r11
-  19750: handler_modHeal(0.5), // Flash of Light r1
-  19939: handler_modHeal(0.5), // Flash of Light r2
-  19940: handler_modHeal(0.5), // Flash of Light r3
-  19941: handler_modHeal(0.5), // Flash of Light r4
-  19942: handler_modHeal(0.5), // Flash of Light r5
-  19943: handler_modHeal(0.5), // Flash of Light r6
+
   27137: handler_modHeal(0.5), // Flash of Light r7
-  //633: handler_modHeal(.5), // Lay on Hands r1 - Generates a total threat of heal * .5 instead of heal * .25
-  //2800: handler_modHeal(.5), // Lay on Hands r2
-  //10310: handler_modHeal(.5), // Lay on Hands r3
+
   //27154: handler_modHeal(.5), // Lay on Hands r4
-  25914: handler_modHeal(0.5), // Holy Shock r1
-  25913: handler_modHeal(0.5), // Holy Shock r2
-  25903: handler_modHeal(0.5), // Holy Shock r3
-  19968: handler_modHeal(0.5), // Holy Light that appears in logs
-  19993: handler_modHeal(0.5), // Flash of Light that appears in logs
 
   // Mage
-  10181: handler_damage, // Frostbolt
+
   66: handler_partialThreatWipeOnEvent(0.2), // invisibility : 20% per second of buff
 
   // Rogue
-  1856: handler_vanish,
-  1857: handler_vanish, // Vanish
   26889: handler_vanish, // Vanish
-  1966: handler_castCanMissNoCoefficient(-150), // Feint r1
-  6768: handler_castCanMissNoCoefficient(-240), // Feint r2
-  8637: handler_castCanMissNoCoefficient(-390), // Feint r3
-  11303: handler_castCanMissNoCoefficient(-600), // Feint r4
-  25302: handler_castCanMissNoCoefficient(-800), // Feint r5
 
   // Priest
-  6788: handler_zero, // Weakened Soul
 
   // mind blast no longer increase threat in tbc
   // https://wowwiki-archive.fandom.com/wiki/Mind_Blast
@@ -1462,94 +893,7 @@ const spellFunctions = {
   25372: handler_damage, // Mind Blast r10
   25375: handler_damage, // Mind Blast r11
 
-  15237: handler_zero, // Holy Nova r1
-  15430: handler_zero, // Holy Nova r2
-  15431: handler_zero, // Holy Nova r3
-  27799: handler_zero, // Holy Nova r4
-  27800: handler_zero, // Holy Nova r5
-  27801: handler_zero, // Holy Nova r6
-  23455: handler_zero, // Holy Nova r1
-  23458: handler_zero, // Holy Nova r2
-  23459: handler_zero, // Holy Nova r3
-  27803: handler_zero, // Holy Nova r4
-  27804: handler_zero, // Holy Nova r5
-  27805: handler_zero, // Holy Nova r6
-
   // Warlock
-  18288: handler_zero, // Amplify Curse
-  603: handler_threatOnDebuffOrDamage(120), // Curse of Doom
-  18223: handler_zero, // Curse of Exhaustion
-  704: handler_threatOnDebuff(2 * 14), // CoR r1
-  7658: handler_threatOnDebuff(2 * 28), // CoR r2
-  7659: handler_threatOnDebuff(2 * 42), // CoR r3
-  11717: handler_threatOnDebuff(2 * 56), // CoR r4
-  17862: handler_threatOnDebuff(2 * 44), // CoS r1
-  17937: handler_threatOnDebuff(2 * 56), // CoS r2
-  1714: handler_threatOnDebuff(2 * 26), // CoT r1
-  11719: handler_threatOnDebuff(2 * 50), // CoT r2
-  702: handler_threatOnDebuff(2 * 4), // CoW r1
-  1108: handler_threatOnDebuff(2 * 12), // CoW r2
-  6205: handler_threatOnDebuff(2 * 22), // CoW r3
-  7646: handler_threatOnDebuff(2 * 32), // CoW r4
-  11707: handler_threatOnDebuff(2 * 42), // CoW r5
-  11708: handler_threatOnDebuff(2 * 52), // CoW r6
-  1490: handler_threatOnDebuff(2 * 32), // CotE r1
-  11721: handler_threatOnDebuff(2 * 46), // CotE r2
-  11722: handler_threatOnDebuff(2 * 60), // CotE r3
-  1454: handler_zero, // Life Tap r1
-  1455: handler_zero, // Life Tap r2
-  1456: handler_zero, // Life Tap r3
-  11687: handler_zero, // Life Tap r4
-  11688: handler_zero, // Life Tap r5
-  11689: handler_zero, // Life Tap r6
-  31818: handler_zero, // Life Tap script
-  5138: handler_zero, // Drain Mana r1
-  6226: handler_zero, // Drain Mana r2
-  11703: handler_zero, // Drain Mana r3
-  11704: handler_zero, // Drain Mana r4
-  689: handler_damage, // Drain Life r1
-  699: handler_damage, // Drain Life r2
-  709: handler_damage, // Drain Life r3
-  7651: handler_damage, // Drain Life r4
-  11699: handler_damage, // Drain Life r5
-  11700: handler_damage, // Drain Life r6
-  18265: handler_threatOnDebuffOrDamage(2 * 30), // Siphon Life r1
-  18879: handler_threatOnDebuffOrDamage(2 * 38), // Siphon Life r2
-  18880: handler_threatOnDebuffOrDamage(2 * 48), // Siphon Life r3
-  18881: handler_threatOnDebuffOrDamage(2 * 58), // Siphon Life r4
-  710: handler_threatOnDebuff(2 * 28), // Banish r1
-  18647: handler_threatOnDebuff(2 * 48), // Banish r2
-  5782: handler_threatOnDebuff(2 * 8), // Fear r1
-  6213: handler_threatOnDebuff(2 * 32), // Fear r2
-  6215: handler_threatOnDebuff(2 * 56), // Fear r3
-  172: handler_damage, // Corruption r1
-  6222: handler_damage, // Corruption r2
-  6223: handler_damage, // Corruption r3
-  7648: handler_damage, // Corruption r4
-  11671: handler_damage, // Corruption r5
-  11672: handler_damage, // Corruption r6
-  25311: handler_damage, // Corruption r7
-  980: handler_damage, // CoA r1
-  1014: handler_damage, // CoA r2
-  6217: handler_damage, // CoA r3
-  11711: handler_damage, // CoA r4
-  11712: handler_damage, // CoA r5
-  11713: handler_damage, // CoA r6
-  6789: handler_damage, // Death Coil r1
-  17925: handler_damage, // Death Coil r2
-  17926: handler_damage, // Death Coil r3
-  1120: handler_damage, // Drain Soul r1
-  8288: handler_damage, // Drain Soul r2
-  8289: handler_damage, // Drain Soul r3
-  11675: handler_damage, // Drain Soul r4
-  5484: handler_threatOnDebuff(2 * 40), // Howl of Terror r1
-  17928: handler_threatOnDebuff(2 * 54), // Howl of Terror r2
-  5676: handler_modDamage(2), // Searing Pain r1
-  17919: handler_modDamage(2), // Searing Pain r2
-  17920: handler_modDamage(2), // Searing Pain r3
-  17921: handler_modDamage(2), // Searing Pain r4
-  17922: handler_modDamage(2), // Searing Pain r5
-  17923: handler_modDamage(2), // Searing Pain r6
 
   //29858: handler_bossDropThreatOnCast(0.5),// Soulshatter
   29858: handler_partialThreatWipeOnCast(0.5), // Soulshatter
@@ -1560,6 +904,7 @@ const spellFunctions = {
   // Bug fixed https://tbc.wowhead.com/news/burning-crusade-classic-hotfixes-for-october-4th-2021-kiblers-bits-threat-324414
 
   // Shaman
+
   8042: handler_modDamage(1), // Earth Shock r1
   8044: handler_modDamage(1), // Earth Shock r2
   8045: handler_modDamage(1), // Earth Shock r3
@@ -1620,30 +965,11 @@ const spellFunctions = {
   // Elemental mastery
   16166: handler_zero, // Rank 6
 
-  // From ResultsMayVary https://resultsmayvary.github.io/ClassicThreatPerSecond/
-  1: handler_damage,
-  /* Consumables */
-  11374: handler_threatOnDebuff(90, "Gift of Arthas"),
-  /* Damage/Weapon Procs */
-  20007: handler_zero, //("Heroic Strength (Crusader)"),
-  18138: handler_damage, //("Shadow Bolt (Deathbringer Proc)"),
-  24388: handler_damage, //("Brain Damage (Lobotomizer Proc)"),
-  23267: handler_damage, //("Firebolt (Perdition's Proc)"),
-  18833: handler_damage, //("Firebolt (Alcor's Proc)"),
-
   21992: handler_modDamagePlusThreat(0.5, 63), // Thunderfury
   27648: handler_zero,
 
-  /* Thorn Effects */
-  9910: handler_damage, //("Thorns"),  //Thorns (Rank 6)
   26992: handler_damage, //("Thorns"),  //Thorns (Rank 7)
-  17275: handler_damage, //("Heart of the Scale"), //Heart of the Scale
-  22600: handler_damage, //("Force Reactive Disk"), //Force Reactive
-  11350: handler_zero, //("Oil of Immolation"),   //Oil of Immolation (buff)
-  11351: handler_damage, //("Oil of Immolation"), //Oil of Immolation (dmg)
 
-  /* Explosives */
-  13241: handler_damage, //("Goblin Sapper Charge"), //Goblin Sapper Charge
   30486: handler_damage, //Super Sapper Charge
   39965: handler_damage, //Frost Grenades
   30217: handler_damage, //Adamantite Grenade
@@ -1653,27 +979,6 @@ const spellFunctions = {
   46567: handler_damage, //Rocket Launch
   // TODO : Need to double check if slow/stun effects add threat modifier on some explosives
 
-  /* Zero Threat Abilities */
-  71: handler_zero, // Defensive Stance
-  2457: handler_zero, // Battle Stance
-  2458: handler_zero, // Berserker Stance
-  20572: handler_zero, //("Blood Fury"), //Blood Fury
-  26296: handler_zero, //("Berserking (Troll racial)"), //Berserking (Troll racial)
-  26635: handler_zero, //("Berserking (Troll racial)"), //Berserking (Troll racial)
-  22850: handler_zero, //("Sanctuary"), //Sanctuary
-  9515: handler_zero, //("Summon Tracking Hound"), //Summon Tracking Hound
-
-  /* Consumable Buffs (zero-threat) */
-  10667: handler_zero, //("Rage of Ages"), //Rage of Ages
-  25804: handler_zero, //("Rumsey Rum Black Label"), //Rumsey Rum Black Label
-  17038: handler_zero, //("Winterfall Firewater"), //Winterfall Firewater
-  8220: handler_zero, //("Savory Deviate Delight (Flip Out)"), //Savory Deviate Delight (Flip Out)
-  17543: handler_zero, //("Fire Protection"), //Fire Protection
-  17548: handler_zero, //("Greater Shadow Protection Potion"), //Greater Shadow Protection Potion
-  18125: handler_zero, //("Blessed Sunfruit"), //Blessed Sunfruit
-  17538: handler_zero, //("Elixir of the Mongoose"), //Elixir of the Mongoose
-  11359: handler_zero, //("Restorative Potion (Restoration) Buff"), //Restorative Potion (Restoration) Buff
-  23396: handler_zero, //("Restorative Potion (Restoration) Dispel"), //Restorative Potion (Restoration) Dispel
   28508: handler_zero, // Destruction pot
   28507: handler_zero, // Haste pot
   22838: handler_zero, // Haste pot
@@ -1684,37 +989,12 @@ const spellFunctions = {
   32182: handler_zero, // Heroism
   2825: handler_zero, // Bloodlust
 
-  /* Physical */
-  12721: handler_damage, //("Deep Wounds"),
-  6552: handler_threatOnHit(76, "Pummel (Rank 1)"), //TODO: Verify these values ingame
-  6554: handler_threatOnHit(116, "Pummel (Rank 2)"),
-
   //TODO : Add tactical mastery talent threat modifier
-  23881: handler_damage, //("Bloodthirst"), //Rank 1
-  23892: handler_damage, //("Bloodthirst"), //Rank 2
-  23893: handler_damage, //("Bloodthirst"), //Rank 3
-  23894: handler_damage, //("Bloodthirst"), //Rank 4
-  23888: handler_zero, //("Bloodthirst"),   //Buff
-  23885: handler_zero, //("Bloodthirst"),   //Buff
-  23891: handler_heal, // BT heal buff
 
-  //Heroic Strike
-  78: handler_threatOnHit(16, "Heroic Strike"),
-  284: handler_threatOnHit(39, "Heroic Strike"),
-  285: handler_threatOnHit(59, "Heroic Strike"),
-  1608: handler_threatOnHit(78, "Heroic Strike"),
-  11564: handler_threatOnHit(98, "Heroic Strike"),
-  11565: handler_threatOnHit(118, "Heroic Strike"),
-  11566: handler_threatOnHit(137, "Heroic Strike"),
-  11567: handler_threatOnHit(145, "Heroic Strike"),
   25286: handler_threatOnHit(173, "Heroic Strike"), // (AQ)Rank 9
   29707: handler_threatOnHit(194, "Heroic Strike"), // Rank 10
   30324: handler_threatOnHit(220, "Heroic Strike"), // Unused rank ?
 
-  //Shield Slam
-  23922: handler_threatOnHit(178, "Shield Slam (Rank 1)"), //Rank 1
-  23923: handler_threatOnHit(203, "Shield Slam (Rank 2)"), //Rank 2
-  23924: handler_threatOnHit(229, "Shield Slam (Rank 3)"), //Rank 3
   23925: handler_threatOnHit(254, "Shield Slam (Rank 4)"), //Rank 4
   25258: handler_threatOnHit(278, "Shield Slam (Rank 5)"), //Rank 5
   30356: handler_threatOnHit(305, "Shield Slam"), //Rank 6
@@ -1726,9 +1006,6 @@ const spellFunctions = {
 
   // CF https://github.com/magey/tbc-warrior/wiki/Threat-Values
 
-  // Shield Bash
-  72: handler_modDamagePlusThreat(1.5, 36),
-  1671: handler_modDamagePlusThreat(1.5, 96),
   1672: handler_modDamagePlusThreat(1.5, 156),
   29704: handler_modDamagePlusThreat(1.5, 192),
 
@@ -1739,16 +1016,7 @@ const spellFunctions = {
   30357: handler_threatOnHit(200), //Rank 8
   12798: handler_threatOnHit(20), //("Revenge Stun"),           //Revenge Stun - now +20 threat on tbcc, boss are imumune more often than not
 
-  //Cleave
-  845: handler_threatOnHit(10, "Cleave"), //Rank 1
-  7369: handler_threatOnHit(40, "Cleave"), //Rank 2
-  11608: handler_threatOnHit(60, "Cleave"), //Rank 3
-  11609: handler_threatOnHit(70, "Cleave"), //Rank 4
-  20569: handler_threatOnHit(100, "Cleave"), //Rank 5
   25231: handler_threatOnHit(125, "Cleave"), //Rank 6
-
-  //Whirlwind
-  1680: handler_modDamage(1.25), //("Whirlwind"), //Whirlwind
 
   // Thunderclap
   6343: handler_modDamage(1.75), // Thunder Clap r1
@@ -1758,21 +1026,6 @@ const spellFunctions = {
   11580: handler_modDamage(1.75), // Thunder Clap r5
   11581: handler_modDamage(1.75), // Thunder Clap r6
 
-  //Hamstring
-  1715: handler_modDamagePlusThreat(1.25, 20), // R1
-  7372: handler_threatOnHit(101), // R2, from outdated sheet
-  7373: handler_threatOnHit(145, "Hamstring"),
-
-  //Intercept
-  20252: handler_modDamage(2), //Intercept
-  20253: handler_zero, //("Intercept Stun"),         //Intercept Stun (Rank 1)
-  20616: handler_modDamage(2), //Intercept (Rank 2)
-  20614: handler_zero, //("Intercept Stun"),         //Intercept Stun (Rank 2)
-  20617: handler_modDamage(2), //Intercept (Rank 3)
-  20615: handler_zero, //("Intercept Stun"),         //Intercept Stun (Rank 3)
-
-  //Execute
-  20647: handler_modDamage(1.25, "Execute"),
   25236: handler_modDamage(1.25, "Execute"), // rank 7
 
   /* Abilities */
@@ -1794,63 +1047,16 @@ const spellFunctions = {
   469: handler_threatOnBuffUnsplit(69, true, "Commanding Shout"),
   // 469: handler_threatOnBuff(58, "Commanding Shout"), // 58 threat on Omen (tbc vanilla)
 
-  //Mocking Blow
-  20560: threatFunctions.concat(
-    handler_damage,
-    handler_markSourceOnMiss(borders.taunt)
-  ), //("Mocking Blow"),
-
-  //Overpower
-  11585: handler_damage, //("Overpower"),
-
-  //Rend
-  11574: handler_damage, //("Rend"),
-
   // Spell reflect
   23920: handler_spellReflectCast,
 
-  /* Zero threat abilities */
-  355: threatFunctions.concat(
-    handler_taunt,
-    handler_markSourceOnMiss(borders.taunt)
-  ), //("Taunt"), //Taunt
-  1161: handler_markSourceOnMiss(borders.taunt), //("Challenging Shout"), //Challenging Shout
-  2687: handler_resourcechangeCoeff, //("Bloodrage"), //Bloodrage (cast)
-  29131: handler_resourcechange, //("Bloodrage"), //Bloodrage (buff)
-  29478: handler_zero, //("Battlegear of Might"), //Battlegear of Might
-  23602: handler_zero, //("Shield Specialization"), //Shield Specialization
-  12964: handler_resourcechange, //("Unbridled Wrath"), //Unbridled Wrath
-  11578: handler_zero, //("Charge"), //Charge
-  7922: handler_zero, //("Charge Stun"), //Charge Stun
-  18499: handler_zero, //("Berserker Rage"), //Berserker Rage
-  12966: handler_zero, //("Flurry (Rank 1)"), //Flurry (Rank 1)
-  12967: handler_zero, //("Flurry (Rank 2)"), //Flurry (Rank 2)
-  12968: handler_zero, //("Flurry (Rank 3)"), //Flurry (Rank 3)
-  12969: handler_zero, //("Flurry (Rank 4)"), //Flurry (Rank 4)
-  12970: handler_zero, //("Flurry (Rank 5)"), //Flurry (Rank 5)
-  12328: handler_zero, //("Death Wish"), //Death Wish
   12292: handler_zero, //("Death Wish"), //Death Wish tbcc rank ?
-  871: handler_zero, //("Shield Wall"),
-  1719: handler_zero, //("Recklessness"), //Recklessness
-  12323: handler_zero, //("Piercing Howl"), //Piercing Howl
-  14204: handler_zero, //("Enrage"), //Enrage
-  12975: handler_zero, //("Last Stand (cast)"), //Last Stand (cast)
-  12976: handler_zero, //("Last Stand (buff)"), //Last Stand (buff)
-  2565: handler_zero, //("Shield Block"), //Shield Block
 
-  /* Consumable */
-  6613: handler_zero, //("Great Rage Potion"), //Great Rage Potion
-  17528: handler_zero, //("Mighty Rage Potion"), //Mighty Rage Potion
   28515: handler_zero, // Iron shield pot
   13455: handler_zero, // Greater stoneshield pot
   4623: handler_zero, // Lesser stoneshield pot
 
-  /* Forms */
-  9634: handler_zero, //(1.45, "Bear Form"),
-  768: handler_zero, //(0.71, "Cat Form"),
-
-  /* Bear */
-  5209: handler_markSourceOnMiss(borders.taunt), // Challenging Roar
+  // Druid
 
   // https://tbc.wowhead.com/guides/feral-druid-tank-burning-crusade-classic
 
@@ -1888,45 +1094,17 @@ const spellFunctions = {
   // Patch 2.1.0 : Damage increased by 15%, but bonus threat reduced so that overall threat generation will be unchanged.
   // TODO : Need to add 15% when using 2 part T6 (in P3)
   // https://tbc.wowhead.com/spell=38447/improved-mangle
-  33878: handler_mangleModDamage("Mangle (Bear) (Rank 1)"),
-  33986: handler_mangleModDamage("Mangle (Bear) (Rank 2)"),
-  33987: handler_mangleModDamage("Mangle (Bear) (Rank 3)"),
+  33878: handler_modDamage(Druid.Mod.Mangle, "Mangle (Bear) (Rank 1)"),
+  33986: handler_modDamage(Druid.Mod.Mangle, "Mangle (Bear) (Rank 2)"),
+  33987: handler_modDamage(Druid.Mod.Mangle, "Mangle (Bear) (Rank 3)"),
 
-  99: handler_threatOnDebuff(9, "Demoralizing Roar (Rank 1)"),
-  1735: handler_threatOnDebuff(15, "Demoralizing Roar (Rank 2)"),
-  9490: handler_threatOnDebuff(20, "Demoralizing Roar (Rank 3)"),
-  9747: handler_threatOnDebuff(30, "Demoralizing Roar (Rank 4)"),
   9898: handler_threatOnDebuff(39, "Demoralizing Roar (Rank 5)"),
   26998: handler_threatOnDebuff(39, "Demoralizing Roar"),
 
-  6795: threatFunctions.concat(
-    handler_taunt,
-    handler_markSourceOnMiss(borders.taunt)
-  ), //("Growl"),
-  5229: handler_resourcechange, //("Enrage"),
   // 17057: handler_resourcechange, //("Furor"),
 
   31786: handler_resourcechange, // Spiritual Attunement
 
-  8983: handler_zero, //("Bash"), //TODO test bash threat
-
-  /* Cat */
-  9850: handler_damage, //("Claw"),
-  9830: handler_damage, //("Shred"),
-  9904: handler_damage, //("Rake"),
-  22829: handler_damage, //("Ferocious Bite"),
-  9867: handler_damage, //("Ravage"),
-  9896: handler_damage, //("Rip"),
-  9827: handler_damage, //("Pounce"),
-  9913: handler_zero, //("Prowl"),
-  9846: handler_zero, //("Tiger's Fury"),
-
-  1850: handler_zero, //("Dash (Rank 1)"),
-  9821: handler_zero, //("Dash"),
-
-  8998: handler_castCanMiss(-240, "Cower (Rank 1)"),
-  9000: handler_castCanMiss(-390, "Cower (Rank 2)"),
-  9892: handler_castCanMiss(-600, "Cower"),
   31709: handler_castCanMiss(-800, "Cower"),
   27004: handler_castCanMiss(-1170, "Cower"),
 
@@ -1936,37 +1114,73 @@ const spellFunctions = {
   379: handler_threatAsTargetHealed, // Earth shield = threat to player healed
   33110: handler_threatAsTargetHealed, // Prayer of mending
 
-  /* Abilities */
-  16857: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 1)"),
-  17390: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 2)"),
-  17391: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 3)"),
   17392: handler_threatOnDebuff(108, "Faerie Fire (Feral)(Rank 4)"),
   27011: handler_threatOnDebuff(131, "Faerie Fire (Feral)"),
 
-  770: handler_threatOnDebuff(108, "Faerie Fire (Rank 1)"),
-  778: handler_threatOnDebuff(108, "Faerie Fire (Rank 2)"),
-  9749: handler_threatOnDebuff(108, "Faerie Fire (Rank 3)"),
   9907: handler_threatOnDebuff(108, "Faerie Fire (Rank 3)"),
   26993: handler_threatOnDebuff(131, "Faerie Fire"),
 
-  16870: handler_zero, //("Clearcasting"),
-  29166: handler_zero, //("Innervate"),
-
-  22842: handler_heal, //("Frienzed Regeneration (Rank 1)"),
-  22895: handler_heal, //("Frienzed Regeneration (Rank 2)"),
-  22896: handler_heal, //("Frienzed Regeneration"),
-
-  24932: handler_zero, //("Leader of the Pack"),
   // No threat since 2.1 https://wowpedia.fandom.com/wiki/Improved_Leader_of_the_Pack
   34299: handler_zero, //("Improved Leader of the Pack"),
-
-  /* Items */
-  13494: handler_zero, //("Manual Crowd Pummeler"),
 };
 
-let zeroThreatSpells = [];
-for (let i in spellFunctions) {
-  if (i >= 0 && spellFunctions[i] === handler_zero) {
-    zeroThreatSpells.push(i);
-  }
-}
+export const enableSplitHealingThreatOption = true;
+
+export const combatantImplications = {
+  All: (unit, buffs, talents) => {
+    if (unit.gear.some((g) => g.permanentEnchant === 2613)) {
+      buffs[2613] = true;
+    }
+
+    if (unit.gear.some((g) => g.permanentEnchant === 2621)) {
+      buffs[2621] = true;
+    }
+  },
+  Druid: (unit, buffs, talents) => {
+    if (unit.talents[1].id < 8) {
+      talents["Feral Instinct"].rank = 0;
+    }
+
+    if (gearSetCount(unit.gear, Druid.Tier.T6) >= 2) {
+      buffs[Druid.Buff.T6_2pc] = true;
+    }
+  },
+  Warrior: (unit, buffs, talents) => {
+    if (unit.talents[1].id < 35) {
+      talents["Improved Berserker Stance"].rank = 0;
+    }
+    if (unit.talents[2].id < 3) {
+      talents["Tactical Mastery"].rank = 0;
+    }
+    if (unit.talents[2].id < 10) {
+      talents["Defiance"].rank = 0;
+    }
+  },
+
+  Paladin: (unit, buffs, talents) => {
+    if (unit.talents[1].id < 13) {
+      talents["Improved Righteous Fury"].rank = 0;
+    }
+    if (unit.talents[2].id < 40) {
+      talents["Fanaticism"].rank = 0;
+    }
+  },
+
+  Shaman: (unit, buffs, talents) => {
+    if (unit.talents[0].id < 28) {
+      talents["Elemental Precision (fire)"].rank = 0;
+      talents["Elemental Precision (nature)"].rank = 0;
+      talents["Elemental Precision (frost)"].rank = 0;
+    }
+    if (unit.talents[1].id < 21) {
+      talents["Spirit Weapons"].rank = 0;
+    }
+    if (unit.talents[2].id < 13) {
+      talents["Healing Grace"].rank = 0;
+    }
+  },
+};
+
+export const zeroThreatSpells = Object.entries(spellFunctions)
+  .filter(([, handler]) => handler === handler_zero)
+  .map(([id]) => Number(id));
