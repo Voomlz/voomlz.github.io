@@ -94,9 +94,10 @@ export class Fight {
   /**
    * @param {import("./wcl.js").WCLEvent} ev
    * @param {UnitSpecifier} unit
+   * @param {boolean} [createIfMissing]
    * @returns {Unit | undefined}
    */
-  eventToUnit(ev, unit) {
+  eventToUnit(ev, unit, createIfMissing = true) {
     // TODO: Fix units that are both enemies and friends in a single fight
     let k = Unit.eventToKey(ev, unit);
     if (!k || k == -1) return;
@@ -108,6 +109,9 @@ export class Fight {
       if (!u) {
         if (globalThis.DEBUGMODE)
           console.log("Invalid unit", ev, unit, this.globalUnits);
+        return;
+      }
+      if (!createIfMissing) {
         return;
       }
       let t = u.type;
@@ -221,7 +225,7 @@ export class Fight {
       }
     }
 
-    let source = this.eventToUnit(ev, "source");
+    let source = this.eventToUnit(ev, "source", false /* createIfMissing */);
     if (source) {
       if (ev.x) {
         if (ev.type !== "damage") {
@@ -231,15 +235,7 @@ export class Fight {
         }
       }
     }
-    /*
-        let target = this.eventToUnit(ev, "target");
-        if (target) {
-            if (ev.x) {
-                target.lastX = ev.x/100;
-                target.lastY = ev.y/100;
-            }
-        }
-         */
+
     let f = handler_basic;
     if ("ability" in ev && ev.ability.guid in this.config.spellFunctions) {
       f = this.config.spellFunctions[ev.ability.guid];
