@@ -43,10 +43,10 @@ export const App: React.FC = () => {
 
   const [plotRange, setPlotRange] = useState<[number, number]>([0, 0]);
 
-  const fightData = useMemo(() => {
-    console.log("useMemo fight.process()", { unitSettings });
-    return fight?.process(unitSettings);
-  }, [fight, unitSettings]);
+  const fightData = useMemo(
+    () => fight?.process(unitSettings),
+    [fight, unitSettings]
+  );
 
   const enemy = fight && enemyId ? fightData?.enemies[enemyId] : undefined;
   const activeTrace = enemy && targetId ? enemy.threat[targetId] : undefined;

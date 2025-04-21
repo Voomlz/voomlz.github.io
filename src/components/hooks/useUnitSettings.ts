@@ -33,7 +33,6 @@ export function useUnitSettings() {
     (unitId: string, prop: UnitSettingsKey, key: string, value?: number) => {
       setState((prev) => {
         const unitSettings = prev.units[unitId] ?? {};
-        console.log("setUnitSetting", unitId, unitSettings);
         return {
           ...prev,
           units: {
