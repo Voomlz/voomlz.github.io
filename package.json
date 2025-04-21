@@ -18,18 +18,18 @@
   "license": "UNLICENSED",
   "description": "",
   "dependencies": {
-    "@types/plotly.js": "^2.35.5",
-    "plotly.js": "^3.0.1",
+    "plotly.js-basic-dist": "^3.0.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.2",
-    "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-plotly.js": "^2.6.0"
+    "react-plotly.js": "^2.6.0",
+    "react": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.1",
+    "@types/plotly.js-basic-dist": "^1.54.4",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/react-plotly.js": "^2.6.3",

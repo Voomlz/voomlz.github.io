@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from "react";
-import Plot from "react-plotly.js";
 import { Fight } from "../../era/threat/fight.js";
 import { NPC, Player } from "../../era/threat/unit.js";
 import { CoefficientDebug, GameVersionConfig } from "../../era/base";
@@ -10,6 +9,11 @@ import { Config, Layout, PlotData } from "plotly.js";
 import styles from "./ThreatPlot.module.css";
 import { Card } from "primereact/card";
 import { SetGlobalSetting, ThreatSettings } from "./hooks/useUnitSettings.js";
+
+import createPlotlyComponent from "react-plotly.js/factory";
+import Plotly from "plotly.js-basic-dist";
+
+const Plot = createPlotlyComponent(Plotly);
 
 /**
  * Props for the ThreatPlot component
