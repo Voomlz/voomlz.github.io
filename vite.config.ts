@@ -16,6 +16,7 @@ export default defineConfig({
       },
     }),
   ],
+  build: { rollupOptions: { output: { manualChunks: splitVendorChunk } } },
   server: {
     port: 8080,
   },
@@ -26,3 +27,11 @@ export default defineConfig({
     restoreMocks: true,
   },
 });
+
+function splitVendorChunk(id: string) {
+  if (id.includes("node_modules")) {
+    return "vendor";
+  }
+
+  return null;
+}
