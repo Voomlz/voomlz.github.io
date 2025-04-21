@@ -603,6 +603,10 @@ export class ThreatTrace {
     this.setThreat(this.currentThreat, time, text, null, border);
   }
 
+  /**
+   * @param {number[]} range
+   * @returns {Record<string, number>}
+   */
   threatBySkill(range = [-Infinity, Infinity]) {
     let output = {};
     for (let i = 0, lastThreat = 0; i < this.threat.length; ++i) {
