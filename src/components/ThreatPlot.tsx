@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, memo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Plot from "react-plotly.js";
 import { Fight } from "../../era/threat/fight.js";
 import { NPC, Player } from "../../era/threat/unit.js";
@@ -9,7 +9,7 @@ import { Config, Layout, PlotData } from "plotly.js";
 
 import styles from "./ThreatPlot.module.css";
 import { Card } from "primereact/card";
-import { ThreatSettings } from "./hooks/useUnitSettings.js";
+import { SetGlobalSetting, ThreatSettings } from "./hooks/useUnitSettings.js";
 
 /**
  * Props for the ThreatPlot component
@@ -22,10 +22,11 @@ export interface ThreatPlotProps {
   plotRange: [number, number];
   setPlotRange: (plotWindow: [number, number]) => void;
   onTargetClicked: (target: string) => void;
-  unitSettings: ThreatSettings;
+  threatSettings: ThreatSettings;
+  setGlobalSetting: SetGlobalSetting;
 }
 
-const PLOTLY_LAYOUT: Partial<Config> = { responsive: true };
+const PLOTLY_CONFIG: Partial<Config> = { responsive: true };
 
 /**
  * Component for displaying the threat plot
@@ -38,7 +39,8 @@ export const ThreatPlot: React.FC<ThreatPlotProps> = ({
   plotRange,
   setPlotRange,
   onTargetClicked,
-  unitSettings,
+  threatSettings,
+  setGlobalSetting,
 }) => {
   const [colorByClass, setColorByClass] = useState(true);
   const [debugCoefficients, setDebugCoefficients] = useState(
@@ -55,9 +57,9 @@ export const ThreatPlot: React.FC<ThreatPlotProps> = ({
         debugCoefficients,
         config,
         colorByClass,
-        unitSettings,
+        threatSettings,
       }),
-    [colorByClass, config, debugCoefficients, enemy, unitSettings]
+    [colorByClass, config, debugCoefficients, enemy, threatSettings]
   );
 
   useEffect(() => {
@@ -115,7 +117,7 @@ export const ThreatPlot: React.FC<ThreatPlotProps> = ({
       plot_bgcolor: "#161d21",
       paper_bgcolor: "#161d21",
       legend: { font: { color: "#fff" } },
-      // autosize: true,
+      autosize: true,
     }),
     [title, plotRange]
   );
@@ -126,7 +128,7 @@ export const ThreatPlot: React.FC<ThreatPlotProps> = ({
         <Plot
           data={plotData}
           layout={layout}
-          config={PLOTLY_LAYOUT}
+          config={PLOTLY_CONFIG}
           onClick={handlePlotClick}
           className={styles.plot}
         />
@@ -160,13 +162,9 @@ export const ThreatPlot: React.FC<ThreatPlotProps> = ({
             <div className="flex align-items-center">
               <Checkbox
                 checked={fight.tranquilAir}
-                onChange={(e) => {
-                  fight.tranquilAir = e.checked === true;
-                  fight.process();
-                  // Let the parent component handle re-rendering
-                  // by triggering a re-selection of the enemy
-                  onTargetClicked(`${reportId};${fight.id};${enemy.key};`);
-                }}
+                onChange={(e) =>
+                  setGlobalSetting("tranquilAir", e.checked === true)
+                }
                 inputId="tranquilAir"
               />
               <label htmlFor="tranquilAir" className="ml-2">
@@ -189,13 +187,13 @@ function getPlotData({
   debugCoefficients,
   config,
   colorByClass,
-  unitSettings,
+  threatSettings,
 }: {
   enemy: NPC;
   debugCoefficients: boolean;
   config: GameVersionConfig;
   colorByClass: boolean;
-  unitSettings: ThreatSettings;
+  threatSettings: ThreatSettings;
 }) {
   const data: CustomData[] = [];
 
@@ -270,8 +268,10 @@ function getPlotData({
 
     // Set color based on override > class color > white
     if (colorByClass && unit.type) {
-      pt.marker.color =
-        unitSettings[unit.key]?.color ?? classColors[unit.type] ?? "#fff";
+      pt.marker!.color =
+        threatSettings.units[unit.key]?.color ??
+        classColors[unit.type] ??
+        "#fff";
     }
 
     data.push(pt);
@@ -282,7 +282,7 @@ function getPlotData({
 
   // Fill missing colors according to threat positions
   for (let i = 0; i < data.length; i++) {
-    data[i].marker.color = data[i].marker.color || getColor(i);
+    data[i].marker.color = data[i].marker?.color || getColor(i);
   }
 
   return data;

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { Button } from "primereact/button";
 import { Message } from "primereact/message";
 
@@ -39,14 +39,14 @@ export const App: React.FC = () => {
   ] = useThreatState();
   const { report, fight, enemyId, targetId, isLoading, error } = state;
 
-  const { unitSettings, setUnitSetting } = useUnitSettings();
+  const { unitSettings, setUnitSetting, setGlobalSetting } = useUnitSettings();
 
   const [plotRange, setPlotRange] = useState<[number, number]>([0, 0]);
 
-  const fightData = useMemo(
-    () => fight?.process(unitSettings),
-    [fight, unitSettings]
-  );
+  const fightData = useMemo(() => {
+    console.log("useMemo fight.process()", { unitSettings });
+    return fight?.process(unitSettings);
+  }, [fight, unitSettings]);
 
   const enemy = fight && enemyId ? fightData?.enemies[enemyId] : undefined;
   const activeTrace = enemy && targetId ? enemy.threat[targetId] : undefined;
@@ -140,7 +140,8 @@ export const App: React.FC = () => {
               setTargetKey(targetKey);
             }
           }}
-          unitSettings={unitSettings}
+          threatSettings={unitSettings}
+          setGlobalSetting={setGlobalSetting}
         />
       )}
 

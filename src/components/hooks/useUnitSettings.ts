@@ -14,10 +14,14 @@ export type SetUnitSettings = (
   val?: number
 ) => void;
 
-export type ThreatSettings = {
+export type GlobalSettingsKey = Exclude<keyof ThreatSettings, "units">;
+
+export type SetGlobalSetting = (prop: GlobalSettingsKey, val: boolean) => void;
+
+export interface ThreatSettings {
   tranquilAir?: boolean;
   units: Record<string, UnitSettings>;
-};
+}
 
 /**
  * Contains the session settings for overriding unit level buffs, talents and colors
@@ -29,7 +33,7 @@ export function useUnitSettings() {
     (unitId: string, prop: UnitSettingsKey, key: string, value?: number) => {
       setState((prev) => {
         const unitSettings = prev.units[unitId] ?? {};
-        console.log(unitId, unitSettings);
+        console.log("setUnitSetting", unitId, unitSettings);
         return {
           ...prev,
           units: {
@@ -42,7 +46,16 @@ export function useUnitSettings() {
     []
   );
 
-  return { unitSettings, setUnitSetting };
+  const setGlobalSetting = useCallback(
+    (prop: GlobalSettingsKey, val: boolean) => {
+      setState((prev) => {
+        return { ...prev, [prop]: val };
+      });
+    },
+    []
+  );
+
+  return { unitSettings, setUnitSetting, setGlobalSetting };
 }
 
 function patchUnitSettings(
