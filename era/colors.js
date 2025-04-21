@@ -74,5 +74,11 @@ export const classColors = {
   Shaman: "#0070de",
   Warlock: "#8787ed",
   Warrior: "#c79c6e",
+
+  DeathKnight: "#c41e3a",
+  Monk: "#00ff98",
+  DemonHunter: "#a330c9",
+  Evoker: "#33937f",
+
   Pet: "#00ff96",
 };

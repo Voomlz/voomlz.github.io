@@ -69,6 +69,7 @@ import { Unit } from "./threat/unit.js";
  *   spellFunctions: SpellMap<ThreatHandlerFn>;
  *   zeroThreatSpells: SpellId[];
  *   talents: ClassMap<Record<string, Talent>>;
+ *   enableSplitHealingThreatOption?: boolean;
  * }} GameVersionConfig
  */
 
@@ -83,6 +84,9 @@ import { Unit } from "./threat/unit.js";
 /**
  * @typedef {number} SpellId
  */
+
+/** A random non clashing spellId to use for adding a handler to all events */
+export const GLOBAL_SPELL_HANDLER_ID = -2000;
 
 export const School = {
   Physical: 1,
@@ -222,6 +226,43 @@ export const threatFunctions = {
   },
 
   /**
+   * Threaten all enemies of a unit
+   *
+   * @param {{
+   *   ev: import("./threat/wcl.js").WCLEvent;
+   *   unit: import("./threat/fight.js").UnitSpecifier;
+   *   fight: Fight;
+   *   amount: number;
+   *   useThreatCoeffs?: boolean;
+   *   multiplier?: number;
+   *   debugLabel?: string;
+   * }} params
+   */
+  unitThreatenEnemies({
+    ev,
+    unit,
+    fight,
+    amount,
+    useThreatCoeffs = true,
+    multiplier = 1,
+    debugLabel,
+  }) {
+    let u = fight.eventToUnit(ev, unit);
+    if (!u) return;
+    let coeff = applyThreatCoefficient(
+      useThreatCoeffs ? u.threatCoeff(ev.ability) : BASE_COEFFICIENT,
+      multiplier,
+      debugLabel ?? ev.ability.name
+    );
+    let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
+    for (let k in enemies) {
+      enemies[k].addThreat(u.key, amount, ev.timestamp, ev.ability.name, coeff);
+    }
+  },
+
+  /**
+   * Threaten all enemies of a unit, splitting the threat between them
+   *
    * @param {{
    *   ev: import("./threat/wcl.js").WCLEvent;
    *   unit: import("./threat/fight.js").UnitSpecifier;
@@ -244,9 +285,8 @@ export const threatFunctions = {
     let u = fight.eventToUnit(ev, unit);
     if (!u) return;
     let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
-    let numEnemies = 0;
     const aliveEnemies = Object.values(enemies).filter((e) => e.alive);
-    numEnemies = aliveEnemies.length;
+    const numEnemies = aliveEnemies.length;
 
     let coeff = applyThreatCoefficient(
       useThreatCoeffs ? u.threatCoeff(ev.ability) : BASE_COEFFICIENT,
@@ -254,7 +294,7 @@ export const threatFunctions = {
       debugLabel ?? ev.ability.name
     );
 
-    if (numEnemies !== 1) {
+    if (numEnemies !== 1 && (globalThis.splitHealingThreatOption ?? true)) {
       coeff = applyThreatCoefficient(
         coeff,
         1 / numEnemies,
@@ -357,14 +397,27 @@ export function handler_resourcechangeCoeff(ev, fight) {
   });
 }
 
+/**
+ * @param {import("./threat/wcl.js").WCLEvent} ev
+ * @param {import("./threat/fight.js").Fight} fight
+ */
 export function handler_basic(ev, fight) {
   switch (ev.type) {
     case "damage":
-      threatFunctions.sourceThreatenTarget({
-        ev,
-        fight,
-        amount: ev.amount + (ev.absorbed || 0),
-      });
+      let source = fight.eventToUnit(ev, "source");
+      if (source) {
+        if (
+          ev.sourceIsFriendly &&
+          source.handleMisdirectionDamage(ev.amount, ev, fight)
+        ) {
+        } else {
+          threatFunctions.sourceThreatenTarget({
+            ev,
+            fight,
+            amount: ev.amount + (ev.absorbed || 0),
+          });
+        }
+      }
       break;
     case "heal":
       if (ev.sourceIsFriendly !== ev.targetIsFriendly) return;
@@ -423,6 +476,9 @@ export function handler_mark(ev, fight) {
   let a = fight.eventToUnit(ev, "source");
   let b = fight.eventToUnit(ev, "target");
   if (!a || !b) return;
+  if (ev.ability.guid === 1) {
+    a.lastTarget = b;
+  }
   a.targetAttack(b.key, ev.timestamp, ev.ability.name);
   if (ev.ability.guid === 1 || ev.ability.guid < 0) {
     a.target = b;
