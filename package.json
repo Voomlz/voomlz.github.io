@@ -18,7 +18,7 @@
   "license": "UNLICENSED",
   "description": "",
   "dependencies": {
-    "@types/plotly.js": "^2.35.2",
+    "@types/plotly.js": "^2.35.5",
     "plotly.js": "^3.0.1",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.2",
@@ -32,6 +32,7 @@
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "@types/react-plotly.js": "^2.6.3",
     "@vitejs/plugin-react": "^4.3.4",
     "babel-plugin-react-compiler": "^19.0.0-beta-aeaed83-20250323",
     "eslint": "^9.21.0",
