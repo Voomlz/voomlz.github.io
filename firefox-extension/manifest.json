@@ -2,11 +2,11 @@
   "name": "WCL Threat Link",
   "description": "Link Warcraft logs to Classic WoW Threat Graph",
   "version": "1.4",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "content_scripts": [
     {
       "matches": ["*://*.classic.warcraftlogs.com/reports/*"],
-      "js": ["addButton.js"]
+      "js": ["addButtonClassic.js"]
     },
     {
       "matches": ["*://*.vanilla.warcraftlogs.com/reports/*"],

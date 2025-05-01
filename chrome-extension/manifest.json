@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.classic.warcraftlogs.com/reports/*"],
-      "js": ["addButton.js"]
+      "js": ["addButtonClassic.js"]
     },
     {
       "matches": ["*://*.vanilla.warcraftlogs.com/reports/*"],
