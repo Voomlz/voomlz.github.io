@@ -197,7 +197,7 @@ export const spellFunctions = {
 
   //Hamstring
   1715: handler_modDamagePlusThreat(1.25, 20), // R1
-  7372: handler_threatOnHit(101), // R2, from outdated sheet
+  7372: handler_modDamagePlusThreat(1.25, 80), // R2
   7373: handler_threatOnHit(145), // Hamstring
 
   //Intercept
@@ -216,6 +216,11 @@ export const spellFunctions = {
   11597: handler_castCanMiss(261), // Sunder Armor Rank 5
 
   //Battleshout
+  6673: handler_threatOnBuff(1), // Battle Shout Rank 1
+  5242: handler_threatOnBuff(12), // Battle Shout Rank 2
+  6192: handler_threatOnBuff(22), // Battle Shout Rank 3
+  11549: handler_threatOnBuff(32), // Battle Shout Rank 4
+  11550: handler_threatOnBuff(42), // Battle Shout Rank 5
   11551: handler_threatOnBuff(52), // Battle Shout Rank 6
   25289: handler_threatOnBuff(60), // Battle Shout Rank 7 (AQ)
 
