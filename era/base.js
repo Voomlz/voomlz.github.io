@@ -40,16 +40,16 @@ import { Unit } from "./threat/unit.js";
  */
 
 /**
- * @typedef {BuffMultiplierFn | ThreatCoefficientObject} BuffMultiplier
+ * @typedef {ThreatCoefficientFn | ThreatCoefficientObject} BuffMultiplier
  */
 
 /**
- * @typedef {{ [key: string]: T } | {}} ClassMap<T>
+ * @typedef {{ [key: string]: T }} ClassMap<T>
  * @template T
  */
 
 /**
- * @typedef {{ [key: SpellId]: T } | {}} SpellMap<T>
+ * @typedef {{ [key: number]: T }} SpellMap<T>
  * @template T
  */
 
@@ -85,6 +85,20 @@ import { Unit } from "./threat/unit.js";
  * @typedef {number} SpellId
  */
 
+/**
+ * @typedef {{
+ *   buffs: Record<string, number>;
+ *   talents: Record<string, number>;
+ * }} UnitSettings
+ */
+
+/**
+ * @typedef {{
+ *   tranquilAir?: boolean;
+ *   units: Record<string, UnitSettings>;
+ * }} ThreatSettings
+ */
+
 /** A random non clashing spellId to use for adding a handler to all events */
 export const GLOBAL_SPELL_HANDLER_ID = -2000;
 
@@ -98,6 +112,14 @@ export const School = {
   Arcane: 64,
 };
 
+export const InitialBuff = {
+  Infer: 0,
+  On: 1,
+  Off: 2,
+  InferredOn: 3,
+  InferredOff: 4,
+};
+
 const PowerType = {
   Health: -2,
   Mana: 0,
@@ -105,6 +127,11 @@ const PowerType = {
   Focus: 2,
   Energy: 3,
   ComboPoints: 4,
+};
+
+export const Faction = {
+  Horde: 0,
+  Alliance: 1,
 };
 
 /**

@@ -5,16 +5,44 @@
   "main": "threat/front.js",
   "type": "module",
   "scripts": {
-    "start": "npx http-server ./",
-    "test": "vitest"
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc -b --noEmit",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
   "description": "",
+  "dependencies": {
+    "plotly.js-basic-dist": "^3.0.1",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.9.2",
+    "react-dom": "^19.0.0",
+    "react-plotly.js": "^2.6.0",
+    "react": "^19.0.0"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.21.0",
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.1",
-    "vitest": "^3.0.8"
+    "@types/plotly.js-basic-dist": "^1.54.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/react-plotly.js": "^2.6.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "babel-plugin-react-compiler": "^19.0.0-beta-aeaed83-20250323",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-aeaed83-20250323",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0",
+    "vitest": "^3.0.9"
   }
 }

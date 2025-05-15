@@ -1,0 +1,32 @@
+/* Plot styles */
+.threatPlot {
+  margin-bottom: 30px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.plot {
+  width: 100%;
+  height: 450px; /* Fixes stupid plotly resize jank */
+}
+
+.plotControls {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  :global(.flex) {
+    display: flex;
+    align-items: center;
+  }
+
+  :global(.ml-2) {
+    margin-left: 0.5rem;
+  }
+}

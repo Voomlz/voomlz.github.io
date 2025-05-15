@@ -3,6 +3,8 @@ import {
   BASE_COEFFICIENT,
   borders,
   getThreatCoefficient,
+  InitialBuff,
+  Faction,
 } from "../base.js";
 
 export class Unit {
@@ -10,7 +12,7 @@ export class Unit {
    * @param {import("../base.js").GameVersionConfig} config
    * @param {string} key
    * @param {string} name
-   * @param {string | number} type
+   * @param {import("../threat/wcl.js").WCLUnitType} type
    * @param {import("../threat/wcl.js").WCLEvent[]} events
    * @param {import("../threat/fight.js").Fight} fight
    */
@@ -271,51 +273,101 @@ export class Player extends Unit {
   /**
    * @param {import("../base.js").GameVersionConfig} config
    * @param {string} key
-   * @param {import("./wcl.js").WCLFriendlyUnit} info
+   * @param {import("./wcl.js").WCLFriendlyUnit} wcl
    * @param {import("./wcl.js").WCLEvent[]} events
    * @param {import("./fight.js").Fight} fight
+   * @param {import("../base.js").UnitSettings} settings
    * @param {boolean} [tranquilAir]
    */
-  constructor(config, key, info, events, fight, tranquilAir = false) {
-    super(config, key, info.name, info.type, events, fight);
+  constructor(config, key, wcl, events, fight, settings, tranquilAir = false) {
+    super(config, key, wcl.name, wcl.type, events, fight);
     /** @type {import("../threat/wcl.js").WCLFriendlyUnit} */
-    this.global = info;
-    this.talents = info.talents;
+    this.wclUnit = wcl;
+
+    /** @type {Record<string, import("../base.js").Talent> } */
+    this.talents;
+
+    /** @type {Record<string, number> } */
+    this.initialBuffs;
+
+    /** @type {import("../threat/wcl").WCLClassType} */
+    this.type;
+
+    /** @type {import("./wcl.js").WCLFaction} */
+    this.faction;
 
     /** @type {import("./wcl.js").WCLCombatantInfoEvent[]} */
     this.combatantInfos = events.filter(
       (e) => e.type === "combatantinfo" && e.sourceID === Number(key)
     );
 
-    console.assert(
-      "initialBuffs" in info,
-      "Player info not properly initialised.",
-      info
-    );
-
+    this.buildInitialBuffs(settings);
     this.checkWarrior(events); // Extra stance detection
     this.checkPaladin(events); // Extra Righteous Fury detection
     this.checkFaction(tranquilAir); // BoS and tranquil air
-    this.checkInitalStatus(); // Check gear (enchants), talents and initial buffs
+    this.checkCombatantStatus(); // Check gear (enchants), talents and initial buffs
 
-    let a = info.initialBuffs;
-    for (let k in a) {
-      if (a[k] === 1) {
-        this.buffs[k] = true;
-      } else if (a[k] === 2) {
-        delete this.buffs[k];
-      } else {
-        a[k] = 4 - (k in this.buffs);
-      }
-    }
     this.initialCoeff = this.threatCoeff().value;
   }
 
   isBuffInferred(buffId) {
-    return (this.global.initialBuffs[buffId] - 3) % 3 >= 0;
+    return (this.initialBuffs[buffId] - 3) % 3 >= 0;
   }
 
-  checkInitalStatus() {
+  /**
+   * @param {import("../base.js").UnitSettings} settings
+   */
+  buildInitialBuffs(settings) {
+    this.initialBuffs = { ...this.config.initialBuffs.All };
+    // Add class-specific initial buff settings
+    if (typeof this.config.initialBuffs[this.type] === "object") {
+      this.initialBuffs = {
+        ...this.initialBuffs,
+        ...this.config.initialBuffs[this.type],
+      };
+    }
+
+    for (let k in this.initialBuffs) {
+      if (this.initialBuffs[k] === InitialBuff.On) {
+        this.buffs[k] = true;
+      } else if (this.initialBuffs[k] === InitialBuff.Off) {
+        delete this.buffs[k];
+      } else {
+        this.initialBuffs[k] = 4 - (k in this.buffs);
+      }
+    }
+
+    // override class defaults with session settings
+    for (let buffId in settings.buffs) {
+      if (buffId in this.initialBuffs && settings.buffs[buffId] !== undefined) {
+        this.initialBuffs[buffId] = settings.buffs[buffId];
+      }
+    }
+
+    // Copy talents from the global structure to this player
+    this.talents = {};
+    for (let talentName in this.config.talents[this.type]) {
+      let t = this.config.talents[this.type][talentName];
+      this.talents[talentName] = {
+        rank: t.maxRank,
+        maxRank: t.maxRank,
+        coeff: t.coeff,
+      };
+    }
+
+    // override talents with session settings
+    for (let talentName in settings.talents) {
+      if (
+        talentName in this.talents &&
+        settings.talents[talentName] !== undefined
+      ) {
+        this.talents[talentName].rank = settings.talents[talentName];
+      }
+    }
+  }
+
+  checkCombatantStatus() {
+    this.faction = this.combatantInfos[0]?.faction;
     for (const c of this.combatantInfos) {
       // initial auras
       if (c?.auras) {
@@ -335,10 +387,10 @@ export class Player extends Unit {
   // Blessing of Salvation and Tranquil Air detection
   checkFaction(tranquilAir = false) {
     if (this.dies || this.tank) return;
-    if (this.global.faction === "Alliance") {
+    if (this.faction === Faction.Alliance) {
       if (1038 in this.buffs || !this.isBuffInferred(25895)) return;
       this.buffs[25895] = true;
-    } else if (this.global.faction === "Horde") {
+    } else if (this.faction === Faction.Horde) {
       if (!tranquilAir || !this.isBuffInferred(25909)) return;
       this.buffs[25909] = true;
     }
@@ -395,6 +447,9 @@ export class NPC extends Unit {
     /** @type {Record<string, ThreatTrace>} */
     this.threat = {};
     this.target = null;
+
+    /** @type {import("../threat/wcl").WCLNpcType} */
+    this.type;
   }
 
   /**
@@ -458,9 +513,12 @@ export class NPC extends Unit {
   }
 }
 
+/**
+ * @template T
+ */
 export class ThreatTrace {
   /**
-   * @param {Unit} targetUnit
+   * @param {T} targetUnit
    * @param {number} startTime
    * @param {import("../threat/fight.js").Fight} fight
    */
@@ -545,6 +603,10 @@ export class ThreatTrace {
     this.setThreat(this.currentThreat, time, text, null, border);
   }
 
+  /**
+   * @param {number[]} range
+   * @returns {Record<string, number>}
+   */
   threatBySkill(range = [-Infinity, Infinity]) {
     let output = {};
     for (let i = 0, lastThreat = 0; i < this.threat.length; ++i) {
