@@ -5,6 +5,8 @@ import {
   getThreatCoefficient,
 } from "../base.js";
 
+import { Player } from '../threat/unit.js';
+
 export const config = {
   Buff: {
     FungalBloom: 29232,
@@ -69,30 +71,43 @@ function handler_hatefulstrike(fixedThreat) {
     }
 
     for (let k in friendlies) {
-      let x1 = enemyX - friendlies[k].lastX;
-      let y1 = enemyY - friendlies[k].lastY;
-      let c = Math.sqrt(x1 * x1 + y1 * y1);
+      if (friendlies[k] instanceof Player){
+          let x1 = enemyX - friendlies[k].lastX;
+          let y1 = enemyY - friendlies[k].lastY;
+          let c = Math.sqrt(x1 * x1 + y1 * y1);
+          if (c < 10) {
+            // Arbitraty distance of 10, we don't really know the exact
+            //console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
 
-      if (c < 10) {
-        // Arbitraty distance of 10, we don't really know the exact
-        // console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
+            // Order patchwerk threat list, take the first 4th in this condition
 
-        // Order patchwerk threat list, take the first 4th in this condition
+            if (source.threat[k]) {
+              let threat = {};
 
-        if (source.threat[k]) {
-          let threat = {};
-          threat = {
-            threat: source.threat[k].currentThreat,
-            unit: friendlies[k],
-          };
-          meleeRangedThreat.push(threat);
+              // force target of the hateful to be in the top 4
+              if (friendlies[k] == target) {
+                  threat = {
+                    threat: source.threat[k].currentThreat + 100000,
+                    unit: friendlies[k],
+                  };
+              } else {
+                  threat = {
+                    threat: source.threat[k].currentThreat,
+                    unit: friendlies[k],
+                  };
+              }
+
+              meleeRangedThreat.push(threat);
+            }
+          }
         }
-      }
     }
     sortByKey(meleeRangedThreat, "threat");
+
     let topFourThreatInMelee = meleeRangedThreat.slice(-4);
 
     for (let topFour in topFourThreatInMelee) {
+      console.log("Adding hateful threat to " + topFourThreatInMelee[topFour].unit.name);
       source.addThreat(
         topFourThreatInMelee[topFour].unit.key,
         fixedThreat,

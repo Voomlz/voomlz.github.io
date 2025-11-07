@@ -286,7 +286,6 @@ export const threatFunctions = {
     if (!u) return;
     let [_, enemies] = fight.eventToFriendliesAndEnemies(ev, unit);
     let aliveEnemies = Object.values(enemies).filter((e) => e.alive);
-    console.log(Object.entries(enemies));
     // hard coded exclusion for PalTank on Hakkar and Ossirian
     aliveEnemies = Object.values(enemies).filter((e) => e.name != "Son of Hakkar");
     aliveEnemies = Object.values(enemies).filter((e) => e.name != "Sand Vortex");
