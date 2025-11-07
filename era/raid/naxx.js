@@ -110,7 +110,6 @@ function handler_hatefulstrike(fixedThreat) {
     let topFourThreatInMelee = meleeRangedThreat.slice(-4);
 
     for (let topFour in topFourThreatInMelee) {
-      console.log("Adding hateful threat to " + topFourThreatInMelee[topFour].unit.name);
       source.addThreat(
         topFourThreatInMelee[topFour].unit.key,
         fixedThreat,
