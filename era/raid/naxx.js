@@ -47,12 +47,14 @@ export const notableBuffs = {
 function handler_hatefulstrike(fixedThreat) {
   return (ev, fight) => {
     // hitType 0=miss, 7=dodge, 8=parry, 10 = immune, 14=resist, ...
+    /*
     if (
       ev.type !== "damage" ||
       (ev.hitType > 6 && ev.hitType !== 10 && ev.hitType !== 14) ||
       ev.hitType === 0
     )
       return;
+      */
     let source = fight.eventToUnit(ev, "source");
     let target = fight.eventToUnit(ev, "target");
     if (!source || !target) return;
@@ -71,33 +73,34 @@ function handler_hatefulstrike(fixedThreat) {
     }
 
     for (let k in friendlies) {
-      if (friendlies[k] instanceof Player){
-          let x1 = enemyX - friendlies[k].lastX;
-          let y1 = enemyY - friendlies[k].lastY;
-          let c = Math.sqrt(x1 * x1 + y1 * y1);
-          if (c < 10) {
-            // Arbitraty distance of 10, we don't really know the exact
-            //console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
-
-            // Order patchwerk threat list, take the first 4th in this condition
-
-            if (source.threat[k]) {
+      if (friendlies[k] instanceof Player) {
+          // force target of the hateful to be in the top 4
+          if (friendlies[k] == target) {
               let threat = {};
+              threat = {
+                threat: 10000000,
+                unit: friendlies[k],
+              };
+              meleeRangedThreat.push(threat);
+          } else {
 
-              // force target of the hateful to be in the top 4
-              if (friendlies[k] == target) {
-                  threat = {
-                    threat: source.threat[k].currentThreat + 100000,
-                    unit: friendlies[k],
-                  };
-              } else {
+              let x1 = enemyX - friendlies[k].lastX;
+              let y1 = enemyY - friendlies[k].lastY;
+              let c = Math.sqrt(x1 * x1 + y1 * y1);
+              if (c < 10) {
+                // Arbitraty distance of 10, we don't really know the exact
+                //console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
+
+                // Order patchwerk threat list, take the first 4th in this condition
+
+                if (source.threat[k]) {
+                  let threat = {};
                   threat = {
                     threat: source.threat[k].currentThreat,
                     unit: friendlies[k],
                   };
-              }
-
-              meleeRangedThreat.push(threat);
+                  meleeRangedThreat.push(threat);
+                }
             }
           }
         }
