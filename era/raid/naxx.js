@@ -34,7 +34,7 @@ export const spellFunctions = {
   28832: handler_bossPartialThreatWipeOnCast(0.5), // Mark of Korth'azz
   29210: handler_bossThreatWipeOnCast, // Noth's blink
   29211: handler_bossThreatWipeOnCast, // Noth's blink new id?
-  28308: handler_hatefulstrike(800), // Patchwerk's hateful strike
+  28308: handler_hatefulstrike(500), // Patchwerk's hateful strike
   28339: handler_magneticPull(), // Feungen, exchange tanks
   28338: handler_magneticPull(), // Stalagg, exchange tanks
 };
