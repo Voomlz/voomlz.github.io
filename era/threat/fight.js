@@ -289,11 +289,11 @@ export class Fight {
     let source = this.eventToUnit(ev, "source", false /* createIfMissing */);
     if (source) {
       if (ev.x) {
-        if (ev.type !== "damage") {
+        //if (ev.type !== "damage") {
           // fix losing the decimal point due to casting data type
           source.lastX = ev.x / 100;
           source.lastY = ev.y / 100;
-        }
+        //}
       }
     }
 

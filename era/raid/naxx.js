@@ -87,9 +87,10 @@ function handler_hatefulstrike(fixedThreat) {
               let x1 = enemyX - friendlies[k].lastX;
               let y1 = enemyY - friendlies[k].lastY;
               let c = Math.sqrt(x1 * x1 + y1 * y1);
-              if (c < 10) {
+
+              if (c < 15) {
                 // Arbitraty distance of 10, we don't really know the exact
-                //console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
+                // console.log(friendlies[k].name + " is in melee range of patchwerk c:" + c)
 
                 // Order patchwerk threat list, take the first 4th in this condition
 
@@ -110,6 +111,7 @@ function handler_hatefulstrike(fixedThreat) {
     let topFourThreatInMelee = meleeRangedThreat.slice(-4);
 
     for (let topFour in topFourThreatInMelee) {
+        console.log(topFourThreatInMelee[topFour].unit.name + " Adding Hateful Threat")
       source.addThreat(
         topFourThreatInMelee[topFour].unit.key,
         fixedThreat,
