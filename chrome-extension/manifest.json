@@ -1,7 +1,7 @@
 {
   "name": "WCL Threat Link",
   "description": "Link Warcraft logs to Classic WoW threat graph",
-  "version": "1.4",
+  "version": "1.5",
   "manifest_version": 3,
   "content_scripts": [
     {

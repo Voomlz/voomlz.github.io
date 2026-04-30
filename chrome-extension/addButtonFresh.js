@@ -1,5 +1,5 @@
 let url =
-  "https://voomlz.github.io/fresh/?id=" + location.origin + location.pathname;
+  "https://voomlz.github.io/threat/?id=" + location.origin + location.pathname;
 let bigTabContainer = document.getElementById("top-level-view-tabs");
 
 let spanText = document.createElement("span");
