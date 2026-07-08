@@ -170,7 +170,6 @@ export const talents = {
                   25299: true,
                   26981: true,
                   26982: true,
-                  26982: true,
                   5185: true,
                   5186: true,
                   5187: true,
@@ -229,7 +228,10 @@ export const talents = {
   Priest: {
     "Silent Resolve": {
       maxRank: 5,
-      coeff: (_, rank = 5) => getThreatCoefficient(1 - 0.04 * rank),
+      coeff: (_, rank = 5) =>
+      getThreatCoefficient({
+          [School.Holy]: 1 - config.Mods.SilentResolve * rank
+      }),
     },
     "Shadow Affinity": {
       maxRank: 3,
