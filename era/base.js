@@ -95,7 +95,6 @@ export const School = {
   Nature: 8,
   Frost: 16,
   Shadow: 32,
-  Discipline: 34,
   Arcane: 64,
 };
 
