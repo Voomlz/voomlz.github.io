@@ -17,7 +17,8 @@ import {
   handler_threatOnDebuff,
   handler_threatOnHit,
   handler_vanish,
-  handler_zero, School,
+  handler_zero,
+  School,
   threatFunctions,
 } from "../era/base.js";
 
@@ -225,14 +226,14 @@ export const talents = {
     },
   },
 
-  Priest: {
+  Priest: {/*
     "Silent Resolve": {
       maxRank: 5,
       coeff: (_, rank = 5) =>
       getThreatCoefficient({
           [School.Holy]: 1 - config.Mods.SilentResolve * rank
       }),
-    },
+    },*/
     "Shadow Affinity": {
       maxRank: 3,
       coeff: (_, rank = 3) =>
