@@ -24,7 +24,10 @@ export const talents = {
   "Silent Resolve": {
     maxRank: 5,
     coeff: (_, rank = 5) =>
-      getThreatCoefficient(1 - config.Mods.SilentResolve * rank),
+      getThreatCoefficient({
+          [School.Holy]: 1 - config.Mods.SilentResolve * rank,
+          [School.Discipline]: 1 - config.Mods.SilentResolve * rank
+      }),
   },
   "Shadow Affinity": {
     maxRank: 3,

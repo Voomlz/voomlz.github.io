@@ -15,6 +15,7 @@ export class Unit {
    * @param {import("../threat/fight.js").Fight} fight
    */
   constructor(config, key, name, type, events, fight) {
+    console.log(JSON.stringify(events));
     this.config = config;
     this.mdStacksPerBand = [];
     this.lastInvisibility = 0;
