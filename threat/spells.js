@@ -17,7 +17,7 @@ import {
   handler_threatOnDebuff,
   handler_threatOnHit,
   handler_vanish,
-  handler_zero,
+  handler_zero, School,
   threatFunctions,
 } from "../era/base.js";
 
